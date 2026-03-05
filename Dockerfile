@@ -9,7 +9,7 @@ WORKDIR /workdir
 COPY .next/standalone ./
 
 # 3. 複製靜態檔案到嵌套的路徑中
-# 讓路徑變成 /workdir/apps/web/public
+# 讓路徑變成 /workdir/public
 COPY public ./public
 COPY .next/static ./.next/static
 
@@ -19,5 +19,5 @@ ENV PORT=3000
 ENV AWS_LWA_PORT=3000
 
 # 4. 啟動腳本的路徑也會跟著 WORKDIR 變動
-# 最終執行的完整路徑是 /workdir/apps/web/server.js
-CMD ["node", "apps/web/server.js"]
+# 最終執行的完整路徑是 /workdir/server.js
+CMD ["node", "server.js"]
