@@ -77,11 +77,11 @@ jobs:
 
           docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
-      - name: 7-3. 更新資料庫 Schema
-        run: |
-          pnpm db:push
-        env:
-          DATABASE_URL: ${{ env.DATABASE_URL }}
+      # - name: 7-3. 更新資料庫 Schema
+      #   run: |
+      #     pnpm db:push
+      #   env:
+      #     DATABASE_URL: ${{ env.DATABASE_URL }}
 
       - name: 7-4. 更新 Lambda function 使用新的 Image
         run: |
