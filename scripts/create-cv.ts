@@ -22,23 +22,23 @@ const run = async () => {
       company: company,
     })
 
-    fs.mkdirSync(path.join(process.cwd(), `./app/(download-pdf)${id}/en`), { recursive: true })
-    fs.mkdirSync(path.join(process.cwd(), `./app/(download-pdf)${id}/zh-TW`), { recursive: true })
+    fs.mkdirSync(path.join(process.cwd(), `./app/(download-pdf)/${id}/en`), { recursive: true })
+    fs.mkdirSync(path.join(process.cwd(), `./app/(download-pdf)/${id}/zh-TW`), { recursive: true })
 
     fs.writeFileSync(
-      path.join(process.cwd(), `./app/(download-pdf)${id}/jd.md`),
+      path.join(process.cwd(), `./app/(download-pdf)/${id}/jd.md`),
       '',
       'utf-8'
     )
 
     fs.writeFileSync(
-      path.join(process.cwd(), `./app/(download-pdf)${id}/en/page.tsx`),
+      path.join(process.cwd(), `./app/(download-pdf)/${id}/en/page.tsx`),
       '',
       'utf-8'
     )
 
     fs.writeFileSync(
-      path.join(process.cwd(), `./app/(download-pdf)${id}/zh-TW/page.tsx`),
+      path.join(process.cwd(), `./app/(download-pdf)/${id}/zh-TW/page.tsx`),
       '',
       'utf-8'
     )
