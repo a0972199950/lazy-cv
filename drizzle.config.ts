@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default defineConfig({
-  schema: './schema/index.ts',
+  schema: './lib/db/schemas/index.ts',
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: {
