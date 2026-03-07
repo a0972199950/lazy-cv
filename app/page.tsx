@@ -15,7 +15,7 @@ function ResumesTable() {
   const [resumes, setResumes] = useState<Resume[]>([])
   const [loading, setLoading] = useState(true)
   const [editingId, setEditingId] = useState<string | null>(null)
-  const [editData, setEditData] = useState<{ jdUrl: string | null, company: string | null }>({ jdUrl: '', company: '' })
+  const [editData, setEditData] = useState<{ jdUrl: string, company: string }>({ jdUrl: '', company: '' })
   const [searchTerm, setSearchTerm] = useState('')
 
   // 過濾履歷資料
@@ -49,7 +49,7 @@ function ResumesTable() {
   // 開始編輯
   const startEdit = (resume: Resume) => {
     setEditingId(resume.id)
-    setEditData({ jdUrl: resume.jdUrl, company: resume.company })
+    setEditData({ jdUrl: resume.jdUrl || '', company: resume.company || '' })
   }
 
   // 取消編輯
@@ -62,7 +62,10 @@ function ResumesTable() {
   const saveEdit = async () => {
     if (!editingId) return
     
-    const result = await updateResume(editingId, editData)
+    const result = await updateResume(editingId, {
+      jdUrl: editData.jdUrl.trim() || '',
+      company: editData.company.trim() || ''
+    })
     if (result.success) {
       await loadResumes()
       setEditingId(null)
@@ -129,7 +132,7 @@ function ResumesTable() {
         </div>
         {searchTerm && (
           <p className="mt-2 text-sm text-slate-500">
-            找到 {filteredResumes.length} 筆包含 "{searchTerm}" 的記錄
+            找到 {filteredResumes.length} 筆包含 &quot;{searchTerm}&quot; 的記錄
           </p>
         )}
       </div>
@@ -138,7 +141,7 @@ function ResumesTable() {
         <div className="text-center py-12 text-slate-500">
           {searchTerm ? (
             <>
-              <p className="text-lg">沒有找到包含 "{searchTerm}" 的履歷資料</p>
+              <p className="text-lg">沒有找到包含 &quot;{searchTerm}&quot; 的履歷資料</p>
               <p className="text-sm">請嘗試其他搜尋關鍵字</p>
             </>
           ) : (
@@ -188,14 +191,18 @@ function ResumesTable() {
                         className="w-full px-3 py-1 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800"
                       />
                     ) : (
-                      <a 
-                        href={resume.jdUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-indigo-800 hover:text-indigo-900 underline truncate block max-w-xs"
-                      >
-                        {resume.jdUrl}
-                      </a>
+                      resume.jdUrl ? (
+                        <a 
+                          href={resume.jdUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-indigo-800 hover:text-indigo-900 underline truncate block max-w-xs"
+                        >
+                          {resume.jdUrl}
+                        </a>
+                      ) : (
+                        <span className="text-slate-400">無連結</span>
+                      )
                     )}
                   </td>
                   <td className="py-3 px-4 text-slate-600">
