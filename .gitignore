@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI Helpers
+.mcp/
+.claude/cache/
+.agents/logs/
+.clinedata/
+
+# 如果有敏感資訊，請務必排除
+.claude/secrets.json
