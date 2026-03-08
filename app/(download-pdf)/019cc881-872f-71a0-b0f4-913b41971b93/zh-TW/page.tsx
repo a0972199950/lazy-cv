@@ -26,7 +26,7 @@ export default function Resume() {
           <div className="flex flex-col lg:flex-row items-center gap-8">
             <div className="flex-shrink-0">
               <img 
-                src="https://cdn.lazy-cv.com/d2fa98b2-4370-41a2-878a-2b1a741e63d9.png" 
+                src="https://cdn.lazy-cv.com/avatar.jpg" 
                 alt="John Hsieh" 
                 className="w-32 h-32 rounded-full object-cover border-4 border-blue-100"
               />

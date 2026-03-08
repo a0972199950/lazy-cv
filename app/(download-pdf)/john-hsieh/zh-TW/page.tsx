@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BadgeCheck,
   BookOpenText,
@@ -51,8 +52,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { SkillCloud } from "./skill-cloud";
-import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "./skill-beam";
+import { SkillCloud } from "../skill-cloud";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
 
 export const metadata: Metadata = {
   title: "John Hsieh | 資深前端工程師",
@@ -358,7 +359,7 @@ const stats = [
 
 /* ────────────────── component ────────────────── */
 
-export default function ExampleResumePage() {
+export default function ExampleResumePageZhTW() {
   return (
     <TooltipProvider>
       <main className="relative min-h-screen overflow-hidden bg-linear-to-b from-slate-50 via-white to-sky-50/30 text-slate-900">
@@ -369,6 +370,18 @@ export default function ExampleResumePage() {
         <div className="pointer-events-none absolute left-1/2 top-[60%] h-64 w-64 -translate-x-1/2 rounded-full bg-sky-200/25 blur-3xl" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 md:px-8 md:py-14">
+
+          {/* Language Toggle */}
+          <div className="flex justify-end">
+            <div className="flex gap-2 rounded-lg border border-slate-200 bg-white/80 p-1 shadow-sm backdrop-blur">
+              <Link href="/example/en" className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-cyan-700">
+                EN
+              </Link>
+              <span className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-medium text-white">
+                中文
+              </span>
+            </div>
+          </div>
 
           {/* ─────────── Hero / Profile ─────────── */}
           <BlurFade delay={0.1} inView>
@@ -386,7 +399,7 @@ export default function ExampleResumePage() {
                   <div className="flex items-center gap-4">
                     <Avatar className="size-20 ring-2 ring-cyan-200/80">
                       <AvatarImage
-                        src="https://cdn.lazy-cv.com/d2fa98b2-4370-41a2-878a-2b1a741e63d9.png"
+                        src="https://cdn.lazy-cv.com/avatar.jpg"
                         alt="John Hsieh"
                       />
                       <AvatarFallback>JH</AvatarFallback>

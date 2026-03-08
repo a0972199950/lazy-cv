@@ -8,10 +8,16 @@ import path from 'path'
 const run = async () => {
   // 獲取命令列參數
   let company = process.argv[2]
+  let jdUrl = process.argv[3]
   
   if (!company) {
     company = new Date().toISOString()
     console.log(`⚠️  沒有提供公司名稱，將使用當前時間作為名稱：${company}`)
+  }
+
+  if (!jdUrl) {
+    jdUrl = 'N/A'
+    console.log(`⚠️  沒有提供 JD 網址，將使用預設值：${jdUrl}`)
   }
 
   const id = uuid()
@@ -20,6 +26,7 @@ const run = async () => {
     await db.insert(resumes).values({
       id,
       company: company,
+      jdUrl: jdUrl,
     })
 
     fs.mkdirSync(path.join(process.cwd(), `./app/(download-pdf)/${id}/en`), { recursive: true })
