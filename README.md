@@ -1,172 +1,208 @@
-# 🎯 Lazy CV - 智能履歷生成系統
+# Lazy CV
 
-> 根據 JD 需求自動生成客製化履歷網頁的智能系統
+> 結合 AI Agent 與 Next.js，根據職缺描述 (JD) 自動產生客製化雙語履歷網頁的工具。
 
-## 🌟 專案特色
+## 專案簡介
 
-### ✨ 全新功能：JD 客製化履歷生成
-- 📝 **智能分析** - 根據職位描述 (JD) 自動分析關鍵需求
-- 🎨 **客製化設計** - 針對特定職位量身打造履歷內容與視覺呈現
-- 🌐 **雙語支援** - 中英文版本自動生成，一鍵切換
-- 📱 **響應式設計** - 完美適配所有設備尺寸
-- 🚀 **現代化技術** - 使用 Next.js 14、TypeScript、TailwindCSS
+Lazy CV 是一個 **AI 驅動的履歷網頁生成系統**。只需提供一個職缺連結，搭配 GitHub Copilot（或其他 AI Agent）的 `/cv` 指令，系統便會：
 
-## 🎯 實際案例：Manus 前端工程師履歷
+1. 透過 Chrome DevTools MCP 自動抓取 JD 內容
+2. 以 `/source` 中的個人資料為事實來源
+3. 生成針對該職缺客製化的中英文履歷網頁（`page.tsx`）
+4. 每份履歷以 UUID 為路由，互不干擾
 
-### 📋 JD 分析結果
-針對 **Manus (Meta) Front End Engineer** 職位，系統自動識別關鍵要求：
-- React/TypeScript/Next.js 技術棧
-- AI 產品開發經驗需求  
-- 國際化團隊協作能力
-- 中文溝通能力偏好
-- 自主學習與技術探索能力
+所有履歷內容**硬編碼**在各自的 `page.tsx` 中，無外部元件依賴，可直接瀏覽器列印為 PDF。
 
-### 🎨 客製化策略
-1. **技能突出**: 將 React/TypeScript 經驗放在顯著位置
-2. **AI 經驗強調**: 突出 TikTok AI 廣告系統開發經驗
-3. **國際化展示**: 強調新加坡工作經驗與多語言能力
-4. **技術領導力**: 展現團隊管理與技術分享經驗
+## 首頁：履歷管理系統
 
-### 🔗 履歷連結
-- **中文版**: `/7df7e406-b699-43b4-9fbf-9f35474f419d/zh-TW`
-- **英文版**: `/7df7e406-b699-43b4-9fbf-9f35474f419d/en`
+首頁提供一個完整的履歷管理後台，功能包含：
 
-## 💻 技術架構
+- **搜尋** — 依公司名稱即時篩選履歷記錄
+- **複製連結** — 一鍵複製中文版或英文版履歷的公開連結
+- **行內編輯** — 直接在表格中修改公司名稱與 JD 連結（支援 Enter 儲存 / Esc 取消）
+- **刪除** — 移除不再需要的履歷記錄
+- **快速預覽** — 表格內直接點擊連結開啟中英文履歷頁面
 
-### 🏗️ 核心技術棧
-```json
-{
-  "framework": "Next.js 16 (App Router)",
-  "language": "TypeScript",
-  "styling": "TailwindCSS",
-  "animation": "Framer Motion",  
-  "icons": "Heroicons",
-  "deployment": "Vercel Ready"
-}
+每筆記錄顯示公司名稱、JD 連結、中英文履歷連結、建立時間與更新時間。
+
+## 技術棧
+
+| 分類 | 技術 |
+|------|------|
+| Framework | Next.js 16 (App Router, Standalone output) |
+| Language | TypeScript |
+| Styling | TailwindCSS 4 |
+| Animation | Framer Motion |
+| Database | Neon (PostgreSQL) + Drizzle ORM |
+| UI Components | shadcn/ui, Radix UI, Lucide Icons, Heroicons |
+| Validation | Zod |
+| Deployment | Docker → AWS ECR + Lambda + S3 + CloudFront |
+| Package Manager | pnpm |
+
+## 專案結構
+
+```
+lazy-cv/
+├── app/
+│   ├── page.tsx                        # 首頁 - 履歷管理列表
+│   ├── actions.ts                      # Server Actions (CRUD)
+│   ├── layout.tsx                      # 全域 Layout
+│   ├── login/                          # 登入頁面
+│   └── (download-pdf)/                 # 履歷 Route Group
+│       ├── layout.tsx                  # 共用 Layout（含列印/下載 PDF 按鈕）
+│       ├── john-hsieh/                 # 預設範本履歷
+│       │   ├── en/page.tsx
+│       │   └── zh-TW/page.tsx
+│       └── {uuid}/                     # AI 自動產生的客製化履歷
+│           ├── jd.md                   # 該職缺的 JD 原始內容
+│           ├── en/page.tsx             # 英文版履歷
+│           └── zh-TW/page.tsx          # 中文版履歷
+├── source/                             # 個人資料事實來源（AI 生成履歷的依據）
+│   ├── resume-en.md
+│   └── resume-zh-TW.md
+├── scripts/
+│   └── create-cv.ts                    # CLI 腳本：建立新履歷骨架 + DB 記錄
+├── components/
+│   ├── resume/                         # 履歷相關元件
+│   └── ui/                             # shadcn/ui 元件庫
+├── lib/
+│   └── db/                             # Drizzle ORM + Neon 設定
+├── Dockerfile                          # AWS Lambda 容器部署
+└── drizzle.config.ts                   # Drizzle Kit 設定
 ```
 
-### 📁 專案結構
-```
-app/
-├── 7df7e406-b699-43b4-9fbf-9f35474f419d/  # 固定UUID路由
-│   ├── zh-TW/               # 中文版履歷
-│   │   ├── page.tsx         # 中文路由頁面
-│   │   └── Resume.tsx       # 履歷主組件
-│   └── en/                  # 英文版履歷
-│       ├── page.tsx         # 英文路由頁面
-│       └── Resume.tsx       # 履歷主組件
-├── globals.css              # 全域樣式配置
-└── layout.tsx              # 根布局組件
-source/                      # 履歷資料源
-├── resume-zh-TW.md         # 中文履歷資料
-└── resume-en.md            # 英文履歷資料
-```
+## 快速開始
 
-## 🚀 快速開始
+### 環境需求
 
-### 1️⃣ 環境準備
+- Node.js 20+
+- pnpm
+- PostgreSQL（建議使用 [Neon](https://neon.tech)）
+
+### 安裝
+
 ```bash
-# 克隆專案
-git clone https://github.com/your-repo/lazy-cv
+git clone https://github.com/a0972199950/lazy-cv.git
 cd lazy-cv
-
-# 安裝依賴
 pnpm install
 ```
 
-### 2️⃣ 啟動開發
-```bash
-# 啟動開發伺服器
-pnpm dev
+### 環境變數
 
-# 訪問履歷（範例 UUID）
-http://localhost:3000/7df7e406-b699-43b4-9fbf-9f35474f419d/zh-TW
+建立 `.env.local`：
+
+```env
+DATABASE_URL=postgresql://...
 ```
 
-### 3️⃣ 生產部署
-```bash
-# 建構生產版本
-pnpm build
+### 資料庫初始化
 
-# 啟動生產伺服器  
+```bash
+pnpm db:push       # 推送 schema 到資料庫
+# 或
+pnpm db:migrate    # 執行 migration
+```
+
+### 開發
+
+```bash
+pnpm dev
+```
+
+瀏覽 `http://localhost:3000` 查看履歷管理列表。
+
+### 建構 & 部署
+
+```bash
+pnpm build
 pnpm start
 ```
 
-## 📚 使用說明
+Docker 部署（AWS Lambda）：
 
-### 🎯 為不同 JD 客製化履歷
-1. **分析 JD**: 提取關鍵技能、經驗要求、公司文化
-2. **調整內容**: 修改履歷重點突出相關經驗
-3. **視覺優化**: 調整設計風格符合公司調性
-4. **生成 UUID**: 為每個職位創建唯一履歷連結
+```bash
+docker build -t lazy-cv .
+```
 
-### 🌐 語言切換功能
-- 右上角語言切換按鈕
-- URL 自動更新保持書籤有效性
-- SEO 友善的多語言路由
+## 使用方式
 
-### 📱 響應式特色
-- **手機端**: 縱向單欄布局，大字體顯示
-- **平板端**: 兩欄布局優化，適中間距
-- **桌面端**: 多欄豐富布局，動畫效果
+### 方式一：AI Agent `/cv` 指令（推薦）
 
-## 🎨 設計亮點
+在 GitHub Copilot Chat 中輸入：
 
-### ✨ 視覺效果
-- **漸變背景** - 專業而吸引人的視覺印象
-- **玻璃擬態** - 現代化的半透明效果
-- **流暢動畫** - Framer Motion 驅動的專業動畫
-- **微互動** - hover、focus 等細節互動體驗
+```
+/cv [職缺網址]
+```
 
-### 🎯 內容策略  
-- **關鍵優勢區塊** - 針對 JD 需求的四大亮點展示
-- **經驗時間軸** - 清晰的職涯發展歷程
-- **技能矩陣** - 分類展示的專業技能
-- **多語言資訊** - 國際化能力展現
+AI Agent 會自動執行以下 SOP：
 
-## 📊 效果評估
+1. **數據採集** — 透過 Chrome DevTools 抓取公司名稱與 JD 內容
+2. **建立骨架** — 執行 `pnpm cv {company} {url}`，產生 UUID 路由與空白檔案
+3. **內容生成** — 根據 `/source` 資料與 JD 需求，生成客製化的中英文 `page.tsx`
+4. **完成回報** — 回傳 UUID，可直接訪問 `/{uuid}/zh-TW` 或 `/{uuid}/en`
 
-### ✅ 預期成果
-- **面試邀請率** ⬆️ 60%+
-- **技術面試通過率** ⬆️ 80%+  
-- **HR 初篩通過率** ⬆️ 95%+
-- **整體求職效率** ⬆️ 3x
+### 方式二：手動建立
 
-### 🏆 競爭優勢
-1. **技術展現** - 履歷本身就是技術實力證明
-2. **客製精準** - 100% 符合目標職位需求  
-3. **視覺專業** - 設計師級的視覺呈現
-4. **用戶體驗** - 流暢的多平台瀏覽體驗
+```bash
+# 建立新履歷骨架（會在 DB 新增記錄並建立目錄結構）
+pnpm cv "公司名稱" "https://jd-url.com"
+```
 
-## 🔮 未來規劃
+執行後會輸出 UUID，接著手動編輯以下檔案：
 
-### 🎯 V2.0 功能規劃
-- [ ] **AI JD 分析** - 自動解析職位描述並建議履歷調整
-- [ ] **多主題模板** - 不同行業風格的履歷模板
-- [ ] **PDF 導出** - 一鍵生成高質量 PDF 履歷
-- [ ] **數據分析** - 履歷瀏覽數據與效果統計
-- [ ] **協作功能** - 多人協作編輯履歷內容
+- `app/(download-pdf)/{uuid}/jd.md` — 貼上 JD 內容
+- `app/(download-pdf)/{uuid}/en/page.tsx` — 英文版履歷
+- `app/(download-pdf)/{uuid}/zh-TW/page.tsx` — 中文版履歷
 
-### 🚀 技術升級
-- [ ] **Server Components** - 利用 Next.js 14 最新特性
-- [ ] **Database 整合** - 履歷數據持久化存儲
-- [ ] **Auth 系統** - 用戶登入與履歷管理
-- [ ] **API 整合** - 自動同步 LinkedIn 等平台資料
+### 下載 PDF
 
-## 📧 聯絡 & 貢獻
+開啟任一履歷頁面後，點擊右下角的下載按鈕（觸發瀏覽器列印），即可儲存為 PDF。
 
-### 👨‍💻 作者資訊
-- **姓名**: John Hsieh  
-- **Email**: a0972199950@gmail.com
-- **GitHub**: https://github.com/a0972199950
-- **LinkedIn**: https://www.linkedin.com/in/john-hsieh/
+## 開發指令
 
-### 🤝 貢獻方式
-1. Fork 專案
-2. 創建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交變更 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送分支 (`git push origin feature/AmazingFeature`)  
-5. 開啟 Pull Request
+| 指令 | 說明 |
+|------|------|
+| `pnpm dev` | 啟動開發伺服器 |
+| `pnpm build` | 建構生產版本 |
+| `pnpm start` | 啟動生產伺服器 |
+| `pnpm lint` | ESLint 檢查 |
+| `pnpm typecheck` | TypeScript 型別檢查 |
+| `pnpm cv [company] [url]` | 建立新履歷骨架 |
+| `pnpm db:push` | 推送 Schema 到資料庫 |
+| `pnpm db:generate` | 產生 Migration 檔案 |
+| `pnpm db:migrate` | 執行資料庫 Migration |
+| `pnpm db:studio` | 開啟 Drizzle Studio |
+
+## 部署架構（AWS）
+
+專案透過 GitHub Actions 自動部署至 AWS，推送至 `master` 分支即觸發。CI/CD 流程如下：
+
+```
+push master
+  │
+  ├─ pnpm install & build
+  │
+  ├─ Docker build (linux/amd64)
+  │    └─ 內含 aws-lambda-adapter，讓 Next.js standalone 跑在 Lambda 上
+  │
+  ├─ Push image → Amazon ECR (lazy-cv)
+  │
+  ├─ 更新 Lambda function image
+  │
+  ├─ 同步靜態資產至 S3
+  │    ├─ _next/static → immutable cache (1 year)
+  │    └─ public → short cache (1 hour)
+  │
+  └─ 清除 CloudFront cache (/_next/static/*)
+```
+
+| AWS 服務 | 用途 |
+|----------|------|
+| **ECR** | 存放 Docker image |
+| **Lambda** | 執行 Next.js standalone server（透過 Lambda Web Adapter） |
+| **S3** | 託管 `_next/static` 與 `public` 靜態資產 |
+| **CloudFront** | CDN 分發，前置 Lambda 與 S3 |
+| **Region** | ap-southeast-1 (Singapore) |
 
 ### 📄 許可證
 此專案採用 MIT 許可證 - 詳見 [LICENSE](LICENSE) 檔案

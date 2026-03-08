@@ -93,30 +93,6 @@ Lastly, I joined a task force to create guidelines for front-end development. Th
 
 As part of our standard development guidelines, I introduced Lighthouse CI, a continuous integration tool that measures front-end performance in each PR, to the task force.
 
-#### 🚀 Key Projects
-
-##### LINE Shopping Platform
-- **Image:** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
-
-![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
-
-- **Website:** https://buy.line.me/
-- **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
-
-##### JavaScript Task Force
-- **Image:** https://cdn.lazy-cv.com/jstf.png
-
-![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
-
-- **Description:** This is not an actual product, but rather a project team. The members are made up, and represent for different product teams. And it's main goal is to develop frontend developing guidelines. So far, we have research/implemented on SonarQube, a static code analysis tool, integrating Lighthouse into our CI pipeline, frontend monitoring tool OpenTel, and building a custom React project template generator......etc.
-
-##### CMS Refactoring to NextJS (Team Leader)
-- **Image:** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
-
-![CMS NextJS Refactoring](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
-
-- **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
-
 ---
 
 ### 📚 AI.Book - Frontend Engineer (Consultant)  
@@ -137,19 +113,6 @@ I worked as a contract front-end engineer, independently developing the company'
 
 The tech stack used was Vue and NuxtJS.
 
-#### 🚀 Key Projects
-
-##### AI.Book Online Photo Book Editor
-- **Editor Interface:** https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png
-
-![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
-
-- **Complete Interface:** https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png
-
-![Complete Interface](https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png)
-
-- **Description:** This is a self-designed and self-implemented photo book editor that supports adding and removing photos, dragging to adjust photo position and size, entering text, and customizing font styles and sizes. In addition to the web version, it also supports mobile editing and offers PWA installation, providing a native app–like experience.
-
 ---
 
 ### 💰 FundFluent - Frontend Engineer (Consultant)  
@@ -165,29 +128,6 @@ FundFluent is a financial technology company that provides digital lending solut
 As a contract frontend engineer, I was responsible for developing multiple frontend systems including the UI Kit, SME Portal, and Partner Portal. I worked independently to create scalable and user-friendly interfaces for the financial services platform.
 
 The main tech stack was React with TypeScript, focusing on creating reusable components and maintaining consistent design patterns across different products.
-
-#### 🚀 Key Projects
-
-##### FundFluent UI Kit
-- **Image:** https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
-
-![FundFluent UI Kit](https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
-
-- **Description:** A comprehensive design system and component library built for FundFluent's multiple products. Created reusable React components with TypeScript, ensuring consistency across all platforms.
-
-##### FundFluent SME Portal
-- **Image:** https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
-
-![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
-
-- **Description:** A web portal designed for small and medium enterprises to apply for funding, manage their applications, and track their financial status.
-
-##### FundFluent Partner Portal
-- **Image:** https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png
-
-![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
-
-- **Description:** A management portal for FundFluent's business partners to oversee funding applications, manage client relationships, and access analytics and reporting features.
 
 **🖼️ Company Logo:** https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png
 
@@ -235,7 +175,155 @@ And when it comes to developing core values, we focus on our product's design an
 
 And we also value the importance of reusable code and scalable code.
 
-#### 🚀 Key Projects
+---
+
+### 📱 第三緯度 Inc. - Frontend Developer  
+**📅 Duration:** 2019/04 - 2019/06  
+**🌍 Location:** Taiwan
+
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png
+
+![第三緯度 Logo](https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png)
+
+#### 📖 Company Introduction
+A Chinese company which operate an adult comics website and App.
+
+Use Vue and php as main stack, and WeChat pay as payment flow solution.
+
+I joined this company only for a very short time due to some complicated reasons. You could find what happened by searching "第三緯度 ptt".
+
+---
+
+### 🌸 Asian Bridge Inc. (日商優橋) - Digital Ad Personnel & Frontend Developer  
+**📅 Duration:** 2017/12 - 2019/03 (1 year 3 months)  
+**🌍 Location:** Taipei, Taiwan
+
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png
+
+![Asian Bridge Logo](https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png)
+
+#### 📖 Company Introduction
+A Japanese trading company which gets the dealership (mainly from big Japanese care products brand), then build e-commerce in Taiwan. And provides service including marketing, digital advertising, logistics and customer service.
+
+It requires Japanese as official language.
+
+#### 🎯 Job Description
+I went through two types of position in this company.
+
+One is digital advertising personnel, being responsible for optimizing the results of advertising in Facebook Ads Manager and Google Ads. And website traffic and SEO as well.
+
+I was focusing on UI/UX research in this period of time. I like to use Heatmap tool and A/B testing to reduce Bounce Rate. And import Google Analytics user flow report to increase website usability.
+
+This experience had improved my UI/UX sense a lot, which is very helpful for my future frontend developer career.
+
+The other position is frontend developer, being responsible for building official websites and campaign landing pages, and leading frontend team (2 members).
+
+In additional to programming, I was also responsible for project manager since I could speak Japanese fluently.
+
+Since the main shopping cart logic was built in php MPA and outsourcing, we used native JavaScript and jQuery as main stack. Also used WordPress in some projects.
+
+---
+
+### 🏠 AsiaYo Inc. - Japanese Sales and Operation  
+**📅 Duration:** 2016/09 - 2017/09 (1 year)  
+**🌍 Location:** Taipei, Taiwan
+
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png
+
+![AsiaYo Logo](https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png)
+
+#### 📖 Company Introduction
+Being Responsible for getting in touch with Japanese share house host, and helping them listing their place on our platform.
+
+Meanwhile I was also responsible for contact person for Japanese business, and emergency customer service.
+
+---
+
+## 🚀 Projects
+
+### Personal Projects
+
+##### Lazy CV — AI-Powered Customized Resume Generator
+- **Website:** https://lazy-cv.com
+- **GitHub:** https://github.com/a0972199950/lazy-cv
+- **Main Image:** https://cdn.lazy-cv.com/lazy-cv-main.png
+
+![Lazy CV Dashboard](https://cdn.lazy-cv.com/lazy-cv-main.png)
+
+- **Resume Page:** https://cdn.lazy-cv.com/lazy-cv-main-2.png
+
+![Lazy CV Resume Page](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+
+- **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through GitHub Copilot, the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
+- **Technical Highlights:**
+  - **Next.js 16 App Router + Standalone Output**: Leverages the latest App Router architecture with standalone mode for lightweight Docker packaging
+  - **AI Agent Automated SOP**: Uses Chrome DevTools MCP to scrape JDs, combined with structured prompts defined in copilot-instructions, enabling an end-to-end resume generation pipeline
+  - **Serverless Deployment on AWS**: Docker images pushed to ECR, executed via Lambda Web Adapter for Next.js SSR, with static assets served through S3 + CloudFront CDN; fully automated CI/CD via GitHub Actions
+  - **Neon Serverless PostgreSQL + Drizzle ORM**: Type-safe database access using Neon's serverless PostgreSQL with Drizzle ORM
+  - **TailwindCSS 4 + Framer Motion**: Responsive design with smooth animations
+  - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed through AI-assisted coding (Vibe Coding)
+
+### LINE Taiwan
+
+##### LINE Shopping Platform
+- **Image:** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
+
+![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
+
+- **Website:** https://buy.line.me/
+- **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
+
+##### JavaScript Task Force
+- **Image:** https://cdn.lazy-cv.com/jstf.png
+
+![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
+
+- **Description:** This is not an actual product, but rather a project team. The members are made up, and represent for different product teams. And it's main goal is to develop frontend developing guidelines. So far, we have research/implemented on SonarQube, a static code analysis tool, integrating Lighthouse into our CI pipeline, frontend monitoring tool OpenTel, and building a custom React project template generator......etc.
+
+##### CMS Refactoring to NextJS (Team Leader)
+- **Image:** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
+
+![CMS NextJS Refactoring](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
+
+- **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
+
+### AI.Book
+
+##### AI.Book Online Photo Book Editor
+- **Editor Interface:** https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png
+
+![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
+
+- **Complete Interface:** https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png
+
+![Complete Interface](https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png)
+
+- **Description:** This is a self-designed and self-implemented photo book editor that supports adding and removing photos, dragging to adjust photo position and size, entering text, and customizing font styles and sizes. In addition to the web version, it also supports mobile editing and offers PWA installation, providing a native app–like experience.
+
+### FundFluent
+
+##### FundFluent UI Kit
+- **Image:** https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
+
+![FundFluent UI Kit](https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
+
+- **Description:** A comprehensive design system and component library built for FundFluent's multiple products. Created reusable React components with TypeScript, ensuring consistency across all platforms.
+
+##### FundFluent SME Portal
+- **Image:** https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
+
+![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
+
+- **Description:** A web portal designed for small and medium enterprises to apply for funding, manage their applications, and track their financial status.
+
+##### FundFluent Partner Portal
+- **Image:** https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png
+
+![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
+
+- **Description:** A management portal for FundFluent's business partners to oversee funding applications, manage client relationships, and access analytics and reporting features.
+
+### Aotter Inc.
 
 ##### SuprLink
 - **Image:** https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png
@@ -277,24 +365,7 @@ And we also value the importance of reusable code and scalable code.
 - **Website:** https://supr.link/30dOw
 - **Description:** A dashboard which collects all product's data across whole enterprise group to display. Has lots of charts.
 
----
-
-### 📱 第三緯度 Inc. - Frontend Developer  
-**📅 Duration:** 2019/04 - 2019/06  
-**🌍 Location:** Taiwan
-
-**🖼️ Company Logo:** https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png
-
-![第三緯度 Logo](https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png)
-
-#### 📖 Company Introduction
-A Chinese company which operate an adult comics website and App.
-
-Use Vue and php as main stack, and WeChat pay as payment flow solution.
-
-I joined this company only for a very short time due to some complicated reasons. You could find what happened by searching "第三緯度 ptt".
-
-#### 🚀 Key Projects
+### 第三緯度 Inc.
 
 ##### Shushu Comics
 - **Image:** https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png
@@ -304,37 +375,7 @@ I joined this company only for a very short time due to some complicated reasons
 - **Website:** https://supr.link/JMNiY
 - **Description:** A website and App which illegally downloads Korean adult comics, adds new cover, then sells them online.
 
----
-
-### 🌸 Asian Bridge Inc. (日商優橋) - Digital Ad Personnel & Frontend Developer  
-**📅 Duration:** 2017/12 - 2019/03 (1 year 3 months)  
-**🌍 Location:** Taipei, Taiwan
-
-**🖼️ Company Logo:** https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png
-
-![Asian Bridge Logo](https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png)
-
-#### 📖 Company Introduction
-A Japanese trading company which gets the dealership (mainly from big Japanese care products brand), then build e-commerce in Taiwan. And provides service including marketing, digital advertising, logistics and customer service.
-
-It requires Japanese as official language.
-
-#### 🎯 Job Description
-I went through two types of position in this company.
-
-One is digital advertising personnel, being responsible for optimizing the results of advertising in Facebook Ads Manager and Google Ads. And website traffic and SEO as well.
-
-I was focusing on UI/UX research in this period of time. I like to use Heatmap tool and A/B testing to reduce Bounce Rate. And import Google Analytics user flow report to increase website usability.
-
-This experience had improved my UI/UX sense a lot, which is very helpful for my future frontend developer career.
-
-The other position is frontend developer, being responsible for building official websites and campaign landing pages, and leading frontend team (2 members).
-
-In additional to programming, I was also responsible for project manager since I could speak Japanese fluently.
-
-Since the main shopping cart logic was built in php MPA and outsourcing, we used native JavaScript and jQuery as main stack. Also used WordPress in some projects.
-
-#### 🚀 Key Projects
+### Asian Bridge Inc.
 
 ##### Churacos Official Website
 - **Image:** https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png
@@ -360,20 +401,6 @@ Since the main shopping cart logic was built in php MPA and outsourcing, we used
 - **Website:** https://supr.link/n11Jr
 - **Description:** A blog for advertorial.
 
----
-
-### 🏠 AsiaYo Inc. - Japanese Sales and Operation  
-**📅 Duration:** 2016/09 - 2017/09 (1 year)  
-**🌍 Location:** Taipei, Taiwan
-
-**🖼️ Company Logo:** https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png
-
-![AsiaYo Logo](https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png)
-
-#### 📖 Company Introduction
-Being Responsible for getting in touch with Japanese share house host, and helping them listing their place on our platform.
-
-Meanwhile I was also responsible for contact person for Japanese business, and emergency customer service.
 
 ---
 
