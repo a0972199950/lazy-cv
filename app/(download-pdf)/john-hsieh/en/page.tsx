@@ -142,6 +142,17 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "Lazy CV",
+    summary:
+      "AI-powered customized resume generator. Combines AI Agent automation with Next.js 16 — just provide a job posting URL to automatically scrape JD and generate tailored bilingual resume web pages. Built from scratch to production in just 2 days via Vibe Coding.",
+    stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
+    image: [
+      "https://cdn.lazy-cv.com/lazy-cv-main.png",
+      "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
+    ],
+    url: "https://lazy-cv.com",
+  },
+  {
     name: "LINE Shopping",
     summary:
       "A LINE affiliate shopping service where users earn LINE Points through partner merchants. An e-commerce portal aggregating third-party stores with search, price comparison, and sharing features.",
@@ -289,7 +300,7 @@ const skillKeywordRows: SkillKeywordRow[] = [
 
 const stats: StatItem[] = [
   { label: "Years Frontend Exp.", value: 7 },
-  { label: "Products Shipped", value: 15 },
+  { label: "Products Shipped", value: 16 },
   { label: "Team Members Led", value: 4 },
   { label: "Languages Spoken", value: 3 },
 ];

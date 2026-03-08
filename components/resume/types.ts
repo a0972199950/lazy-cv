@@ -10,7 +10,7 @@ export type Project = {
   name: string;
   summary: string;
   stack: string[];
-  image: string;
+  image: string | string[];
   url?: string;
 };
 

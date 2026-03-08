@@ -142,6 +142,17 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "Lazy CV",
+    summary:
+      "AI 驅動的客製化履歷生成系統。結合 AI Agent 與 Next.js 16，只需提供職缺連結即可自動抓取 JD 並生成量身定做的中英文雙語履歷網頁。整個專案從零到上線僅花費 2 天，全程透過 Vibe Coding 完成。",
+    stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
+    image: [
+      "https://cdn.lazy-cv.com/lazy-cv-main.png",
+      "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
+    ],
+    url: "https://lazy-cv.com",
+  },
+  {
     name: "LINE 購物",
     summary:
       "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。集結第三方電商的購物入口網站，提供搜尋、比價與分享功能。",
@@ -289,7 +300,7 @@ const skillKeywordRows: SkillKeywordRow[] = [
 
 const stats: StatItem[] = [
   { label: "年前端經驗", value: 7 },
-  { label: "個完整產品", value: 15 },
+  { label: "個完整產品", value: 16 },
   { label: "人團隊管理", value: 4 },
   { label: "種語言能力", value: 3 },
 ];
