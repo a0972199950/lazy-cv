@@ -57,7 +57,7 @@ const wrapCls =
 /* ═══════════════════════════════════════════════
    1. 前端 JS 框架與工具 (14 skills)
    ═══════════════════════════════════════════════ */
-function FrontendJSBeam() {
+function FrontendJSBeam({ locale = "zh-TW" }: { locale?: string }) {
   const ctr = useRef<HTMLDivElement>(null);
   const cen = useRef<HTMLDivElement>(null);
   const l0 = useRef<HTMLDivElement>(null);
@@ -87,7 +87,7 @@ function FrontendJSBeam() {
         <Node ref={l6}>Socket.io</Node>
       </div>
       <CenterNode ref={cen} className="border-cyan-300 bg-cyan-50 text-cyan-800">
-        前端 JS 框架與工具
+        {locale === "en" ? "Frontend JS Frameworks & Tools" : "前端 JS 框架與工具"}
       </CenterNode>
       <div className="flex flex-col items-start gap-2">
         <Node ref={r0}>Jest</Node>
@@ -121,7 +121,7 @@ function FrontendJSBeam() {
 /* ═══════════════════════════════════════════════
    2. 前端 CSS 框架 & Library (9 skills)
    ═══════════════════════════════════════════════ */
-function CSSBeam() {
+function CSSBeam({ locale = "zh-TW" }: { locale?: string }) {
   const ctr = useRef<HTMLDivElement>(null);
   const cen = useRef<HTMLDivElement>(null);
   const l0 = useRef<HTMLDivElement>(null);
@@ -144,7 +144,7 @@ function CSSBeam() {
         <Node ref={l4}>Buefy</Node>
       </div>
       <CenterNode ref={cen} className="border-pink-300 bg-pink-50 text-pink-800">
-        前端 CSS 框架
+        {locale === "en" ? "CSS Frameworks & Libraries" : "前端 CSS 框架"}
       </CenterNode>
       <div className="flex flex-col items-start gap-2">
         <Node ref={r0}>Vuetify</Node>
@@ -168,7 +168,7 @@ function CSSBeam() {
 /* ═══════════════════════════════════════════════
    3. PWA (6 skills)
    ═══════════════════════════════════════════════ */
-function PWABeam() {
+function PWABeam({ locale = "zh-TW" }: { locale?: string }) {
   const ctr = useRef<HTMLDivElement>(null);
   const cen = useRef<HTMLDivElement>(null);
   const l0 = useRef<HTMLDivElement>(null);
@@ -206,7 +206,7 @@ function PWABeam() {
 /* ═══════════════════════════════════════════════
    4. 前端微服務 & Web Component (4 skills)
    ═══════════════════════════════════════════════ */
-function WebComponentBeam() {
+function WebComponentBeam({ locale = "zh-TW" }: { locale?: string }) {
   const ctr = useRef<HTMLDivElement>(null);
   const cen = useRef<HTMLDivElement>(null);
   const l0 = useRef<HTMLDivElement>(null);
@@ -221,7 +221,7 @@ function WebComponentBeam() {
         <Node ref={l1}>StencilJS</Node>
       </div>
       <CenterNode ref={cen} className="border-emerald-300 bg-emerald-50 text-emerald-800">
-        微服務 & Web Component
+        {locale === "en" ? "Micro Frontend & Web Component" : "微服務 & Web Component"}
       </CenterNode>
       <div className="flex flex-col items-start gap-2">
         <Node ref={r0}>Web Socket</Node>
@@ -238,7 +238,7 @@ function WebComponentBeam() {
 /* ═══════════════════════════════════════════════
    5. 後端框架 & 資料庫 (7 skills)
    ═══════════════════════════════════════════════ */
-function BackendBeam() {
+function BackendBeam({ locale = "zh-TW" }: { locale?: string }) {
   const ctr = useRef<HTMLDivElement>(null);
   const cen = useRef<HTMLDivElement>(null);
   const l0 = useRef<HTMLDivElement>(null);
@@ -258,7 +258,7 @@ function BackendBeam() {
         <Node ref={l3}>Mongoose</Node>
       </div>
       <CenterNode ref={cen} className="border-indigo-300 bg-indigo-50 text-indigo-800">
-        後端框架 & 資料庫
+        {locale === "en" ? "Backend & Databases" : "後端框架 & 資料庫"}
       </CenterNode>
       <div className="flex flex-col items-start gap-2">
         <Node ref={r0}>EJS</Node>

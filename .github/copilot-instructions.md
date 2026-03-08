@@ -19,23 +19,40 @@
 
 當我輸入以下簡寫時，請執行對應的複雜 Prompt：
 
-- `/cv:
+- `/cv [URL]`:
   "
-  你的工作是使用 Next.js 與 TailwindCSS 建立客製化中英文雙語履歷頁面。執行步驟如下:
-  - 指令中會包含一個網址，該網址是 job description。從我提供的網址中嘗試爬取 job description 與 company name
-  - 將上面找到的 company name 和我提供的網址，放到以下的命令中並執行 `pnpm cv {company name} {url}`。此動作會在 app/(download-pdf) 中建立一個新的資料夾，資料夾名稱為 uuid，裡面會有 `/en/page.tsx` 和 `/zh-TW/page.tsx`, 以及 `jd.md` 幾格檔案。並在資料庫中創建一筆數據
-  - 將你爬取的 job description 內容放到 `jd.md` 中，並且不要對該內容做任何修改。
-  - 針對 `jd.md` 中的職缺描述內容，生成一個客製化的中英文雙語履歷頁面，並且放到對應的 `/en/page.tsx` 和 `/zh-TW/page.tsx` 中。
+  調用 **chrome-devtools** 執行以下 SOP：
 
-關於自動生成的履歷規範:
+  ### 第一階段：數據採集與環境準備
+  1. 使用 **chrome-devtools** 訪問 [URL]，抓取 `company_name` 與 `job_description` (JD)。
+  2. 將 JD 原始內容存入 `jd.md`。
+  3. 執行 `pnpm cv {company_name} {URL}` 並獲取產生的 `{uuid}`。
 
-- 關於我的工作經驗，參考內容放在 `/source` 中，請按照該內容來源生成客製化履歷。並且注意 '不要對 /source 內容做任何更改'
-- 履歷內容應該根據 `jd.md` 中的職缺描述自動生成，你可以自行添加或修改敘述，目標是盡量讓敘述內容與 `jd.md` 中的關鍵字資訊一致。
-- 履歷直接硬編碼在 `page.tsx` 中，不需要另外創建 component。
-- 履歷風格按照 /john-hsieh/zh-TW 頁面的風格設計
-- 頁面應該包含基本的 SEO 設定，如 title 和 meta description，內容可以根據 `jd.md` 中的職缺描述自動生成。
-- 工作經歷至少放 5 個，由新到舊排序，專案經歷放最有關聯的6個
-- 履歷右上角要有不同語言版本的跳轉連結，點擊後可以切換到對應語言的履歷頁面。記得連結組成結構為 {domain}/{id}/{locale}
+  ### 第二階段：內容過濾與生成 (事實來源：/source)
+
+  根據 `jd.md` 內容與 `/source` 資料，為 `/{uuid}/en/page.tsx` 與 `/{uuid}/zh-TW/page.tsx` 生成以下區塊：
+  1. **自我介紹 (Professional Summary)**:
+     - 包含頭像 (Avatar) 與聯絡方式 (Email/GitHub/LinkedIn/Portfolio)。
+     - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。此部分可以根據 `/source` 自己生成資料裡沒有的句子，但必須確保不違背事實。
+     - 在自我介紹中包含 cover letter 內容。例如 「我可以為 {company name} 做出的貢獻為...」、「選擇我優於其他候選人，是因為我具備....強項」等實力描述，以符合 JD 中對技能的要求。
+  2. **工作經歷 (Work Experience)**:
+     - 嚴格選取最近 5 間公司的經歷，按時間由新到舊排序。
+  3. **專案介紹 (Projects)**:
+     - 挑選與該 JD 最相關的 6 個專案，說明技術亮點與達成成果。
+  4. **技術棧可視化 (Tech Stack Visualization)**:
+     - 完全複製 `/john-hsieh/{locale}` 中的組件內容
+  5. **技能關鍵字 (Skills & Keywords)**:
+     - 整理出一組針對 HR 篩選 (ATS) 優化的技術關鍵字，包含 Frameworks, Languages, Tools。
+  6. **學歷與證書 (Education & Certifications)**:
+     - 列出最高學歷及與職位相關的專業證照 (如 AWS, JLPT 等)。
+
+  ### 第三階段：開發規範
+  - **Code**: 程式碼必須完全「硬編碼」在 `page.tsx` 中，禁止 import 外部自定義 Component。
+  - **Style**: 參考 `/john-hsieh/zh-TW` 的 Tailwind CSS 風格，確保響應式設計與雙語切換按鈕。
+  - **SEO**: 標題與描述需根據 JD 客製化。
+  - **Constraint**: 禁止修改或虛構 `/source` 中的事實，僅允許調整描述語氣以契合 JD。
+
+  完成後請回報 UUID 並確認檔案已寫入。
   "
 
 ## 4. 回答語言

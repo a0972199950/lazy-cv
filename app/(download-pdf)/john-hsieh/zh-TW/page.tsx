@@ -1,57 +1,24 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import {
-  BadgeCheck,
-  BookOpenText,
-  Briefcase,
-  FolderKanban,
-  Github,
-  GraduationCap,
-  Linkedin,
-  Mail,
-  MapPin,
-  Sparkles,
-  Tags,
-} from "lucide-react";
-
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { BlurFade } from "@/components/ui/blur-fade";
-import { BorderBeam } from "@/components/ui/border-beam";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Dock, DockIcon } from "@/components/ui/dock";
-import { Globe } from "@/components/ui/globe";
-import { MagicCard } from "@/components/ui/magic-card";
-import { Marquee } from "@/components/ui/marquee";
-import { NumberTicker } from "@/components/ui/number-ticker";
-import { Separator } from "@/components/ui/separator";
-import { ShineBorder } from "@/components/ui/shine-border";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { TextAnimate } from "@/components/ui/text-animate";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  ResumeLayout,
+  LanguageToggle,
+  HeroProfile,
+  WorkExperience,
+  ProjectsGrid,
+  TechStackVisualization,
+  SkillKeywords,
+  EducationCerts,
+} from "@/components/resume";
+import type {
+  Experience,
+  Project,
+  StatItem,
+  ContactItem,
+  SkillKeywordRow,
+  EducationItem,
+  CertificationItem,
+  LanguageItem,
+} from "@/components/resume";
 import { SkillCloud } from "../skill-cloud";
 import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
 
@@ -63,21 +30,11 @@ export const metadata: Metadata = {
 
 /* ────────────────── data ────────────────── */
 
-type Experience = {
-  company: string;
-  role: string;
-  period: string;
-  logo: string;
-  highlights: string[];
-};
-
-type Project = {
-  name: string;
-  summary: string;
-  stack: string[];
-  image: string;
-  url?: string;
-};
+const contacts: ContactItem[] = [
+  { href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
+  { href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+];
 
 const experiences: Experience[] = [
   {
@@ -311,552 +268,99 @@ const projects: Project[] = [
   },
 ];
 
-const skillKeywordsRow1 = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Vue",
-  "NuxtJS",
-  "GraphQL",
-  "TailwindCSS",
-  "Sass / SCSS",
-  "Node.js",
-  "Express",
+const skillKeywordRows: SkillKeywordRow[] = [
+  {
+    keywords: ["TypeScript", "React", "Next.js", "Vue", "NuxtJS", "GraphQL", "TailwindCSS", "Sass / SCSS", "Node.js", "Express"],
+    badgeClassName: "border-slate-300 bg-white text-slate-700",
+    marqueeClassName: "[--duration:30s]",
+  },
+  {
+    keywords: ["MongoDB", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "Jest", "Cypress", "Firebase", "Storybook", "Webpack"],
+    badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
+    marqueeClassName: "[--duration:35s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Web Component", "StencilJS", "PWA", "Socket.io", "i18n", "Git", "REST API", "SEO", "Lighthouse", "Renovate"],
+    badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
+    marqueeClassName: "[--duration:32s]",
+  },
 ];
 
-const skillKeywordsRow2 = [
-  "MongoDB",
-  "PostgreSQL",
-  "Docker",
-  "Kubernetes",
-  "CI/CD",
-  "Jest",
-  "Cypress",
-  "Firebase",
-  "Storybook",
-  "Webpack",
-];
-
-const skillKeywordsRow3 = [
-  "Web Component",
-  "StencilJS",
-  "PWA",
-  "Socket.io",
-  "i18n",
-  "Git",
-  "REST API",
-  "SEO",
-  "Lighthouse",
-  "Renovate",
-];
-
-const stats = [
+const stats: StatItem[] = [
   { label: "年前端經驗", value: 7 },
   { label: "個完整產品", value: 15 },
   { label: "人團隊管理", value: 4 },
   { label: "種語言能力", value: 3 },
 ];
 
+const educations: EducationItem[] = [
+  { institution: "東吳大學", degree: "文學士 (BA) — 日本語文學系", period: "2013 - 2017" },
+  { institution: "京都同志社大學", degree: "交換留學 — 日本語及文化", period: "2016.03 - 2016.08" },
+];
+
+const certifications: CertificationItem[] = [
+  { name: "日文檢定 JLPT N1", description: "最高級認證 — 商業會談程度", image: "https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png" },
+  { name: "台大資訊推廣部", description: "網頁開發技術課程" },
+];
+
+const languages: LanguageItem[] = [
+  { name: "中文 — 母語", badgeClassName: "bg-cyan-100 text-cyan-800" },
+  { name: "日文 — 商業會談 (JLPT N1)", badgeClassName: "bg-rose-100 text-rose-800" },
+  { name: "英文 — 流暢職場溝通", badgeClassName: "bg-indigo-100 text-indigo-800" },
+];
+
 /* ────────────────── component ────────────────── */
 
 export default function ExampleResumePageZhTW() {
   return (
-    <TooltipProvider>
-      <main className="relative min-h-screen overflow-hidden bg-linear-to-b from-slate-50 via-white to-sky-50/30 text-slate-900">
-        {/* background decorations */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(56,189,248,0.15),transparent_45%),radial-gradient(circle_at_90%_20%,rgba(16,185,129,0.10),transparent_42%)]" />
-        <div className="pointer-events-none absolute -left-20 top-32 h-56 w-56 rounded-full bg-cyan-200/40 blur-3xl" />
-        <div className="pointer-events-none absolute -right-16 top-48 h-52 w-52 rounded-full bg-emerald-200/35 blur-3xl" />
-        <div className="pointer-events-none absolute left-1/2 top-[60%] h-64 w-64 -translate-x-1/2 rounded-full bg-sky-200/25 blur-3xl" />
+    <ResumeLayout>
+      <LanguageToggle currentLocale="zh-TW" enHref="/john-hsieh/en" zhHref="/john-hsieh/zh-TW" />
 
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 md:px-8 md:py-14">
 
-          {/* Language Toggle */}
-          <div className="flex justify-end">
-            <div className="flex gap-2 rounded-lg border border-slate-200 bg-white/80 p-1 shadow-sm backdrop-blur">
-              <Link href="/example/en" className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-cyan-700">
-                EN
-              </Link>
-              <span className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-medium text-white">
-                中文
-              </span>
-            </div>
-          </div>
+      <HeroProfile
+        name="John Hsieh"
+        avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
+        avatarFallback="JH"
+        jobTitle="資深前端工程師"
+        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。流利使用英、日、中三種語言。"
+        location="Singapore"
+        stats={stats}
+        contacts={contacts}
+        globeCaption="TikTok Singapore / LINE Taiwan — 跨國產品開發經驗"
+      />
 
-          {/* ─────────── Hero / Profile ─────────── */}
-          <BlurFade delay={0.1} inView>
-            <Card className="relative overflow-hidden border-slate-200 bg-white/90 shadow-sm ring-1 ring-cyan-100/70 backdrop-blur">
-              <BorderBeam
-                size={120}
-                duration={8}
-                colorFrom="#06b6d4"
-                colorTo="#10b981"
-                borderWidth={1.5}
-              />
-              <CardContent className="grid gap-8 py-8 md:grid-cols-[1.3fr_1fr] md:py-10">
-                {/* left */}
-                <div className="space-y-5">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="size-20 ring-2 ring-cyan-200/80">
-                      <AvatarImage
-                        src="https://cdn.lazy-cv.com/avatar.jpg"
-                        alt="John Hsieh"
-                      />
-                      <AvatarFallback>JH</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <TextAnimate
-                        as="h1"
-                        animation="blurInUp"
-                        by="character"
-                        className="text-3xl font-bold tracking-tight md:text-5xl"
-                      >
-                        John Hsieh
-                      </TextAnimate>
-                      <p className="mt-1 bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
-                        資深前端工程師
-                      </p>
-                    </div>
-                  </div>
+      <WorkExperience title="工作經歷" experiences={experiences} />
 
-                  <p className="max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-                    7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan
-                    擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及
-                    TypeScript。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。流利使用英、日、中三種語言。
-                  </p>
+      <ProjectsGrid
+        title="專案介紹"
+        description={`${projects.length} 個代表性專案，展示產品影響力與技術棧。`}
+        projects={projects}
+      />
 
-                  {/* stats */}
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    {stats.map((s) => (
-                      <div
-                        key={s.label}
-                        className="rounded-xl border border-slate-200 bg-linear-to-b from-white to-slate-50 p-3 text-center transition hover:border-cyan-200"
-                      >
-                        <span className="text-2xl font-bold text-cyan-700 md:text-3xl">
-                          <NumberTicker value={s.value} />
-                        </span>
-                        <p className="mt-0.5 text-xs text-slate-500">{s.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* contact dock */}
-                  <div className="flex flex-col items-start gap-2">
-                    <p className="flex items-center gap-2 text-sm text-slate-500">
-                      <MapPin className="size-4 text-cyan-700" />
-                      Singapore
-                    </p>
-                    <Dock
-                      iconSize={36}
-                      iconMagnification={52}
-                      className="mx-0 mt-1 h-auto border-slate-200 bg-white/80 shadow-sm"
-                    >
-                      <DockIcon>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <a
-                              href="mailto:a0972199950@gmail.com"
-                              className="flex size-full items-center justify-center rounded-full bg-cyan-50 text-cyan-700"
-                            >
-                              <Mail className="size-5" />
-                            </a>
-                          </TooltipTrigger>
-                          <TooltipContent>a0972199950@gmail.com</TooltipContent>
-                        </Tooltip>
-                      </DockIcon>
-                      <DockIcon>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <a
-                              href="https://github.com/a0972199950"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex size-full items-center justify-center rounded-full bg-slate-100 text-slate-700"
-                            >
-                              <Github className="size-5" />
-                            </a>
-                          </TooltipTrigger>
-                          <TooltipContent>GitHub</TooltipContent>
-                        </Tooltip>
-                      </DockIcon>
-                      <DockIcon>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <a
-                              href="https://www.linkedin.com/in/john-hsieh/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex size-full items-center justify-center rounded-full bg-blue-50 text-blue-700"
-                            >
-                              <Linkedin className="size-5" />
-                            </a>
-                          </TooltipTrigger>
-                          <TooltipContent>LinkedIn</TooltipContent>
-                        </Tooltip>
-                      </DockIcon>
-                    </Dock>
-                  </div>
-                </div>
-
-                {/* right — globe */}
-                <div className="relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-linear-to-b from-cyan-50 to-sky-50 md:h-80">
-                  <Globe className="top-1/2 -translate-y-1/2" />
-                  <div className="absolute inset-x-4 bottom-4 rounded-lg border border-cyan-200 bg-white/85 px-3 py-2 text-center text-xs text-slate-600 backdrop-blur md:text-sm">
-                    TikTok Singapore / LINE Taiwan — 跨國產品開發經驗
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </BlurFade>
-
-          {/* ─────────── Work Experience ─────────── */}
-          <BlurFade delay={0.2} inView>
-            <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <Briefcase className="size-5 text-cyan-700" />
-                  工作經歷
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                  {experiences.map((exp, idx) => {
-                    const isLeft = idx % 2 === 0;
-                    return (
-                      <li key={exp.company}>
-                        {idx !== 0 && <hr className="bg-cyan-600" />}
-                        <div className="timeline-middle">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="h-5 w-5 text-cyan-600"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <div className={`${isLeft ? "timeline-start md:text-end" : "timeline-end"} mb-10`}>
-                          <time className="font-mono text-sm italic text-slate-500">
-                            {exp.period}
-                          </time>
-                          <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/80 p-4 shadow-sm md:p-5 space-y-3">
-                            <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
-                              <Image
-                                src={exp.logo}
-                                alt={exp.company}
-                                width={40}
-                                height={40}
-                                className="size-10 rounded-lg border border-slate-200 object-contain bg-white p-0.5"
-                              />
-                              <div>
-                                <p className="text-base font-semibold text-slate-900">
-                                  {exp.role}
-                                </p>
-                                <p className="text-sm text-slate-500">
-                                  {exp.company}
-                                </p>
-                              </div>
-                            </div>
-                            <Separator className="bg-slate-200" />
-                            <ul className="grid gap-2 text-start text-sm text-slate-600">
-                              {exp.highlights.map((item) => (
-                                <li
-                                  key={item}
-                                  className="inline-flex items-start gap-2"
-                                >
-                                  <BadgeCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                        {idx !== experiences.length - 1 && <hr className="bg-cyan-600" />}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </CardContent>
-            </Card>
-          </BlurFade>
-
-          {/* ─────────── Projects ─────────── */}
-          <BlurFade delay={0.3} inView>
-            <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <FolderKanban className="size-5 text-cyan-700" />
-                  專案介紹
-                </CardTitle>
-                <CardDescription>
-                  {projects.length} 個代表性專案，展示產品影響力與技術棧。
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project) => (
-                  <MagicCard
-                    key={project.name}
-                    className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
-                    gradientColor="#e0f2fe"
-                    gradientOpacity={0.4}
-                    gradientFrom="#06b6d4"
-                    gradientTo="#10b981"
-                  >
-                    {/* project image */}
-                    <div className="relative h-36 w-full overflow-hidden bg-linear-to-br from-slate-100 to-sky-50">
-                      <Image
-                        src={project.image}
-                        alt={project.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-                    <div className="flex flex-1 flex-col gap-3 p-4">
-                      <div>
-                        <h3 className="text-base font-semibold text-slate-900">
-                          {project.url ? (
-                            <a
-                              href={project.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:text-cyan-700 transition-colors"
-                            >
-                              {project.name} ↗
-                            </a>
-                          ) : (
-                            project.name
-                          )}
-                        </h3>
-                        <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                          {project.summary}
-                        </p>
-                      </div>
-                      <div className="mt-auto flex flex-wrap gap-1.5">
-                        {project.stack.map((tech) => (
-                          <Badge
-                            key={`${project.name}-${tech}`}
-                            variant="secondary"
-                            className="bg-slate-100 text-[11px] text-slate-600"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </MagicCard>
-                ))}
-              </CardContent>
-            </Card>
-          </BlurFade>
-
-          {/* ─────────── Tech Stack Beam ─────────── */}
-          <BlurFade delay={0.35} inView>
-            <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <Sparkles className="size-5 text-cyan-700" />
-                  技術棧可視化
-                </CardTitle>
-                <CardDescription>
-                  核心技術與周邊能力的連結關係圖。
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-6 lg:grid-cols-2">
-                  <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
-                    <SkillCloud />
-                  </div>
-                  <FrontendJSBeam />
-                  <CSSBeam />
-                  <PWABeam />
-                  <WebComponentBeam />
-                  <BackendBeam />
-                </div>
-              </CardContent>
-            </Card>
-          </BlurFade>
-
-          {/* ─────────── Skill Keywords (Marquee) ─────────── */}
-          <BlurFade delay={0.4} inView>
-            <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <Tags className="size-5 text-cyan-700" />
-                  技能關鍵字
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 overflow-hidden">
-                <Marquee pauseOnHover className="[--duration:30s]">
-                  {skillKeywordsRow1.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-                <Marquee pauseOnHover reverse className="[--duration:35s]">
-                  {skillKeywordsRow2.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-cyan-200 bg-cyan-50/50 px-3 py-1.5 text-sm text-cyan-800 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-                <Marquee pauseOnHover className="[--duration:32s]">
-                  {skillKeywordsRow3.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-emerald-200 bg-emerald-50/50 px-3 py-1.5 text-sm text-emerald-800 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-              </CardContent>
-            </Card>
-          </BlurFade>
-
-          {/* ─────────── Education & Certs ─────────── */}
-          <BlurFade delay={0.45} inView>
-            <Card className="relative overflow-hidden border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <ShineBorder
-                shineColor={["#06b6d4", "#10b981", "#6366f1"]}
-                borderWidth={1}
-                duration={10}
-              />
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <GraduationCap className="size-5 text-cyan-700" />
-                  學歷與證書
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {/* education */}
-                <div>
-                  <p className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-slate-600">
-                    <BookOpenText className="size-4 text-cyan-700" />
-                    學歷
-                  </p>
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="border-slate-200 hover:bg-transparent">
-                        <TableHead className="text-slate-600">
-                          學校
-                        </TableHead>
-                        <TableHead className="text-slate-600">
-                          學位 / 性質
-                        </TableHead>
-                        <TableHead className="text-right text-slate-600">
-                          期間
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow className="border-slate-200 hover:bg-cyan-50/45">
-                        <TableCell className="text-slate-800">
-                          東吳大學
-                        </TableCell>
-                        <TableCell className="text-slate-600">
-                          文學士 (BA) — 日本語文學系
-                        </TableCell>
-                        <TableCell className="text-right text-slate-500">
-                          2013 - 2017
-                        </TableCell>
-                      </TableRow>
-                      <TableRow className="border-slate-200 hover:bg-cyan-50/45">
-                        <TableCell className="text-slate-800">
-                          京都同志社大學
-                        </TableCell>
-                        <TableCell className="text-slate-600">
-                          交換留學 — 日本語及文化
-                        </TableCell>
-                        <TableCell className="text-right text-slate-500">
-                          2016.03 - 2016.08
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-
-                <Separator className="bg-slate-200" />
-
-                {/* certifications */}
-                <div>
-                  <p className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-slate-600">
-                    <BadgeCheck className="size-4 text-emerald-600" />
-                    證書與認證
-                  </p>
-                  <div className="grid gap-3 md:grid-cols-2">
-                    <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 transition hover:border-cyan-200">
-                      <Image
-                        src="https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png"
-                        alt="JLPT N1"
-                        width={48}
-                        height={48}
-                        className="size-12 rounded-md border border-slate-200 object-contain bg-white p-0.5"
-                      />
-                      <div>
-                        <p className="text-sm font-medium text-slate-800">
-                          日文檢定 JLPT N1
-                        </p>
-                        <p className="text-xs text-slate-500">
-                          最高級認證 — 商業會談程度
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 transition hover:border-cyan-200">
-                      <div className="flex size-12 items-center justify-center rounded-md border border-slate-200 bg-white text-cyan-700">
-                        <GraduationCap className="size-6" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-slate-800">
-                          台大資訊推廣部
-                        </p>
-                        <p className="text-xs text-slate-500">
-                          網頁開發技術課程
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Separator className="bg-slate-200" />
-
-                {/* language */}
-                <div>
-                  <p className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-slate-600">
-                    <Sparkles className="size-4 text-cyan-700" />
-                    語言能力
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Badge className="bg-cyan-100 px-3 py-1.5 text-cyan-800">
-                      中文 — 母語
-                    </Badge>
-                    <Badge className="bg-rose-100 px-3 py-1.5 text-rose-800">
-                      日文 — 商業會談 (JLPT N1)
-                    </Badge>
-                    <Badge className="bg-indigo-100 px-3 py-1.5 text-indigo-800">
-                      英文 — 流暢職場溝通
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </BlurFade>
+      <TechStackVisualization title="技術棧可視化" description="核心技術與周邊能力的連結關係圖。">
+        <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
+          <SkillCloud />
         </div>
-      </main>
-    </TooltipProvider>
+        <FrontendJSBeam />
+        <CSSBeam />
+        <PWABeam />
+        <WebComponentBeam />
+        <BackendBeam />
+      </TechStackVisualization>
+
+      <SkillKeywords title="技能關鍵字" rows={skillKeywordRows} />
+
+      <EducationCerts
+        sectionTitle="學歷與證書"
+        educationLabel="學歷"
+        educationHeaders={{ institution: "學校", degree: "學位 / 性質", period: "期間" }}
+        educations={educations}
+        certLabel="證書與認證"
+        certifications={certifications}
+        languageLabel="語言能力"
+        languages={languages}
+      />
+    </ResumeLayout>
   );
 }
