@@ -83,7 +83,7 @@ const experiences: Experience[] = [
     company: "TikTok Singapore",
     role: "Software Engineer",
     period: "2024.11 - 至今",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
+    logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
       "隸屬 User Growth 團隊，負責廣告投放財務系統開發。",
       "使用 React 與公司內部框架，處理廣告投放財務流程與數據分析。",
@@ -94,7 +94,7 @@ const experiences: Experience[] = [
     company: "LINE Taiwan",
     role: "Software Engineer",
     period: "2021.08 - 2024.10",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/949a981c-e37c-4077-9655-edce8498b6a9.png",
+    logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
       "日常開發 LINE 購物，技術棧 Vue SSR + GraphQL + TypeScript + ExpressJS。",
       "擔任 Team Leader 帶領 4 人團隊，主導 CMS 從 PHP 重構至 NextJS app router 架構。",
@@ -106,7 +106,7 @@ const experiences: Experience[] = [
     company: "AI.Book 愛相簿",
     role: "Frontend Engineer (契約合作)",
     period: "2021.09 - 2024.10",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
+    logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
       "獨自負責開發線上相片書編輯器，支援拖曳、尺寸調整、文字編輯等功能。",
       "從零規劃技術架構，使用 Vue + NuxtJS，6 個月內完成產品上線。",
@@ -117,7 +117,7 @@ const experiences: Experience[] = [
     company: "FundFluent",
     role: "Frontend Engineer (契約合作)",
     period: "2021.01 - 2021.09",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
+    logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
     highlights: [
       "公司初創期即加入，從零規劃前端架構與技術選型。",
       "使用 React / NextJS + TypeScript + TailwindCSS 開發面向香港市場的中小企貸款平台。",
@@ -128,7 +128,7 @@ const experiences: Experience[] = [
     company: "FoxitSoftware",
     role: "Full-Stack Engineer",
     period: "2020.12 - 2021.08",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
+    logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
     highlights: [
       "在 AI 新團隊中擔任全端工程師，管理前端團隊 2 人。",
       "開發整合內部 AI 微服務的 2B 管理平台。",
@@ -139,7 +139,7 @@ const experiences: Experience[] = [
     company: "電獺 Aotter",
     role: "Frontend Engineer",
     period: "2019.08 - 2020.11",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
+    logo: "https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
     highlights: [
       "專案導向團隊，每項專案配置約 4 人，快速迭代產品。",
       "使用 Nuxt 生態系 + TypeScript + TailwindCSS，搭配 Docker + K8s CI/CD 流程。",
@@ -151,7 +151,7 @@ const experiences: Experience[] = [
     company: "第三緯度科技",
     role: "Frontend Engineer",
     period: "2019.04 - 2019.06",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/d8b43549-741e-403c-83d4-6022faa346e9.png",
+    logo: "https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png",
     highlights: [
       "使用 Vue + PHP 前後端分離架構開發。",
       "串接微信支付金流系統。",
@@ -161,7 +161,7 @@ const experiences: Experience[] = [
     company: "日商優橋",
     role: "數位廣告優化師 & Frontend Engineer",
     period: "2017.12 - 2019.03",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
+    logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
     highlights: [
       "初期擔任數位廣告優化師，管理 Facebook / Google Ads，運用 A/B testing 與 Heatmap 優化 UX。",
       "後期轉任前端工程師兼 PM，為代理產品架設官方網站與活動頁面。",
@@ -173,7 +173,7 @@ const experiences: Experience[] = [
     company: "亞洲遊",
     role: "日本市場業務及營運",
     period: "2016.09 - 2017.09",
-    logo: "https://images.cakeresume.com/JdjNy/john_hsieh/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
+    logo: "https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
     highlights: [
       "負責接洽日本旅宿房源並協助上架到公司平台。",
       "擔任對日翻譯窗口，協助消費者排除旅日中緊急狀況。",
@@ -189,7 +189,7 @@ const projects: Project[] = [
       "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。集結第三方電商的購物入口網站，提供搜尋、比價與分享功能。",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/1da75a22-2c28-4bbc-baef-1ec66ee781bb.png",
+      "https://cdn.lazy-cv.com/1da75a22-2c28-4bbc-baef-1ec66ee781bb.png",
     url: "https://buy.line.me",
   },
   {
@@ -198,7 +198,7 @@ const projects: Project[] = [
       "主導將 PHP 架構的 LINE 購物 CMS 重構為 React & NextJS app router 架構，帶領 4 人團隊完成前後端分離。",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
+      "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
   },
   {
     name: "AI.Book 相簿編輯器",
@@ -206,7 +206,7 @@ const projects: Project[] = [
       "線上相片書編輯器，支援照片拖曳/尺寸調整/文字編輯，跨平台支援含 PWA 安裝體驗。從零規劃到上線僅 6 個月。",
     stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
+      "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
   },
   {
     name: "FundFluent UI Kit Library",
@@ -214,7 +214,7 @@ const projects: Project[] = [
       "跨專案共用 UI 組件平台，使用 Web Component（Stencil.js）打造不受框架限制的組件庫，整合 TailwindCSS + Semantic UI 並以 Storybook 作文件。",
     stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png",
+      "https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png",
   },
   {
     name: "SuprLink 超級連結",
@@ -222,7 +222,7 @@ const projects: Project[] = [
       "從 A/B 分流到數據分析，再到廣告投放一氣呵成的縮網址服務。",
     stack: ["NuxtJS", "TypeScript", "TailwindCSS", "Docker", "K8s"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
+      "https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
     url: "https://supr.link",
   },
   {
@@ -231,7 +231,7 @@ const projects: Project[] = [
       "結合大數據分析的廣告投放 DSP 平台，使用大量圖表介面為使用者找出最適合的廣告 TA。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/4812639f-ea04-470c-b931-a954464678fd.png",
+      "https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png",
     url: "https://trek.aotter.net",
   },
   {
@@ -240,7 +240,7 @@ const projects: Project[] = [
       "LINE Taiwan 跨團隊專案小組，負責制定全公司前端開發準則。研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/9fb60a2e-e59b-4a28-8cd4-08b44b85d210.png",
+      "https://cdn.lazy-cv.com/9fb60a2e-e59b-4a28-8cd4-08b44b85d210.png",
   },
   {
     name: "FundFluent SME Portal",
@@ -248,7 +248,7 @@ const projects: Project[] = [
       "面向香港中小企業的整合貸款平台，提供銀行與政府貸款資訊、一站式申請，並透過 OCR 技術整理文件以降低重複提交成本。",
     stack: ["React", "NextJS", "TypeScript", "TailwindCSS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
+      "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
     url: "https://app.fundfluent.io",
   },
   {
@@ -257,7 +257,7 @@ const projects: Project[] = [
       "面向銀行等放貸方的管理平台，可上架、整理各項貸款專案，以及審核來自中小企的申請案件。",
     stack: ["React", "NextJS", "TypeScript", "Semantic UI"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/882b56c6-5e93-454c-ab5d-d98193795b74.png",
+      "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
     url: "https://partner.fundfluent.io",
   },
   {
@@ -266,7 +266,7 @@ const projects: Project[] = [
       "快速在 SuprLink 超級連結產生縮網址的 Chrome 擴充工具。",
     stack: ["Chrome Extension", "JavaScript"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
+      "https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
   },
   {
     name: "資策會 城市儀表板",
@@ -274,7 +274,7 @@ const projects: Project[] = [
       "收集分散各地的政府數據於同一平台展示的政府資料數據庫，具備可高度客製化的圖表及資料篩選模組。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "TailwindCSS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
+      "https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
   },
   {
     name: "beanfun! 數據管理中心",
@@ -282,7 +282,7 @@ const projects: Project[] = [
       "擁有各種圖表的集中數據 Dashboard，用以顯示企業內部各項指標。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/de995dc8-088c-430b-ba29-33fd2b364ced.png",
+      "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
   },
   {
     name: "俏樂斯 官方網站",
@@ -290,7 +290,7 @@ const projects: Project[] = [
       "日本沖繩保養品俏樂斯的台灣官方網站，負責設計規劃與前端開發。",
     stack: ["PHP", "jQuery", "CSS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png",
+      "https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png",
   },
   {
     name: "髮樂活",
@@ -298,7 +298,7 @@ const projects: Project[] = [
       "美髮保養的內容型自媒體網站。",
     stack: ["WordPress", "PHP", "CSS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png",
+      "https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png",
   },
   {
     name: "日本嚴選",
@@ -306,7 +306,7 @@ const projects: Project[] = [
       "專接業配的日系產品推薦部落格。",
     stack: ["WordPress", "PHP", "CSS"],
     image:
-      "https://images.cakeresume.com/JdjNy/john_hsieh/12da9319-3e54-419e-b6c2-1044360f7b7a.png",
+      "https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png",
   },
 ];
 
@@ -386,7 +386,7 @@ export default function ExampleResumePage() {
                   <div className="flex items-center gap-4">
                     <Avatar className="size-20 ring-2 ring-cyan-200/80">
                       <AvatarImage
-                        src="https://images.cakeresume.com/JdjNy/john_hsieh/d2fa98b2-4370-41a2-878a-2b1a741e63d9.png"
+                        src="https://cdn.lazy-cv.com/d2fa98b2-4370-41a2-878a-2b1a741e63d9.png"
                         alt="John Hsieh"
                       />
                       <AvatarFallback>JH</AvatarFallback>
@@ -788,7 +788,7 @@ export default function ExampleResumePage() {
                   <div className="grid gap-3 md:grid-cols-2">
                     <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 transition hover:border-cyan-200">
                       <Image
-                        src="https://images.cakeresume.com/JdjNy/john_hsieh/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png"
+                        src="https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png"
                         alt="JLPT N1"
                         width={48}
                         height={48}

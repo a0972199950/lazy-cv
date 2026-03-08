@@ -14,13 +14,9 @@
 - **Online Resume:** https://www.cake.me/resumes/john_hsieh_en
 
 ### 🖼️ Profile Images
-- **Profile Photo:** https://images.cakeresume.com/krYgP/john_hsieh_en/d8711a91-565c-4b67-9fde-7a4a2dc99db6.png
+- **Profile Photo:** https://cdn.lazy-cv.com/107453(1).jpg
 
-![Profile Photo](https://images.cakeresume.com/krYgP/john_hsieh_en/d8711a91-565c-4b67-9fde-7a4a2dc99db6.png)
-
-- **Personal Logo:** https://images.cakeresume.com/krYgP/john_hsieh_en/395a49b0-9048-4f7b-a87f-c0a3d7c063d5.png
-
-![Personal Logo](https://images.cakeresume.com/krYgP/john_hsieh_en/395a49b0-9048-4f7b-a87f-c0a3d7c063d5.png)
+![Profile Photo](https://cdn.lazy-cv.com/107453(1).jpg)
 
 ### 📝 Professional Summary
 I have seven years of experience in front-end development, having worked as a Senior Software Engineer at TikTok Singapore and LINE Taiwan. My primary technical expertise lies in React (Next.js), Vue (Nuxt.js), and TypeScript.
@@ -43,9 +39,9 @@ I used to work as a tutor, teaching three students in front-end development and 
 **📅 Duration:** 2024/11 - Present  
 **🌍 Location:** Singapore
 
-**🖼️ Company Logo:** https://images.cakeresume.com/krYgP/john_hsieh_en/58ee3057-ebd0-4ec8-aae1-0f7af596875a.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/tiktok-icon.png
 
-![ByteDance Logo](https://images.cakeresume.com/krYgP/john_hsieh_en/58ee3057-ebd0-4ec8-aae1-0f7af596875a.png)
+![ByteDance Logo](https://cdn.lazy-cv.com/tiktok-icon.png)
 
 #### 📖 Company Introduction
 **Website:** https://www.bytedance.com/
@@ -65,9 +61,9 @@ Within the team, my main responsibility is developing the financial systems for 
 **📅 Duration:** 2021/08 - 2024/10 (3 years)  
 **🌍 Location:** Taipei, Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/krYgP/john_hsieh_en/a889482a-1f3d-49df-8d02-64306ff5d788.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/line-icon.png
 
-![LINE Taiwan Logo](https://images.cakeresume.com/krYgP/john_hsieh_en/a889482a-1f3d-49df-8d02-64306ff5d788.png)
+![LINE Taiwan Logo](https://cdn.lazy-cv.com/line-icon.png)
 
 #### 📖 Company Introduction
 **Website:** https://line.me
@@ -100,24 +96,24 @@ As part of our standard development guidelines, I introduced Lighthouse CI, a co
 #### 🚀 Key Projects
 
 ##### LINE Shopping Platform
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/4596453b-09a1-41d3-aeda-b94ed9bc78fa.png
+- **Image:** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
 
-![LINE Shopping Platform](https://images.cakeresume.com/JdjNy/john_hsieh/4596453b-09a1-41d3-aeda-b94ed9bc78fa.png)
+![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
 
 - **Website:** https://buy.line.me/
 - **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
 
 ##### JavaScript Task Force
-- **Image:** https://images.cakeresume.com/krYgP/john_hsieh_en/8db7d69e-f0ff-476a-9dd3-ef720b88925e.png
+- **Image:** https://cdn.lazy-cv.com/jstf.png
 
-![JavaScript Task Force](https://images.cakeresume.com/krYgP/john_hsieh_en/8db7d69e-f0ff-476a-9dd3-ef720b88925e.png)
+![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
 
 - **Description:** This is not an actual product, but rather a project team. The members are made up, and represent for different product teams. And it's main goal is to develop frontend developing guidelines. So far, we have research/implemented on SonarQube, a static code analysis tool, integrating Lighthouse into our CI pipeline, frontend monitoring tool OpenTel, and building a custom React project template generator......etc.
 
 ##### CMS Refactoring to NextJS (Team Leader)
-- **Image:** https://images.cakeresume.com/krYgP/john_hsieh_en/96e2218a-3113-48de-b8c1-923541aee089.png
+- **Image:** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
 
-![CMS NextJS Refactoring](https://images.cakeresume.com/krYgP/john_hsieh_en/96e2218a-3113-48de-b8c1-923541aee089.png)
+![CMS NextJS Refactoring](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
 
 - **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
 
@@ -127,9 +123,9 @@ As part of our standard development guidelines, I introduced Lighthouse CI, a co
 **📅 Duration:** 2021/09 - 2024/10 (3 years)  
 **🌍 Location:** Remote Contract Work
 
-**🖼️ Company Logo:** https://images.cakeresume.com/krYgP/john_hsieh_en/1d750de6-4478-41c7-937c-cd4f62d4c464.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png
 
-![AI.Book Logo](https://images.cakeresume.com/krYgP/john_hsieh_en/1d750de6-4478-41c7-937c-cd4f62d4c464.png)
+![AI.Book Logo](https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png)
 
 #### 📖 Company Introduction
 **Website:** https://aibook.com.tw/
@@ -144,13 +140,13 @@ The tech stack used was Vue and NuxtJS.
 #### 🚀 Key Projects
 
 ##### AI.Book Online Photo Book Editor
-- **Editor Interface:** https://images.cakeresume.com/krYgP/john_hsieh_en/bf35190e-b1a0-4c4a-91f3-71022f3d8c97.png
+- **Editor Interface:** https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png
 
-![Editor Interface](https://images.cakeresume.com/krYgP/john_hsieh_en/bf35190e-b1a0-4c4a-91f3-71022f3d8c97.png)
+![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
 
-- **Complete Interface:** https://images.cakeresume.com/krYgP/john_hsieh_en/cea82be6-659e-49ee-9600-50cf91d0ba6c.png
+- **Complete Interface:** https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png
 
-![Complete Interface](https://images.cakeresume.com/krYgP/john_hsieh_en/cea82be6-659e-49ee-9600-50cf91d0ba6c.png)
+![Complete Interface](https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png)
 
 - **Description:** This is a self-designed and self-implemented photo book editor that supports adding and removing photos, dragging to adjust photo position and size, entering text, and customizing font styles and sizes. In addition to the web version, it also supports mobile editing and offers PWA installation, providing a native app–like experience.
 
@@ -173,29 +169,29 @@ The main tech stack was React with TypeScript, focusing on creating reusable com
 #### 🚀 Key Projects
 
 ##### FundFluent UI Kit
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
+- **Image:** https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
 
-![FundFluent UI Kit](https://images.cakeresume.com/JdjNy/john_hsieh/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
+![FundFluent UI Kit](https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
 
 - **Description:** A comprehensive design system and component library built for FundFluent's multiple products. Created reusable React components with TypeScript, ensuring consistency across all platforms.
 
 ##### FundFluent SME Portal
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
+- **Image:** https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
 
-![FundFluent SME Portal](https://images.cakeresume.com/JdjNy/john_hsieh/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
+![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
 
 - **Description:** A web portal designed for small and medium enterprises to apply for funding, manage their applications, and track their financial status.
 
 ##### FundFluent Partner Portal
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/882b56c6-5e93-454c-ab5d-d98193795b74.png
+- **Image:** https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png
 
-![FundFluent Partner Portal](https://images.cakeresume.com/JdjNy/john_hsieh/882b56c6-5e93-454c-ab5d-d98193795b74.png)
+![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
 
 - **Description:** A management portal for FundFluent's business partners to oversee funding applications, manage client relationships, and access analytics and reporting features.
 
-**🖼️ Company Logo:** https://images.cakeresume.com/JdjNy/john_hsieh/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png
 
-![FundFluent Logo](https://images.cakeresume.com/JdjNy/john_hsieh/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png)
+![FundFluent Logo](https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png)
 
 ---
 
@@ -203,9 +199,9 @@ The main tech stack was React with TypeScript, focusing on creating reusable com
 **📅 Duration:** 2020/02 - 2021/07 (1 year 5 months)  
 **🌍 Location:** Taipei, Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/JdjNy/john_hsieh/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png
 
-![Foxit Logo](https://images.cakeresume.com/JdjNy/john_hsieh/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png)
+![Foxit Logo](https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png)
 
 #### 📖 Company Introduction
 Foxit Software is a global company specializing in PDF software solutions. They provide document management and collaboration tools for businesses and individuals worldwide. The company is known for its PDF readers, editors, and SDK solutions.
@@ -221,9 +217,9 @@ The tech stack included Vue.js for frontend, Node.js with Express for backend, a
 **📅 Duration:** 2019/07 - 2020/02 (7 months)  
 **🌍 Location:** Taipei, Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/JdjNy/john_hsieh/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png
 
-![Aotter Logo](https://images.cakeresume.com/JdjNy/john_hsieh/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png)
+![Aotter Logo](https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png)
 
 #### 📖 Company Introduction
 Aotter is a digital advertising and media technology company that focuses on native advertising and content marketing solutions. They provide innovative advertising platforms and data analytics services for brands and publishers.
@@ -242,41 +238,41 @@ And we also value the importance of reusable code and scalable code.
 #### 🚀 Key Projects
 
 ##### SuprLink
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/a14d9a80-45b9-4943-a043-49dacb460bb9.png
+- **Image:** https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png
 
-![SuprLink](https://images.cakeresume.com/JdjNy/john_hsieh/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
+![SuprLink](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
 
 - **Website:** https://supr.link
 - **Description:** A short link service which supports A/B testing, data analysis, custom domain, organization management and online advertising.
 
 ##### Chrome Extension - SuprLink
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png
+- **Image:** https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png
 
-![Chrome Extension SuprLink](https://images.cakeresume.com/JdjNy/john_hsieh/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
+![Chrome Extension SuprLink](https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
 
 - **Website:** https://supr.link/WJ4rd
 - **Description:** A Chrome extension which helps user to create short link for SuprLink.
 
 ##### Aotter Trek DSP Platform
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/4812639f-ea04-470c-b931-a954464678fd.png
+- **Image:** https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png
 
-![Aotter Trek DSP Platform](https://images.cakeresume.com/JdjNy/john_hsieh/4812639f-ea04-470c-b931-a954464678fd.png)
+![Aotter Trek DSP Platform](https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png)
 
 - **Website:** https://trek.aotter.net
 - **Description:** An advertising display platform with big data analysis feature. Uses lots of easy-readable charts to help user find their accurate potential customers.
 
 ##### Institute for Information Industry - City Dashboard
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/0a002690-85c9-4bcf-bb72-9cebf81788ae.png
+- **Image:** https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png
 
-![City Dashboard](https://images.cakeresume.com/JdjNy/john_hsieh/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
+![City Dashboard](https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
 
 - **Website:** https://supr.link/oLOid
 - **Description:** A platform which collects government public materials into one place to display. Has highly customizable charts and filters.
 
 ##### beanfun! Data Center
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/de995dc8-088c-430b-ba29-33fd2b364ced.png
+- **Image:** https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png
 
-![beanfun! Data Center](https://images.cakeresume.com/JdjNy/john_hsieh/de995dc8-088c-430b-ba29-33fd2b364ced.png)
+![beanfun! Data Center](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
 
 - **Website:** https://supr.link/30dOw
 - **Description:** A dashboard which collects all product's data across whole enterprise group to display. Has lots of charts.
@@ -287,9 +283,9 @@ And we also value the importance of reusable code and scalable code.
 **📅 Duration:** 2019/04 - 2019/06  
 **🌍 Location:** Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/JdjNy/john_hsieh/d8b43549-741e-403c-83d4-6022faa346e9.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png
 
-![第三緯度 Logo](https://images.cakeresume.com/JdjNy/john_hsieh/d8b43549-741e-403c-83d4-6022faa346e9.png)
+![第三緯度 Logo](https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png)
 
 #### 📖 Company Introduction
 A Chinese company which operate an adult comics website and App.
@@ -301,9 +297,9 @@ I joined this company only for a very short time due to some complicated reasons
 #### 🚀 Key Projects
 
 ##### Shushu Comics
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/f0b11a8f-47c9-4587-9188-e6c93256baa7.png
+- **Image:** https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png
 
-![Shushu Comics](https://images.cakeresume.com/JdjNy/john_hsieh/f0b11a8f-47c9-4587-9188-e6c93256baa7.png)
+![Shushu Comics](https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png)
 
 - **Website:** https://supr.link/JMNiY
 - **Description:** A website and App which illegally downloads Korean adult comics, adds new cover, then sells them online.
@@ -314,9 +310,9 @@ I joined this company only for a very short time due to some complicated reasons
 **📅 Duration:** 2017/12 - 2019/03 (1 year 3 months)  
 **🌍 Location:** Taipei, Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/a0972199950/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png
 
-![Asian Bridge Logo](https://images.cakeresume.com/a0972199950/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png)
+![Asian Bridge Logo](https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png)
 
 #### 📖 Company Introduction
 A Japanese trading company which gets the dealership (mainly from big Japanese care products brand), then build e-commerce in Taiwan. And provides service including marketing, digital advertising, logistics and customer service.
@@ -341,25 +337,25 @@ Since the main shopping cart logic was built in php MPA and outsourcing, we used
 #### 🚀 Key Projects
 
 ##### Churacos Official Website
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png
+- **Image:** https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png
 
-![Churacos Official Website](https://images.cakeresume.com/JdjNy/john_hsieh/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png)
+![Churacos Official Website](https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png)
 
 - **Website:** https://supr.link/9j9Ny
 - **Description:** Taiwan official website of a care products branch Churacos, coming from Okinawa, Japan.
 
 ##### Hairlife Website
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png
+- **Image:** https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png
 
-![Hairlife Website](https://images.cakeresume.com/JdjNy/john_hsieh/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png)
+![Hairlife Website](https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png)
 
 - **Website:** https://supr.link/JmZHp
 - **Description:** A hair care related blog.
 
 ##### Japan Selection Blog
-- **Image:** https://images.cakeresume.com/JdjNy/john_hsieh/12da9319-3e54-419e-b6c2-1044360f7b7a.png
+- **Image:** https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png
 
-![Japan Selection Blog](https://images.cakeresume.com/JdjNy/john_hsieh/12da9319-3e54-419e-b6c2-1044360f7b7a.png)
+![Japan Selection Blog](https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png)
 
 - **Website:** https://supr.link/n11Jr
 - **Description:** A blog for advertorial.
@@ -370,9 +366,9 @@ Since the main shopping cart logic was built in php MPA and outsourcing, we used
 **📅 Duration:** 2016/09 - 2017/09 (1 year)  
 **🌍 Location:** Taipei, Taiwan
 
-**🖼️ Company Logo:** https://images.cakeresume.com/a0972199950/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png
+**🖼️ Company Logo:** https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png
 
-![AsiaYo Logo](https://images.cakeresume.com/a0972199950/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png)
+![AsiaYo Logo](https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png)
 
 #### 📖 Company Introduction
 Being Responsible for getting in touch with Japanese share house host, and helping them listing their place on our platform.
@@ -455,17 +451,17 @@ I like use Express + TypeScript + MongoDB to handle it.
 
 ### 🏫 Educational Background
 - **Content:** Graduation certificate, exchange study abroad documents, and NTU Information Extension Department completion certificate
-- **🖼️ Certificate Documents:** https://images.cakeresume.com/JdjNy/john_hsieh/41dda1f8-f550-436c-9062-2bb0e68170fb.png
+- **🖼️ Certificate Documents:** https://cdn.lazy-cv.com/41dda1f8-f550-436c-9062-2bb0e68170fb.png
 
-![Educational Certificates](https://images.cakeresume.com/JdjNy/john_hsieh/41dda1f8-f550-436c-9062-2bb0e68170fb.png)
+![Educational Certificates](https://cdn.lazy-cv.com/41dda1f8-f550-436c-9062-2bb0e68170fb.png)
 
 ### 🇯🇵 Japanese Language Proficiency Test (JLPT N1)
 - **Achievement Time:** Obtained during university years
 - **Proficiency Level:** Highest level certification, capable of business-level Japanese communication
 - **Practical Application:** Used Japanese as the primary working language during employment at Asian Bridge Inc.
-- **🖼️ Certificate Image:** https://images.cakeresume.com/JdjNy/john_hsieh/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png
+- **🖼️ Certificate Image:** https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png
 
-![JLPT N1 Certificate](https://images.cakeresume.com/JdjNy/john_hsieh/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png)
+![JLPT N1 Certificate](https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png)
 
 ### 📚 Self-Improvement Learning
 
@@ -479,15 +475,15 @@ I like use Express + TypeScript + MongoDB to handle it.
 - **Course Nature:** Web development related technical courses
 - **Learning Outcome:** Obtained completion certificate
 
-**🖼️ Self-Improvement Evidence:** https://images.cakeresume.com/JdjNy/john_hsieh/dcf99b6f-de7e-4c66-92e7-3de35dd67ac3.png
+**🖼️ Self-Improvement Evidence:** https://cdn.lazy-cv.com/dcf99b6f-de7e-4c66-92e7-3de35dd67ac3.png
 
-![Self-Improvement Learning Certificate](https://images.cakeresume.com/JdjNy/john_hsieh/dcf99b6f-de7e-4c66-92e7-3de35dd67ac3.png)
+![Self-Improvement Learning Certificate](https://cdn.lazy-cv.com/dcf99b6f-de7e-4c66-92e7-3de35dd67ac3.png)
 
 ### 🏆 Competition Excellence Certificates
 - **Content:** Various competition-related certificate documents
-- **🖼️ Competition Certificates:** https://images.cakeresume.com/JdjNy/john_hsieh/85fdfc60-2a01-4a88-91c1-a1cd34c25639.png
+- **🖼️ Competition Certificates:** https://cdn.lazy-cv.com/85fdfc60-2a01-4a88-91c1-a1cd34c25639.png
 
-![Competition Excellence Certificates](https://images.cakeresume.com/JdjNy/john_hsieh/85fdfc60-2a01-4a88-91c1-a1cd34c25639.png)
+![Competition Excellence Certificates](https://cdn.lazy-cv.com/85fdfc60-2a01-4a88-91c1-a1cd34c25639.png)
 
 ---
 
