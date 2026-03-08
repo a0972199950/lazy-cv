@@ -248,11 +248,11 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 - **GitHub:** https://github.com/a0972199950/lazy-cv
 - **Main Image:** https://cdn.lazy-cv.com/lazy-cv-main.png
 
-![Lazy CV Dashboard](https://cdn.lazy-cv.com/lazy-cv-main.png)
-
-- **Resume Page:** https://cdn.lazy-cv.com/lazy-cv-main-2.png
-
-![Lazy CV Resume Page](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main.png)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
 
 - **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through GitHub Copilot, the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
 - **Technical Highlights:**

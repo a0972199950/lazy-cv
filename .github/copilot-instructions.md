@@ -47,7 +47,7 @@
      - 列出最高學歷及與職位相關的專業證照 (如 AWS, JLPT 等)。
 
   ### 第三階段：開發規範
-  - **Code**: 程式碼必須完全「硬編碼」在 `page.tsx` 中，禁止 import 外部自定義 Component。
+  - **Code**: 參考 `/john-hsieh/{locale}` 的寫法，使用 `@/components/resume` 中的共用組件（如 `ResumeLayout`, `HeroProfile`, `WorkExperience`, `ProjectsGrid`, `TechStackVisualization`, `SkillKeywords`, `EducationCerts`, `LanguageToggle`）與對應的 type，以及 `/john-hsieh/skill-cloud` 和 `/john-hsieh/skill-beam` 中的技術棧可視化組件。資料（data）則硬編碼在 `page.tsx` 中。
   - **Style**: 參考 `/john-hsieh/zh-TW` 的 Tailwind CSS 風格，確保響應式設計與雙語切換按鈕。
   - **SEO**: 標題與描述需根據 JD 客製化。
   - **Constraint**: 禁止修改或虛構 `/source` 中的事實，僅允許調整描述語氣以契合 JD。

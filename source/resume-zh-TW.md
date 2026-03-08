@@ -356,9 +356,13 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
   - https://cdn.lazy-cv.com/lazy-cv-main.png
   - https://cdn.lazy-cv.com/lazy-cv-main-2.png
 
-![Lazy CV 履歷介面](https://cdn.lazy-cv.com/lazy-cv-main.png)
+![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main.png)
 
-![Lazy CV 履歷頁面](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+
+![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
+![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
+![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
 
 ### LINE Taiwan
 
