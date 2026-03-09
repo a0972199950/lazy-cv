@@ -37,6 +37,7 @@
 
 ### 💫 核心理念
 我在前端開發領域有7年經驗，曾任職於 **TikTok 新加坡**與 **LINE Taiwan**，擔任資深軟體工程師。常用的技術架構是 **React(NextJS)**、**Vue(NuxtJS)** 以及 **TypeScript**。
+我的核心價值觀是 "使用者體驗至上"。我是使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品
 
 ### 🚀 職業發展歷程
 我的職涯中經歷過千人規模的大型軟體企業，在已具有完整的開發工具與流程的環境工作；也曾經幫助剛成立的新創公司，從零開始規劃技術到完整上線產品。
@@ -46,21 +47,23 @@
 
 除此之外我還能**流利使用英、日、中三種語言**。除了母語的中文外，皆有達到職場溝通程度。
 
+同時我熟悉敏捷開發與可持續的團隊迭帶交付模式，擅長與他人合作，以及與非技術人員溝通
+
 ### 👤 個人特質
 - **個性特點：** 比較慢熟，但熟了之後幹話會變很多，喜歡和幹話同樣很多的人聊天
 - **興趣愛好：** 看電影、騎車兜風、打 Game、修理 3C 產品
 - **成就感來源：** 自學焊接電路後修好一台垃圾桶 (這個經歷很幽默但展現了動手能力)
 
 ### 🏆 教學與分享熱忱
-另外我還喜歡分享所學，看到有人因為自己而獲得成長，對我來說的成就感不亞於解決技術問題。
+另外我還喜歡分享所學，並擅長將複雜的問題用簡單的方式解釋，尤其針對非技術人員
+看到有人因為自己而獲得成長，對我來說的成就感不亞於解決技術問題。
 
 **教學經驗：**
 - 曾當過家教：3 位前端學生與 1 位日文學生
 - 職場上擔任 mentor：在 LINE Taiwan 指導 2 位新人
 - 看到學生理解新知識時會很愉悅
 
-### 🌟 未來願景
-**夢想某天可以開設自己的線上教學頻道~**
+
 
 ---
 
@@ -75,10 +78,16 @@
 TikTok 是全球最具影響力的互聯網公司之一，憑藉迅猛的增長，甚至在某些領域超越了 Meta 等傳統社交巨頭。其主力產品 TikTok 已經成為短視頻行業的絕對領先者，徹底改變了人們的娛樂和創作方式。除了短視頻業務，字節跳動的業務範圍還涵蓋了 AI 大模型、線上購物、新聞網站等多個領域。
 
 **💻 工作內容：**
-- **所屬團隊：** User Growth 團隊，主要負責投放 TikTok 的廣告到各大平台，用以增加用戶數
-- **主要職責：** 負責廣告投放的財務系統開發
-- **技術棧：** React 與公司內部框架
+- **所屬團隊：** User Growth 團隊，主要負責投放公司產品的廣告到各大 DSP 平台，以增加 tiktok 等 APP 的用戶數量
+- **主要職責：** 負責廣告投放的財務結算系統開發
+- **技術棧：** React, monorepo 與公司自研框架架設的前端微服務系統
 - **工作範圍：** 廣告投放財務流程、數據分析、系統優化
+- **團隊合作：** 我曾帶領更斯開發團隊導入 scrum，解決了以下痛點:
+  - 利用 retrospective，解決團隊沒有自我糾錯機制，團隊缺陷無法檢討改進的問題
+  - 解決團隊彼此間開發時程對不上的問題
+  - 增加 PM 對專案時程的掌握度，以及團隊成員對他人開發需求的掌握度
+  - 利用 refinement，解決團隊成員各自為政，彼此間無法 backup 的問題
+  - 平衡工作量，解決忙時很忙，閒時很閒的問題
 
 **🖼️ 公司 Logo：** https://cdn.lazy-cv.com/tiktok-icon.png
 
@@ -124,6 +133,7 @@ LINE 購物維護一個前端專案與一個 API 專案，團隊高度要求 cod
 - 擔任 LINE 的 mentor 負責帶領新人
 - 總計 mentor 了2位新人
 - 過程中得到許多正向回饋
+- 主導內部 NextJS 教學論壇，引導新人上手。教學架構圖網址: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=751532658749
 
 #### ⚙️ 3. JavaScript Task Force (JSTF) (10% 時間)
 **專案目標：**
@@ -345,6 +355,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **網址：** https://lazy-cv.com
 - **GitHub：** https://github.com/a0972199950/lazy-cv
 - **專案描述：** 結合 AI Agent 與 Next.js 的全端應用，只需提供一個職缺連結，透過 GitHub Copilot 的 `/cv` 指令，系統便能自動抓取 JD、分析關鍵需求，並根據個人資料來源生成量身定做的中英文雙語履歷網頁。每份履歷以 UUID 為獨立路由，可直接瀏覽器列印成 PDF。首頁附有履歷管理後台，支援搜尋、行內編輯、一鍵複製連結等功能。
+本履歷就是用此專案自動生成的
 - **技術亮點：**
   - **Next.js 16 App Router + Standalone Output**：採用最新 App Router 架構，搭配 standalone 模式打包為輕量 Docker Image
   - **AI Agent 自動化 SOP**：透過 Chrome DevTools MCP 自動爬取 JD，結合 copilot-instructions 定義的結構化 Prompt，實現端到端的履歷生成流程
@@ -357,9 +368,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
   - https://cdn.lazy-cv.com/lazy-cv-main-2.png
 
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main.png)
-
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
-
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
@@ -370,8 +379,15 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **網址：** https://buy.line.me
 - **專案描述：** LINE 導購服務，凡經由 LINE 購物外連到合作夥伴商家完成消費後，即可獲得 LINE 點數回饋。平台同時也是集結了合作第三方電商的購物入口網站，讓消費者可方便的搜尋、比價與分享好物。
 - **圖片：** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
+- **重大貢獻：** 我獨自開發了購物平台的"直播購物"功能。我參考了 YouTube 影片流自動預覽的機制，設計了一套可覆用影片自動預覽模組。
+透過一個全局調度器，解決了高速捲動下影片預覽混亂的問題，以及單一頁面過多直播源，造成記憶體暴增的技術難點
+架構圖網址: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
 
 ![LINE 購物平台](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
+![LINE 購物平台](https://cdn.lazy-cv.com/shopping-live-hall.png)
+![LINE 購物平台](https://cdn.lazy-cv.com/shopping-live-hall2.jpg)
+![LINE 購物平台](https://cdn.lazy-cv.com/shopping-live-hall3.jpg)
+
 
 **🔧 JavaScript Task Force**
 - **專案描述：** 這不是一個實際產品，而是一個專案小組。其成員分別代表並來自不同的團隊，目的是為整個 LINE Taiwan 制定前端開發準則。至目前為止，我們研究了 SonarQube 靜態程式碼分析工具、在 CI 中加入 Lighthouse 評分、前端 monitor 工具 OpenTel，以及自行開發了 React 專案初始 template 生成工具等等。
@@ -384,6 +400,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **圖片：** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
 
 ![CMS 重構 NextJS](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
+![CMS 重構 NextJS](https://cdn.lazy-cv.com/cms-graph.png)
 
 ### AI.Book 愛相簿
 

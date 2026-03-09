@@ -80,7 +80,7 @@ export function HeroProfile({
               </div>
             </div>
 
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+            <p className="max-w-2xl whitespace-pre-line text-sm leading-relaxed text-slate-600 md:text-base">
               {description}
             </p>
 

@@ -20,6 +20,7 @@
 
 ### 📝 Professional Summary
 I have seven years of experience in front-end development, having worked as a Senior Software Engineer at TikTok Singapore and LINE Taiwan. My primary technical expertise lies in React (Next.js), Vue (Nuxt.js), and TypeScript.
+My core value is "User Experience First." My mission is not just to build a product, but to create software that is "user-friendly" and "beautiful."
 
 I have worked for thousands of people in large software companies throughout my career, giving me the chance to work in a setting with well-established development tools and procedures. I have also worked for startups where I was in charge of creating front-end system architecture and starting from scratch with products.
 
@@ -27,7 +28,10 @@ These encounters have **strengthened my ability to design system architecture, a
 
 I can also speak Mandarin, Japanese, and English. Apart from Chinese, I can converse professionally in both English and Japanese.
 
-Furthermore, I enjoy sharing my knowledge with others. Knowing someone who has grown up from my sharing will bring me accomplishment which is even not less than solving a technical challenge.
+I am also well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders.
+
+Furthermore, I enjoy sharing my knowledge with others, and I excel at explaining complex problems in simple terms, especially for non-technical audiences.
+Knowing someone who has grown up from my sharing will bring me accomplishment which is even not less than solving a technical challenge.
 
 I used to work as a tutor, teaching three students in front-end development and one student in the Japanese language. I have also served as a mentor in my job. It brings me great joy to see students comprehend new concepts and expand their skill sets.
 
@@ -51,9 +55,16 @@ TikTok is one of the most influential internet companies in the world. With its 
 Beyond short video services, ByteDance's business scope also spans multiple areas, including AI large models, online shopping, and news platforms — demonstrating its exceptional technological innovation and continuously expanding its global influence.
 
 #### 🎯 Job Description
-I am part of the User Growth team, which is primarily responsible for running TikTok advertisements across major platforms to increase user acquisition.
+I am part of the User Growth team, which is primarily responsible for running advertisements for company products across major DSP platforms to increase the user base for apps such as TikTok.
 
-Within the team, my main responsibility is developing the financial systems for ad delivery, using React and internal company frameworks as the primary tech stack.
+Within the team, my main responsibility is developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system as the primary tech stack.
+
+**Team Collaboration:** I led the development team in adopting Scrum, addressing the following pain points:
+- Leveraged retrospectives to establish a self-correcting mechanism, enabling the team to review and improve on deficiencies
+- Resolved misaligned development timelines between team members
+- Improved PMs' visibility into project schedules and team members' awareness of each other's development tasks
+- Leveraged refinement sessions to break down siloed work, enabling team members to back each other up
+- Balanced workloads to eliminate periods of extreme busyness followed by idle time
 
 ---
 
@@ -86,6 +97,7 @@ In addition, I also lead a team responsible for refactoring our CMS system. To a
 The team consists of four people. In addition to programming, I also handle the technical architecture design, project scheduling, resource coordination with other teams, and knowledge sharing of new developments within the team. After a year, we were able to construct a unique, stand-alone front-end system that seamlessly integrated with the outdated PHP framework, decreasing the backend team's effort.
 
 Besides this project, I also took responsibility as a LINE mentor. I have led two new members, and both of them have given me positive feedback as well.
+I also led an internal NextJS teaching forum to help onboard new members. Teaching architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=751532658749
 
 **3. Participate in formulating overall frontend development guidelines (10%)**
 
@@ -255,6 +267,7 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 ![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
 
 - **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through GitHub Copilot, the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
+This resume was automatically generated using this project.
 - **Technical Highlights:**
   - **Next.js 16 App Router + Standalone Output**: Leverages the latest App Router architecture with standalone mode for lightweight Docker packaging
   - **AI Agent Automated SOP**: Uses Chrome DevTools MCP to scrape JDs, combined with structured prompts defined in copilot-instructions, enabling an end-to-end resume generation pipeline
@@ -272,6 +285,13 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 
 - **Website:** https://buy.line.me/
 - **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
+- **Key Contribution:** I independently developed the "Live Shopping" feature for the shopping platform. Inspired by YouTube's automatic video preview mechanism, I designed a reusable video auto-preview module.
+Through a global scheduler, I resolved the issue of chaotic video previews during high-speed scrolling, as well as the technical challenge of memory spikes caused by too many live streams on a single page.
+Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
+
+![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall.png)
+![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall2.jpg)
+![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall3.jpg)
 
 ##### JavaScript Task Force
 - **Image:** https://cdn.lazy-cv.com/jstf.png
@@ -284,6 +304,7 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 - **Image:** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
 
 ![CMS NextJS Refactoring](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
+![CMS NextJS Refactoring](https://cdn.lazy-cv.com/cms-graph.png)
 
 - **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
 

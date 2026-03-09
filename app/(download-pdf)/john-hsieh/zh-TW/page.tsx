@@ -43,9 +43,9 @@ const experiences: Experience[] = [
     period: "2024.11 - 至今",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "隸屬 User Growth 團隊，負責廣告投放財務系統開發。",
-      "使用 React 與公司內部框架，處理廣告投放財務流程與數據分析。",
-      "參與系統優化，提升廣告營收追蹤的準確性。",
+      "隸屬 User Growth 團隊，負責投放公司產品廣告到各大 DSP 平台，以增加 TikTok 等 APP 的用戶數量。",
+      "負責廣告投放的財務結算系統開發，技術棧為 React、monorepo 與公司自研框架架設的前端微服務系統。",
+      "帶領開發團隊導入 Scrum，利用 retrospective 建立團隊自我糾錯機制，利用 refinement 解決成員各自為政的問題，並平衡工作量與提升 PM 對時程的掌握度。",
     ],
   },
   {
@@ -57,7 +57,7 @@ const experiences: Experience[] = [
       "日常開發 LINE 購物，技術棧 Vue SSR + GraphQL + TypeScript + ExpressJS。",
       "擔任 Team Leader 帶領 4 人團隊，主導 CMS 從 PHP 重構至 NextJS app router 架構。",
       "參與 JSTF 制定全公司前端開發準則，導入 Lighthouse CI 自動化效能評量。",
-      "擔任 Mentor 指導 2 位新人，獲得正向回饋。",
+      "擔任 Mentor 指導 2 位新人，獲得正向回饋。主導內部 NextJS 教學論壇，引導新人上手。",
     ],
   },
   {
@@ -144,21 +144,28 @@ const projects: Project[] = [
   {
     name: "Lazy CV",
     summary:
-      "AI 驅動的客製化履歷生成系統。結合 AI Agent 與 Next.js 16，只需提供職缺連結即可自動抓取 JD 並生成量身定做的中英文雙語履歷網頁。整個專案從零到上線僅花費 2 天，全程透過 Vibe Coding 完成。",
+      "AI 驅動的客製化履歷生成系統。結合 AI Agent 與 Next.js 16，只需提供職缺連結即可自動抓取 JD 並生成量身定做的中英文雙語履歷網頁。整個專案從零到上線僅花費 2 天，全程透過 Vibe Coding 完成。本履歷就是用此專案自動生成的。",
     stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
     image: [
       "https://cdn.lazy-cv.com/lazy-cv-main.png",
       "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
+      "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
+      "https://cdn.lazy-cv.com/lazy-cv-auto2.jpg",
+      "https://cdn.lazy-cv.com/lazy-cv-auto3.jpg",
     ],
     url: "https://lazy-cv.com",
   },
   {
     name: "LINE 購物",
     summary:
-      "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。集結第三方電商的購物入口網站，提供搜尋、比價與分享功能。",
+      "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。我獨自開發了購物平台的「直播購物」功能，參考 YouTube 影片流自動預覽機制，設計了一套可覆用影片自動預覽模組，透過全局調度器解決高速捲動下影片預覽混亂及單頁面過多直播源造成記憶體暴增的技術難點。",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
-    image:
-      "https://cdn.lazy-cv.com/1da75a22-2c28-4bbc-baef-1ec66ee781bb.png",
+    image: [
+      "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
+      "https://cdn.lazy-cv.com/shopping-live-hall.png",
+      "https://cdn.lazy-cv.com/shopping-live-hall2.jpg",
+      "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
+    ],
     url: "https://buy.line.me",
   },
   {
@@ -166,16 +173,20 @@ const projects: Project[] = [
     summary:
       "主導將 PHP 架構的 LINE 購物 CMS 重構為 React & NextJS app router 架構，帶領 4 人團隊完成前後端分離。",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
-    image:
+    image: [
       "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
+      "https://cdn.lazy-cv.com/cms-graph.png",
+    ],
   },
   {
     name: "AI.Book 相簿編輯器",
     summary:
       "線上相片書編輯器，支援照片拖曳/尺寸調整/文字編輯，跨平台支援含 PWA 安裝體驗。從零規劃到上線僅 6 個月。",
     stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
-    image:
+    image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
+      "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",
@@ -209,7 +220,7 @@ const projects: Project[] = [
       "LINE Taiwan 跨團隊專案小組，負責制定全公司前端開發準則。研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
     image:
-      "https://cdn.lazy-cv.com/9fb60a2e-e59b-4a28-8cd4-08b44b85d210.png",
+      "https://cdn.lazy-cv.com/jstf.png",
   },
   {
     name: "FundFluent SME Portal",
@@ -326,7 +337,10 @@ const languages: LanguageItem[] = [
 export default function ExampleResumePageZhTW() {
   return (
     <ResumeLayout>
-      <LanguageToggle currentLocale="zh-TW" enHref="/john-hsieh/en" zhHref="/john-hsieh/zh-TW" />
+      <LanguageToggle currentLocale="zh-TW" locales={[
+        { locale: "en", label: "EN", href: "/john-hsieh/en" },
+        { locale: "zh-TW", label: "中文", href: "/john-hsieh/zh-TW" },
+      ]} />
 
 
       <HeroProfile
@@ -334,7 +348,7 @@ export default function ExampleResumePageZhTW() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="資深前端工程師"
-        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。流利使用英、日、中三種語言。"
+        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。我的核心價值觀是「使用者體驗至上」，使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。流利使用英、日、中三種語言。熟悉敏捷開發與可持續的團隊迭代交付模式，擅長與他人合作及與非技術人員溝通。擅長將複雜問題用簡單的方式解釋。"
         location="Singapore"
         stats={stats}
         contacts={contacts}

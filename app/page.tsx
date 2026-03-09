@@ -214,27 +214,10 @@ function ResumesTable() {
                           rel="noopener noreferrer"
                           className="text-indigo-800 hover:text-indigo-900 underline"
                         >
-                          中文履歷
+                          履歷
                         </a>
                         <button
                           onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_HOST}/${resume.id}/zh-TW`)}
-                          className="ml-2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
-                          title="複製連結"
-                        >
-                          <ClipboardIcon className="w-4 h-4" />
-                        </button>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <a 
-                          href={`${process.env.NEXT_PUBLIC_HOST}/${resume.id}/en`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-800 hover:text-indigo-900 underline"
-                        >
-                          英文履歷
-                        </a>
-                        <button
-                          onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_HOST}/${resume.id}/en`)}
                           className="ml-2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                           title="複製連結"
                         >
@@ -305,7 +288,7 @@ export default function Home() {
       
 
         {/* Resume Management Table */}
-        <div className="max-w-6xl w-full mt-16">
+        <div className="max-w-7xl w-full mt-16">
           <ResumesTable />
         </div>
         

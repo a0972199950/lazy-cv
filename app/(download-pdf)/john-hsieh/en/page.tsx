@@ -43,9 +43,9 @@ const experiences: Experience[] = [
     period: "2024.11 - Present",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "Part of the User Growth team, responsible for ad monetization financial system development.",
-      "Use React and internal frameworks to handle ad financial workflows and data analytics.",
-      "Participate in system optimization to improve ad revenue tracking accuracy.",
+      "Part of the User Growth team, responsible for running advertisements for company products across major DSP platforms to increase the user base for apps such as TikTok.",
+      "Responsible for developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system.",
+      "Led the development team in adopting Scrum — leveraged retrospectives for self-correcting mechanisms, refinement sessions to break down siloed work, balanced workloads, and improved PM visibility into project schedules.",
     ],
   },
   {
@@ -57,7 +57,7 @@ const experiences: Experience[] = [
       "Developed LINE Shopping daily with Vue SSR + GraphQL + TypeScript + ExpressJS.",
       "Served as Team Leader of a 4-person team, led CMS migration from PHP to NextJS App Router architecture.",
       "Participated in JSTF to establish company-wide frontend development standards; introduced Lighthouse CI for automated performance evaluation.",
-      "Mentored 2 new engineers with positive feedback.",
+      "Mentored 2 new engineers with positive feedback. Led an internal NextJS teaching forum to help onboard new members.",
     ],
   },
   {
@@ -144,21 +144,28 @@ const projects: Project[] = [
   {
     name: "Lazy CV",
     summary:
-      "AI-powered customized resume generator. Combines AI Agent automation with Next.js 16 — just provide a job posting URL to automatically scrape JD and generate tailored bilingual resume web pages. Built from scratch to production in just 2 days via Vibe Coding.",
+      "AI-powered customized resume generator. Combines AI Agent automation with Next.js 16 — just provide a job posting URL to automatically scrape JD and generate tailored bilingual resume web pages. Built from scratch to production in just 2 days via Vibe Coding. This resume was automatically generated using this project.",
     stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
     image: [
       "https://cdn.lazy-cv.com/lazy-cv-main.png",
       "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
+      "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
+      "https://cdn.lazy-cv.com/lazy-cv-auto2.jpg",
+      "https://cdn.lazy-cv.com/lazy-cv-auto3.jpg",
     ],
     url: "https://lazy-cv.com",
   },
   {
     name: "LINE Shopping",
     summary:
-      "A LINE affiliate shopping service where users earn LINE Points through partner merchants. An e-commerce portal aggregating third-party stores with search, price comparison, and sharing features.",
+      "A LINE affiliate shopping service where users earn LINE Points through partner merchants. I independently developed the 'Live Shopping' feature — inspired by YouTube's auto-preview mechanism, I designed a reusable video auto-preview module with a global scheduler that resolved chaotic previews during high-speed scrolling and memory spikes from too many live streams on a single page.",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
-    image:
-      "https://cdn.lazy-cv.com/1da75a22-2c28-4bbc-baef-1ec66ee781bb.png",
+    image: [
+      "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
+      "https://cdn.lazy-cv.com/shopping-live-hall.png",
+      "https://cdn.lazy-cv.com/shopping-live-hall2.jpg",
+      "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
+    ],
     url: "https://buy.line.me",
   },
   {
@@ -166,16 +173,20 @@ const projects: Project[] = [
     summary:
       "Led the migration of LINE Shopping CMS from PHP architecture to React & NextJS App Router, managing a 4-person team to achieve full frontend-backend separation.",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
-    image:
+    image: [
       "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
+      "https://cdn.lazy-cv.com/cms-graph.png",
+    ],
   },
   {
     name: "AI.Book Photo Editor",
     summary:
       "An online photo book editor supporting drag-and-drop, resizing, and text editing with cross-platform PWA support. Built from scratch to launch in just 6 months.",
     stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
-    image:
+    image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
+      "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",
@@ -209,7 +220,7 @@ const projects: Project[] = [
       "A cross-team initiative at LINE Taiwan responsible for establishing company-wide frontend development standards. Research and adoption of SonarQube, Lighthouse CI, OpenTel frontend monitoring, and React project template generators.",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
     image:
-      "https://cdn.lazy-cv.com/9fb60a2e-e59b-4a28-8cd4-08b44b85d210.png",
+      "https://cdn.lazy-cv.com/jstf.png",
   },
   {
     name: "FundFluent SME Portal",
@@ -326,14 +337,17 @@ const languages: LanguageItem[] = [
 export default function ExampleResumePageEN() {
   return (
     <ResumeLayout>
-      <LanguageToggle currentLocale="en" enHref="/john-hsieh/en" zhHref="/john-hsieh/zh-TW" />
+      <LanguageToggle currentLocale="en" locales={[
+        { locale: "en", label: "EN", href: "/john-hsieh/en" },
+        { locale: "zh-TW", label: "中文", href: "/john-hsieh/zh-TW" },
+      ]} />
 
       <HeroProfile
         name="John Hsieh"
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="Senior Frontend Engineer"
-        description="7 years of frontend development experience, previously at TikTok Singapore and LINE Taiwan as a senior software engineer. Core tech stack includes React (NextJS), Vue (NuxtJS), and TypeScript. Capable of building products from scratch in resource-limited environments, as well as delivering high-quality code in large enterprise settings. Fluent in English, Japanese, and Mandarin Chinese."
+        description="7 years of frontend development experience, previously at TikTok Singapore and LINE Taiwan as a senior software engineer. Core tech stack includes React (NextJS), Vue (NuxtJS), and TypeScript. My core value is 'User Experience First' — my mission is not just to build a product, but to create software that is 'user-friendly' and 'beautiful.' Capable of building products from scratch in resource-limited environments, as well as delivering high-quality code in large enterprise settings. Fluent in English, Japanese, and Mandarin Chinese. Well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders. Excel at explaining complex problems in simple terms."
         location="Singapore"
         stats={stats}
         contacts={contacts}

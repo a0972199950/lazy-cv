@@ -48,3 +48,5 @@ next-env.d.ts
 
 # 如果有敏感資訊，請務必排除
 .claude/secrets.json
+
+.vscode/settings.json

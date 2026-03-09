@@ -193,7 +193,10 @@ const languages: LanguageItem[] = [
 export default function ResumePageZhTW() {
   return (
     <ResumeLayout>
-      <LanguageToggle currentLocale="zh-TW" enHref="/019ccd3c-3517-7009-abd3-910b18c676e5/en" zhHref="/019ccd3c-3517-7009-abd3-910b18c676e5/zh-TW" />
+      <LanguageToggle currentLocale="zh-TW" locales={[
+        { locale: "en", label: "EN", href: "/019ccd3c-3517-7009-abd3-910b18c676e5/en" },
+        { locale: "zh-TW", label: "中文", href: "/019ccd3c-3517-7009-abd3-910b18c676e5/zh-TW" },
+      ]} />
 
       <HeroProfile
         name="John Hsieh"
