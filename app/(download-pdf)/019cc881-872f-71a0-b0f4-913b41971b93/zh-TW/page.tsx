@@ -4,7 +4,8 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'John Hsieh - 資深前端工程師 | Meta Manus 團隊應徵',
   description: '擁有 7 年以上 React、TypeScript 及現代網頁開發經驗的前端工程師。目前任職於 ByteDance，曾任職於 LINE Taiwan。期待加入 Meta Manus 團隊開發前沿 AI 驅動產品。',
-  keywords: '前端工程師, React, TypeScript, JavaScript, AI 工具, Meta, Manus, ByteDance, TikTok, LINE, Next.js, Vue.js, 國際團隊, 中文, 英文'
+  keywords: '前端工程師, React, TypeScript, JavaScript, AI 工具, Meta, Manus, ByteDance, TikTok, LINE, Next.js, Vue.js, 國際團隊, 中文, 英文',
+  openGraph: { images: ['/avatar.jpg'] },
 }
 
 export default function Resume() {

@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | 前端工程師 — 緯雲股份有限公司 聯盟管理系統",
   description:
     "7 年前端開發經驗，精通 React / Next.js / TypeScript / Vue / TailwindCSS，曾任職 TikTok Singapore 與 LINE Taiwan。積極應徵緯雲股份有限公司聯盟管理系統前端工程師。",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

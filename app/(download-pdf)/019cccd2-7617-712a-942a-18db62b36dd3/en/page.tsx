@@ -57,6 +57,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | Senior Frontend Engineer — SWAG",
   description:
     "7 years of frontend experience specializing in React / Next.js / TypeScript / SSR / PWA / SEO. Previously at TikTok Singapore and LINE Taiwan.",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

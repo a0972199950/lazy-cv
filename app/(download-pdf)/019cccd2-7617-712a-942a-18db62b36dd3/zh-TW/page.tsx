@@ -57,6 +57,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | 資深前端工程師 — SWAG",
   description:
     "7 年前端開發經驗，精通 React / Next.js / TypeScript / SSR / PWA / SEO，曾任職 TikTok Singapore 與 LINE Taiwan。",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

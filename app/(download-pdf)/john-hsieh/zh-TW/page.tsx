@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | 資深前端工程師",
   description:
     "7 年前端開發經驗，曾任職 TikTok Singapore 與 LINE Taiwan，專精 React / Next.js / TypeScript。",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

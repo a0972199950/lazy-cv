@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | Senior Software Engineer — Wise (Japanese Speaking)",
   description:
     "7+ years of software engineering experience with JLPT N1 Japanese proficiency. Specializing in React / Next.js / TypeScript / Vue. Previously at TikTok Singapore and LINE Taiwan. Applying for Senior Software Engineer I - Japanese Speaking at Wise Singapore.",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

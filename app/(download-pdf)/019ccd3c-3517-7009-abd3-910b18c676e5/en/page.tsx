@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: "John Hsieh | Frontend Engineer — Cloud Latitude Software Alliance Management System",
   description:
     "7 years of frontend development experience. Specializing in React / Next.js / TypeScript / Vue / TailwindCSS. Previously at TikTok Singapore and LINE Taiwan. Applying for the Alliance Management System Frontend Engineer position at Cloud Latitude Software.",
+  openGraph: { images: ["/avatar.jpg"] },
 };
 
 /* ────────────────── data ────────────────── */

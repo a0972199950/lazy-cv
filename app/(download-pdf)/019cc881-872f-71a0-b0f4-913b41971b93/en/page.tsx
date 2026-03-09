@@ -4,7 +4,8 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'John Hsieh - Senior Frontend Engineer | Meta Manus Team Application',
   description: 'Experienced Frontend Engineer with 7+ years in React, TypeScript, and modern web development. Currently at ByteDance, previously at LINE Taiwan. Seeking opportunities with Meta Manus team to build cutting-edge AI-powered products.',
-  keywords: 'Frontend Engineer, React, TypeScript, JavaScript, AI tools, Meta, Manus, ByteDance, TikTok, LINE, Next.js, Vue.js, International team, Mandarin, English'
+  keywords: 'Frontend Engineer, React, TypeScript, JavaScript, AI tools, Meta, Manus, ByteDance, TikTok, LINE, Next.js, Vue.js, International team, Mandarin, English',
+  openGraph: { images: ['/avatar.jpg'] },
 }
 
 export default function Resume() {
