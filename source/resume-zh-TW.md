@@ -75,7 +75,7 @@
 **👥 團隊規模：** User Growth 團隊  
 
 **🌟 公司介紹：**
-TikTok 是全球最具影響力的互聯網公司之一，憑藉迅猛的增長，甚至在某些領域超越了 Meta 等傳統社交巨頭。其主力產品 TikTok 已經成為短視頻行業的絕對領先者，徹底改變了人們的娛樂和創作方式。除了短視頻業務，字節跳動的業務範圍還涵蓋了 AI 大模型、線上購物、新聞網站等多個領域。
+TikTok 是全球最具影響力的互聯網公司之一，憑藉迅猛的增長，甚至在某些領域超越了 Meta 等傳統社交巨頭。其主力產品 TikTok 已經成為短視頻行業的絕對領先者，徹底改變了人們的娛樂和創作方式。除了短視頻業務，TikTok 的業務範圍還涵蓋了 AI 大模型、線上購物、新聞網站等多個領域。
 
 **💻 工作內容：**
 - **所屬團隊：** User Growth 團隊，主要負責投放公司產品的廣告到各大 DSP 平台，以增加 tiktok 等 APP 的用戶數量
@@ -372,6 +372,42 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
+
+### TikTok
+
+**🌏 UG Overseas Platform — 海外增長業務平台**
+- **專案描述：** 大型企業級 Monorepo 前端專案，服務於 TikTok 線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域。專案採用統一的技術架構和工程規範，支持多個業務子系統的協同開發與獨立部署，管理 50+ 子專案，百萬級程式碼規模。
+我專注於負責採購與結算等相關模組的開發與維護
+
+- **技術棧：** Rush v5 + PNPM Workspaces (Monorepo)、React 17 + TypeScript、react-router-dom v5/v6、Arco Design、unstated-next（狀態管理）、Starling（國際化）、Axios、ECharts、Less + CSS Modules、Jest + @testing-library/react、Ferry（Thrift IDL 程式碼生成）、ESLint + commitlint + lint-staged
+- **技術亮點：**
+  - **複雜表單互動元件開發**：基於內部自研的 JSON Schema 動態表單渲染解決方案，開發大量業務表單互動元件，涵蓋級聯選擇、動態欄位、條件顯示等複雜場景，實現配置驅動的表單渲染，支援複雜校驗規則與欄位聯動邏輯
+  - **高精度數值計算處理**：針對財務、報價等業務場景的 JavaScript 浮點數精度問題，實作浮點數精度計算方案
+  - **微前端整合**：透過公司自研框架實現子應用動態載入，支援按需載入業務模組與獨立開發部署
+  - **類型安全的 API 通訊**：採用 Ferry + Thrift IDL 生成強型別 Service 程式碼，保障前後端協議一致性，減少執行時錯誤
+  - **國際化多語系**：透過自研線上翻譯平台，在 runtime 獲取最新翻譯文件，實現多語系支援與動態更新
+
+- **重大貢獻：**
+- **Web Worker 多線程 CSV 校驗**：
+此專案在業務上常常會需要上傳大型 CSV 來創建數據。這些 CSV 的格式校驗在前端進行，時常會因為龐大的計算量而造成 UI 卡住，帶來極不友好的體驗
+我在專案中導入了 Web Worker 多線程計算系統，將校驗的工作轉移到單獨執行續進行。同時使用 Comlink（類 RPC 通訊）簡化 web worker 複雜噁心的溝通方式，作到了類似 RPC 通訊的效果，可以在主線程與 web worker 中傳遞純數據，甚至是函數。
+同時校驗函數使用了基於 Yup 和 Regex 建構的 Schema，方便未來擴充更多單元格的校驗
+這個系統也被抽象為公共工具，除了校驗外，未來也能實現更多基於前端的複雜計算
+這個設計也成功在 10 筆資料中 **減少了 90% 的 UI 卡頓時間**
+架構圖: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=16111885428
+
+- **函數快取工具優化渲染效能**：
+專案內部使用了自研的表單渲染引擎來加速大型表單的開發，這個渲染引擎需要提供表單內容抽象化的 JS object，其中也包含了 onChange 等函數用於連動表單不同欄位的互動
+而這個引擎的重大效能缺陷是: 每渲染表單就要計算一遍整個 schema。當表單內容很多，並且類型為 array 的時候，此效能缺陷造成的弊端會被顯著放大，肉眼可見的影響就是 UI 交互卡死，長時間等代表單生成
+為了解決這個問題，我做了兩個簡單的小工具函數 cache/cacheMany。模仿 react useMemo，將計算結果快取進 Map。或是根據傳進來的參數為 key，存進多個 Map
+利用這個小技巧加上其他常規優化手段，我成功讓一個沒有做分頁，一次要渲染 500 個表單 UI 的介面，**其 Total Blocking Time (TBT) 降低了 98%**
+
+![封面圖片](https://cdn.lazy-cv.com/OA.png)
+![web worker 架構圖](https://cdn.lazy-cv.com/web-worker.png)
+![表單渲染優化效果圖](https://cdn.lazy-cv.com/pp-performance.png)
+
+
+
 
 ### LINE Taiwan
 

@@ -39,20 +39,20 @@ I used to work as a tutor, teaching three students in front-end development and 
 
 ## 💼 Work Experience
 
-### 🚀 ByteDance Ltd. - Software Engineer
+### 🚀 TikTok - Software Engineer
 **📅 Duration:** 2024/11 - Present  
 **🌍 Location:** Singapore
 
 **🖼️ Company Logo:** https://cdn.lazy-cv.com/tiktok-icon.png
 
-![ByteDance Logo](https://cdn.lazy-cv.com/tiktok-icon.png)
+![TikTok Logo](https://cdn.lazy-cv.com/tiktok-icon.png)
 
 #### 📖 Company Introduction
 **Website:** https://www.bytedance.com/
 
 TikTok is one of the most influential internet companies in the world. With its rapid growth, it has even surpassed traditional social media giants such as Meta in certain areas. Its flagship product, TikTok, has become the undisputed leader in the short video industry, revolutionizing the way people entertain and create.
 
-Beyond short video services, ByteDance's business scope also spans multiple areas, including AI large models, online shopping, and news platforms — demonstrating its exceptional technological innovation and continuously expanding its global influence.
+Beyond short video services, TikTok's business scope also spans multiple areas, including AI large models, online shopping, and news platforms — demonstrating its exceptional technological innovation and continuously expanding its global influence.
 
 #### 🎯 Job Description
 I am part of the User Growth team, which is primarily responsible for running advertisements for company products across major DSP platforms to increase the user base for apps such as TikTok.
@@ -275,6 +275,39 @@ This resume was automatically generated using this project.
   - **Neon Serverless PostgreSQL + Drizzle ORM**: Type-safe database access using Neon's serverless PostgreSQL with Drizzle ORM
   - **TailwindCSS 4 + Framer Motion**: Responsive design with smooth animations
   - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed through AI-assisted coding (Vibe Coding)
+
+### TikTok
+
+##### UG Overseas Platform — Overseas User Growth Business Platform
+- **Description:** A large-scale enterprise-level Monorepo frontend project serving TikTok's online advertising overseas user growth business line. The platform covers multiple business domains including media asset management, financial settlement, supplier procurement, and data dashboards. It adopts a unified technical architecture and engineering standards, supporting collaborative development and independent deployment of multiple business subsystems across 50+ sub-projects with million-line-level codebase.
+I focused on the development and maintenance of procurement and settlement related modules.
+
+- **Tech Stack:** Rush v5 + PNPM Workspaces (Monorepo), React 17 + TypeScript, react-router-dom v5/v6, Arco Design, unstated-next (state management), Starling (i18n), Axios, ECharts, Less + CSS Modules, Jest + @testing-library/react, Ferry (Thrift IDL code generation), ESLint + commitlint + lint-staged
+- **Technical Highlights:**
+  - **Complex Form Component Development**: Built extensive business form components based on an internally developed JSON Schema dynamic form rendering solution, covering cascading selects, dynamic fields, and conditional rendering scenarios with configuration-driven form rendering and complex validation logic
+  - **High-Precision Numeric Computation**: Addressed JavaScript floating-point precision issues for financial and pricing scenarios with a custom floating-point precision calculation solution
+  - **Micro-Frontend Integration**: Implemented dynamic sub-application loading via the company's proprietary framework, supporting on-demand module loading with independent development and deployment
+  - **Type-Safe API Communication**: Leveraged Ferry + Thrift IDL for auto-generated strongly-typed service code, ensuring frontend-backend protocol consistency and reducing runtime errors
+  - **Internationalization & Multi-language**: Implemented multi-language support with dynamic updates by fetching the latest translation files at runtime through an internally developed online translation platform
+
+- **Key Contributions:**
+- **Web Worker Multi-threaded CSV Validation**:
+The project frequently required uploading large CSV files to create data records. The format validation of these CSVs was performed on the frontend, and the heavy computation often caused the UI to freeze, resulting in an extremely poor user experience.
+I introduced a Web Worker multi-threaded computation system into the project, offloading the validation work to a separate thread. I also used Comlink (RPC-like communication) to simplify the notoriously complex Web Worker messaging, achieving an RPC-like effect that allows passing pure data and even functions between the main thread and Web Worker.
+The validation functions used schemas built on Yup and Regex, making it easy to extend with more cell-level validations in the future.
+This system was also abstracted into a shared utility—beyond validation, it can support more complex frontend computations in the future.
+This design successfully **reduced UI blocking time by 90%** across 10 data entries.
+Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=16111885428
+
+- **Function Caching Utilities for Rendering Optimization**:
+The project internally used a proprietary form rendering engine to accelerate the development of large forms. This engine required an abstracted JS object representing the form content, which also included functions like `onChange` for cross-field interactions.
+The engine's critical performance flaw was that it recomputed the entire schema on every form render. When form content was extensive and included array-type fields, this flaw was significantly amplified—manifesting as frozen UI interactions and long waits for form generation.
+To solve this problem, I created two simple utility functions: `cache`/`cacheMany`. Mimicking React's `useMemo`, they cache computation results in a Map, or store results in multiple Maps keyed by incoming parameters.
+With this technique combined with other standard optimizations, I successfully reduced the **Total Blocking Time (TBT) by 98%** on an interface that rendered 500 form UIs without pagination.
+
+![Cover Image](https://cdn.lazy-cv.com/OA.png)
+![Web Worker Architecture Diagram](https://cdn.lazy-cv.com/web-worker.png)
+![Form Rendering Optimization Results](https://cdn.lazy-cv.com/pp-performance.png)
 
 ### LINE Taiwan
 
