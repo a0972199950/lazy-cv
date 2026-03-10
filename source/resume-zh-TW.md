@@ -33,35 +33,26 @@
 
 ---
 
-## 🎯 個人簡介與職業願景
+## 🎯 個人簡介
 
-### 💫 核心理念
 我在前端開發領域有7年經驗，曾任職於 **TikTok 新加坡**與 **LINE Taiwan**，擔任資深軟體工程師。常用的技術架構是 **React(NextJS)**、**Vue(NuxtJS)** 以及 **TypeScript**。
-我的核心價值觀是 "使用者體驗至上"。我是使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品
+我的核心價值觀是 "使用者體驗至上"。我的使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品。
 
-### 🚀 職業發展歷程
 我的職涯中經歷過千人規模的大型軟體企業，在已具有完整的開發工具與流程的環境工作；也曾經幫助剛成立的新創公司，從零開始規劃技術到完整上線產品。
-
-### ⭐ 核心競爭優勢
 **具有在資源不多環境下的規劃能力與適應性，也能在規範的環境中嚴謹開發高質量的程式。**
 
-除此之外我還能**流利使用英、日、中三種語言**。除了母語的中文外，皆有達到職場溝通程度。
+除此之外我還能**流利使用英、日、中三種語言**，除了母語的中文外，皆有達到職場溝通程度。同時我熟悉敏捷開發與可持續的團隊迭代交付模式，擅長與他人合作，以及與非技術人員溝通。
 
-同時我熟悉敏捷開發與可持續的團隊迭帶交付模式，擅長與他人合作，以及與非技術人員溝通
-
-### 👤 個人特質
-- **個性特點：** 比較慢熟，但熟了之後幹話會變很多，喜歡和幹話同樣很多的人聊天
-- **興趣愛好：** 看電影、騎車兜風、打 Game、修理 3C 產品
-- **成就感來源：** 自學焊接電路後修好一台垃圾桶 (這個經歷很幽默但展現了動手能力)
-
-### 🏆 教學與分享熱忱
-另外我還喜歡分享所學，並擅長將複雜的問題用簡單的方式解釋，尤其針對非技術人員
-看到有人因為自己而獲得成長，對我來說的成就感不亞於解決技術問題。
-
-**教學經驗：**
+### 教學與分享
+- 喜歡分享所學，擅長將複雜的問題用簡單的方式解釋，尤其針對非技術人員
+- 看到有人因為自己而獲得成長，對我來說的成就感不亞於解決技術問題
 - 曾當過家教：3 位前端學生與 1 位日文學生
 - 職場上擔任 mentor：在 LINE Taiwan 指導 2 位新人
-- 看到學生理解新知識時會很愉悅
+
+### 個人特質
+- **個性：** 比較慢熟，但熟了之後幹話會變很多，喜歡和幹話同樣很多的人聊天
+- **興趣：** 看電影、騎車兜風、打 Game、修理 3C 產品
+- **成就感來源：** 自學焊接電路後修好一台垃圾桶（幽默但展現動手能力）
 
 
 
@@ -159,12 +150,12 @@ LINE 購物維護一個前端專案與一個 API 專案，團隊高度要求 cod
 **🏷️ 工作性質：** 契約合作  
 
 **🌟 公司介紹：**
-AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客製化相簿，並將製作完成的相簿印製成實體紀念冊出售。
+AI.Book 是一個線上相片書編輯平台，允許使用者在線製作客製化相簿，並將製作完成的相簿印製成實體紀念冊出售。
 
 **💻 工作內容：**
 - **角色定位：** 公司契約合作的前端工程師
 - **主要負責：** 獨自負責開發最關鍵的線上相片書編輯器
-- **開發週期：** 花費6個月從0開始到產品最終上線
+- **開發週期：** 花費 6 個月從 0 開始到產品最終上線
 - **技術棧：** Vue + NuxtJS
 
 **🖼️ 公司 Logo：** https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png
@@ -183,14 +174,9 @@ FundFluent 是面向香港市場，專為中小型企業提供貸款媒合與資
 
 **💻 工作內容：**
 - **角色定位：** 從公司成立初期開始擔任前端開發核心成員
-- **主要職責：** 從0開始規劃產品的前端架構及技術選型
+- **主要職責：** 從 0 開始規劃產品的前端架構及技術選型
 - **技術棧：** React(NextJS) + TypeScript + Semantic UI + TailwindCSS
-
-**🔧 技術創新：**
-規劃了一個可在不同專案間共用的內部 UI 組件庫：
-- **架構：** Web component (使用 Stencil.js 構建)
-- **優勢：** 能適用非 React 專案
-- **部署：** Publish 到 private NPM 使用
+- **技術創新：** 規劃了一個可在不同專案間共用的內部 UI 組件庫，使用 Web Component (Stencil.js) 構建，能適用非 React 專案，Publish 到 private NPM 使用
 
 **🖼️ 公司 Logo：** https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png
 
@@ -364,9 +350,6 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
   - **TailwindCSS 4 + Framer Motion**：響應式設計搭配流暢動畫
   - **Vibe Coding 實踐**：整個專案從零到上線僅花費 2 天，全程透過 AI 輔助開發（Vibe Coding）完成
 - **圖片：**
-  - https://cdn.lazy-cv.com/lazy-cv-main.png
-  - https://cdn.lazy-cv.com/lazy-cv-main-2.png
-
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main.png)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
@@ -402,6 +385,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 為了解決這個問題，我做了兩個簡單的小工具函數 cache/cacheMany。模仿 react useMemo，將計算結果快取進 Map。或是根據傳進來的參數為 key，存進多個 Map
 利用這個小技巧加上其他常規優化手段，我成功讓一個沒有做分頁，一次要渲染 500 個表單 UI 的介面，**其 Total Blocking Time (TBT) 降低了 98%**
 
+- **圖片：**
 ![封面圖片](https://cdn.lazy-cv.com/OA.png)
 ![web worker 架構圖](https://cdn.lazy-cv.com/web-worker.png)
 ![表單渲染優化效果圖](https://cdn.lazy-cv.com/pp-performance.png)
@@ -414,11 +398,11 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 **📱 LINE 購物 (主力產品)**
 - **網址：** https://buy.line.me
 - **專案描述：** LINE 導購服務，凡經由 LINE 購物外連到合作夥伴商家完成消費後，即可獲得 LINE 點數回饋。平台同時也是集結了合作第三方電商的購物入口網站，讓消費者可方便的搜尋、比價與分享好物。
-- **圖片：** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
 - **重大貢獻：** 我獨自開發了購物平台的"直播購物"功能。我參考了 YouTube 影片流自動預覽的機制，設計了一套可覆用影片自動預覽模組。
 透過一個全局調度器，解決了高速捲動下影片預覽混亂的問題，以及單一頁面過多直播源，造成記憶體暴增的技術難點
 架構圖網址: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
 
+- **圖片：**
 ![LINE 購物平台](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
 ![LINE 購物平台](https://cdn.lazy-cv.com/shopping-live-hall.png)
 ![LINE 購物平台](https://cdn.lazy-cv.com/shopping-live-hall2.jpg)
@@ -427,95 +411,112 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 
 **🔧 JavaScript Task Force**
 - **專案描述：** 這不是一個實際產品，而是一個專案小組。其成員分別代表並來自不同的團隊，目的是為整個 LINE Taiwan 制定前端開發準則。至目前為止，我們研究了 SonarQube 靜態程式碼分析工具、在 CI 中加入 Lighthouse 評分、前端 monitor 工具 OpenTel，以及自行開發了 React 專案初始 template 生成工具等等。
-- **圖片：** https://cdn.lazy-cv.com/jstf.png
 
+- **圖片：**
 ![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
 
 **⚛️ CMS 重構為 React & NextJS (Leader)**
 - **專案描述：** 2023 年我開始主導此專案，帶領團隊將 php 架構的 LINE 購物 CMS 重構為 React & NextJS app router 架構。團隊成員共有4人。除了實際開發外，我需要負責技術選型，內訓，時程規劃，工作分配與風險評估等等工作。這也是少數幾個在 LINE Taiwan 中實際開始採用 NextJS app router 的早期專案之一。
-- **圖片：** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
 
+- **技術亮點：**
+ - 使用 iframe 實現微服務，新老專案可以獨立佈署與上線，也可以 by URL 漸進式將老專案切換至新專案
+ - 公司早期採用 Next APP router 的專案之一
+
+- **重大貢獻：**
+ - 除了寫程式外，還擔任架構師的任務，規畫整個專案，並同時兼任 PM 角色，分派工作、撰寫技術文件、與使用者溝通等等
+
+- **圖片：**
 ![CMS 重構 NextJS](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
 ![CMS 重構 NextJS](https://cdn.lazy-cv.com/cms-graph.png)
 
 ### AI.Book 愛相簿
 
-**功能特色：**
-- 自行規劃技術並實作的相片書編輯器
-- 支援加入/移除照片
-- 拖動照片位置與尺寸調整
-- 輸入文字以及編輯字型字體大小
-- 網頁端與手機端編輯支援
-- 支援安裝 PWA 達到類原生 APP 的體驗
+- **專案描述：**
+AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客製化相簿，並將製作完成的相簿印製成實體紀念冊出售
+其中最重要的是一個線上相片書編輯器，花費 6 個月從 0 開始到產品最終上線。使用的技術棧為 Vue + NuxtJS
 
 **技術亮點：**
-這是一個完全從零開始規劃的複雜編輯器專案，展現了獨立開發大型功能模組的能力，並具備跨平台相容性。
+- 用純 Vue 搭建一個客製化的編輯器，可加入/移除照片，輸入文字以及編輯字型字體大小等等
+- 編輯器支援網頁端與手機端編輯支援
+- 支援安裝 PWA 達到類原生 APP 的體驗
 
-**🖼️ 專案圖片：** 
-- 編輯器介面：https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png
+- **重大貢獻：**
+ - 從 0 開始單獨開發
 
+- **圖片：**
 ![編輯器介面](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
-
-- 完整界面：https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png
-
 ![完整界面](https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png)
 
 ### FundFluent
 
 **🎨 FundFluent UI Kit Library (內部專案)**
 - **專案描述：** 個人主導的內部跨專案共用的 UI 組件平台，共享在 private NPM 上。組件本身使用 Web component (Stencil.js)，使其不受前端框架限制。CSS 系統上則是整合了 TailwindCSS + 客製化 Semantic UI 為基底來實現公司的 design system，最後使用了 Storybook 撰寫文件頁面。
-- **圖片：** https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
+架構圖: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 
-![FundFluent UI Kit](https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
+- **技術亮點：**
+ - UI 組件使用 Stencil 搭建 web components，因此使用上不限框架
+ - 透過 Tailwind + Semantic UI 構建 design system
+ - 透過 StoryBook 展示組件，更容易與設計師溝通確認
+ - 使用 monorepo 區分組件庫與業務程式。組件庫可單獨發布測試，通過後再批量構建業務程式庫
+
+- **重大貢獻：**
+ - 從 0 開始單獨開發
+
+- **圖片：**
+![架構圖](https://cdn.lazy-cv.com/fundfluent-ui-kit.png)
 
 **🏢 FundFluent | SME portal**
 - **網址：** https://app.fundfluent.io
 - **專案描述：** 面向香港中小企業的整合貸款平台。提供銀行與政府的各式貸款資訊、一站式申請各項貸款，並利用 OCR 技術協助中小企業整理、歸類相關文件，以減少申請多筆貸款時重複的提交文件成本。
-- **圖片：** https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
+- **重大貢獻：**
+ - 從 0 開始單獨開發
 
+- **圖片：**
 ![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
 
 **🏦 FundFluent | Partner portal**
 - **網址：** https://partner.fundfluent.io
 - **專案描述：** 面向銀行等放貸方的管理平台。可用來上架、整理各項貸款專案，以及審核來自中小企的申請案件。
-- **圖片：** https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png
+- **重大貢獻：**
+ - 從 0 開始單獨開發
 
+- **圖片：**
 ![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
 
 ### 電獺股份有限公司
 
-**🔗 SuprLink 超級連結 (自有專案)**
+**🔗 SuprLink 超級連結**
 - **網址：** https://supr.link
 - **專案描述：** 從 A/B 分流到數據分析，再到廣告投放一氣呵成的縮網址服務
-- **圖片：** https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png
 
+- **圖片：**
 ![SuprLink 超級連結](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
 
 **🧩 Chrome 小工具 - SuprLink 超級連結**
 - **網址：** https://supr.link/WJ4rd
 - **專案描述：** 快速在 SuprLink 超級連結 產生縮網址的 Chrome 小工具
-- **圖片：** https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png
+- **圖片：**
 
 ![Chrome 小工具 SuprLink](https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
 
-**📊 Aotter Trek (自有專案)**
+**📊 Aotter Trek**
 - **網址：** https://trek.aotter.net
 - **專案描述：** 結合大數據分析的廣告投放 DSP 平台，使用大量圖表介面為使用者找出最適合的廣告 TA
-- **圖片：** https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png
+- **圖片：**
 
 ![Aotter Trek DSP 平台](https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png)
 
-**🏛️ 資策會 城市儀表板 (外部專案)**
+**🏛️ 資策會 城市儀表板**
 - **網址：** https://supr.link/oLOid
 - **專案描述：** 收集分散各地的政府數據於同一地展示的政府資料數據庫。有著可高度客製化的圖表及資料篩選模組
-- **圖片：** https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png
+- **圖片：**
 
 ![資策會城市儀表板](https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
 
-**🎮 beanfun! 數據與管理中心 (外部專案)**
+**🎮 beanfun! 數據與管理中心**
 - **網址：** https://supr.link/30dOw
 - **專案描述：** 擁有各種圖表的集中數據 Dashboard，用以顯示企業內部各項指標
-- **圖片：** https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png
+- **圖片：**
 
 ![beanfun! 數據管理中心](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
 
@@ -524,7 +525,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 **📚 咻咻漫畫**
 - **網址：** https://supr.link/JMNiY
 - **專案描述：** 非法盜用未授權的韓國成人漫畫，添加自製封面後上架販售的平台
-- **圖片：** https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png
+- **圖片：**
 
 ![咻咻漫畫](https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png)
 
@@ -533,21 +534,21 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 **🌺 俏樂斯 官方網站**
 - **網址：** https://supr.link/9j9Ny
 - **專案描述：** 日本沖繩保養品俏樂斯的台灣官方網站
-- **圖片：** https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png
+- **圖片：**
 
 ![俏樂斯官方網站](https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png)
 
 **💇 髮樂活**
 - **網址：** https://supr.link/JmZHp
 - **專案描述：** 美髮保養的內容型自媒體網站
-- **圖片：** https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png
+- **圖片：**
 
 ![髮樂活網站](https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png)
 
 **🎌 日本嚴選**
 - **網址：** https://supr.link/n11Jr
 - **專案描述：** 專接業配的部落格
-- **圖片：** https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png
+- **圖片：**
 
 ![日本嚴選部落格](https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png)
 

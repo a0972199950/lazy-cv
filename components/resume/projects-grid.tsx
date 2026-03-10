@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
-import { FolderKanban } from "lucide-react";
+import { FolderKanban, Sparkles, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { BlurFade } from "@/components/ui/blur-fade";
 import {
@@ -26,13 +26,24 @@ import {
 } from "@/components/ui/dialog";
 import type { Project } from "./types";
 
+/** Parse **bold** markers in a string into <strong> React elements */
+function parseBold(text: string): ReactNode {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i} className="font-semibold text-slate-800">{part}</strong> : part
+  );
+}
+
 type ProjectsGridProps = {
   title: string;
   description: string;
   projects: Project[];
+  highlightsLabel?: string;
+  contributionsLabel?: string;
 };
 
-export function ProjectsGrid({ title, description, projects }: ProjectsGridProps) {
+export function ProjectsGrid({ title, description, projects, highlightsLabel = "Technical Highlights", contributionsLabel = "Key Contributions" }: ProjectsGridProps) {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
@@ -118,6 +129,35 @@ export function ProjectsGrid({ title, description, projects }: ProjectsGridProps
                       {project.summary}
                     </p>
                   </div>
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="rounded-lg border border-cyan-100 bg-cyan-50/40 px-3 py-2">
+                      <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-cyan-800">
+                        <Sparkles className="size-3" />
+                        {highlightsLabel}
+                      </p>
+                      <ul className="list-disc space-y-0.5 pl-4">
+                        {project.highlights.map((h, i) => (
+                          <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {project.contributions && project.contributions.length > 0 && (
+                    <div className="rounded-lg border border-amber-100 bg-amber-50/40 px-3 py-2">
+                      <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                        <Trophy className="size-3" />
+                        {contributionsLabel}
+                      </p>
+                      <ul className="list-disc space-y-0.5 pl-4">
+                        {project.contributions.map((c, i) => (
+                          <li
+                            key={i}
+                            className="text-[11px] leading-relaxed text-slate-600"
+                          >{parseBold(c)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   <div className="mt-auto flex flex-wrap gap-1.5">
                     {project.stack.map((tech) => (
                       <Badge
@@ -138,7 +178,7 @@ export function ProjectsGrid({ title, description, projects }: ProjectsGridProps
 
       {/* Lightbox modal */}
       <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
-        <DialogContent className="max-w-[90vw] sm:max-w-[90vw] max-h-[90vh] w-fit p-2 bg-black/95 border-none ring-0" showCloseButton>
+        <DialogContent className="max-w-[90vw] sm:max-w-[90vw] max-h-[90vh] w-fit p-2 bg-white border-none ring-0" showCloseButton>
           {lightbox && (
             <div className="relative w-[85vw] h-[85vh]">
               <Image

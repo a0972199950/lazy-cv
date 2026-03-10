@@ -139,9 +139,31 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "UG Overseas Platform — 海外增長業務平台",
+    summary:
+      "TikTok 大型企業級 Monorepo 前端專案，服務於線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域。管理 50+ 子專案，百萬級程式碼規模。我專注於負責採購與結算等相關模組的開發與維護 — 具備直接相關的金融系統開發經驗。",
+    stack: ["React 17", "TypeScript", "Rush v5", "PNPM Workspaces", "Arco Design", "ECharts", "Jest"],
+    image: [
+      "https://cdn.lazy-cv.com/OA.png",
+      "https://cdn.lazy-cv.com/web-worker.png",
+      "https://cdn.lazy-cv.com/pp-performance.png",
+    ],
+    highlights: [
+      "複雜表單互動元件開發：基於內部自研 JSON Schema 動態表單渲染方案，開發大量業務表單元件，涵蓋級聯選擇、動態欄位、條件顯示等複雜場景",
+      "高精度數值計算處理：針對財務、報價等場景的 JavaScript 浮點數精度問題，實作浮點數精度計算方案",
+      "微前端整合：透過公司自研框架實現子應用動態載入，支援按需載入業務模組與獨立開發部署",
+      "類型安全的 API 通訊：採用 Ferry + Thrift IDL 生成強型別 Service 程式碼，保障前後端協議一致性",
+      "國際化多語系：透過自研線上翻譯平台，在 runtime 獲取最新翻譯文件，實現多語系支援與動態更新",
+    ],
+    contributions: [
+      "Web Worker 多線程 CSV 校驗：導入 Web Worker + Comlink（類 RPC 通訊）將校驗工作轉移到獨立執行緒，使用 Yup + Regex Schema 建構校驗邏輯，並抽象為公共工具供未來複用。**減少了 90% 的 UI 卡頓時間**",
+      "函數快取工具優化渲染效能：建立 cache/cacheMany 工具函數，模仿 React useMemo 將計算結果快取進 Map。**Total Blocking Time (TBT) 降低了 98%**（在一次渲染 500 個表單 UI 且無分頁的介面上）",
+    ],
+  },
+  {
     name: "LINE 購物 — 直播購物功能",
     summary:
-      "獨自開發 LINE 導購服務的「直播購物」功能。參考 YouTube 影片流自動預覽機制，設計了一套可覆用的影片自動預覽模組，透過全局調度器解決高速捲動下影片預覽混亂及單頁面過多直播源造成記憶體暴增的技術難點 — 一個服務數千併發用戶的高可用性系統。",
+      "獨自開發 LINE 導購服務的「直播購物」功能 — 一個服務數千併發用戶的高可用性系統。",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -150,13 +172,9 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
     ],
     url: "https://buy.line.me",
-  },
-  {
-    name: "TikTok 廣告財務結算系統",
-    summary:
-      "在全球頂級互聯網公司 TikTok 開發廣告投放的財務結算系統。該系統處理跨多個 DSP 平台的複雜金融操作，使用 React、monorepo 架構與專有的前端微服務框架。直接建設服務數億用戶的金融基礎設施。",
-    stack: ["React", "TypeScript", "Monorepo", "Microservices"],
-    image: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
+    contributions: [
+      "參考 YouTube 影片流自動預覽機制，設計了一套可覆用影片自動預覽模組。透過全局調度器，解決了高速捲動下影片預覽混亂的問題，以及**單一頁面過多直播源造成記憶體暴增的技術難點**",
+    ],
   },
   {
     name: "CMS 重構至 NextJS",
@@ -187,6 +205,13 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
     ],
     url: "https://lazy-cv.com",
+    highlights: [
+      "Next.js 16 App Router + Standalone Output：採用最新 App Router 架構，搭配 standalone 模式打包為輕量 Docker Image",
+      "AI Agent 自動化 SOP：透過 Chrome DevTools MCP 自動爬取 JD，結合結構化 Prompt 實現端到端履歷生成",
+      "Serverless 部署架構：ECR + Lambda Web Adapter + S3 + CloudFront CDN，CI/CD 透過 GitHub Actions 全自動化",
+      "Neon Serverless PostgreSQL + Drizzle ORM：使用 Neon 無伺服器資料庫搭配 Drizzle ORM 實現 type-safe 資料存取",
+      "Vibe Coding 實踐：整個專案從零到上線僅花費 2 天，全程透過 AI 輔助開發完成",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",
@@ -277,6 +302,8 @@ export default function WiseResumeZhTW() {
         title="專案介紹"
         description={`${projects.length} 個代表性專案，展示產品影響力、金融系統經驗與可擴展架構。`}
         projects={projects}
+        highlightsLabel="技術亮點"
+        contributionsLabel="重大貢獻"
       />
 
       <TechStackVisualization title="技術棧可視化" description="核心技術與周邊能力的連結關係圖。">

@@ -12,6 +12,8 @@ export type Project = {
   stack: string[];
   image: string | string[];
   url?: string;
+  highlights?: string[];
+  contributions?: string[];
 };
 
 export type StatItem = {

@@ -139,9 +139,31 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "UG Overseas Platform — 海外グロースビジネスプラットフォーム",
+    summary:
+      "TikTok の大規模エンタープライズ Monorepo フロントエンドプロジェクト。オンライン広告の海外ユーザーグロース事業ラインに対応し、メディアアセット管理、財務決済、サプライヤー調達、データダッシュボードなど複数のビジネスドメインをカバー。50以上のサブプロジェクト、100万行規模のコードベースを管理。調達・決済関連モジュールの開発・保守を担当 — 金融システム開発の直接的な実務経験。",
+    stack: ["React 17", "TypeScript", "Rush v5", "PNPM Workspaces", "Arco Design", "ECharts", "Jest"],
+    image: [
+      "https://cdn.lazy-cv.com/OA.png",
+      "https://cdn.lazy-cv.com/web-worker.png",
+      "https://cdn.lazy-cv.com/pp-performance.png",
+    ],
+    highlights: [
+      "複雑フォームコンポーネント開発：社内開発の JSON Schema 動的フォームレンダリングソリューションを基盤に、カスケード選択・動的フィールド・条件表示などの業務フォームコンポーネントを多数開発",
+      "高精度数値計算処理：財務・見積もりシーンにおける JavaScript 浮動小数点精度問題に対し、カスタム精度計算ソリューションを実装",
+      "マイクロフロントエンド統合：社内独自フレームワークによるサブアプリケーションの動的ロードを実現、オンデマンドのモジュールロードと独立デプロイに対応",
+      "型安全な API 通信：Ferry + Thrift IDL による自動生成の強型付きサービスコードを活用、フロントエンド・バックエンドプロトコルの一貫性を確保",
+      "国際化・多言語対応：社内開発のオンライン翻訳プラットフォームを通じてランタイムで最新翻訳ファイルを取得、多言語サポートと動的更新を実現",
+    ],
+    contributions: [
+      "Web Worker マルチスレッド CSV バリデーション：Web Worker + Comlink（RPC ライク通信）を導入し、重い CSV バリデーションを別スレッドにオフロード。Yup + Regex Schema で検証ロジックを構築し、共有ユーティリティとして抽象化。**UI ブロッキング時間を90%削減**",
+      "関数キャッシュユーティリティによるレンダリング最適化：React useMemo を模倣した cache/cacheMany ユーティリティを作成、フォームスキーマ計算結果を Map にキャッシュ。ページネーションなしで500個のフォーム UI をレンダリングするインターフェースにおいて、**Total Blocking Time (TBT) を98%削減**",
+    ],
+  },
+  {
     name: "LINE ショッピング — ライブコマース機能",
     summary:
-      "LINE 購買サービスの「ライブコマース」機能を単独開発。YouTube の動画ストリーム自動プレビュー機構を参考に、再利用可能な動画自動プレビューモジュールを設計。グローバルスケジューラにより、高速スクロール時のプレビュー混乱や単一ページ上の過剰なライブソースによるメモリ肥大化を解決 — 数千の同時接続ユーザーに対応する高可用性システム。",
+      "LINE 購買サービスの「ライブコマース」機能を単独開発 — 数千の同時接続ユーザーに対応する高可用性システム。",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -150,13 +172,9 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
     ],
     url: "https://buy.line.me",
-  },
-  {
-    name: "TikTok 広告財務決済システム",
-    summary:
-      "世界トップクラスのインターネット企業 TikTok にて、広告配信の財務決済システムを開発。複数の DSP プラットフォームにまたがる複雑な金融オペレーションを処理。React、monorepo アーキテクチャ、専用フロントエンドマイクロサービスフレームワークを使用。数億ユーザーにサービスを提供する金融インフラを直接構築。",
-    stack: ["React", "TypeScript", "Monorepo", "Microservices"],
-    image: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
+    contributions: [
+      "YouTube の動画ストリーム自動プレビュー機構を参考に、再利用可能な動画自動プレビューモジュールを設計。グローバルスケジューラにより、高速スクロール時のプレビュー混乱および**単一ページ上の過剰なライブソースによるメモリ肥大化の技術的課題を解決**",
+    ],
   },
   {
     name: "CMS リファクタリング（NextJS）",
@@ -187,6 +205,13 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
     ],
     url: "https://lazy-cv.com",
+    highlights: [
+      "Next.js 16 App Router + Standalone Output：最新 App Router アーキテクチャと standalone モードによる軽量 Docker パッケージング",
+      "AI Agent 自動化 SOP：Chrome DevTools MCP で JD を自動スクレイピング、構造化 Prompt によるエンドツーエンドの履歴書生成",
+      "AWS サーバーレスデプロイ：ECR + Lambda Web Adapter + S3 + CloudFront CDN、GitHub Actions による完全自動化 CI/CD",
+      "Neon Serverless PostgreSQL + Drizzle ORM：サーバーレス PostgreSQL による型安全なデータアクセス",
+      "Vibe Coding 2日間完成：AI アシスト開発によりゼロからプロダクションまで僅か2日間で完了",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",
@@ -277,6 +302,8 @@ JLPT N1（最高レベル）を取得しており、本ポジション要件の 
         title="プロジェクト紹介"
         description={`${projects.length} 件の代表的プロジェクト。プロダクトインパクト、金融システム経験、スケーラブルアーキテクチャを紹介。`}
         projects={projects}
+        highlightsLabel="技術ハイライト"
+        contributionsLabel="主な貢献"
       />
 
       <TechStackVisualization title="技術スタック可視化" description="コア技術と周辺スキルのリレーションマップ。">

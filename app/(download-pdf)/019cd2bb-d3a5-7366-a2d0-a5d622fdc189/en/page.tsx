@@ -139,9 +139,31 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "UG Overseas Platform — Overseas User Growth Business Platform",
+    summary:
+      "Large-scale enterprise Monorepo frontend project at TikTok, serving the online advertising overseas user growth business line. Covers media asset management, financial settlement, supplier procurement, and data dashboards across 50+ sub-projects with million-line-level codebase. I focused on procurement and settlement module development — directly relevant experience in financial system development.",
+    stack: ["React 17", "TypeScript", "Rush v5", "PNPM Workspaces", "Arco Design", "ECharts", "Jest"],
+    image: [
+      "https://cdn.lazy-cv.com/OA.png",
+      "https://cdn.lazy-cv.com/web-worker.png",
+      "https://cdn.lazy-cv.com/pp-performance.png",
+    ],
+    highlights: [
+      "Complex Form Component Development: Built extensive business form components based on an internal JSON Schema dynamic form rendering solution, covering cascading selects, dynamic fields, and conditional rendering with configuration-driven form rendering",
+      "High-Precision Numeric Computation: Addressed JavaScript floating-point precision issues for financial and pricing scenarios with a custom precision calculation solution",
+      "Micro-Frontend Integration: Implemented dynamic sub-application loading via the company's proprietary framework, supporting on-demand module loading with independent deployment",
+      "Type-Safe API Communication: Leveraged Ferry + Thrift IDL for auto-generated strongly-typed service code, ensuring frontend-backend protocol consistency",
+      "Internationalization & Multi-language: Implemented multi-language support with dynamic updates by fetching translation files at runtime through an internal translation platform",
+    ],
+    contributions: [
+      "Web Worker Multi-threaded CSV Validation: Introduced a Web Worker system with Comlink (RPC-like communication) to offload heavy CSV validation to a separate thread, using Yup + Regex schemas. Abstracted as a shared utility for complex frontend computations. **Reduced UI blocking time by 90%**",
+      "Function Caching Utilities for Rendering Optimization: Created cache/cacheMany utilities mimicking React useMemo to cache form schema computations in Maps. **Reduced Total Blocking Time (TBT) by 98%** on an interface rendering 500 form UIs without pagination",
+    ],
+  },
+  {
     name: "LINE Shopping — Live Shopping Feature",
     summary:
-      "Independently developed the 'Live Shopping' feature for LINE's affiliate shopping platform. Designed a reusable video auto-preview module inspired by YouTube's auto-preview mechanism, with a global scheduler that resolved chaotic previews during high-speed scrolling and memory spikes from too many concurrent live streams — a highly available system handling thousands of concurrent users.",
+      "Independently developed the 'Live Shopping' feature for LINE's affiliate shopping platform — a highly available system handling thousands of concurrent users.",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -150,13 +172,9 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
     ],
     url: "https://buy.line.me",
-  },
-  {
-    name: "TikTok Ad Financial Settlement System",
-    summary:
-      "Developing the financial settlement systems for ad delivery at TikTok, one of the world's largest internet companies. The system handles complex financial operations across multiple DSP platforms using React, monorepo architecture, and a proprietary frontend microservices framework. Directly building financial infrastructure that scales to serve hundreds of millions of users.",
-    stack: ["React", "TypeScript", "Monorepo", "Microservices"],
-    image: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
+    contributions: [
+      "Designed a reusable video auto-preview module inspired by YouTube's auto-preview mechanism. Built a global scheduler to resolve chaotic previews during high-speed scrolling and **memory spikes from excessive concurrent live streams on a single page**",
+    ],
   },
   {
     name: "CMS Migration to NextJS",
@@ -187,6 +205,13 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
     ],
     url: "https://lazy-cv.com",
+    highlights: [
+      "Next.js 16 App Router + Standalone Output: Lightweight Docker packaging with the latest App Router architecture",
+      "AI Agent Automated SOP: Chrome DevTools MCP scrapes JDs, combined with structured prompts for end-to-end resume generation",
+      "Serverless Deployment on AWS: ECR + Lambda Web Adapter + S3 + CloudFront CDN with fully automated CI/CD via GitHub Actions",
+      "Neon Serverless PostgreSQL + Drizzle ORM: Type-safe database access with serverless PostgreSQL",
+      "Vibe Coding in 2 Days: Built from scratch to production in just 2 days via AI-assisted development",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",

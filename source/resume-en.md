@@ -1,5 +1,9 @@
 # John Hsieh - Senior Software Engineer Resume (English)
 
+> **Document Purpose:** Data source for AI automated resume generation  
+> **Last Updated:** March 2026  
+> **Version:** Detailed Full Version
+
 ---
 
 ## 👤 Personal Information
@@ -8,32 +12,45 @@
 - **Full Name:** John Hsieh
 - **Position:** Software Engineer  
 - **Location:** Singapore
+- **Experience:** 7 years of frontend development
+- **Expertise:** Frontend Development, Full-stack Development, Team Leadership
 - **Email:** a0972199950@gmail.com
 - **GitHub:** https://github.com/a0972199950
 - **LinkedIn:** https://www.linkedin.com/in/john-hsieh/
 - **Online Resume:** https://www.cake.me/resumes/john_hsieh_en
+
+### 🌐 Language Skills
+- **Chinese:** Native
+- **Japanese:** Business level (JLPT N1)
+- **English:** Fluent professional communication
 
 ### 🖼️ Profile Images
 - **Profile Photo:** https://cdn.lazy-cv.com/107453(1).jpg
 
 ![Profile Photo](https://cdn.lazy-cv.com/107453(1).jpg)
 
-### 📝 Professional Summary
+---
+
+## 🎯 Professional Summary
+
 I have seven years of experience in front-end development, having worked as a Senior Software Engineer at TikTok Singapore and LINE Taiwan. My primary technical expertise lies in React (Next.js), Vue (Nuxt.js), and TypeScript.
 My core value is "User Experience First." My mission is not just to build a product, but to create software that is "user-friendly" and "beautiful."
 
-I have worked for thousands of people in large software companies throughout my career, giving me the chance to work in a setting with well-established development tools and procedures. I have also worked for startups where I was in charge of creating front-end system architecture and starting from scratch with products.
+I have worked in large software companies with thousands of employees throughout my career, giving me the chance to work in settings with well-established development tools and procedures. I have also worked for startups where I was in charge of creating front-end system architecture and starting from scratch with products.
+**These encounters have strengthened my ability to design system architecture, adapt to constrained environments, and write high-caliber code in demanding, expansive settings.**
 
-These encounters have **strengthened my ability to design system architecture, adapt to constrained environments, and write high-caliber code in demanding, expansive settings.**
+I can also speak Mandarin, Japanese, and English. Apart from Chinese, I can converse professionally in both English and Japanese. I am also well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders.
 
-I can also speak Mandarin, Japanese, and English. Apart from Chinese, I can converse professionally in both English and Japanese.
+### Teaching & Sharing
+- Enjoy sharing knowledge with others, excelling at explaining complex problems in simple terms, especially for non-technical audiences
+- Seeing someone grow from my sharing brings me accomplishment no less than solving a technical challenge
+- Worked as a tutor: 3 frontend students and 1 Japanese language student
+- Served as mentor at LINE Taiwan: guided 2 new team members
 
-I am also well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders.
-
-Furthermore, I enjoy sharing my knowledge with others, and I excel at explaining complex problems in simple terms, especially for non-technical audiences.
-Knowing someone who has grown up from my sharing will bring me accomplishment which is even not less than solving a technical challenge.
-
-I used to work as a tutor, teaching three students in front-end development and one student in the Japanese language. I have also served as a mentor in my job. It brings me great joy to see students comprehend new concepts and expand their skill sets.
+### Personal Traits
+- **Personality:** A bit reserved at first, but becomes quite chatty once comfortable; enjoys conversations with similarly talkative people
+- **Hobbies:** Watching movies, riding motorcycles, gaming, fixing electronics
+- **Source of pride:** Self-taught soldering to fix a trash can (humorous but demonstrates hands-on ability)
 
 ---
 
@@ -258,14 +275,6 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 ##### Lazy CV — AI-Powered Customized Resume Generator
 - **Website:** https://lazy-cv.com
 - **GitHub:** https://github.com/a0972199950/lazy-cv
-- **Main Image:** https://cdn.lazy-cv.com/lazy-cv-main.png
-
-![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main.png)
-![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
-![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
-![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
-![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
-
 - **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through GitHub Copilot, the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
 This resume was automatically generated using this project.
 - **Technical Highlights:**
@@ -275,6 +284,12 @@ This resume was automatically generated using this project.
   - **Neon Serverless PostgreSQL + Drizzle ORM**: Type-safe database access using Neon's serverless PostgreSQL with Drizzle ORM
   - **TailwindCSS 4 + Framer Motion**: Responsive design with smooth animations
   - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed through AI-assisted coding (Vibe Coding)
+- **Images:**
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main.png)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto.jpg)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto2.jpg)
+![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-auto3.jpg)
 
 ### TikTok
 
@@ -305,6 +320,7 @@ The engine's critical performance flaw was that it recomputed the entire schema 
 To solve this problem, I created two simple utility functions: `cache`/`cacheMany`. Mimicking React's `useMemo`, they cache computation results in a Map, or store results in multiple Maps keyed by incoming parameters.
 With this technique combined with other standard optimizations, I successfully reduced the **Total Blocking Time (TBT) by 98%** on an interface that rendered 500 form UIs without pagination.
 
+- **Images:**
 ![Cover Image](https://cdn.lazy-cv.com/OA.png)
 ![Web Worker Architecture Diagram](https://cdn.lazy-cv.com/web-worker.png)
 ![Form Rendering Optimization Results](https://cdn.lazy-cv.com/pp-performance.png)
@@ -312,148 +328,161 @@ With this technique combined with other standard optimizations, I successfully r
 ### LINE Taiwan
 
 ##### LINE Shopping Platform
-- **Image:** https://cdn.lazy-cv.com/line-shopping-main-page.jpg
-
-![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
-
 - **Website:** https://buy.line.me/
 - **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
 - **Key Contribution:** I independently developed the "Live Shopping" feature for the shopping platform. Inspired by YouTube's automatic video preview mechanism, I designed a reusable video auto-preview module.
 Through a global scheduler, I resolved the issue of chaotic video previews during high-speed scrolling, as well as the technical challenge of memory spikes caused by too many live streams on a single page.
 Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
 
+- **Images:**
+![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
 ![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall.png)
 ![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall2.jpg)
 ![LINE Shopping Platform](https://cdn.lazy-cv.com/shopping-live-hall3.jpg)
 
 ##### JavaScript Task Force
-- **Image:** https://cdn.lazy-cv.com/jstf.png
-
-![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
-
 - **Description:** This is not an actual product, but rather a project team. The members are made up, and represent for different product teams. And it's main goal is to develop frontend developing guidelines. So far, we have research/implemented on SonarQube, a static code analysis tool, integrating Lighthouse into our CI pipeline, frontend monitoring tool OpenTel, and building a custom React project template generator......etc.
 
-##### CMS Refactoring to NextJS (Team Leader)
-- **Image:** https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png
+- **Images:**
+![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
 
+##### CMS Refactoring to NextJS (Team Leader)
+- **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
+
+- **Technical Highlights:**
+  - Used iframe to implement micro-services, enabling independent deployment of new and legacy projects, with progressive URL-based migration from old to new
+  - One of the early projects within the company to adopt Next APP router
+
+- **Key Contributions:**
+  - Beyond coding, served as architect planning the entire project while also acting as PM — assigning tasks, writing technical documentation, and communicating with users
+
+- **Images:**
 ![CMS NextJS Refactoring](https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png)
 ![CMS NextJS Refactoring](https://cdn.lazy-cv.com/cms-graph.png)
-
-- **Description:** In 2023, I took the lead on this project, guiding a team of four members in the refactoring of the LINE Shopping CMS from PHP to a React & NextJS app router architecture. In addition to actual development tasks, I was responsible for tech-stack decision-making, internal training, schedule planning, task allocation, and risk assessment. This project was also one of the early initiatives within LINE Taiwan to adopt the NextJS app router.
 
 ### AI.Book
 
 ##### AI.Book Online Photo Book Editor
-- **Editor Interface:** https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png
+- **Description:**
+AI.Book is an online photo book editing platform that allows users to create personalized photo albums online and have them printed into physical keepsake books for purchase.
+The most critical component is an online photo book editor, built from scratch over 6 months until the final product launch. The tech stack used was Vue + NuxtJS.
 
+**Technical Highlights:**
+- Built a custom editor with pure Vue, supporting add/remove photos, text input, font style and size editing, etc.
+- Editor supports both web and mobile editing
+- Supports PWA installation for a native app-like experience
+
+- **Key Contributions:**
+  - Built entirely from scratch as sole developer
+
+- **Images:**
 ![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
-
-- **Complete Interface:** https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png
-
 ![Complete Interface](https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png)
-
-- **Description:** This is a self-designed and self-implemented photo book editor that supports adding and removing photos, dragging to adjust photo position and size, entering text, and customizing font styles and sizes. In addition to the web version, it also supports mobile editing and offers PWA installation, providing a native app–like experience.
 
 ### FundFluent
 
-##### FundFluent UI Kit
-- **Image:** https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png
+##### FundFluent UI Kit Library (Internal Project)
+- **Description:** A personally led internal cross-project shared UI component platform, published on private NPM. Components are built with Web Components (Stencil.js), making them framework-agnostic. The CSS system integrates TailwindCSS + customized Semantic UI as the foundation for the company's design system, with Storybook for documentation.
+Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 
-![FundFluent UI Kit](https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png)
+- **Technical Highlights:**
+  - UI components built with Stencil as web components, framework-agnostic
+  - Design system constructed with Tailwind + Semantic UI
+  - Components showcased via StoryBook for easier communication with designers
+  - Monorepo separating component library and business code; component library can be independently published and tested before batch-building business modules
 
-- **Description:** A comprehensive design system and component library built for FundFluent's multiple products. Created reusable React components with TypeScript, ensuring consistency across all platforms.
+- **Key Contributions:**
+  - Built entirely from scratch as sole developer
+
+- **Images:**
+![Architecture Diagram](https://cdn.lazy-cv.com/fundfluent-ui-kit.png)
 
 ##### FundFluent SME Portal
-- **Image:** https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png
+- **Website:** https://app.fundfluent.io
+- **Description:** An integrated loan platform for Hong Kong SMEs. Provides various loan information from banks and government, one-stop application for loans, and uses OCR technology to help SMEs organize and categorize documents to reduce redundant submission costs across multiple loan applications.
+- **Key Contributions:**
+  - Built entirely from scratch as sole developer
 
+- **Images:**
 ![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
 
-- **Description:** A web portal designed for small and medium enterprises to apply for funding, manage their applications, and track their financial status.
-
 ##### FundFluent Partner Portal
-- **Image:** https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png
+- **Website:** https://partner.fundfluent.io
+- **Description:** A management platform for lenders such as banks. Used to list and manage loan projects, and review applications from SMEs.
+- **Key Contributions:**
+  - Built entirely from scratch as sole developer
 
+- **Images:**
 ![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
-
-- **Description:** A management portal for FundFluent's business partners to oversee funding applications, manage client relationships, and access analytics and reporting features.
 
 ### Aotter Inc.
 
 ##### SuprLink
-- **Image:** https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png
-
-![SuprLink](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
-
 - **Website:** https://supr.link
 - **Description:** A short link service which supports A/B testing, data analysis, custom domain, organization management and online advertising.
 
+- **Images:**
+![SuprLink](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
+
 ##### Chrome Extension - SuprLink
-- **Image:** https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png
+- **Website:** https://supr.link/WJ4rd
+- **Description:** A Chrome extension which helps user to create short link for SuprLink.
+- **Images:**
 
 ![Chrome Extension SuprLink](https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
 
-- **Website:** https://supr.link/WJ4rd
-- **Description:** A Chrome extension which helps user to create short link for SuprLink.
-
-##### Aotter Trek DSP Platform
-- **Image:** https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png
+##### Aotter Trek
+- **Website:** https://trek.aotter.net
+- **Description:** An advertising display platform with big data analysis feature. Uses lots of easy-readable charts to help user find their accurate potential customers.
+- **Images:**
 
 ![Aotter Trek DSP Platform](https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png)
 
-- **Website:** https://trek.aotter.net
-- **Description:** An advertising display platform with big data analysis feature. Uses lots of easy-readable charts to help user find their accurate potential customers.
-
 ##### Institute for Information Industry - City Dashboard
-- **Image:** https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png
+- **Website:** https://supr.link/oLOid
+- **Description:** A platform which collects government public materials into one place to display. Has highly customizable charts and filters.
+- **Images:**
 
 ![City Dashboard](https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
 
-- **Website:** https://supr.link/oLOid
-- **Description:** A platform which collects government public materials into one place to display. Has highly customizable charts and filters.
-
 ##### beanfun! Data Center
-- **Image:** https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png
-
-![beanfun! Data Center](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
-
 - **Website:** https://supr.link/30dOw
 - **Description:** A dashboard which collects all product's data across whole enterprise group to display. Has lots of charts.
+- **Images:**
+
+![beanfun! Data Center](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
 
 ### 第三緯度 Inc.
 
 ##### Shushu Comics
-- **Image:** https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png
-
-![Shushu Comics](https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png)
-
 - **Website:** https://supr.link/JMNiY
 - **Description:** A website and App which illegally downloads Korean adult comics, adds new cover, then sells them online.
+- **Images:**
+
+![Shushu Comics](https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png)
 
 ### Asian Bridge Inc.
 
 ##### Churacos Official Website
-- **Image:** https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png
+- **Website:** https://supr.link/9j9Ny
+- **Description:** Taiwan official website of a care products branch Churacos, coming from Okinawa, Japan.
+- **Images:**
 
 ![Churacos Official Website](https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png)
 
-- **Website:** https://supr.link/9j9Ny
-- **Description:** Taiwan official website of a care products branch Churacos, coming from Okinawa, Japan.
-
 ##### Hairlife Website
-- **Image:** https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png
+- **Website:** https://supr.link/JmZHp
+- **Description:** A hair care related blog.
+- **Images:**
 
 ![Hairlife Website](https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png)
 
-- **Website:** https://supr.link/JmZHp
-- **Description:** A hair care related blog.
-
 ##### Japan Selection Blog
-- **Image:** https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png
-
-![Japan Selection Blog](https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png)
-
 - **Website:** https://supr.link/n11Jr
 - **Description:** A blog for advertorial.
+- **Images:**
+
+![Japan Selection Blog](https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png)
 
 
 ---

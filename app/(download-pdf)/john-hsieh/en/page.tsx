@@ -155,11 +155,40 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/lazy-cv-auto3.jpg",
     ],
     url: "https://lazy-cv.com",
+    highlights: [
+      "Next.js 16 App Router + Standalone Output for lightweight Docker packaging",
+      "AI Agent automated SOP via Chrome DevTools MCP for end-to-end resume generation",
+      "Serverless deployment on AWS: ECR → Lambda Web Adapter, S3 + CloudFront CDN, GitHub Actions CI/CD",
+      "Neon Serverless PostgreSQL + Drizzle ORM for type-safe database access",
+      "TailwindCSS 4 + Framer Motion for responsive design with smooth animations",
+    ],
+  },
+  {
+    name: "UG Overseas Platform",
+    summary:
+      "A large-scale enterprise Monorepo frontend project serving TikTok's overseas user growth business, covering media asset management, financial settlement, supplier procurement, and data dashboards across 50+ sub-projects with million-line codebase.",
+    stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest"],
+    image: [
+      "https://cdn.lazy-cv.com/OA.png",
+      "https://cdn.lazy-cv.com/web-worker.png",
+      "https://cdn.lazy-cv.com/pp-performance.png",
+    ],
+    highlights: [
+      "Complex form component development based on JSON Schema dynamic rendering with cascading selects, dynamic fields, and conditional rendering",
+      "High-precision numeric computation for financial scenarios, solving JavaScript floating-point precision issues",
+      "Micro-frontend integration via proprietary framework with dynamic sub-application loading",
+      "Type-safe API communication using Ferry + Thrift IDL for auto-generated strongly-typed service code",
+      "Internationalization with runtime-fetched translations via an internally developed online translation platform",
+    ],
+    contributions: [
+      "Web Worker multi-threaded CSV validation: offloaded heavy validation to a separate thread using Comlink for RPC-like communication, with Yup + Regex schemas — **reduced UI blocking time by 90%** across 10 data entries",
+      "Function caching utilities for rendering optimization: created cache/cacheMany tools mimicking React useMemo to cache computation results — **reduced Total Blocking Time (TBT) by 98%** on a 500-form interface without pagination",
+    ],
   },
   {
     name: "LINE Shopping",
     summary:
-      "A LINE affiliate shopping service where users earn LINE Points through partner merchants. I independently developed the 'Live Shopping' feature — inspired by YouTube's auto-preview mechanism, I designed a reusable video auto-preview module with a global scheduler that resolved chaotic previews during high-speed scrolling and memory spikes from too many live streams on a single page.",
+      "A LINE affiliate shopping service where users earn LINE Points through partner merchants.",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -167,16 +196,26 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/shopping-live-hall2.jpg",
       "https://cdn.lazy-cv.com/shopping-live-hall3.jpg",
     ],
+    contributions: [
+      "Independently developed the 'Live Shopping' feature — inspired by YouTube's auto-preview mechanism, designed a **reusable video auto-preview module** with a global scheduler that **resolved chaotic previews during high-speed scrolling** and **memory spikes from too many live streams** on a single page",
+    ],
     url: "https://buy.line.me",
   },
   {
     name: "CMS Migration to NextJS",
     summary:
-      "Led the migration of LINE Shopping CMS from PHP architecture to React & NextJS App Router, managing a 4-person team to achieve full frontend-backend separation.",
+      "Led the migration of LINE Shopping CMS from PHP architecture to React & NextJS App Router, managing a 4-person team to achieve full frontend-backend separation. One of the early projects within LINE Taiwan to adopt the NextJS App Router.",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
     image: [
       "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
       "https://cdn.lazy-cv.com/cms-graph.png",
+    ],
+    highlights: [
+      "Used iframe to implement micro-services, enabling independent deployment of new and legacy projects with progressive URL-based migration",
+      "One of the early projects within the company to adopt Next APP router",
+    ],
+    contributions: [
+      "Beyond coding, served as architect planning the entire project while also acting as PM — assigning tasks, writing technical documentation, and communicating with users",
     ],
   },
   {
@@ -188,6 +227,14 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
     ],
+    highlights: [
+      "Built a custom editor with pure Vue, supporting add/remove photos, text input, and font style/size editing",
+      "Editor supports both web and mobile editing",
+      "Supports PWA installation for a native app-like experience",
+    ],
+    contributions: [
+      "Built entirely from scratch as sole developer",
+    ],
   },
   {
     name: "FundFluent UI Kit Library",
@@ -195,7 +242,16 @@ const projects: Project[] = [
       "A cross-project shared UI component platform built with Web Components (Stencil.js) for framework-agnostic usage, integrating TailwindCSS + Semantic UI with Storybook documentation.",
     stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
     image:
-      "https://cdn.lazy-cv.com/5971a706-d4bc-4e96-b154-8d09d4ad03eb.png",
+      "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
+    highlights: [
+      "UI components built with Stencil as web components, framework-agnostic",
+      "Design system constructed with Tailwind + Semantic UI",
+      "Components showcased via StoryBook for easier communication with designers",
+      "Monorepo separating component library and business code; component library can be independently published and tested",
+    ],
+    contributions: [
+      "Built entirely from scratch as sole developer",
+    ],
   },
   {
     name: "SuprLink",
@@ -231,6 +287,9 @@ const projects: Project[] = [
     image:
       "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
     url: "https://app.fundfluent.io",
+    contributions: [
+      "Built entirely from scratch as sole developer",
+    ],
   },
   {
     name: "FundFluent Partner Portal",
@@ -240,6 +299,9 @@ const projects: Project[] = [
     image:
       "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
     url: "https://partner.fundfluent.io",
+    contributions: [
+      "Built entirely from scratch as sole developer",
+    ],
   },
   {
     name: "Chrome Extension - SuprLink",
@@ -264,6 +326,14 @@ const projects: Project[] = [
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
     image:
       "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
+  },
+  {
+    name: "Shushu Comics",
+    summary:
+      "An online comics platform built with Vue + PHP in a decoupled architecture, integrated with WeChat Pay for payments.",
+    stack: ["Vue", "PHP", "WeChat Pay"],
+    image:
+      "https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png",
   },
   {
     name: "Chorasu Official Website",
@@ -312,7 +382,7 @@ const skillKeywordRows: SkillKeywordRow[] = [
 
 const stats: StatItem[] = [
   { label: "Years Frontend Exp.", value: 7 },
-  { label: "Products Shipped", value: 16 },
+  { label: "Products Shipped", value: 18 },
   { label: "Team Members Led", value: 4 },
   { label: "Languages Spoken", value: 3 },
 ];
@@ -361,6 +431,8 @@ export default function ExampleResumePageEN() {
         title="Projects"
         description={`${projects.length} representative projects showcasing product impact and tech stack.`}
         projects={projects}
+        highlightsLabel="Technical Highlights"
+        contributionsLabel="Key Contributions"
       />
 
       <TechStackVisualization title="Tech Stack Visualization" description="Core technologies and their interconnections.">
