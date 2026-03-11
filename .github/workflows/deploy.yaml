@@ -62,12 +62,12 @@ jobs:
           sleep 20
 
           # 4. 建立輸出目錄並抓取特定頁面
-          mkdir -p ./out-static/_next/static
+          mkdir -p ./out-static/_next
           # 假設你要抓的是 http://localhost:3000/john-hsieh/en
           curl -s http://localhost:3000/john-hsieh/en > ./out-static/index.html
 
           # 5. (選擇性) 複製靜態資產，確保樣式正常
-          cp -r .next/static ./out-static/_next/static
+          cp -r .next/static ./out-static/_next
           cp -r public/* ./out-static/ || true
 
           # 6. 關閉背景伺服器
