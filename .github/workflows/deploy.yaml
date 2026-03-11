@@ -50,30 +50,31 @@ jobs:
       # - name: 4. Build 所有 package
       #   run: pnpm -r build
 
-      - name: 8-1. 擷取主履歷頁面為靜態 HTML
+      - name: 8-1. 搬運 SSG 成果並移除 Script
         run: |
+          # 1. 編譯專案 (此時 basePath 已生效)
           IS_GITHUB_PAGES=true pnpm build
 
-          # 2. 在背景啟動 Next.js 伺服器
-          # 注意：這裡需要傳入資料庫等環境變數，讓它能渲染出內容
-          DATABASE_URL=${{ secrets.DATABASE_URL }} node .next/standalone/server.js & 
-
-          # 3. 等待伺服器啟動 (約 5-10 秒)
-          sleep 20
-
-          mkdir -p ./out-static/_next
+          # 2. 建立目錄結構
           mkdir -p ./out-static/john-hsieh/en
           mkdir -p ./out-static/john-hsieh/zh-TW
+          mkdir -p ./out-static/_next/static
 
-          curl -s http://localhost:3000/john-hsieh/en > ./out-static/john-hsieh/en/index.html
-          curl -s http://localhost:3000/john-hsieh/zh-TW > ./out-static/john-hsieh/zh-TW/index.html
+          # 3. 複製 HTML 檔案
+          cp .next/server/app/john-hsieh/en.html ./out-static/john-hsieh/en/index.html
+          cp .next/server/app/john-hsieh/zh-TW.html ./out-static/john-hsieh/zh-TW/index.html
 
-          # 5. (選擇性) 複製靜態資產，確保樣式正常
-          cp -r .next/static ./out-static/_next
+          # 建立根目錄導引 (避免進入 https://a0972199950.github.io/lazy-cv/ 看到 404)
+          cp ./out-static/john-hsieh/en/index.html ./out-static/index.html
+
+          # 4. 【重要】移除 Script 標籤
+          # 即使有 basePath，Next.js Hydration 依然可能因路由比對邏輯在 GitHub Pages 噴出 404
+          # 既然是靜態備份，移除 JS 是最穩保險的做法
+          find ./out-static -name "*.html" -exec sed -i '/<script/d' {} +
+
+          # 5. 複製靜態資產
+          cp -r .next/static/* ./out-static/_next/static/
           cp -r public/* ./out-static/ || true
-
-          # 6. 關閉背景伺服器
-          kill $(jobs -p)
 
       - name: 8-2. 部署到 GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

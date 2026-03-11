@@ -10,6 +10,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+export const dynamic = 'force-static';
+
 interface DownloadPDFLayoutProps {
   children: ReactNode;
 }

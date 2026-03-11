@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   
   images: {
+    unoptimized: isGithubPages ? true : false,
+
     remotePatterns: [
       {
         protocol: 'https',
