@@ -52,6 +52,7 @@ jobs:
 
       - name: 8-1. 擷取主履歷頁面為靜態 HTML
         run: |
+
           # 2. 在背景啟動 Next.js 伺服器
           # 注意：這裡需要傳入資料庫等環境變數，讓它能渲染出內容
           DATABASE_URL=${{ secrets.DATABASE_URL }} pnpm start & 
@@ -131,8 +132,8 @@ jobs:
         #       --cache-control "public, max-age=3600" # public 檔案通常不帶 Hash，建議快取時間設短一點
 
         # - name: 7-6. 清除 Next.js static CloudFront cache
-        if: success()
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/_next/static/*"
+        # if: success()
+        # run: |
+        #   aws cloudfront create-invalidation \
+        #     --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+        #     --paths "/_next/static/*"
