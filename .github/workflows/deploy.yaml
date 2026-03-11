@@ -61,10 +61,12 @@ jobs:
           # 3. 等待伺服器啟動 (約 5-10 秒)
           sleep 20
 
-          # 4. 建立輸出目錄並抓取特定頁面
           mkdir -p ./out-static/_next
-          # 假設你要抓的是 http://localhost:3000/john-hsieh/en
-          curl -s http://localhost:3000/john-hsieh/en > ./out-static/index.html
+          mkdir -p ./out-static/john-hsieh/en
+          mkdir -p ./out-static/john-hsieh/zh-TW
+
+          curl -s http://localhost:3000/john-hsieh/en > ./out-static/john-hsieh/en/index.html
+          curl -s http://localhost:3000/john-hsieh/zh-TW > ./out-static/john-hsieh/zh-TW/index.html
 
           # 5. (選擇性) 複製靜態資產，確保樣式正常
           cp -r .next/static ./out-static/_next
