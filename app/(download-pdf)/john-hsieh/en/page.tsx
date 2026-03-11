@@ -378,6 +378,12 @@ const skillKeywordRows: SkillKeywordRow[] = [
     badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
     marqueeClassName: "[--duration:32s]",
   },
+  {
+    keywords: ["Axios", "ECharts", "D3.js", "Framer Motion", "Drizzle ORM", "Rush Monorepo", "Arco Design", "Web Worker", "React Hook Form", "Yup"],
+    badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
+    marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
 ];
 
 const stats: StatItem[] = [

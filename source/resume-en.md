@@ -165,7 +165,7 @@ The main tech stack was React with TypeScript, focusing on creating reusable com
 ---
 
 ### 🏢 Foxit Software - Fullstack Engineer  
-**📅 Duration:** 2020/02 - 2021/07 (1 year 5 months)  
+**📅 Duration:** 2020/12 - 2021/08  
 **🌍 Location:** Taipei, Taiwan
 
 **🖼️ Company Logo:** https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png
@@ -183,7 +183,7 @@ The tech stack included Vue.js for frontend, Node.js with Express for backend, a
 ---
 
 ### 🎮 Aotter Inc. (電獺股份有限公司) - Frontend Engineer  
-**📅 Duration:** 2019/07 - 2020/02 (7 months)  
+**📅 Duration:** 2019/08 - 2020/11  
 **🌍 Location:** Taipei, Taiwan
 
 **🖼️ Company Logo:** https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png
