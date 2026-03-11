@@ -47,11 +47,12 @@ jobs:
       - name: 3. 安裝依賴
         run: pnpm install --frozen-lockfile
 
-      - name: 4. Build 所有 package
-        run: pnpm -r build
+      # - name: 4. Build 所有 package
+      #   run: pnpm -r build
 
       - name: 8-1. 擷取主履歷頁面為靜態 HTML
         run: |
+          IS_GITHUB_PAGES=true pnpm build
 
           # 2. 在背景啟動 Next.js 伺服器
           # 注意：這裡需要傳入資料庫等環境變數，讓它能渲染出內容
