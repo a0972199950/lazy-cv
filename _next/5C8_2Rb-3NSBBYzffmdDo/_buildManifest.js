@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/lazy-cv//_next/:path+",
+        "destination": "/lazy-cv/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
