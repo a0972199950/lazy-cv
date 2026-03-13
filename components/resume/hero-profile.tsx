@@ -15,7 +15,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Crown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import type { ContactItem, StatItem } from "./types";
 
 const contactIconMap = {
@@ -57,9 +57,9 @@ export function HeroProfile({
           colorTo="#10b981"
           borderWidth={1.5}
         />
-        <CardContent className="grid gap-8 py-8 md:grid-cols-[1.3fr_1fr] md:py-10">
-          {/* left */}
-          <div className="space-y-5">
+        <CardContent className="space-y-8 py-8 md:py-10">
+          {/* top — name, title & contact */}
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
               <Avatar className="size-20 ring-2 ring-cyan-200/80">
                 <AvatarImage src={avatarUrl} alt={name} />
@@ -74,37 +74,19 @@ export function HeroProfile({
                 >
                   {name}
                 </TextAnimate>
-                <p className="mt-1 bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
-                  {jobTitle}
-                </p>
+                <div className="mt-1 flex items-center gap-3">
+                  <p className="bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
+                    {jobTitle}
+                  </p>
+                  <p className="flex items-center gap-1 text-sm text-slate-500">
+                    <MapPin className="size-3.5 text-cyan-700" />
+                    {location}
+                  </p>
+                </div>
               </div>
             </div>
 
-            <p className="max-w-2xl whitespace-pre-line text-sm leading-relaxed text-slate-600 md:text-base">
-              {description}
-            </p>
-
-            {/* stats */}
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-xl border border-slate-200 bg-linear-to-b from-white to-slate-50 p-3 text-center transition hover:border-cyan-200"
-                >
-                  <span className="text-2xl font-bold text-cyan-700 md:text-3xl">
-                    <NumberTicker value={s.value} />
-                  </span>
-                  <p className="mt-0.5 text-xs text-slate-500">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* contact dock */}
-            <div className="flex flex-col items-start gap-2">
-              <p className="flex items-center gap-2 text-sm text-slate-500">
-                <MapPin className="size-4 text-cyan-700" />
-                {location}
-              </p>
+            <div className="flex items-center gap-4 sm:items-end">
               <Dock
                 iconSize={36}
                 iconMagnification={52}
@@ -133,12 +115,41 @@ export function HeroProfile({
             </div>
           </div>
 
-          {/* right — globe */}
-          <div className="relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-linear-to-b from-cyan-50 to-sky-50 md:h-80">
-            <Globe className="top-1/2 -translate-y-1/2" />
-            <div className="absolute inset-x-4 bottom-4 rounded-lg border border-cyan-200 bg-white/85 px-3 py-2 text-center text-xs text-slate-600 backdrop-blur md:text-sm">
-              {globeCaption}
+          <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">
+          {/* left */}
+          <div className="space-y-5">
+            <p className="max-w-2xl whitespace-pre-line text-sm leading-relaxed text-slate-600 md:text-base">
+              {description}
+            </p>
+
+
+          </div>
+
+          {/* right — globe + stats */}
+          <div className="space-y-4">
+            <div className="relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-linear-to-b from-cyan-50 to-sky-50 md:h-80">
+              <Globe className="top-1/2 -translate-y-1/2" />
+              <div className="absolute inset-x-4 bottom-4 rounded-lg border border-cyan-200 bg-white/85 px-3 py-2 text-center text-xs text-slate-600 backdrop-blur md:text-sm">
+                {globeCaption}
+              </div>
             </div>
+
+            {/* stats */}
+            <div className="grid grid-cols-4 gap-2.5">
+              {stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="group relative rounded-xl border border-slate-200/80 bg-white/80 p-3 text-center shadow-xs transition-all hover:border-cyan-300 hover:shadow-md hover:shadow-cyan-100/40"
+                >
+                  <Crown className="absolute -top-1.5 -left-1.5 size-4 -rotate-[30deg] fill-amber-400 text-amber-400 drop-shadow-sm transition-transform duration-300 group-hover:scale-125" />
+                  <span className="bg-linear-to-r from-cyan-600 to-emerald-600 bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
+                    <NumberTicker value={s.value} />
+                  </span>
+                  <p className="mt-0.5 text-xs font-medium text-slate-500 transition-colors group-hover:text-cyan-600">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
           </div>
         </CardContent>
       </Card>
