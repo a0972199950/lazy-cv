@@ -62,6 +62,8 @@ export function NumberTicker({
   return (
     <span
       ref={ref}
+      data-ticker-value={value}
+      data-ticker-decimals={decimalPlaces}
       className={cn(
         "inline-block tracking-wider tabular-nums",
         className

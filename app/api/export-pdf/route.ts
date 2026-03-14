@@ -89,7 +89,7 @@ export async function POST(req: Request) {
         console.log('[PDF] Chromium config:', JSON.stringify(chromiumConfig));
         const browser = await chromium.launch(chromiumConfig);
         console.log('[PDF] Step 1: 瀏覽器已啟動');
-        const context = await browser.newContext({ deviceScaleFactor: 1 });
+        const context = await browser.newContext({ deviceScaleFactor: process.env.NODE_ENV === 'production' ? 1 : 1.5 });
         const page = await context.newPage();
         console.log('[PDF] Step 1: Page 已建立');
 
@@ -123,6 +123,7 @@ export async function POST(req: Request) {
         console.log('[PDF] Step 3: networkidle');
         await page.waitForTimeout(3000);
         console.log('[PDF] Step 3: 等待 3s 完成');
+
         await page.addStyleTag({ content: `#download-pdf-btn { display: none !important; }` });
         // 移除 Next.js devtools（shadow DOM 元素，CSS 無法穿透）
         await page.evaluate(() => {
@@ -133,6 +134,21 @@ export async function POST(req: Request) {
         // Step 4: 全頁截圖
         send({ step: 4, total: TOTAL, message: 'capturing' });
         console.log('[PDF] Step 4: 全頁截圖');
+
+        // 修復 NumberTicker：headless 模式下 rAF 被節流導致 useSpring 動畫值為 0
+        // 放在截圖前最後一刻，避免 spring onChange 回調覆蓋
+        await page.evaluate(() => {
+          document.querySelectorAll<HTMLElement>('[data-ticker-value]').forEach(el => {
+            const value = Number(el.dataset.tickerValue);
+            const decimals = Number(el.dataset.tickerDecimals ?? '0');
+            el.textContent = Intl.NumberFormat('en-US', {
+              minimumFractionDigits: decimals,
+              maximumFractionDigits: decimals,
+            }).format(value);
+          });
+        });
+        console.log('[PDF] Step 4: NumberTicker 值已修復');
+
         const screenshotBuffer = await page.screenshot({ fullPage: true, type: 'png' });
         console.log('[PDF] Step 4: 截圖大小:', (screenshotBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
