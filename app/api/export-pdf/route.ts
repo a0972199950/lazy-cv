@@ -159,6 +159,7 @@ export async function POST(req: Request) {
         
         send({ step: 6, total: TOTAL, message: 'done', file: 'test', fileName: 'test.pdf' });
         await browser.close();
+        return
 
         // Step 6: 完成，回傳 PDF base64
         const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
