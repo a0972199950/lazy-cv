@@ -17,6 +17,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 ENV NODE_ENV=production
+ENV NEXT_DATA_CACHE_DIR=/tmp/.next/cache
 ENV PORT=3000
 ENV AWS_LWA_PORT=3000
 # 啟動時移除 xvfb-run

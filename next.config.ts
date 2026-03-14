@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   
   images: {
-    unoptimized: isGithubPages ? true : false,
+    unoptimized: true,
 
     remotePatterns: [
       {
