@@ -1,4 +1,5 @@
 import { chromium, Page } from 'playwright'
+import { PDFDocument } from 'pdf-lib'
 import db from '@/lib/db'
 import {resumes} from '@/lib/db/schemas'
 import { eq } from 'drizzle-orm'
@@ -70,30 +71,40 @@ export async function POST(req: Request) {
         // Step 1: 啟動瀏覽器
         send({ step: 1, total: TOTAL, message: 'launching_browser' });
         console.log('[PDF] Step 1: 啟動瀏覽器');
-        const browser = await chromium.launch({
-          headless: true,
-          args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--single-process',        
-            '--no-zygote',
-            '--disable-gpu',
-          ],
-        });
+        console.log('[PDF] ENV:', { NODE_ENV: process.env.NODE_ENV, PLAYWRIGHT_BROWSERS_PATH: process.env.PLAYWRIGHT_BROWSERS_PATH });
+
+        const chromiumConfig = process.env.NODE_ENV === 'production'
+          ? {
+            headless: true,
+            args: [
+              '--no-sandbox',
+              '--disable-setuid-sandbox',
+              '--disable-dev-shm-usage',
+              '--single-process',        
+              '--no-zygote',
+              '--disable-gpu',
+            ],
+          }
+          : { headless: false };
+        console.log('[PDF] Chromium config:', JSON.stringify(chromiumConfig));
+        const browser = await chromium.launch(chromiumConfig);
+        console.log('[PDF] Step 1: 瀏覽器已啟動');
         const context = await browser.newContext({ deviceScaleFactor: 1.5 });
         const page = await context.newPage();
+        console.log('[PDF] Step 1: Page 已建立');
 
         // Step 2: 前往目標網頁
         send({ step: 2, total: TOTAL, message: 'navigating' });
         console.log('[PDF] Step 2: 前往目標網頁:', url);
         await page.goto(url, { waitUntil: 'networkidle' });
+        console.log('[PDF] Step 2: 頁面載入完成');
         await page.setViewportSize({ width: 1280, height: 1080 });
 
         // Step 3: 自動滾動 + 停用動畫
         send({ step: 3, total: TOTAL, message: 'loading_content' });
         console.log('[PDF] Step 3: 自動滾動 & 停用動畫');
         await autoScroll(page);
+        console.log('[PDF] Step 3: 滾動完成');
         await page.emulateMedia({ media: 'screen' });
         await page.addStyleTag({
           content: `
@@ -109,12 +120,15 @@ export async function POST(req: Request) {
           `
         });
         await page.waitForLoadState('networkidle');
+        console.log('[PDF] Step 3: networkidle');
         await page.waitForTimeout(3000);
+        console.log('[PDF] Step 3: 等待 3s 完成');
         await page.addStyleTag({ content: `#download-pdf-btn { display: none !important; }` });
         // 移除 Next.js devtools（shadow DOM 元素，CSS 無法穿透）
         await page.evaluate(() => {
           document.querySelectorAll('nextjs-portal, [data-nextjs-dialog], [data-nextjs-toast]').forEach(el => el.remove());
         });
+        console.log('[PDF] Step 3: DOM 清理完成');
 
         // Step 4: 全頁截圖
         send({ step: 4, total: TOTAL, message: 'capturing' });
@@ -122,46 +136,24 @@ export async function POST(req: Request) {
         const screenshotBuffer = await page.screenshot({ fullPage: true, type: 'png' });
         console.log('[PDF] Step 4: 截圖大小:', (screenshotBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
-        // Step 5: 截圖轉 PDF
+        // Step 5: 截圖轉 PDF（使用 pdf-lib，不需要開第二個 browser page）
         send({ step: 5, total: TOTAL, message: 'converting' });
-        console.log('[PDF] Step 5: 截圖嵌入 PDF');
-        const base64Img = screenshotBuffer.toString('base64');
-        const pdfPage = await browser.newPage();
-        const imgSize = await pdfPage.evaluate((b64) => {
-          return new Promise<{ w: number; h: number }>((resolve) => {
-            const img = new Image();
-            img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
-            img.src = 'data:image/png;base64,' + b64;
-          });
-        }, base64Img);
-
-        const pdfWidthIn = imgSize.w / 96;
-        const pdfHeightIn = imgSize.h / 96;
-
-        await pdfPage.setContent(`<!DOCTYPE html>
-<html><head><style>
-  * { margin: 0; padding: 0; }
-  @page { size: ${pdfWidthIn}in ${pdfHeightIn}in; margin: 0; }
-  body, html { width: ${imgSize.w}px; height: ${imgSize.h}px; }
-  img { width: 100%; height: 100%; display: block; }
-</style></head><body>
-  <img src="data:image/png;base64,${base64Img}" />
-</body></html>`, { waitUntil: 'load' });
-
-        await pdfPage.waitForTimeout(500);
-        const pdfBuffer = await pdfPage.pdf({
-          width: `${pdfWidthIn}in`,
-          height: `${pdfHeightIn}in`,
-          printBackground: true,
-          margin: { top: 0, right: 0, bottom: 0, left: 0 },
-        });
-        console.log('[PDF] Step 5: PDF 大小:', (pdfBuffer.length / 1024 / 1024).toFixed(2), 'MB');
-
-        
+        console.log('[PDF] Step 5: 關閉瀏覽器');
         await browser.close();
+        console.log('[PDF] Step 5: 瀏覽器已關閉，開始生成 PDF');
+
+        const pdfDoc = await PDFDocument.create();
+        const pngImage = await pdfDoc.embedPng(screenshotBuffer);
+        console.log('[PDF] Step 5: PNG 已嵌入，尺寸:', pngImage.width, 'x', pngImage.height);
+        const { width: imgW, height: imgH } = pngImage.scale(1);
+        const pdfPage = pdfDoc.addPage([imgW, imgH]);
+        pdfPage.drawImage(pngImage, { x: 0, y: 0, width: imgW, height: imgH });
+        const pdfBuffer = Buffer.from(await pdfDoc.save());
+        console.log('[PDF] Step 5: PDF 大小:', (pdfBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
         // Step 6: 完成，回傳 PDF base64
         const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
+        console.log('[PDF] Step 6: fileName:', fileName, ', base64 長度:', pdfBuffer.toString('base64').length);
         send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
         console.log('[PDF] Step 6: 完成，串流結束');
       } catch (err) {
