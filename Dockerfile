@@ -14,6 +14,8 @@ COPY public ./public
 COPY .next/static ./.next/static
 
 # 4. 安裝 Xvfb（虛擬顯示器）+ Playwright Chromium 及其系統依賴
+#    PLAYWRIGHT_BROWSERS_PATH 必須固定，否則 Lambda runtime 用不同的 user 會找不到瀏覽器
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 RUN apt-get update && \
   apt-get install -y --no-install-recommends xvfb xauth && \
   npx playwright install --with-deps chromium && \
