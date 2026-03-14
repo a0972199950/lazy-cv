@@ -50,9 +50,9 @@ export async function POST(req: Request) {
   }
 
   // 驗證 URL 為同源，防止 SSRF
-  const reqUrl = new URL(req.url);
+  const allowedHosts = ['lazy-cv.com', 'staging.lazy-cv.com', 'localhost'];
   const targetUrl = new URL(url);
-  if (targetUrl.origin !== reqUrl.origin) {
+  if (!allowedHosts.includes(targetUrl.hostname)) {
     return new Response(JSON.stringify({ error: 'Invalid URL' }), { status: 400 });
   }
 
