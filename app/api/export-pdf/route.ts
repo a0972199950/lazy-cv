@@ -162,9 +162,9 @@ export async function POST(req: Request) {
         return
 
         // Step 6: 完成，回傳 PDF base64
-        const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
-        send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
-        console.log('[PDF] Step 6: 完成，串流結束');
+        // const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
+        // send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
+        // console.log('[PDF] Step 6: 完成，串流結束');
       } catch (err) {
         console.error('[PDF] 錯誤:', err);
         controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: String(err) })}\n\n`));
