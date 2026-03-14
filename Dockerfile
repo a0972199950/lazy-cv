@@ -15,7 +15,7 @@ COPY .next/static ./.next/static
 
 # 4. 安裝 Xvfb（虛擬顯示器）+ Playwright Chromium 及其系統依賴
 RUN apt-get update && \
-  apt-get install -y --no-install-recommends xvfb && \
+  apt-get install -y --no-install-recommends xvfb xauth && \
   npx playwright install --with-deps chromium && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
