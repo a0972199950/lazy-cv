@@ -31,6 +31,7 @@ interface ProgressEvent {
 }
 
 export async function POST(req: Request) {
+  console.log('--- API 開始執行 ---')
   const { url } = await req.json() as { url: string };
   const urlParts = url.split('/')
   const uuid = urlParts[urlParts.length - 2]
@@ -74,8 +75,8 @@ export async function POST(req: Request) {
           args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage', // 解決 /dev/shm 64MB 限制
-            '--single-process',        // 關鍵：將所有內容跑在同一個進程，減少 Lambda 的 IPC 開銷
+            '--disable-dev-shm-usage',
+            '--single-process',        
             '--no-zygote',
             '--disable-gpu',
           ],
@@ -116,55 +117,53 @@ export async function POST(req: Request) {
         });
 
         // Step 4: 全頁截圖
-//         send({ step: 4, total: TOTAL, message: 'capturing' });
-//         console.log('[PDF] Step 4: 全頁截圖');
-//         const screenshotBuffer = await page.screenshot({ fullPage: true, type: 'png' });
-//         console.log('[PDF] Step 4: 截圖大小:', (screenshotBuffer.length / 1024 / 1024).toFixed(2), 'MB');
+        send({ step: 4, total: TOTAL, message: 'capturing' });
+        console.log('[PDF] Step 4: 全頁截圖');
+        const screenshotBuffer = await page.screenshot({ fullPage: true, type: 'png' });
+        console.log('[PDF] Step 4: 截圖大小:', (screenshotBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
-//         // Step 5: 截圖轉 PDF
-//         send({ step: 5, total: TOTAL, message: 'converting' });
-//         console.log('[PDF] Step 5: 截圖嵌入 PDF');
-//         const base64Img = screenshotBuffer.toString('base64');
-//         const pdfPage = await browser.newPage();
-//         const imgSize = await pdfPage.evaluate((b64) => {
-//           return new Promise<{ w: number; h: number }>((resolve) => {
-//             const img = new Image();
-//             img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
-//             img.src = 'data:image/png;base64,' + b64;
-//           });
-//         }, base64Img);
+        // Step 5: 截圖轉 PDF
+        send({ step: 5, total: TOTAL, message: 'converting' });
+        console.log('[PDF] Step 5: 截圖嵌入 PDF');
+        const base64Img = screenshotBuffer.toString('base64');
+        const pdfPage = await browser.newPage();
+        const imgSize = await pdfPage.evaluate((b64) => {
+          return new Promise<{ w: number; h: number }>((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+            img.src = 'data:image/png;base64,' + b64;
+          });
+        }, base64Img);
 
-//         const pdfWidthIn = imgSize.w / 96;
-//         const pdfHeightIn = imgSize.h / 96;
+        const pdfWidthIn = imgSize.w / 96;
+        const pdfHeightIn = imgSize.h / 96;
 
-//         await pdfPage.setContent(`<!DOCTYPE html>
-// <html><head><style>
-//   * { margin: 0; padding: 0; }
-//   @page { size: ${pdfWidthIn}in ${pdfHeightIn}in; margin: 0; }
-//   body, html { width: ${imgSize.w}px; height: ${imgSize.h}px; }
-//   img { width: 100%; height: 100%; display: block; }
-// </style></head><body>
-//   <img src="data:image/png;base64,${base64Img}" />
-// </body></html>`, { waitUntil: 'load' });
+        await pdfPage.setContent(`<!DOCTYPE html>
+<html><head><style>
+  * { margin: 0; padding: 0; }
+  @page { size: ${pdfWidthIn}in ${pdfHeightIn}in; margin: 0; }
+  body, html { width: ${imgSize.w}px; height: ${imgSize.h}px; }
+  img { width: 100%; height: 100%; display: block; }
+</style></head><body>
+  <img src="data:image/png;base64,${base64Img}" />
+</body></html>`, { waitUntil: 'load' });
 
-//         await pdfPage.waitForTimeout(500);
-//         const pdfBuffer = await pdfPage.pdf({
-//           width: `${pdfWidthIn}in`,
-//           height: `${pdfHeightIn}in`,
-//           printBackground: true,
-//           margin: { top: 0, right: 0, bottom: 0, left: 0 },
-//         });
-//         console.log('[PDF] Step 5: PDF 大小:', (pdfBuffer.length / 1024 / 1024).toFixed(2), 'MB');
+        await pdfPage.waitForTimeout(500);
+        const pdfBuffer = await pdfPage.pdf({
+          width: `${pdfWidthIn}in`,
+          height: `${pdfHeightIn}in`,
+          printBackground: true,
+          margin: { top: 0, right: 0, bottom: 0, left: 0 },
+        });
+        console.log('[PDF] Step 5: PDF 大小:', (pdfBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
         
-        send({ step: 6, total: TOTAL, message: 'done', file: 'test', fileName: 'test.pdf' });
         await browser.close();
-        return
 
         // Step 6: 完成，回傳 PDF base64
-        // const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
-        // send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
-        // console.log('[PDF] Step 6: 完成，串流結束');
+        const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
+        send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
+        console.log('[PDF] Step 6: 完成，串流結束');
       } catch (err) {
         console.error('[PDF] 錯誤:', err);
         controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: String(err) })}\n\n`));
