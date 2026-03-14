@@ -69,7 +69,10 @@ export async function POST(req: Request) {
         // Step 1: 啟動瀏覽器
         send({ step: 1, total: TOTAL, message: 'launching_browser' });
         console.log('[PDF] Step 1: 啟動瀏覽器');
-        const browser = await chromium.launch({ headless: false });
+        const browser = await chromium.launch({
+          headless: false,
+          args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        });
         const context = await browser.newContext({ deviceScaleFactor: 1.5 });
         const page = await context.newPage();
 
