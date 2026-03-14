@@ -148,6 +148,7 @@ export default function DownloadPDFLayout({
       }
     } catch (err) {
       console.error('PDF 產生失敗:', err);
+      alert('Failed to generate PDF.');
     } finally {
       setLoading(false);
       setProgress(null);

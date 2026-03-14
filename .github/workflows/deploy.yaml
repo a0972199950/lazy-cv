@@ -18,6 +18,7 @@ jobs:
       NEXTJS_PUBLIC_PATH: public # Next.js public output path
       S3_BUCKET: lazy-cv # 用來存 Next.js 靜態資產的 S3 bucket
       LAMBDA_NAME: lazy-cv # Lambda function name
+      LAMBDA_NAME_EXPORT_PDF: lazy-cv-export-pdf # 另一個 Lambda function name，專門用於長截圖後產生 PDF
       ECR_REPOSITORY: lazy-cv
       IMAGE_TAG: ${{ github.sha }}
       NEXT_PUBLIC_API_BASE_URL: https://lazy-cv.com/api
@@ -91,6 +92,12 @@ jobs:
             --image-uri ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
           aws lambda wait function-updated --function-name ${{ env.LAMBDA_NAME }}
+
+          aws lambda update-function-code \
+            --function-name ${{ env.LAMBDA_NAME_EXPORT_PDF }} \
+            --image-uri ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+
+          aws lambda wait function-updated --function-name ${{ env.LAMBDA_NAME_EXPORT_PDF }}
 
       - name: 6-5. 更新 S3 上的 Next.js 靜態資產
         run: |
