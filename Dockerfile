@@ -24,7 +24,6 @@ RUN apt-get update && \
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV AWS_LWA_PORT=3000
-ENV AWS_LWA_INVOKE_MODE=response_stream
 
 # 5. 使用 xvfb-run 提供虛擬顯示器，讓 headless: false 的 Chromium 正常執行
 CMD ["xvfb-run", "--auto-servernum", "--server-args=-screen 0 1920x1080x24", "node", "server.js"]
