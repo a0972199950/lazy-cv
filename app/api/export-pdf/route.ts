@@ -89,7 +89,7 @@ export async function POST(req: Request) {
         console.log('[PDF] Chromium config:', JSON.stringify(chromiumConfig));
         const browser = await chromium.launch(chromiumConfig);
         console.log('[PDF] Step 1: 瀏覽器已啟動');
-        const context = await browser.newContext({ deviceScaleFactor: process.env.NODE_ENV === 'production' ? 1 : 1.5 });
+        const context = await browser.newContext({ deviceScaleFactor: process.env.NODE_ENV === 'production' ? 1 : 1 });
         const page = await context.newPage();
         console.log('[PDF] Step 1: Page 已建立');
 
