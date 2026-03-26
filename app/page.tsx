@@ -209,7 +209,7 @@ function ResumesTable() {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <a 
-                          href={`${process.env.NEXT_PUBLIC_HOST}/${resume.id}/zh-TW`}
+                          href={`/${resume.id}/zh-TW`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-indigo-800 hover:text-indigo-900 underline"
@@ -217,7 +217,7 @@ function ResumesTable() {
                           履歷
                         </a>
                         <button
-                          onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_HOST}/${resume.id}/zh-TW`)}
+                          onClick={() => navigator.clipboard.writeText(`/${resume.id}/zh-TW`)}
                           className="ml-2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                           title="複製連結"
                         >
