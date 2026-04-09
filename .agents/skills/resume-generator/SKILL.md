@@ -56,24 +56,31 @@ description: "Generate and manage tailored resumes for job applications in the l
 根據 `jd.md` 內容與 `/source` 資料，為 `{uuid}/en/page.tsx` 與 `{uuid}/zh-TW/page.tsx` 生成以下區塊：
 
 #### 1. 自我介紹 (Professional Summary)
+
 - 包含頭像 (Avatar) 與聯絡方式 (Email/GitHub/LinkedIn/Portfolio)。
 - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。
 - 可根據 `/source` 生成資料裡沒有的語句，但**不可違背事實**。
 - 包含 cover letter 內容，例如「我可以為 {company name} 做出的貢獻為...」、「選擇我優於其他候選人，是因為我具備...強項」等。
+- **必須將自我介紹分段呈現**（使用 `\n\n` 換行），每段聚焦一個主題（例如：背景概述、團隊協作與 Mentor 經驗、獨立交付與創業精神、使用者導向的工程理念、對目標公司的貢獻），避免一整段長文。
 
 #### 2. 工作經歷 (Work Experience)
+
 - **嚴格選取最近 5 間公司**，按時間由新到舊排序。
 
 #### 3. 專案介紹 (Projects)
+
 - 挑選與該 JD **最相關的 6 個專案**，說明技術亮點與達成成果。
 
 #### 4. 技術棧可視化 (Tech Stack Visualization)
+
 - **完全複製** `john-hsieh/{locale}` 中的 `skill-cloud.tsx` 與 `skill-beam.tsx` 組件內容。
 
 #### 5. 技能關鍵字 (Skills & Keywords)
+
 - 整理一組針對 HR 篩選 (ATS) 優化的技術關鍵字，包含 Frameworks、Languages、Tools。
 
 #### 6. 學歷與證書 (Education & Certifications)
+
 - 列出最高學歷及與職位相關的專業證照（如 AWS、JLPT 等）。
 
 ### 第三階段：開發規範
@@ -98,16 +105,16 @@ description: "Generate and manage tailored resumes for job applications in the l
 
 ## 關鍵檔案參考
 
-| 用途 | 路徑 |
-|------|------|
-| 事實來源 (英文) | `source/resume-en.md` |
-| 事實來源 (中文) | `source/resume-zh-TW.md` |
-| 基礎履歷範本 | `app/(download-pdf)/john-hsieh/{en,zh-TW}/page.tsx` |
-| 技術棧組件 | `app/(download-pdf)/john-hsieh/skill-cloud.tsx`, `skill-beam.tsx` |
-| 共用組件 | `components/resume/*.tsx` |
-| 型別定義 | `components/resume/types.ts` |
-| 建立履歷腳本 | `scripts/create-cv.ts` |
-| 客製化履歷目錄 | `app/(download-pdf)/{uuid}/` |
+| 用途            | 路徑                                                              |
+| --------------- | ----------------------------------------------------------------- |
+| 事實來源 (英文) | `source/resume-en.md`                                             |
+| 事實來源 (中文) | `source/resume-zh-TW.md`                                          |
+| 基礎履歷範本    | `app/(download-pdf)/john-hsieh/{en,zh-TW}/page.tsx`               |
+| 技術棧組件      | `app/(download-pdf)/john-hsieh/skill-cloud.tsx`, `skill-beam.tsx` |
+| 共用組件        | `components/resume/*.tsx`                                         |
+| 型別定義        | `components/resume/types.ts`                                      |
+| 建立履歷腳本    | `scripts/create-cv.ts`                                            |
+| 客製化履歷目錄  | `app/(download-pdf)/{uuid}/`                                      |
 
 ---
 
