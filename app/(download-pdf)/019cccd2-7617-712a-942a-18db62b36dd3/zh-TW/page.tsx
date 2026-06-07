@@ -54,8 +54,8 @@ import {
 } from "@/components/ui/tooltip";
 import { TechStackVisualization, SkillKeywords } from "@/components/resume";
 import type { SkillKeywordRow } from "@/components/resume";
-import { SkillCloud } from "../skill-cloud";
-import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
+import { SkillCloud } from "../../john-hsieh/skill-cloud";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../../john-hsieh/skill-beam";
 
 export const metadata: Metadata = {
   title: "John Hsieh | 資深前端工程師 — SWAG",

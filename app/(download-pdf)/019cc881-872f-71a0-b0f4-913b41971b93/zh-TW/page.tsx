@@ -517,18 +517,6 @@ export default function Resume() {
           ];
           return <div className="mt-6"><SkillKeywords title="技能關鍵字" rows={skillKeywordRows} /></div>;
         })()}
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <span className="text-gray-700">AI 輔助開發工具與工作流程經驗</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <span className="text-gray-700">國際化分散式團隊合作實績</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

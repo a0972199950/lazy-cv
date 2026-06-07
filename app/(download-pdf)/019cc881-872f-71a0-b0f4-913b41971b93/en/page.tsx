@@ -512,18 +512,6 @@ export default function Resume() {
           ];
           return <div className="mt-6"><SkillKeywords title="Skills & Keywords" rows={skillKeywordRows} /></div>;
         })()}
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <span className="text-gray-700">Experience with AI-powered development tools and workflows</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <span className="text-gray-700">Proven track record in international, distributed teams</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )
