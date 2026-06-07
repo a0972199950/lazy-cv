@@ -21,6 +21,8 @@ import {
   SiSocketdotio,
   SiNuxt,
   SiVite,
+  SiOpenai,
+  SiN8N,
 } from "react-icons/si";
 import { IconCloud } from "@/components/ui/icon-cloud";
 
@@ -45,11 +47,13 @@ const skillIcons = [
   <SiTailwindcss key="tailwind" className="size-full" color="#06B6D4" />,
   <SiGit key="git" className="size-full" color="#F05032" />,
   <SiSocketdotio key="socket" className="size-full" color="#010101" />,
+  <SiOpenai key="openai" className="size-full" color="#412991" />,
+  <SiN8N key="n8n" className="size-full" color="#EA4B71" />,
 ];
 
 export function SkillCloud() {
   return (
-    <div className="relative flex size-full items-center justify-center overflow-hidden">
+    <div className="print:hidden relative flex size-full items-center justify-center overflow-hidden">
       <IconCloud icons={skillIcons} />
     </div>
   );

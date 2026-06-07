@@ -272,6 +272,22 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 
 ### Personal Projects
 
+##### AI Persona Chatbot — Intelligent Communication Assistant Integrating n8n and LLM
+
+- **Description:** A LINE chatbot that brings a pet to life as a personalized AI companion. Built on top of a large language model and the workflow automation tool n8n, it connects through the LINE Messaging API to create an always-available pet account. The bot supports multi-turn continuous conversation with context memory, image and voice understanding, and can interact via stickers or text. It can also quickly switch to different tones and personalities based on specific business scenarios or needs.
+
+- **Technical Highlights:**
+  - **n8n Workflow Automation Architecture**: Uses n8n as the core backend integration platform to flexibly orchestrate LINE Webhook events, Gemini API calls, and database storage — eliminating heavy traditional backend development and dramatically improving iteration efficiency.
+  - **Multi-turn Context Memory (Context Window)**: Distinguishes sessions and permissions by user ID, enabling precise and independent personalized conversation contexts.
+  - **Image & Voice Understanding (Multimodal Agent)**: The bot can understand image and audio content and interact accordingly.
+  - **Structured Prompt Engineering**: Carefully tuned system prompts to ensure conversations align with a specific character persona and conversational style.
+  - **Long-term Memory (AI Knowledge Base)**: The pet bot retains memories of all past events. Past memories are stored as JSONL, vectorized (embedded) into a semantic search database, and exposed to the AI via tool calls — making the pet bot feel genuinely lifelike.
+  - **Lightweight Cloud Deployment (Docker & VPS)**: n8n and related services are containerized with Docker and deployed on a DigitalOcean VPS.
+
+- **Images:**
+![Chat Screenshot](https://cdn.lazy-cv.com/00bf8b7292f2f0e10ca191b8ff74f4f2e9826cbcea8725825561d653b5363253.png)
+![n8n Workflow](https://cdn.lazy-cv.com/1b07b662e7aa1ee44fe51102609d4151cc967f65f8aeaa9f89a4e8ec2ac0d592.png)
+
 ##### Lazy CV — AI-Powered Customized Resume Generator
 - **Website:** https://lazy-cv.com
 - **GitHub:** https://github.com/a0972199950/lazy-cv
@@ -489,6 +505,22 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 
 ## 🛠️ Technical Skills
 
+### 🤖 AI Development & AI-Assisted Engineering
+**🎯 Core Philosophy:**
+I have deeply integrated AI tools into my daily development workflow — not merely for code assistance, but as automation agents that build end-to-end development SOPs, dramatically boosting productivity.
+
+**Keywords:**
+- **AI Coding Tools:** GitHub Copilot (Agent Mode), Cursor
+- **Prompt Engineering:** Structured prompt design, custom SOP definition via copilot-instructions.md / AGENTS.md
+- **SDD (Spec-Driven Development):** Writing detailed specification documents to drive AI implementation, ensuring outputs align with intent and reducing hallucination risks
+- **MCP (Model Context Protocol):** Capable of building custom MCP Servers to integrate self-developed tools into AI agent workflows
+- **AI Agent Automation:** End-to-end AI agent workflow design and implementation
+- **Low-level LLM Integration:** System prompt design, conversation history management, tool call flow implementation, vector database design (RAG)
+- **n8n Workflow Automation:** Connecting AI services, webhooks, and databases via n8n to build no-code/low-code automation pipelines
+- **Vibe Coding:** High-efficiency AI-assisted development — delivering complete full-stack products in minimal time
+- **LLM API Integration:** Anthropic Claude API, OpenAI API
+- **AI Workflow Design:** Defining skills, designing multi-step AI agent collaboration pipelines
+
 ### 💻 JavaScript Framework and Tools
 **🎯 Core Philosophy:**
 I can use both React and Vue. And also have experience in developing products with both these frameworks. In addition, TypeScript is something I always use, too.
@@ -496,12 +528,27 @@ I can use both React and Vue. And also have experience in developing products wi
 In the API communication, besides normal Restful APIs, I have experienced in maintaining GraphQL based APIs in large projects.
 
 **Keywords:**
-- Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate
-- React, NextJS, MobX, React Hook Form, Yup
-- Webpack, TypeScript, Chartjs, D3.js, Quill
-- GraphQL, Socket.io, Axios, i18n, jQuery
-- Jest, Cypress.io, Lodash, Firebase
-- Lighthouse, Renovate, Storybook
+- **Fundamentals:** HTML, CSS, JavaScript (ES6+)
+- **Version Control:** Git, GitHub, GitHub Actions
+- **Core Frameworks:** Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, React Hook Form, Yup
+- **Build Tools:** Webpack, Vite
+- **Animation:** Framer Motion
+- **Charts:** ECharts, Chart.js, D3.js
+- **Editor:** Quill
+- **Real-time:** GraphQL, Socket.io
+- **HTTP / API:** Axios, REST API
+- **Multithreading:** Web Worker, Comlink
+- **i18n:** i18n
+- **Legacy:** jQuery
+- **Testing:** Jest, Cypress.io
+- **Utilities:** Lodash
+- **Cloud:** Firebase, AWS (S3, CloudFront, Lambda, ECR)
+- **ORM:** Drizzle ORM
+- **CI/CD & Containers:** GitHub Actions, Docker, Kubernetes (K8s)
+- **Performance:** Lighthouse
+- **Dependency Management:** Renovate, npm, pnpm
+- **Documentation:** Storybook
+- **Enterprise UI:** Arco Design, TypeScript
 
 ### 🎨 CSS Framework and Library
 Instead of using UI frameworks, I'd like to customise a small CSS system for each project with Sass+TailwindCSS+BEM Naming convention.
@@ -513,14 +560,19 @@ Only in projects which are not required for special UI design, I'll apply framew
 Also I like to use CSS variable to dark mode theme and RWD design.
 
 **Keywords:**
-- Sass, Scss, TailwindCSS, Bootstrap
-- ElementUI, Buefy, Vuetify
-- CSS variable, Media query, BEM Naming convention
+- **Fundamentals:** CSS, CSS Modules
+- **Preprocessors:** Sass, Scss, Less
+- **Modern Tooling:** TailwindCSS
+- **Traditional Frameworks:** Bootstrap
+- **Vue Ecosystem:** ElementUI, Buefy, Vuetify
+- **Modern CSS:** CSS variable, Media query
+- **Methodology:** BEM Naming convention
 
 ### 📱 PWA (Progressive Web App)
 PWA hasn't not fully supported in iOS, so instead of build full PWA supported APP, I usually combine Service Worker + Cache Storage + IndexedDB to increase page response and offline experience.
 
 **Technologies:**
+- Background Runtime - Service Worker
 - Library - Workbox, web-push
 - Client Side DB & Cache - IndexedDB, Cache Storage
 - Others - navigator API
@@ -543,12 +595,13 @@ As a frontend developer though, I sometime need to handle backend API service.
 I like use Express + TypeScript + MongoDB to handle it.
 
 **Things I familiar with:**
-- Framework - Express
-- Web Socket - Socket.io
-- Database and ORM - MongoDB, Mongoose
-- Template engine - EJS, mustache
-- Document tool - Swagger
-- Others - GraphQL
+- **Runtime:** Node.js
+- **Framework:** Express
+- **Web Socket:** Socket.io
+- **Database and ORM:** MongoDB, Mongoose, PostgreSQL, Redis
+- **Template engine:** EJS, mustache
+- **Document tool:** Swagger
+- **Others:** GraphQL
 
 ### 🗣️ Language Skills
 - **Chinese** - Native
@@ -631,6 +684,9 @@ I like use Express + TypeScript + MongoDB to handle it.
 - GraphQL
 
 ### 🟡 Advanced Level Technologies
+- GitHub Copilot (Agent Mode) / Cursor
+- Prompt Engineering & AI Agent Development
+- MCP (Model Context Protocol)
 - Node.js/Express
 - MongoDB
 - Socket.io

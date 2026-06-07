@@ -248,3 +248,169 @@ a:focus {
     @apply font-sans;
   }
 }
+
+/* ============================================================
+ * 列印 / Save as PDF 樣式
+ * 透過 window.print() 產出可搜尋、ATS 友善的 PDF。
+ * 重點：保留語意文字，移除背景裝飾、動畫與互動元素，
+ *      讓瀏覽器以單欄文字流輸出，避免分頁切到一半。
+ * ============================================================ */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 停用所有動畫與過渡，避免 framer-motion / spring 初始值為 0 */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  /* 移除背景裝飾（radial gradient、blur 圓圈） */
+  [class*="pointer-events-none"][class*="absolute"] {
+    display: none !important;
+  }
+
+  /* 全域：清除所有 background-image（漸層）與 mask-image。
+   * 這是降低 PDF 卡頓的關鍵：Chrome 會把每個漸層序列化為 Shading object，
+   * 且每個半透明背景會生成 SMask + Group，捲動時 PDF reader 要重做 alpha 合成。 */
+  *,
+  *::before,
+  *::after {
+    background-image: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  /* SVG 內漸層 → 改成 currentColor 單色，避免額外 Shading object */
+  svg defs linearGradient,
+  svg defs radialGradient {
+    display: none !important;
+  }
+  svg [fill^="url("] {
+    fill: currentColor !important;
+  }
+  svg [stroke^="url("] {
+    stroke: currentColor !important;
+  }
+
+  /* 修復漸層文字（bg-clip-text + text-transparent）在 PDF 中變不可見 */
+  [class*="bg-clip-text"],
+  [class*="text-transparent"] {
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: #0f172a !important;
+  }
+
+  /* 半透明背景 → 改成純白實色，避免 SMask（每個都會多一個透明合成層） */
+  [class*="/5"],
+  [class*="/10"],
+  [class*="/15"],
+  [class*="/20"],
+  [class*="/25"],
+  [class*="/30"],
+  [class*="/40"],
+  [class*="/50"],
+  [class*="/60"],
+  [class*="/70"],
+  [class*="/75"],
+  [class*="/80"],
+  [class*="/85"],
+  [class*="/90"],
+  [class*="/95"] {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Card / 重型視覺裝飾：BorderBeam、MagicCard、AnimatedBeam SVG 容器 */
+  canvas,
+  /* AnimatedBeam 是頂層 <svg class="pointer-events-none absolute ..."> */
+  svg.pointer-events-none {
+    display: none !important;
+  }
+
+  /* Marquee「拆封」：原本是 overflow-hidden + flex nowrap + 4× repeat 做橫向輪播，
+   * PDF 中動畫已停止，但橫向 nowrap 會讓視窗外的 badge 被裁掉。
+   * 解法：父容器解除 overflow，第一份 repeat 改成 wrap 全部呈現，其餘隱藏避免重複。 */
+  :has(> .animate-marquee),
+  :has(> .animate-marquee-vertical) {
+    overflow: visible !important;
+    display: block !important;
+  }
+  .animate-marquee,
+  .animate-marquee-vertical {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    flex-shrink: 1 !important;
+    width: 100% !important;
+  }
+  .animate-marquee ~ .animate-marquee,
+  .animate-marquee-vertical ~ .animate-marquee-vertical {
+    display: none !important;
+  }
+
+  /* 隱藏不需要的浮動 UI */
+  #download-pdf-actions,
+  #download-pdf-btn,
+  #long-screenshot-btn,
+  /* Radix UI tooltip/popover portal 渲染在 body 最頂層，print 時會顯示在左上角 */
+  [data-radix-popper-content-wrapper],
+  [data-radix-tooltip-content],
+  [role="tooltip"],
+  nextjs-portal,
+  [data-nextjs-dialog],
+  [data-nextjs-toast] {
+    display: none !important;
+  }
+
+  /* 連結保留 URL 提示，方便 HR 在紙本/PDF 上看到 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555 !important;
+    word-break: break-all;
+  }
+
+  /* 區塊與段落避免在中間被分頁切開 */
+  section,
+  article,
+  li,
+  tr,
+  figure,
+  pre,
+  blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+}

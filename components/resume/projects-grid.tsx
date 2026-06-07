@@ -47,7 +47,9 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
-    <BlurFade delay={0.3} inView>
+    <>
+      {/* ── 一般顯示版（有特效）── */}
+      <BlurFade delay={0.3} inView className="print:hidden">
       <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
         <CardHeader>
           <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
@@ -194,5 +196,72 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
         </DialogContent>
       </Dialog>
     </BlurFade>
+
+      {/* ── Print 版本（所有專案靜態列表，圖片 + 文字全顯示）── */}
+      <div className="hidden print:block rounded-xl border border-slate-200 p-6 space-y-4">
+        <div>
+          <h2 className="inline-flex items-center gap-2 text-xl font-semibold text-slate-900">
+            <FolderKanban className="size-5 text-cyan-700" />
+            {title}
+          </h2>
+          <p className="text-sm text-slate-500">{description}</p>
+        </div>
+        <div className="grid gap-4 grid-cols-2">
+          {projects.map((project) => {
+            const firstImage = Array.isArray(project.image) ? project.image[0] : project.image;
+            return (
+              <div key={project.name} className="rounded-lg border border-slate-200 p-3 space-y-2">
+                <div className="flex gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={firstImage}
+                    alt={project.name}
+                    className="size-14 rounded border border-slate-200 object-cover shrink-0"
+                  />
+                  <div>
+                    <h3 className="text-sm font-semibold text-slate-900">
+                      {project.url ? (
+                        <a href={project.url} className="text-cyan-700">
+                          {project.name} ↗
+                        </a>
+                      ) : (
+                        project.name
+                      )}
+                    </h3>
+                    <p className="mt-0.5 text-xs leading-relaxed text-slate-500">
+                      {project.summary}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded border border-slate-200 px-2 py-0.5 text-[11px] text-slate-600"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {project.highlights && project.highlights.length > 0 && (
+                  <ul className="list-disc space-y-0.5 pl-4">
+                    {project.highlights.map((h, i) => (
+                      <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
+                    ))}
+                  </ul>
+                )}
+                {project.contributions && project.contributions.length > 0 && (
+                  <ul className="list-disc space-y-0.5 pl-4">
+                    {project.contributions.map((c, i) => (
+                      <li key={i} className="text-[11px] leading-relaxed text-slate-600">{parseBold(c)}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }

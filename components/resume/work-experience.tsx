@@ -57,6 +57,7 @@ export function WorkExperience({ title, experiences }: WorkExperienceProps) {
                           alt={exp.company}
                           width={40}
                           height={40}
+                          loading="eager"
                           className="size-10 rounded-lg border border-slate-200 object-contain bg-white p-0.5"
                         />
                         <div>

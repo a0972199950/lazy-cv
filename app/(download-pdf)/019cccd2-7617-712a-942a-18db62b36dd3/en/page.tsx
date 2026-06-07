@@ -52,6 +52,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { TechStackVisualization, SkillKeywords } from "@/components/resume";
+import type { SkillKeywordRow } from "@/components/resume";
+import { SkillCloud } from "../skill-cloud";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
 
 export const metadata: Metadata = {
   title: "John Hsieh | Senior Frontend Engineer — SWAG",
@@ -185,43 +189,29 @@ const projects: Project[] = [
   },
 ];
 
-const skillKeywordsRow1 = [
-  "React",
-  "Redux",
-  "Next.js App Router",
-  "TypeScript",
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "Vue",
-  "SSR",
-  "Express",
-];
-
-const skillKeywordsRow2 = [
-  "PWA",
-  "Service Worker",
-  "SEO",
-  "i18n",
-  "IndexedDB",
-  "Cookie",
-  "localStorage",
-  "Cache Control",
-  "CDN Cache",
-  "Performance",
-];
-
-const skillKeywordsRow3 = [
-  "Webpack",
-  "Docker",
-  "GitHub Actions",
-  "CI/CD",
-  "Socket.io",
-  "GraphQL",
-  "Node.js",
-  "TailwindCSS",
-  "Lighthouse",
-  "Push Notification",
+const skillKeywordRows: SkillKeywordRow[] = [
+  {
+    keywords: ["TypeScript", "React", "Next.js", "Vue", "NuxtJS", "GraphQL", "TailwindCSS", "Sass / SCSS", "Node.js", "Express"],
+    badgeClassName: "border-slate-300 bg-white text-slate-700",
+    marqueeClassName: "[--duration:30s]",
+  },
+  {
+    keywords: ["MongoDB", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "Jest", "Cypress", "Firebase", "Storybook", "Webpack"],
+    badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
+    marqueeClassName: "[--duration:35s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Web Component", "StencilJS", "PWA", "Socket.io", "i18n", "Git", "REST API", "SEO", "Lighthouse", "Renovate"],
+    badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
+    marqueeClassName: "[--duration:32s]",
+  },
+  {
+    keywords: ["Axios", "ECharts", "D3.js", "Framer Motion", "Drizzle ORM", "Rush Monorepo", "Arco Design", "Web Worker", "React Hook Form", "Yup"],
+    badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
+    marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
 ];
 
 const stats = [
@@ -532,55 +522,20 @@ export default function SwagResumePageEN() {
             </Card>
           </BlurFade>
 
+          {/* ─────────── Tech Stack Visualization ─────────── */}
+          <TechStackVisualization title="Tech Stack Visualization" description="Core technologies and surrounding capabilities relationship map.">
+            <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
+              <SkillCloud />
+            </div>
+            <FrontendJSBeam locale="en" />
+            <CSSBeam locale="en" />
+            <PWABeam />
+            <WebComponentBeam locale="en" />
+            <BackendBeam locale="en" />
+          </TechStackVisualization>
+
           {/* ─────────── Skill Keywords (Marquee) ─────────── */}
-          <BlurFade delay={0.4} inView>
-            <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2 text-xl text-slate-900 md:text-2xl">
-                  <Tags className="size-5 text-cyan-700" />
-                  Skills & Keywords
-                </CardTitle>
-                <CardDescription>
-                  ATS-optimized technical keywords covering Frameworks, Languages, and Tools.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3 overflow-hidden">
-                <Marquee pauseOnHover className="[--duration:30s]">
-                  {skillKeywordsRow1.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-                <Marquee pauseOnHover reverse className="[--duration:35s]">
-                  {skillKeywordsRow2.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-cyan-200 bg-cyan-50/50 px-3 py-1.5 text-sm text-cyan-800 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-                <Marquee pauseOnHover className="[--duration:32s]">
-                  {skillKeywordsRow3.map((kw) => (
-                    <Badge
-                      key={kw}
-                      variant="outline"
-                      className="border-emerald-200 bg-emerald-50/50 px-3 py-1.5 text-sm text-emerald-800 whitespace-nowrap"
-                    >
-                      {kw}
-                    </Badge>
-                  ))}
-                </Marquee>
-              </CardContent>
-            </Card>
-          </BlurFade>
+          <SkillKeywords title="Skills & Keywords" rows={skillKeywordRows} />
 
           {/* ─────────── Education & Certs ─────────── */}
           <BlurFade delay={0.45} inView>

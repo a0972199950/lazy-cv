@@ -20,7 +20,7 @@ import type {
   LanguageItem,
 } from "@/components/resume";
 import { SkillCloud } from "../skill-cloud";
-import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam, AIBeam } from "../skill-beam";
 
 export const metadata: Metadata = {
   title: "John Hsieh | Senior Frontend Engineer",
@@ -142,6 +142,23 @@ const experiences: Experience[] = [
 ];
 
 const projects: Project[] = [
+  {
+    name: "AI Persona Chatbot",
+    summary:
+      "A LINE chatbot built on top of a large language model and the n8n workflow automation tool, bringing a pet to life as a personalized AI companion. Features multi-turn context memory, image/voice understanding (multimodal), long-term memory via vector database (RAG), and quick persona switching.",
+    stack: ["n8n", "Gemini API", "LINE Messaging API", "Docker", "VPS", "Embedding"],
+    image: [
+      "https://cdn.lazy-cv.com/00bf8b7292f2f0e10ca191b8ff74f4f2e9826cbcea8725825561d653b5363253.png",
+      "https://cdn.lazy-cv.com/1b07b662e7aa1ee44fe51102609d4151cc967f65f8aeaa9f89a4e8ec2ac0d592.png",
+    ],
+    highlights: [
+      "n8n Workflow Automation Architecture: uses n8n as the core backend integration platform to orchestrate LINE Webhook events, Gemini API calls, and database storage — eliminating heavy traditional backend development",
+      "Multi-turn Context Memory (Context Window): distinguishes sessions by user ID for precise, independent personalized conversation contexts",
+      "Image & Voice Understanding (Multimodal Agent): bot understands image and audio content and interacts accordingly",
+      "Long-term Memory (AI Knowledge Base): past memories stored as JSONL, vectorized (embedded) into a semantic search database, exposed to the AI via tool calls — making the bot feel genuinely lifelike",
+      "Lightweight Cloud Deployment: n8n and related services containerized with Docker, deployed on DigitalOcean VPS",
+    ],
+  },
   {
     name: "Lazy CV",
     summary:
@@ -368,21 +385,37 @@ const skillKeywordRows: SkillKeywordRow[] = [
     marqueeClassName: "[--duration:30s]",
   },
   {
-    keywords: ["MongoDB", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "Jest", "Cypress", "Firebase", "Storybook", "Webpack"],
+    keywords: ["MongoDB", "PostgreSQL", "Redis", "Docker", "Kubernetes", "GitHub Actions", "Firebase", "AWS", "Drizzle ORM", "Mongoose"],
     badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
     marqueeClassName: "[--duration:35s]",
     reverse: true,
   },
   {
-    keywords: ["Web Component", "StencilJS", "PWA", "Socket.io", "i18n", "Git", "REST API", "SEO", "Lighthouse", "Renovate"],
+    keywords: ["Jest", "Cypress", "Storybook", "Webpack", "Vite", "Git", "Lighthouse", "Renovate", "pnpm", "ESLint"],
     badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
     marqueeClassName: "[--duration:32s]",
   },
   {
-    keywords: ["Axios", "ECharts", "D3.js", "Framer Motion", "Drizzle ORM", "Rush Monorepo", "Arco Design", "Web Worker", "React Hook Form", "Yup"],
+    keywords: ["Axios", "ECharts", "Chart.js", "Framer Motion", "React Hook Form", "Yup", "Lodash", "i18n", "Arco Design", "Rush Monorepo"],
     badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
     marqueeClassName: "[--duration:33s]",
     reverse: true,
+  },
+  {
+    keywords: ["GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
+    badgeClassName: "border-amber-200 bg-amber-50/50 text-amber-800",
+    marqueeClassName: "[--duration:34s]",
+  },
+  {
+    keywords: ["Web Worker", "Comlink", "Service Worker", "IndexedDB", "StencilJS", "Shadow DOM", "Socket.io", "PWA", "Web Socket", "REST API"],
+    badgeClassName: "border-rose-200 bg-rose-50/50 text-rose-800",
+    marqueeClassName: "[--duration:36s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Bootstrap", "ElementUI", "Buefy", "Vuetify", "CSS Modules", "Less", "BEM", "Vuex", "Vue Router", "MobX"],
+    badgeClassName: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
+    marqueeClassName: "[--duration:31s]",
   },
 ];
 
@@ -424,7 +457,7 @@ export default function ExampleResumePageEN() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="Senior Frontend Engineer"
-        description="7 years of frontend development experience, previously at TikTok Singapore and LINE Taiwan as a senior software engineer. Core tech stack includes React (NextJS), Vue (NuxtJS), and TypeScript. My core value is 'User Experience First' — my mission is not just to build a product, but to create software that is 'user-friendly' and 'beautiful.' Capable of building products from scratch in resource-limited environments, as well as delivering high-quality code in large enterprise settings. Fluent in English, Japanese, and Mandarin Chinese. Well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders. Excel at explaining complex problems in simple terms."
+        description="7 years of frontend development experience, previously at TikTok Singapore and LINE Taiwan as a senior software engineer. Core tech stack includes React (NextJS), Vue (NuxtJS), and TypeScript. My core value is 'User Experience First' — my mission is not just to build a product, but to create software that is 'user-friendly' and 'beautiful.' Capable of building products from scratch in resource-limited environments, as well as delivering high-quality code in large enterprise settings. Deeply integrated AI tools into daily workflows — leveraging GitHub Copilot Agent Mode, MCP, and n8n to build end-to-end AI automation SOPs, with hands-on experience in LLM API integration and vector database (RAG) development. Fluent in English, Japanese, and Mandarin Chinese. Well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders. Excel at explaining complex problems in simple terms."
         location="Singapore"
         stats={stats}
         contacts={contacts}
@@ -445,6 +478,7 @@ export default function ExampleResumePageEN() {
         <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
           <SkillCloud />
         </div>
+        <AIBeam locale="en" />
         <FrontendJSBeam locale="en" />
         <CSSBeam locale="en" />
         <PWABeam locale="en" />

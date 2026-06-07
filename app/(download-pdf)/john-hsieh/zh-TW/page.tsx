@@ -20,7 +20,7 @@ import type {
   LanguageItem,
 } from "@/components/resume";
 import { SkillCloud } from "../skill-cloud";
-import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../skill-beam";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam, AIBeam } from "../skill-beam";
 
 export const metadata: Metadata = {
   title: "John Hsieh | 資深前端工程師",
@@ -142,6 +142,23 @@ const experiences: Experience[] = [
 ];
 
 const projects: Project[] = [
+  {
+    name: "AI 擬人對話機器人",
+    summary:
+      "以大語言模型與 n8n 工作流自動化為基底，透過 LINE Messaging API 打造寵物擬人化 AI 聊天機器人。具備多輪對話記憶、圖片/語音理解（多模態）、長期記憶（向量資料庫 RAG）等功能，並可根據不同場景快速切換人格設定。",
+    stack: ["n8n", "Gemini API", "LINE Messaging API", "Docker", "VPS", "Embedding"],
+    image: [
+      "https://cdn.lazy-cv.com/00bf8b7292f2f0e10ca191b8ff74f4f2e9826cbcea8725825561d653b5363253.png",
+      "https://cdn.lazy-cv.com/1b07b662e7aa1ee44fe51102609d4151cc967f65f8aeaa9f89a4e8ec2ac0d592.png",
+    ],
+    highlights: [
+      "n8n 工作流自動化架構：以 n8n 為核心後端整合平台，靈活調度 LINE Webhook、Gemini API 與資料庫，免去繁重的傳統後端開發，大幅提升迭代效率",
+      "多輪連續對話記憶（Context Window）：以 user ID 為單位實現精準、獨立的個人化對話脈絡",
+      "圖片與語音理解（多模態 Agent）：機器人可理解圖片與聲音內容並進行互動",
+      "長期記憶（AI 知識庫）：過往記憶存成 JSONL 並向量化（Embedding），透過 tool call 賦予 AI 語意檢索能力，更加擬人化",
+      "輕量化雲端部署：以 Docker 容器化打包，部署於 DigitalOcean VPS",
+    ],
+  },
   {
     name: "Lazy CV",
     summary:
@@ -368,21 +385,37 @@ const skillKeywordRows: SkillKeywordRow[] = [
     marqueeClassName: "[--duration:30s]",
   },
   {
-    keywords: ["MongoDB", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "Jest", "Cypress", "Firebase", "Storybook", "Webpack"],
+    keywords: ["MongoDB", "PostgreSQL", "Redis", "Docker", "Kubernetes", "GitHub Actions", "Firebase", "AWS", "Drizzle ORM", "Mongoose"],
     badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
     marqueeClassName: "[--duration:35s]",
     reverse: true,
   },
   {
-    keywords: ["Web Component", "StencilJS", "PWA", "Socket.io", "i18n", "Git", "REST API", "SEO", "Lighthouse", "Renovate"],
+    keywords: ["Jest", "Cypress", "Storybook", "Webpack", "Vite", "Git", "Lighthouse", "Renovate", "pnpm", "ESLint"],
     badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
     marqueeClassName: "[--duration:32s]",
   },
   {
-    keywords: ["Axios", "ECharts", "D3.js", "Framer Motion", "Drizzle ORM", "Rush Monorepo", "Arco Design", "Web Worker", "React Hook Form", "Yup"],
+    keywords: ["Axios", "ECharts", "Chart.js", "Framer Motion", "React Hook Form", "Yup", "Lodash", "i18n", "Arco Design", "Rush Monorepo"],
     badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
     marqueeClassName: "[--duration:33s]",
     reverse: true,
+  },
+  {
+    keywords: ["GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
+    badgeClassName: "border-amber-200 bg-amber-50/50 text-amber-800",
+    marqueeClassName: "[--duration:34s]",
+  },
+  {
+    keywords: ["Web Worker", "Comlink", "Service Worker", "IndexedDB", "StencilJS", "Shadow DOM", "Socket.io", "PWA", "Web Socket", "REST API"],
+    badgeClassName: "border-rose-200 bg-rose-50/50 text-rose-800",
+    marqueeClassName: "[--duration:36s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Bootstrap", "ElementUI", "Buefy", "Vuetify", "CSS Modules", "Less", "BEM", "Vuex", "Vue Router", "MobX"],
+    badgeClassName: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
+    marqueeClassName: "[--duration:31s]",
   },
 ];
 
@@ -425,7 +458,7 @@ export default function ExampleResumePageZhTW() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="資深前端工程師"
-        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。我的核心價值觀是「使用者體驗至上」，使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。流利使用英、日、中三種語言。熟悉敏捷開發與可持續的團隊迭代交付模式，擅長與他人合作及與非技術人員溝通。擅長將複雜問題用簡單的方式解釋。"
+        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。我的核心價值觀是「使用者體驗至上」，使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。已將 AI 工具深度整合進日常開發工作流程，善用 GitHub Copilot Agent Mode、MCP 與 n8n 等工具建立端到端的 AI 自動化 SOP，並具備 LLM API 串接與向量資料庫（RAG）等 AI 應用開發能力。流利使用英、日、中三種語言。熟悉敏捷開發與可持續的團隊迭代交付模式，擅長與他人合作及與非技術人員溝通。擅長將複雜問題用簡單的方式解釋。"
         location="Singapore"
         stats={stats}
         contacts={contacts}
@@ -446,6 +479,7 @@ export default function ExampleResumePageZhTW() {
         <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
           <SkillCloud />
         </div>
+        <AIBeam />
         <FrontendJSBeam />
         <CSSBeam />
         <PWABeam />

@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { TechStackVisualization, SkillKeywords } from "@/components/resume";
+import type { SkillKeywordRow } from "@/components/resume";
+import { SkillCloud } from "../../john-hsieh/skill-cloud";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam } from "../../john-hsieh/skill-beam";
 
 export const metadata: Metadata = {
   title: 'John Hsieh - 資深前端工程師 | Meta Manus 團隊應徵',
@@ -466,7 +470,53 @@ export default function Resume() {
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
                   <span className="text-gray-700">日本語能力測驗 N1 認證</span>
-                </li>
+                </li></ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Tech Stack Visualization */}
+        <div className="mt-6">
+          <TechStackVisualization title="技術棧可視化" description="核心技術與周邊能力的連結關係圖。">
+            <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
+              <SkillCloud />
+            </div>
+            <FrontendJSBeam />
+            <CSSBeam />
+            <PWABeam />
+            <WebComponentBeam />
+            <BackendBeam />
+          </TechStackVisualization>
+        </div>
+
+        {/* Skill Keywords */}
+        {(() => {
+          const skillKeywordRows: SkillKeywordRow[] = [
+            {
+              keywords: ["TypeScript", "React", "Next.js", "Vue", "NuxtJS", "GraphQL", "TailwindCSS", "Sass / SCSS", "Node.js", "Express"],
+              badgeClassName: "border-slate-300 bg-white text-slate-700",
+              marqueeClassName: "[--duration:30s]",
+            },
+            {
+              keywords: ["MongoDB", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "Jest", "Cypress", "Firebase", "Storybook", "Webpack"],
+              badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
+              marqueeClassName: "[--duration:35s]",
+              reverse: true,
+            },
+            {
+              keywords: ["Web Component", "StencilJS", "PWA", "Socket.io", "i18n", "Git", "REST API", "SEO", "Lighthouse", "Renovate"],
+              badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
+              marqueeClassName: "[--duration:32s]",
+            },
+            {
+              keywords: ["Axios", "ECharts", "D3.js", "Framer Motion", "Drizzle ORM", "Rush Monorepo", "Arco Design", "Web Worker", "React Hook Form", "Yup"],
+              badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
+              marqueeClassName: "[--duration:33s]",
+              reverse: true,
+            },
+          ];
+          return <div className="mt-6"><SkillKeywords title="技能關鍵字" rows={skillKeywordRows} /></div>;
+        })()}
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
                   <span className="text-gray-700">AI 輔助開發工具與工作流程經驗</span>

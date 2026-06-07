@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Loader2 } from "lucide-react";
+import { Camera, FileText, Loader2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 
@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/tooltip";
 
 export const dynamic = 'force-static';
+
+const isDev = process.env.NODE_ENV !== 'production';
 
 const stepMessages = {
   'en': {
@@ -42,16 +44,22 @@ const stepMessages = {
 
 const i18n = {
   'en': {
-    tooltip: 'Download as PDF',
-    ariaLabel: 'Download as PDF',
+    pdfTooltip: 'Download PDF',
+    pdfAriaLabel: 'Download PDF',
+    screenshotTooltip: 'Long Screenshot (local only)',
+    screenshotAriaLabel: 'Download as long-screenshot PDF',
   },
   'zh-TW': {
-    tooltip: '下載為 PDF',
-    ariaLabel: '下載為 PDF',
+    pdfTooltip: '下載 PDF',
+    pdfAriaLabel: '下載 PDF',
+    screenshotTooltip: '長截圖（僅本地）',
+    screenshotAriaLabel: '下載長截圖 PDF',
   },
   'ja': {
-    tooltip: 'PDF としてダウンロード',
-    ariaLabel: 'PDF としてダウンロード',
+    pdfTooltip: 'PDF をダウンロード',
+    pdfAriaLabel: 'PDF をダウンロード',
+    screenshotTooltip: 'ロングスクリーンショット（ローカルのみ）',
+    screenshotAriaLabel: 'ロングスクリーンショット PDF をダウンロード',
   },
 } as const;
 
@@ -92,7 +100,7 @@ export default function DownloadPDFLayout({
   const t = i18n[locale];
   const steps = stepMessages[locale];
 
-  const handleDownloadPDF = async () => {
+  const handleLongScreenshot = async () => {
     if (loading) return;
     setLoading(true);
     setProgress(null);
@@ -147,12 +155,17 @@ export default function DownloadPDFLayout({
         }
       }
     } catch (err) {
-      console.error('PDF 產生失敗:', err);
-      alert('Failed to generate PDF.');
+      console.error('長截圖 PDF 產生失敗:', err);
+      alert('Failed to generate long-screenshot PDF.');
     } finally {
       setLoading(false);
       setProgress(null);
     }
+  };
+
+  const handleDownloadPDF = () => {
+    // 透過瀏覽器原生列印產生可搜尋的 PDF；使用者在對話框選 "Save as PDF" 即可下載。
+    window.print();
   };
 
   const pct = progress ? Math.round((progress.step / progress.total) * 100) : 0;
@@ -190,26 +203,55 @@ export default function DownloadPDFLayout({
           </div>
         )}
 
-        {/* PDF 下載按鈕 - 固定在右下角 */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              id="download-pdf-btn"
-              onClick={handleDownloadPDF}
-              disabled={loading}
-              className="cursor-pointer print:hidden fixed bottom-6 right-6 z-50 flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
-              aria-label={t.ariaLabel}
+        {/* 浮動按鈕群 - 固定在右下角 */}
+        <div
+          id="download-pdf-actions"
+          className="print:hidden fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
+        >
+          {/* 下載 PDF（可搜尋，純文字） - 永遠顯示 */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                id="download-pdf-btn"
+                onClick={handleDownloadPDF}
+                disabled={loading}
+                className="cursor-pointer flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+                aria-label={t.pdfAriaLabel}
+              >
+                <FileText className="size-6" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent
+              side="left"
+              className="border-slate-200 bg-white text-slate-700 shadow-md"
             >
-              <Download className="size-6" />
-            </button>
-          </TooltipTrigger>
-          <TooltipContent
-            side="left"
-            className="border-slate-200 bg-white text-slate-700 shadow-md"
-          >
-            {t.tooltip}
-          </TooltipContent>
-        </Tooltip>
+              {t.pdfTooltip}
+            </TooltipContent>
+          </Tooltip>
+
+          {/* 長截圖（圖片版 PDF） - 僅本地 dev 顯示 */}
+          {isDev && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  id="long-screenshot-btn"
+                  onClick={handleLongScreenshot}
+                  disabled={loading}
+                  className="cursor-pointer flex size-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md ring-1 ring-slate-100 transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
+                  aria-label={t.screenshotAriaLabel}
+                >
+                  <Camera className="size-5" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent
+                side="left"
+                className="border-slate-200 bg-white text-slate-700 shadow-md"
+              >
+                {t.screenshotTooltip}
+              </TooltipContent>
+            </Tooltip>
+          )}
+        </div>
       </div>
     </TooltipProvider>
   );

@@ -48,7 +48,9 @@ export function HeroProfile({
   globeCaption,
 }: HeroProfileProps) {
   return (
-    <BlurFade delay={0.1} inView>
+    <>
+      {/* ── 一般顯示版（有特效）── */}
+      <BlurFade delay={0.1} inView className="print:hidden">
       <Card className="relative overflow-hidden border-slate-200 bg-white/90 shadow-sm ring-1 ring-cyan-100/70 backdrop-blur">
         <BorderBeam
           size={120}
@@ -141,7 +143,7 @@ export function HeroProfile({
                   key={s.label}
                   className="group relative rounded-xl border border-slate-200/80 bg-white/80 p-3 text-center shadow-xs transition-all hover:border-cyan-300 hover:shadow-md hover:shadow-cyan-100/40"
                 >
-                  <Crown className="absolute -top-1.5 -left-1.5 size-4 -rotate-[30deg] fill-amber-400 text-amber-400 drop-shadow-sm transition-transform duration-300 group-hover:scale-125" />
+                  <Crown className="absolute -top-1.5 -left-1.5 size-4 -rotate-30 fill-amber-400 text-amber-400 drop-shadow-sm transition-transform duration-300 group-hover:scale-125" />
                   <span className="bg-linear-to-r from-cyan-600 to-emerald-600 bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
                     <NumberTicker value={s.value} />
                   </span>
@@ -154,5 +156,47 @@ export function HeroProfile({
         </CardContent>
       </Card>
     </BlurFade>
+
+      {/* ── Print 版本（無特效，文字可搜尋）── */}
+      <div className="hidden print:block rounded-xl border border-slate-200 p-6 space-y-4">
+        <div className="flex items-start gap-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={avatarUrl}
+            alt={name}
+            className="size-16 rounded-full border-2 border-slate-200 object-cover shrink-0"
+          />
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">{name}</h1>
+            <p className="text-base font-semibold text-slate-700">{jobTitle}</p>
+            <p className="flex items-center gap-1 text-sm text-slate-500">
+              <MapPin className="size-3.5" />
+              {location}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+          {contacts.map((c) => (
+            <a key={c.type} href={c.href} className="text-cyan-700">
+              {c.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-6">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="text-2xl font-bold text-slate-900">{s.value}</div>
+              <div className="text-xs text-slate-500">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
+          {description}
+        </p>
+      </div>
+    </>
   );
 }

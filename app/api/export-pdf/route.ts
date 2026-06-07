@@ -124,7 +124,7 @@ export async function POST(req: Request) {
         await page.waitForTimeout(3000);
         console.log('[PDF] Step 3: 等待 3s 完成');
 
-        await page.addStyleTag({ content: `#download-pdf-btn { display: none !important; }` });
+        await page.addStyleTag({ content: `#download-pdf-actions, #download-pdf-btn, #long-screenshot-btn { display: none !important; }` });
         // 移除 Next.js devtools（shadow DOM 元素，CSS 無法穿透）
         await page.evaluate(() => {
           document.querySelectorAll('nextjs-portal, [data-nextjs-dialog], [data-nextjs-toast]').forEach(el => el.remove());
