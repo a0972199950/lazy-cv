@@ -417,6 +417,17 @@ const skillKeywordRows: SkillKeywordRow[] = [
     badgeClassName: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
     marqueeClassName: "[--duration:31s]",
   },
+  {
+    keywords: ["HTML", "JavaScript", "jQuery", "npm", "SDD", "OpenAI API", "Vuelidate", "VeeValidate", "Quill", "D3.js"],
+    badgeClassName: "border-teal-200 bg-teal-50/50 text-teal-800",
+    marqueeClassName: "[--duration:29s]",
+  },
+  {
+    keywords: ["CSS", "CSS variable", "Media query", "Cache Storage", "Workbox", "web-push", "Navigator API", "EJS", "Swagger", "mustache"],
+    badgeClassName: "border-orange-200 bg-orange-50/50 text-orange-800",
+    marqueeClassName: "[--duration:37s]",
+    reverse: true,
+  },
 ];
 
 const stats: StatItem[] = [
