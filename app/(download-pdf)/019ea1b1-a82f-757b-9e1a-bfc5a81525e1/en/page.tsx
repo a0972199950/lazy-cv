@@ -1,0 +1,332 @@
+import type { Metadata } from "next";
+import {
+  ResumeLayout,
+  LanguageToggle,
+  HeroProfile,
+  WorkExperience,
+  ProjectsGrid,
+  TechStackVisualization,
+  SkillKeywords,
+  EducationCerts,
+} from "@/components/resume";
+import type {
+  Experience,
+  Project,
+  StatItem,
+  ContactItem,
+  SkillKeywordRow,
+  EducationItem,
+  CertificationItem,
+  LanguageItem,
+} from "@/components/resume";
+import { SkillCloud } from "../../john-hsieh/skill-cloud";
+import { FrontendJSBeam, CSSBeam, PWABeam, WebComponentBeam, BackendBeam, AIBeam } from "../../john-hsieh/skill-beam";
+
+export const metadata: Metadata = {
+  title: "John Hsieh | Senior Full-Stack JavaScript Engineer — Zühlke",
+  description:
+    "7 years of full-stack JavaScript development experience. Proficient in React / Next.js / Vue / NuxtJS / TypeScript / Node.js. Former Senior Software Engineer at TikTok Singapore and LINE Taiwan. Experienced Team Lead and Agile practitioner. Applying for Zühlke Singapore Senior Full-Stack JavaScript Engineer.",
+  openGraph: { images: ["/avatar.jpg"] },
+};
+
+/* ────────────────── data ────────────────── */
+
+const contacts: ContactItem[] = [
+  { href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
+  { href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+];
+
+const experiences: Experience[] = [
+  {
+    company: "TikTok Singapore",
+    role: "Software Engineer",
+    period: "2024.11 - Present",
+    logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
+    highlights: [
+      "Part of the User Growth team responsible for running advertisements across major DSP platforms to increase the user base for TikTok and other apps.",
+      "Developing financial settlement systems for ad delivery using React, monorepo, and the company's proprietary frontend microservices framework.",
+      "Led the development team in adopting Scrum: used retrospectives to build self-correction mechanisms, refinements to eliminate siloed work, and balanced workloads to improve overall team velocity.",
+    ],
+  },
+  {
+    company: "LINE Taiwan",
+    role: "Software Engineer",
+    period: "2021.08 - 2024.10",
+    logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
+    highlights: [
+      "Developed LINE Shopping daily using Vue SSR + GraphQL + TypeScript + ExpressJS; independently built the 'Live Shopping' feature, resolving memory spike and performance challenges under high-speed scrolling.",
+      "Led a 4-person team as Team Leader, driving the CMS refactoring from PHP to NextJS app router, achieving clean frontend/backend separation.",
+      "Participated in JavaScript Task Force (JSTF) to define company-wide frontend development guidelines; introduced Lighthouse CI as a standard performance evaluation step.",
+      "Served as Mentor for 2 new team members; led internal NextJS teaching forum with consistently positive feedback.",
+    ],
+  },
+  {
+    company: "AI.Book",
+    role: "Frontend Engineer (Consultant)",
+    period: "2021.09 - 2024.10",
+    logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
+    highlights: [
+      "Sole developer of the core online photo book editor, supporting drag-and-drop, resize, and text editing.",
+      "Designed the entire tech architecture from scratch using Vue + NuxtJS, bringing the product to market in 6 months.",
+      "Implemented PWA support for a native app-like cross-platform experience.",
+    ],
+  },
+  {
+    company: "FundFluent",
+    role: "Frontend Engineer (Consultant)",
+    period: "2021.01 - 2021.09",
+    logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
+    highlights: [
+      "Joined at early-stage startup; independently designed and implemented the entire frontend architecture from scratch.",
+      "Built an SME lending platform for the Hong Kong market using React / NextJS + TypeScript + TailwindCSS.",
+      "Designed a cross-project shared UI component library using Stencil.js Web Components + Storybook, published to private NPM.",
+    ],
+  },
+  {
+    company: "FoxitSoftware",
+    role: "Full-Stack Engineer",
+    period: "2020.12 - 2021.08",
+    logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
+    highlights: [
+      "Full-stack engineer in a newly formed AI team; managed a 2-person frontend team.",
+      "Built a 2B management platform integrating internal AI microservices using NuxtJS / NextJS + TypeScript + MongoDB + Redis.",
+    ],
+  },
+];
+
+const projects: Project[] = [
+  {
+    name: "Lazy CV — AI-Powered Resume Generator",
+    summary:
+      "A full-stack application combining AI Agent automation with Next.js 16. Provide a job URL and the system automatically scrapes the JD, analyzes key requirements, and generates tailored bilingual resumes. Built from scratch to production in just 2 days via Vibe Coding. This resume was generated by this system.",
+    stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
+    image: [
+      "https://cdn.lazy-cv.com/lazy-cv-main.png",
+      "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
+      "https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
+    ],
+    url: "https://lazy-cv.com",
+    highlights: [
+      "Next.js 16 App Router + Standalone Output for lightweight Docker packaging",
+      "AI Agent Automated SOP: Chrome DevTools MCP for JD scraping, end-to-end resume generation pipeline",
+      "Serverless on AWS: ECR → Lambda Web Adapter, S3 + CloudFront CDN, GitHub Actions CI/CD",
+      "Neon Serverless PostgreSQL + Drizzle ORM for type-safe database access",
+    ],
+  },
+  {
+    name: "UG Overseas Platform (TikTok)",
+    summary:
+      "Large-scale enterprise Monorepo frontend project for TikTok's overseas user growth business. Covers media asset management, financial settlement, supplier procurement, and data dashboards across 50+ sub-projects with a million-line codebase.",
+    stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest"],
+    image: [
+      "https://cdn.lazy-cv.com/OA.png",
+      "https://cdn.lazy-cv.com/web-worker.png",
+      "https://cdn.lazy-cv.com/pp-performance.png",
+    ],
+    highlights: [
+      "Complex form component development based on JSON Schema dynamic rendering, covering cascading selects, dynamic fields, conditional display",
+      "High-precision numeric computation for financial and pricing scenarios",
+      "Micro-frontend integration via proprietary framework supporting on-demand module loading",
+    ],
+    contributions: [
+      "Web Worker Multi-threaded CSV Validation: offloaded heavy validation to a dedicated thread using Comlink RPC — **reduced UI blocking time by 90%** across 10 data entries",
+      "Function Caching Utilities: mimicked React useMemo to cache computation results — **reduced Total Blocking Time (TBT) by 98%** on an interface rendering 500 form UIs without pagination",
+    ],
+  },
+  {
+    name: "LINE Shopping Platform",
+    summary:
+      "LINE's e-commerce platform enabling users to earn LINE points when shopping via partner merchants. Core EC product of LINE Taiwan with a 60-person Agile development team.",
+    stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+    image: [
+      "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
+      "https://cdn.lazy-cv.com/shopping-live-hall.png",
+      "https://cdn.lazy-cv.com/shopping-live-hall2.jpg",
+    ],
+    url: "https://buy.line.me",
+    contributions: [
+      "Independently built the 'Live Shopping' feature: designed a reusable video auto-preview module with a global scheduler to resolve chaotic video previews during fast scrolling and memory spikes from multiple live streams on a single page",
+    ],
+  },
+  {
+    name: "CMS Refactoring to NextJS (Team Leader)",
+    summary:
+      "Led a 4-person team to refactor the LINE Shopping CMS from PHP to a React & NextJS app router architecture, achieving complete frontend/backend separation. One of LINE Taiwan's earliest Next APP router projects.",
+    stack: ["React", "NextJS", "App Router", "TypeScript", "iframe Micro-frontend"],
+    image: [
+      "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
+      "https://cdn.lazy-cv.com/cms-graph.png",
+    ],
+    highlights: [
+      "Used iframe to implement micro-services, enabling independent deployment and progressive URL-based migration",
+      "One of LINE Taiwan's earliest Next APP router pioneer projects",
+    ],
+    contributions: [
+      "Served as both architect and PM: planned the full project architecture, tech decisions, task allocation, schedule management, and technical documentation",
+    ],
+  },
+  {
+    name: "AI Persona Chatbot",
+    summary:
+      "A LINE chatbot bringing a pet to life as a personalized AI companion. Built on LLM + n8n workflow automation with multi-turn context memory, multimodal understanding (image/voice), and long-term memory via vector database (RAG).",
+    stack: ["n8n", "Gemini API", "LINE Messaging API", "Docker", "VPS", "RAG / Embedding"],
+    image: [
+      "https://cdn.lazy-cv.com/00bf8b7292f2f0e10ca191b8ff74f4f2e9826cbcea8725825561d653b5363253.png",
+      "https://cdn.lazy-cv.com/1b07b662e7aa1ee44fe51102609d4151cc967f65f8aeaa9f89a4e8ec2ac0d592.png",
+    ],
+    highlights: [
+      "n8n workflow automation: orchestrates LINE Webhook, Gemini API, and database storage as core backend",
+      "Long-term memory (AI knowledge base): past memories stored as JSONL, vectorized for semantic search, exposed via tool calls",
+      "Lightweight cloud deployment via Docker on DigitalOcean VPS",
+    ],
+  },
+  {
+    name: "FundFluent UI Kit Library",
+    summary:
+      "Cross-project shared UI component library using Stencil.js Web Components, making components framework-agnostic. Integrated TailwindCSS + Semantic UI for a unified design system, documented with Storybook.",
+    stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook", "Monorepo"],
+    image: "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
+    highlights: [
+      "Framework-agnostic UI components built with Stencil Web Components",
+      "Unified design system with Tailwind + Semantic UI",
+      "Monorepo separating component library and business code for independent publishing",
+    ],
+    contributions: ["Built entirely from scratch as sole developer"],
+  },
+];
+
+const skillKeywordRows: SkillKeywordRow[] = [
+  {
+    keywords: ["TypeScript", "React", "Next.js", "Vue", "NuxtJS", "Node.js", "Express", "GraphQL", "MongoDB", "PostgreSQL"],
+    badgeClassName: "border-slate-300 bg-white text-slate-700",
+    marqueeClassName: "[--duration:30s]",
+  },
+  {
+    keywords: ["TailwindCSS", "Sass / SCSS", "REST API", "Docker", "Kubernetes", "AWS", "GitHub Actions", "Drizzle ORM", "Redis", "Firebase"],
+    badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
+    marqueeClassName: "[--duration:35s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Jest", "Cypress", "Storybook", "Webpack", "Vite", "Git", "Lighthouse", "pnpm", "ESLint", "Renovate"],
+    badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
+    marqueeClassName: "[--duration:32s]",
+  },
+  {
+    keywords: ["Axios", "ECharts", "Chart.js", "Framer Motion", "React Hook Form", "Yup", "Lodash", "i18n", "Arco Design", "Rush Monorepo"],
+    badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
+    marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
+  {
+    keywords: ["GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
+    badgeClassName: "border-amber-200 bg-amber-50/50 text-amber-800",
+    marqueeClassName: "[--duration:34s]",
+  },
+  {
+    keywords: ["Web Worker", "Comlink", "Service Worker", "IndexedDB", "StencilJS", "Shadow DOM", "Socket.io", "PWA", "Web Socket", "CSS Modules"],
+    badgeClassName: "border-rose-200 bg-rose-50/50 text-rose-800",
+    marqueeClassName: "[--duration:36s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Bootstrap", "ElementUI", "Buefy", "Vuetify", "Less", "BEM", "Vuex", "Vue Router", "MobX", "D3.js"],
+    badgeClassName: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
+    marqueeClassName: "[--duration:31s]",
+  },
+  {
+    keywords: ["HTML", "JavaScript", "jQuery", "npm", "SDD", "OpenAI API", "Vuelidate", "VeeValidate", "Quill", "EJS"],
+    badgeClassName: "border-teal-200 bg-teal-50/50 text-teal-800",
+    marqueeClassName: "[--duration:29s]",
+  },
+  {
+    keywords: ["CSS", "CSS variable", "Media query", "Cache Storage", "Workbox", "web-push", "Navigator API", "Swagger", "Mongoose", "mustache"],
+    badgeClassName: "border-orange-200 bg-orange-50/50 text-orange-800",
+    marqueeClassName: "[--duration:37s]",
+    reverse: true,
+  },
+];
+
+const stats: StatItem[] = [
+  { label: "Yrs Full-Stack Exp", value: 7 },
+  { label: "Products Delivered", value: 18 },
+  { label: "Team Size Led", value: 4 },
+  { label: "Languages", value: 3 },
+];
+
+const educations: EducationItem[] = [
+  { institution: "Soochow University", degree: "B.A. — Japanese Language & Literature", period: "2013 - 2017" },
+  { institution: "Doshisha University (Kyoto)", degree: "Exchange Student — Japanese Language & Culture", period: "2016.03 - 2016.08" },
+];
+
+const certifications: CertificationItem[] = [
+  { name: "JLPT N1", description: "Japanese Language Proficiency — Business Level", image: "https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png" },
+  { name: "NTU Extension — Web Development", description: "Frontend & Web Technologies Program" },
+];
+
+const languages: LanguageItem[] = [
+  { name: "Chinese — Native", badgeClassName: "bg-cyan-100 text-cyan-800" },
+  { name: "Japanese — Business Level (JLPT N1)", badgeClassName: "bg-rose-100 text-rose-800" },
+  { name: "English — Fluent Professional Communication", badgeClassName: "bg-indigo-100 text-indigo-800" },
+];
+
+/* ────────────────── component ────────────────── */
+
+export default function ZuhlkeResumeEN() {
+  return (
+    <ResumeLayout>
+      <LanguageToggle currentLocale="en" locales={[
+        { locale: "en", label: "EN", href: "/019ea1b1-a82f-757b-9e1a-bfc5a81525e1/en" },
+        { locale: "zh-TW", label: "中文", href: "/019ea1b1-a82f-757b-9e1a-bfc5a81525e1/zh-TW" },
+      ]} />
+
+      <HeroProfile
+        name="John Hsieh"
+        avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
+        avatarFallback="JH"
+        jobTitle="Senior Full-Stack JavaScript Engineer"
+        description={`I bring 7 years of full-stack JavaScript experience from TikTok Singapore and LINE Taiwan, covering both React (Next.js) and Vue (NuxtJS) ecosystems alongside Node.js, Express, MongoDB and PostgreSQL — fully aligned with the MERN/NuxtJS stack Zühlke is looking for.\n\nI thrive in the kind of environment Zühlke describes: designing IT architecture, uplifting teams, and delivering high-quality software in agile settings. At LINE Taiwan, I led a 4-person team refactoring a legacy PHP CMS to Next.js app router, acting simultaneously as architect, PM, and mentor. At TikTok, I introduced Scrum to unblock cross-team coordination, improving visibility and accountability across the board.\n\nMy engineering philosophy is user experience first. I don't just ship features — I engineer for performance and reliability. I reduced UI blocking time by 90% using Web Workers and cut TBT by 98% through function caching, both in production at scale. I also deeply integrate AI tooling (GitHub Copilot Agent Mode, MCP, n8n) to maximize development velocity.\n\nI communicate fluently in English, Japanese (JLPT N1), and Chinese — enabling me to effectively bridge business stakeholders and technical teams in Zühlke's global, multi-industry context. I'm ready to contribute from Day 1 and grow alongside Zühlke's diverse engineering community.`}
+        location="Singapore"
+        stats={stats}
+        contacts={contacts}
+        globeCaption="TikTok Singapore / LINE Taiwan — Cross-border product delivery"
+      />
+
+      <WorkExperience title="Work Experience" experiences={experiences} />
+
+      <ProjectsGrid
+        title="Projects"
+        description={`${projects.length} representative projects demonstrating full-stack delivery and technical depth.`}
+        projects={projects}
+        highlightsLabel="Technical Highlights"
+        contributionsLabel="Key Contributions"
+      />
+
+      <TechStackVisualization title="Tech Stack Visualization" description="Core technologies and surrounding capabilities.">
+        <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-linear-to-br from-white to-sky-50/50 p-4">
+          <SkillCloud />
+        </div>
+        <AIBeam />
+        <FrontendJSBeam />
+        <CSSBeam />
+        <PWABeam />
+        <WebComponentBeam />
+        <BackendBeam />
+      </TechStackVisualization>
+
+      <SkillKeywords title="Skills & Keywords" rows={skillKeywordRows} />
+
+      <EducationCerts
+        sectionTitle="Education & Certifications"
+        educationLabel="Education"
+        educationHeaders={{ institution: "Institution", degree: "Degree / Type", period: "Period" }}
+        educations={educations}
+        certLabel="Certifications"
+        certifications={certifications}
+        languageLabel="Languages"
+        languages={languages}
+      />
+    </ResumeLayout>
+  );
+}
