@@ -1,82 +1,64 @@
 ---
-name: resume-generator
-description: "Generate and manage tailored resumes for job applications in the lazy-cv Next.js workspace. Use this skill whenever the user types `/cv`, `/update`, or asks to create/update a resume, generate a CV for a job posting, tailor a resume to a JD, or mentions resume customization. Also trigger when discussing cover letters, ATS optimization, or job application materials within this workspace."
+name: cv
+description: "針對特定職缺生成客製化履歷。使用者輸入 `/cv [URL]`、要求「為這個職缺生成履歷」、「幫我投這份工作」時觸發。抓取 JD、執行 pnpm cv 指令、生成雙語 page.tsx，並在瀏覽器開啟預覽。"
 ---
 
-# Resume Generator — 履歷生成與管理技能
-
-本技能定義了兩條核心工作流：`/update`（更新基礎履歷）與 `/cv [URL]`（針對特定職缺生成客製化履歷）。
-
----
+# `/cv [URL]` — 針對職缺生成客製化履歷
 
 ## 核心原則
 
 1. **事實來源唯一**：所有內容必須基於 `/source` 目錄下的 Markdown 檔案（`resume-en.md`、`resume-zh-TW.md`）。禁止虛構經歷或技能。
 2. **語氣可調整**：允許根據 JD 調整描述方式（提煉重點、長話短說），但不可修改事實。
-3. **雙語支援**：每份履歷必須產生 `en/page.tsx` 與 `zh-TW/page.tsx` 兩版。
+3. **雙語支援**：必須產生 `en/page.tsx` 與 `zh-TW/page.tsx` 兩版。
 4. **回答語言**：一律使用**繁體中文**與使用者溝通。
 
 ---
 
-## 工作流 1：`/update` — 更新基礎履歷
-
-### 觸發條件
-
-使用者輸入 `/update` 或要求「更新履歷」、「同步 source」。
-
-### 步驟
-
-1. **讀取事實來源**：讀取 `source/resume-en.md` 與 `source/resume-zh-TW.md` 的最新內容。
-2. **讀取現有範本**：讀取 `app/(download-pdf)/john-hsieh/en/page.tsx` 與 `app/(download-pdf)/john-hsieh/zh-TW/page.tsx`。
-3. **比對差異**：找出 `/source` 中有但範本尚未反映的內容（新工作經歷、新專案、新技能等）。
-4. **更新範本**：
-   - 確保 100% 包含 `/source` 中所有內容（工作經驗、專案經驗等）。
-   - 調整描述語氣以符合 UI 呈現（提煉重點、精簡描述）。
-   - 保持與 `/source` 資料完全一致。
-5. **驗證**：確認更新後的檔案仍可正確編譯（無 TypeScript 錯誤）。
-
----
-
-## 工作流 2：`/cv [URL]` — 針對職缺生成客製化履歷
-
-### 觸發條件
-
-使用者輸入 `/cv [URL]` 或要求「為這個職缺生成履歷」。
-
-### 第一階段：數據採集與環境準備
+## 第一階段：數據採集與環境準備
 
 1. 使用 **chrome-devtools** MCP 訪問 `[URL]`，抓取 `company_name` 與 `job_description` (JD)。
    - **Fallback**：若 chrome-devtools 無法抓取，改用 **firecrawl** 抓取頁面內容。
    - **最終 Fallback**：若 firecrawl 也失敗，請使用者手動貼上 JD 內容，再由 AI 寫入 `jd.md`。
-2. 將 JD 原始內容存入 `app/(download-pdf)/{uuid}/jd.md`。
+2. 將 JD 原始內容存入 `jd.md`（位於專案根目錄）。
 3. 執行 `pnpm cv {company_name} {URL}` 取得產生的 `{uuid}`。
 
-### 第二階段：內容過濾與生成
+---
+
+## 第二階段：內容過濾與生成
 
 根據 `jd.md` 內容與 `/source` 資料，為 `{uuid}/en/page.tsx` 與 `{uuid}/zh-TW/page.tsx` 生成以下區塊：
 
-#### 1. 自我介紹 (Professional Summary)
+### 1. 自我介紹 (Professional Summary)
 - 包含頭像 (Avatar) 與聯絡方式 (Email/GitHub/LinkedIn/Portfolio)。
 - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。
 - 可根據 `/source` 生成資料裡沒有的語句，但**不可違背事實**。
 - 包含 cover letter 內容，例如「我可以為 {company name} 做出的貢獻為...」、「選擇我優於其他候選人，是因為我具備...強項」等。
+- **必須分段呈現**（使用 `\n\n` 換行），每段聚焦一個主題（例如：背景概述、團隊協作與 Mentor 經驗、獨立交付與創業精神、使用者導向的工程理念、對目標公司的貢獻），**禁止一整段長文**。
 
-#### 2. 工作經歷 (Work Experience)
+### 2. 工作經歷 (Work Experience)
 - **嚴格選取最近 5 間公司**，按時間由新到舊排序。
 
-#### 3. 專案介紹 (Projects)
+### 3. 專案介紹 (Projects)
 - 挑選與該 JD **最相關的 6 個專案**，說明技術亮點與達成成果。
 
-#### 4. 技術棧可視化 (Tech Stack Visualization)
-- **完全複製** `john-hsieh/{locale}` 中的 `skill-cloud.tsx` 與 `skill-beam.tsx` 組件內容。
+### 4. 技術棧可視化 (Tech Stack Visualization)
+- 根據 `/source` 中的技能資料生成，使用 `john-hsieh/skill-cloud.tsx` 與 `john-hsieh/skill-beam.tsx` 組件。
+- **完整呈現所有技術分類，不做任何客製化或刪減**。
 
-#### 5. 技能關鍵字 (Skills & Keywords)
-- 整理一組針對 HR 篩選 (ATS) 優化的技術關鍵字，包含 Frameworks、Languages、Tools。
+### 5. 技能關鍵字 (Skills & Keywords)
+- 根據 `/source` 中的技能資料生成**完整的 `skillKeywordRows`**，包含**全部**關鍵字，**不做任何客製化或刪減**。
+- 強制規則：
+  1. **先完整列出** `/source` 中「技能專長詳細分析」所有分類下的每一個技能關鍵字。
+  2. **逐一核對**，找出 `/source` 中有但尚未列入的關鍵字，全數補入。
+  3. 每列最多放 **10 個**關鍵字，超過則新增列。
+  4. **禁止**以「已涵蓋大部分」為由省略任何關鍵字。
 
-#### 6. 學歷與證書 (Education & Certifications)
+### 6. 學歷與證書 (Education & Certifications)
 - 列出最高學歷及與職位相關的專業證照（如 AWS、JLPT 等）。
 
-### 第三階段：開發規範
+---
+
+## 第三階段：開發規範
 
 - **Code**：參考 `john-hsieh/{locale}/page.tsx` 的寫法，使用 `@/components/resume` 中的共用組件：
   - `ResumeLayout`, `HeroProfile`, `WorkExperience`, `ProjectsGrid`
@@ -88,7 +70,9 @@ description: "Generate and manage tailored resumes for job applications in the l
 - **SEO**：標題與描述需根據 JD 客製化。
 - **Constraint**：禁止修改或虛構 `/source` 中的事實，僅允許調整描述語氣以契合 JD。
 
-### 完成後
+---
+
+## 完成後
 
 1. 回報 UUID 並確認檔案已寫入。
 2. 直接在瀏覽器開啟 `http://localhost:3000/{uuid}/zh-TW` 以供檢視。
