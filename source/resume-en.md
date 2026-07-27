@@ -142,6 +142,10 @@ I worked as a contract front-end engineer, independently developing the company'
 
 The tech stack used was Vue and NuxtJS.
 
+Beyond the frontend, I also led the backend API design — covering OAuth third-party sign-in, the cart and order flow, and payment gateway integration. I defined the API contract, data models, and error handling from the consumer (frontend) perspective and worked with the backend to bring it to production.
+
+From tech selection and frontend architecture through the editor core to backend API design, the entire slice was owned by one person end-to-end.
+
 ---
 
 ### 💰 FundFluent - Frontend Engineer (Consultant)  
@@ -387,9 +391,10 @@ The most critical component is an online photo book editor, built from scratch o
 - Built a custom editor with pure Vue, supporting add/remove photos, text input, font style and size editing, etc.
 - Editor supports both web and mobile editing
 - Supports PWA installation for a native app-like experience
+- **Led the backend API design**: covering OAuth third-party sign-in, the cart and order flow, and payment gateway integration — defining the API contract, data models, and error handling from the consumer's perspective
 
 - **Key Contributions:**
-  - Built entirely from scratch as sole developer
+  - Planned and built entirely from scratch as sole developer — frontend architecture, the editor core, and backend API design, delivering the full slice end-to-end
 
 - **Images:**
 ![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
