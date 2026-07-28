@@ -13,7 +13,7 @@ type LanguageToggleProps = {
 
 export function LanguageToggle({ currentLocale, locales }: LanguageToggleProps) {
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end print:hidden">
       <div className="flex gap-2 rounded-lg border border-slate-200 bg-white/80 p-1 shadow-sm backdrop-blur">
         {locales.map(({ locale, label, href }) =>
           locale === currentLocale ? (

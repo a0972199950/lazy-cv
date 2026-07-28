@@ -77,7 +77,7 @@ export function HeroProfile({
                   {name}
                 </TextAnimate>
                 <div className="mt-1 flex items-center gap-3">
-                  <p className="bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
+                  <p className="whitespace-pre-line bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
                     {jobTitle}
                   </p>
                   <p className="flex items-center gap-1 text-sm text-slate-500">
@@ -158,7 +158,7 @@ export function HeroProfile({
     </BlurFade>
 
       {/* ── Print 版本（無特效，文字可搜尋）── */}
-      <div className="hidden print:block rounded-xl border border-slate-200 p-6 space-y-4">
+      <div className="hidden print:block p-6 space-y-4">
         <div className="flex items-start gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -168,7 +168,7 @@ export function HeroProfile({
           />
           <div>
             <h1 className="text-2xl font-bold text-slate-900">{name}</h1>
-            <p className="text-base font-semibold text-slate-700">{jobTitle}</p>
+            <p className="whitespace-pre-line text-base font-semibold text-cyan-700">{jobTitle}</p>
             <p className="flex items-center gap-1 text-sm text-slate-500">
               <MapPin className="size-3.5" />
               {location}
@@ -184,11 +184,12 @@ export function HeroProfile({
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-3">
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-2xl font-bold text-slate-900">{s.value}</div>
-              <div className="text-xs text-slate-500">{s.label}</div>
+            <div key={s.label} data-print-highlight className="relative rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-center">
+              <Crown className="absolute -top-1.5 -left-1.5 size-3.5 -rotate-30 fill-amber-400 text-amber-400" />
+              <div className="text-xl font-bold text-cyan-700">{s.value}</div>
+              <div className="text-xs font-medium text-slate-500">{s.label}</div>
             </div>
           ))}
         </div>

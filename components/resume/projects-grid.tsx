@@ -160,12 +160,12 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
                       </ul>
                     </div>
                   )}
-                  <div className="mt-auto flex flex-wrap gap-1.5">
+                  <div className="mt-auto flex flex-wrap gap-1">
                     {project.stack.map((tech) => (
                       <Badge
                         key={`${project.name}-${tech}`}
                         variant="secondary"
-                        className="bg-slate-100 text-[11px] text-slate-600"
+                        className="bg-slate-100 px-1.5 py-0 text-[9px] leading-4 text-slate-500"
                       >
                         {tech}
                       </Badge>
@@ -198,7 +198,7 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
     </BlurFade>
 
       {/* ── Print 版本（所有專案靜態列表，圖片 + 文字全顯示）── */}
-      <div className="hidden print:block rounded-xl border border-slate-200 p-6 space-y-4">
+      <div className="hidden print:block p-6 space-y-4">
         <div>
           <h2 className="inline-flex items-center gap-2 text-xl font-semibold text-slate-900">
             <FolderKanban className="size-5 text-cyan-700" />
@@ -233,30 +233,29 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                {project.highlights && project.highlights.length > 0 && (
+                  <div data-print-highlight className="rounded-md border border-cyan-200 bg-cyan-50 px-2 py-1.5">
+                    <p className="mb-1 flex items-center gap-1 text-[11px] font-semibold text-cyan-800">
+                      <Sparkles className="size-3" />
+                      {highlightsLabel}
+                    </p>
+                    <ul className="list-disc space-y-0.5 pl-4">
+                      {project.highlights.map((h, i) => (
+                        <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <div className="flex flex-wrap gap-0.5">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded border border-slate-200 px-2 py-0.5 text-[11px] text-slate-600"
+                      className="rounded border border-slate-200 px-1 py-0 text-[8px] leading-4 text-slate-500"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                {project.highlights && project.highlights.length > 0 && (
-                  <ul className="list-disc space-y-0.5 pl-4">
-                    {project.highlights.map((h, i) => (
-                      <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
-                    ))}
-                  </ul>
-                )}
-                {project.contributions && project.contributions.length > 0 && (
-                  <ul className="list-disc space-y-0.5 pl-4">
-                    {project.contributions.map((c, i) => (
-                      <li key={i} className="text-[11px] leading-relaxed text-slate-600">{parseBold(c)}</li>
-                    ))}
-                  </ul>
-                )}
               </div>
             );
           })}

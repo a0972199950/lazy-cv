@@ -258,7 +258,7 @@ a:focus {
 @media print {
   @page {
     size: A4;
-    margin: 12mm 14mm;
+    margin: 6mm 8mm;
   }
 
   html,
@@ -343,6 +343,20 @@ a:focus {
     border-color: #e2e8f0 !important;
   }
 
+  /* 保留標記區塊的原始樣式（放在半透明規則之後以覆蓋） */
+  [data-print-highlight] {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+  [data-print-highlight].bg-cyan-50 {
+    background-color: #ecfeff !important;
+    border-color: #a5f3fc !important;
+  }
+  [data-print-highlight].bg-white {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+  }
+
   /* Card / 重型視覺裝飾：BorderBeam、MagicCard、AnimatedBeam SVG 容器 */
   canvas,
   /* AnimatedBeam 是頂層 <svg class="pointer-events-none absolute ..."> */
@@ -394,8 +408,6 @@ a:focus {
   }
 
   /* 區塊與段落避免在中間被分頁切開 */
-  section,
-  article,
   li,
   tr,
   figure,
@@ -412,5 +424,52 @@ a:focus {
   h6 {
     break-after: avoid;
     page-break-after: avoid;
+  }
+
+  /* ── 大幅壓縮 PDF 垂直間距 ── */
+
+  /* ResumeLayout 主容器：區塊間距 & 外邊距 */
+  main > div {
+    gap: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* Card 內部 padding */
+  [class*="CardContent"],
+  [class*="CardHeader"] {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* print:block 區塊（HeroProfile / ProjectsGrid 的 print 版本） */
+  .print\:block {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* space-y 系列全面壓縮 */
+  [class*="space-y"] > * + * {
+    margin-top: 0.25rem !important;
+  }
+
+  /* gap 系列壓縮 */
+  [class*="gap-"] {
+    gap: 0.25rem !important;
+  }
+  /* grid gap 稍微寬鬆一點，避免專案卡片擠在一起 */
+  .grid[class*="grid-cols"] {
+    gap: 0.375rem !important;
+  }
+
+  /* Timeline 經歷項目的底部間距 */
+  [class*="mb-10"] {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* 區塊內 p / rounded-xl 卡片的 padding */
+  [class*="rounded-xl"][class*="border"] {
+    padding: 0.375rem 0.5rem !important;
+  }
+  [class*="rounded-lg"][class*="border"] {
+    padding: 0.25rem 0.5rem !important;
   }
 }
