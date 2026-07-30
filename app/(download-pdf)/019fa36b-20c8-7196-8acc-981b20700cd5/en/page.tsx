@@ -5,12 +5,16 @@ import {
   HeroProfile,
   WorkExperience,
   ProjectsGrid,
+  EducationCerts,
 } from "@/components/resume";
 import type {
   Experience,
   Project,
   StatItem,
   ContactItem,
+  EducationItem,
+  CertificationItem,
+  LanguageItem,
 } from "@/components/resume";
 
 export const metadata: Metadata = {
@@ -26,6 +30,7 @@ const contacts: ContactItem[] = [
   { href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
   { href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
   { href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+  { href: "https://lazy-cv.com/019fa36b-20c8-7196-8acc-981b20700cd5/en", type: "website", label: "Personal Website" },
 ];
 
 const experiences: Experience[] = [
@@ -156,6 +161,22 @@ const stats: StatItem[] = [
   { label: "Languages Spoken", value: 3 },
 ];
 
+const educations: EducationItem[] = [
+  { institution: "Soochow University", degree: "Bachelor of Arts — Japanese Language & Literature", period: "2013 - 2017" },
+  { institution: "Doshisha University, Kyoto", degree: "Exchange Program — Japanese Language & Culture", period: "2016.03 - 2016.08" },
+];
+
+const certifications: CertificationItem[] = [
+  { name: "JLPT N1 (Japanese)", description: "Highest level — Business conversation proficiency", image: "https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png" },
+  { name: "NTU Extension Program", description: "Web Development Technology Course" },
+];
+
+const languages: LanguageItem[] = [
+  { name: "Mandarin Chinese — Native", badgeClassName: "bg-cyan-100 text-cyan-800" },
+  { name: "Japanese — Business (JLPT N1)", badgeClassName: "bg-rose-100 text-rose-800" },
+  { name: "English — Professional Working", badgeClassName: "bg-indigo-100 text-indigo-800" },
+];
+
 const summary = [
   "I'm a frontend engineer with seven years of experience, currently working on the financial settlement system behind ad delivery at TikTok. Before that I spent three years at LINE Taiwan building LINE Shopping, and led a four-person project team along the way. Two things matter most to me: the user experience, and code that stays maintainable.",
 
@@ -191,6 +212,17 @@ export default function ArtaFinanceResumePageEN() {
         description={`${projects.length} projects selected for their relevance to this role — consumer-grade UI craft, agentic AI development, a TailwindCSS design system, 0-to-1 full-stack ownership, and large-scale micro-frontend architecture.`}
         projects={projects}
         highlightsLabel="Technical Highlights"
+      />
+
+      <EducationCerts
+        sectionTitle="Education & Certifications"
+        educationLabel="Education"
+        educationHeaders={{ institution: "Institution", degree: "Degree / Program", period: "Period" }}
+        educations={educations}
+        certLabel="Certifications"
+        certifications={certifications}
+        languageLabel="Languages"
+        languages={languages}
       />
     </ResumeLayout>
   );

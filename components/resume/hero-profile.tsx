@@ -15,13 +15,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Crown, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Crown, Github, Globe as GlobeIcon, Linkedin, Mail, MapPin } from "lucide-react";
 import type { ContactItem, StatItem } from "./types";
 
 const contactIconMap = {
   mail: { icon: Mail, bgClass: "bg-cyan-50", textClass: "text-cyan-700" },
   github: { icon: Github, bgClass: "bg-slate-100", textClass: "text-slate-700" },
   linkedin: { icon: Linkedin, bgClass: "bg-blue-50", textClass: "text-blue-700" },
+  website: { icon: GlobeIcon, bgClass: "bg-emerald-50", textClass: "text-emerald-700" },
 } as const;
 
 type HeroProfileProps = {
@@ -76,23 +77,21 @@ export function HeroProfile({
                 >
                   {name}
                 </TextAnimate>
-                <div className="mt-1 flex items-center gap-3">
-                  <p className="whitespace-pre-line bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
-                    {jobTitle}
-                  </p>
-                  <p className="flex items-center gap-1 text-sm text-slate-500">
-                    <MapPin className="size-3.5 text-cyan-700" />
-                    {location}
-                  </p>
-                </div>
+                <p className="mt-1 whitespace-pre-line bg-linear-to-r from-cyan-700 via-sky-700 to-emerald-600 bg-clip-text text-lg font-semibold text-transparent md:text-2xl">
+                  {jobTitle}
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 sm:items-end">
+            <div className="flex flex-col gap-2 sm:items-end">
+              <p className="flex items-center gap-1 text-sm text-slate-500">
+                <MapPin className="size-3.5 text-cyan-700" />
+                {location}
+              </p>
               <Dock
                 iconSize={36}
                 iconMagnification={52}
-                className="mx-0 mt-1 h-auto border-slate-200 bg-white/80 shadow-sm"
+                className="mx-0 h-auto border-slate-200 bg-white/80 shadow-sm"
               >
                 {contacts.map((contact) => {
                   const { icon: Icon, bgClass, textClass } = contactIconMap[contact.type];
@@ -159,21 +158,23 @@ export function HeroProfile({
 
       {/* ── Print 版本（無特效，文字可搜尋）── */}
       <div className="hidden print:block p-6 space-y-4">
-        <div className="flex items-start gap-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={avatarUrl}
-            alt={name}
-            className="size-16 rounded-full border-2 border-slate-200 object-cover shrink-0"
-          />
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">{name}</h1>
-            <p className="whitespace-pre-line text-base font-semibold text-cyan-700">{jobTitle}</p>
-            <p className="flex items-center gap-1 text-sm text-slate-500">
-              <MapPin className="size-3.5" />
-              {location}
-            </p>
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-start gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={avatarUrl}
+              alt={name}
+              className="size-16 rounded-full border-2 border-slate-200 object-cover shrink-0"
+            />
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">{name}</h1>
+              <p className="whitespace-pre-line text-base font-semibold text-cyan-700">{jobTitle}</p>
+            </div>
           </div>
+          <p className="flex shrink-0 items-center gap-1 text-sm text-slate-500">
+            <MapPin className="size-3.5" />
+            {location}
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">

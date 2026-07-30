@@ -5,12 +5,16 @@ import {
   HeroProfile,
   WorkExperience,
   ProjectsGrid,
+  EducationCerts,
 } from "@/components/resume";
 import type {
   Experience,
   Project,
   StatItem,
   ContactItem,
+  EducationItem,
+  CertificationItem,
+  LanguageItem,
 } from "@/components/resume";
 
 export const metadata: Metadata = {
@@ -26,6 +30,7 @@ const contacts: ContactItem[] = [
   { href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
   { href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
   { href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+  { href: "https://lazy-cv.com/019fa36b-20c8-7196-8acc-981b20700cd5/zh-TW", type: "website", label: "個人網站" },
 ];
 
 const experiences: Experience[] = [
@@ -156,6 +161,22 @@ const stats: StatItem[] = [
   { label: "種語言能力", value: 3 },
 ];
 
+const educations: EducationItem[] = [
+  { institution: "東吳大學", degree: "文學士 (BA) — 日本語文學系", period: "2013 - 2017" },
+  { institution: "京都同志社大學", degree: "交換留學 — 日本語及文化", period: "2016.03 - 2016.08" },
+];
+
+const certifications: CertificationItem[] = [
+  { name: "日文檢定 JLPT N1", description: "最高級認證 — 商業會談程度", image: "https://cdn.lazy-cv.com/359d98cc-5647-466a-8d9e-9dbd17d6bbf8.png" },
+  { name: "台大資訊推廣部", description: "網頁開發技術課程" },
+];
+
+const languages: LanguageItem[] = [
+  { name: "中文 — 母語", badgeClassName: "bg-cyan-100 text-cyan-800" },
+  { name: "日文 — 商業會談 (JLPT N1)", badgeClassName: "bg-rose-100 text-rose-800" },
+  { name: "英文 — 流暢職場溝通", badgeClassName: "bg-indigo-100 text-indigo-800" },
+];
+
 const summary = [
   "我是有 7 年經驗的前端工程師，目前在 TikTok 負責廣告投放的財務結算系統。在那之前我在 LINE Taiwan 待了三年，日常開發 LINE 購物，同時帶領過四人的專案小組。對我來說最重要的東西有兩個: 使用者體驗與程式碼可維護性",
 
@@ -191,6 +212,17 @@ export default function ArtaFinanceResumePageZhTW() {
         description={`精選 ${projects.length} 個與 Arta Finance 職缺最相關的專案 —— 涵蓋高標準 UI 體驗、AI Agentic 開發、TailwindCSS Design System、0 到 1 全端獨立交付與大型微前端架構。`}
         projects={projects}
         highlightsLabel="技術亮點"
+      />
+
+      <EducationCerts
+        sectionTitle="學歷與證書"
+        educationLabel="學歷"
+        educationHeaders={{ institution: "學校", degree: "學位 / 性質", period: "期間" }}
+        educations={educations}
+        certLabel="證書與認證"
+        certifications={certifications}
+        languageLabel="語言能力"
+        languages={languages}
       />
     </ResumeLayout>
   );

@@ -1,9 +1,15 @@
 "use client";
 
-import { Camera, FileText, Loader2 } from "lucide-react";
+import { Camera, FileText, LayoutTemplate, Loader2, Table2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Tooltip,
   TooltipContent,
@@ -44,20 +50,29 @@ const stepMessages = {
 
 const i18n = {
   'en': {
-    pdfTooltip: 'Download PDF',
     pdfAriaLabel: 'Download PDF',
+    webModeLabel: 'Web Layout Mode',
+    webModeHint: 'Keeps the on-screen design, in color',
+    plainModeLabel: 'Plain Table Mode',
+    plainModeHint: 'Black & white, text only — ATS friendly',
     screenshotTooltip: 'Long Screenshot (local only)',
     screenshotAriaLabel: 'Download as long-screenshot PDF',
   },
   'zh-TW': {
-    pdfTooltip: '下載 PDF',
     pdfAriaLabel: '下載 PDF',
+    webModeLabel: '網頁排版模式',
+    webModeHint: '保留畫面上的設計與配色',
+    plainModeLabel: '純表格模式',
+    plainModeHint: '全黑白、只有文字，ATS 友善',
     screenshotTooltip: '長截圖（僅本地）',
     screenshotAriaLabel: '下載長截圖 PDF',
   },
   'ja': {
-    pdfTooltip: 'PDF をダウンロード',
     pdfAriaLabel: 'PDF をダウンロード',
+    webModeLabel: 'Web レイアウトモード',
+    webModeHint: '画面上のデザインと配色をそのまま出力',
+    plainModeLabel: 'プレーンテーブルモード',
+    plainModeHint: '白黒・テキストのみ、ATS 対応',
     screenshotTooltip: 'ロングスクリーンショット（ローカルのみ）',
     screenshotAriaLabel: 'ロングスクリーンショット PDF をダウンロード',
   },
@@ -163,9 +178,24 @@ export default function DownloadPDFLayout({
     }
   };
 
-  const handleDownloadPDF = () => {
-    // 透過瀏覽器原生列印產生可搜尋的 PDF；使用者在對話框選 "Save as PDF" 即可下載。
-    window.print();
+  // 透過瀏覽器原生列印產生可搜尋的 PDF；使用者在對話框選 "Save as PDF" 即可下載。
+  // plain 模式在 <html> 掛上 data-print-mode="plain"，由 globals.css 換成純表格排版。
+  const handleDownloadPDF = (mode: 'web' | 'plain') => {
+    const root = document.documentElement;
+
+    if (mode === 'plain') {
+      root.dataset.printMode = 'plain';
+      const cleanup = () => {
+        delete root.dataset.printMode;
+        window.removeEventListener('afterprint', cleanup);
+      };
+      window.addEventListener('afterprint', cleanup);
+    } else {
+      delete root.dataset.printMode;
+    }
+
+    // 等下拉選單收起、樣式套用完成後再開列印對話框
+    requestAnimationFrame(() => window.print());
   };
 
   const pct = progress ? Math.round((progress.step / progress.total) * 100) : 0;
@@ -208,26 +238,45 @@ export default function DownloadPDFLayout({
           id="download-pdf-actions"
           className="print:hidden fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
         >
-          {/* 下載 PDF（可搜尋，純文字） - 永遠顯示 */}
-          <Tooltip>
-            <TooltipTrigger asChild>
+          {/* 下載 PDF（可搜尋，純文字） - 永遠顯示，兩種排版模式二選一 */}
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
               <button
                 id="download-pdf-btn"
-                onClick={handleDownloadPDF}
                 disabled={loading}
                 className="cursor-pointer flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
                 aria-label={t.pdfAriaLabel}
               >
                 <FileText className="size-6" />
               </button>
-            </TooltipTrigger>
-            <TooltipContent
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
               side="left"
-              className="border-slate-200 bg-white text-slate-700 shadow-md"
+              align="end"
+              className="w-64 border-slate-200 bg-white text-slate-700 shadow-lg"
             >
-              {t.pdfTooltip}
-            </TooltipContent>
-          </Tooltip>
+              <DropdownMenuItem
+                onSelect={() => handleDownloadPDF('web')}
+                className="cursor-pointer items-start gap-3 py-2.5"
+              >
+                <LayoutTemplate className="mt-0.5 size-4 text-cyan-700" />
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-sm font-medium text-slate-900">{t.webModeLabel}</span>
+                  <span className="text-xs text-slate-500">{t.webModeHint}</span>
+                </span>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onSelect={() => handleDownloadPDF('plain')}
+                className="cursor-pointer items-start gap-3 py-2.5"
+              >
+                <Table2 className="mt-0.5 size-4 text-slate-700" />
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-sm font-medium text-slate-900">{t.plainModeLabel}</span>
+                  <span className="text-xs text-slate-500">{t.plainModeHint}</span>
+                </span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* 長截圖（圖片版 PDF） - 僅本地 dev 顯示 */}
           {isDev && (

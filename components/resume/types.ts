@@ -23,7 +23,7 @@ export type StatItem = {
 
 export type ContactItem = {
   href: string;
-  type: "mail" | "github" | "linkedin";
+  type: "mail" | "github" | "linkedin" | "website";
   label: string;
 };
 
