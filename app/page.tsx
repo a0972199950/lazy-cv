@@ -206,24 +206,30 @@ function ResumesTable() {
                     )}
                   </td>
                   <td className="py-3 px-4 text-slate-600">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <a 
-                          href={`/${resume.id}/zh-TW`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-800 hover:text-indigo-900 underline"
-                        >
-                          履歷
-                        </a>
-                        <button
-                          onClick={() => navigator.clipboard.writeText(`/${resume.id}/zh-TW`)}
-                          className="ml-2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
-                          title="複製連結"
-                        >
-                          <ClipboardIcon className="w-4 h-4" />
-                        </button>
-                      </div>
+                    <div className="space-y-1">
+                      {[
+                        { locale: 'zh-TW', label: '中文' },
+                        { locale: 'en', label: '英文' },
+                        { locale: 'ja', label: '日文' },
+                      ].map(({ locale, label }) => (
+                        <div key={locale} className="flex items-center justify-between gap-2">
+                          <a
+                            href={`/${resume.id}/${locale}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-indigo-800 hover:text-indigo-900 underline"
+                          >
+                            {label}
+                          </a>
+                          <button
+                            onClick={() => navigator.clipboard.writeText(`/${resume.id}/${locale}`)}
+                            className="text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                            title="複製連結"
+                          >
+                            <ClipboardIcon className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ))}
                     </div>
                   </td>
                   <td className="py-3 px-4 text-slate-800">

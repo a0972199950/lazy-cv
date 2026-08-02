@@ -2,7 +2,7 @@
 
 import { Camera, FileText, LayoutTemplate, Loader2, Table2 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import {
   DropdownMenu,
@@ -10,12 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const dynamic = 'force-static';
 
@@ -55,8 +50,8 @@ const i18n = {
     webModeHint: 'Keeps the on-screen design, in color',
     plainModeLabel: 'Plain Table Mode',
     plainModeHint: 'Black & white, text only — ATS friendly',
-    screenshotTooltip: 'Long Screenshot (local only)',
-    screenshotAriaLabel: 'Download as long-screenshot PDF',
+    screenshotModeLabel: 'Long Screenshot',
+    screenshotModeHint: 'Full-page image PDF (local only)',
   },
   'zh-TW': {
     pdfAriaLabel: '下載 PDF',
@@ -64,8 +59,8 @@ const i18n = {
     webModeHint: '保留畫面上的設計與配色',
     plainModeLabel: '純表格模式',
     plainModeHint: '全黑白、只有文字，ATS 友善',
-    screenshotTooltip: '長截圖（僅本地）',
-    screenshotAriaLabel: '下載長截圖 PDF',
+    screenshotModeLabel: '長截圖模式',
+    screenshotModeHint: '整頁圖片 PDF（僅本地）',
   },
   'ja': {
     pdfAriaLabel: 'PDF をダウンロード',
@@ -73,8 +68,8 @@ const i18n = {
     webModeHint: '画面上のデザインと配色をそのまま出力',
     plainModeLabel: 'プレーンテーブルモード',
     plainModeHint: '白黒・テキストのみ、ATS 対応',
-    screenshotTooltip: 'ロングスクリーンショット（ローカルのみ）',
-    screenshotAriaLabel: 'ロングスクリーンショット PDF をダウンロード',
+    screenshotModeLabel: 'ロングスクリーンショット',
+    screenshotModeHint: '全ページ画像 PDF（ローカルのみ）',
   },
 } as const;
 
@@ -109,11 +104,20 @@ export default function DownloadPDFLayout({
 }: DownloadPDFLayoutProps) {
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState<Progress | null>(null);
+  // 只有本人登入時才顯示排版模式選單；其他訪客一律直接下載簡易模式 PDF
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
   const t = i18n[locale];
   const steps = stepMessages[locale];
+
+  useEffect(() => {
+    fetch('/api/session')
+      .then((res) => res.json())
+      .then((data: { isAdmin: boolean }) => setIsAdmin(data.isAdmin))
+      .catch(() => setIsAdmin(false));
+  }, []);
 
   const handleLongScreenshot = async () => {
     if (loading) return;
@@ -238,67 +242,69 @@ export default function DownloadPDFLayout({
           id="download-pdf-actions"
           className="print:hidden fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
         >
-          {/* 下載 PDF（可搜尋，純文字） - 永遠顯示，兩種排版模式二選一 */}
-          <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild>
-              <button
-                id="download-pdf-btn"
-                disabled={loading}
-                className="cursor-pointer flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
-                aria-label={t.pdfAriaLabel}
-              >
-                <FileText className="size-6" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              side="left"
-              align="end"
-              className="w-64 border-slate-200 bg-white text-slate-700 shadow-lg"
-            >
-              <DropdownMenuItem
-                onSelect={() => handleDownloadPDF('web')}
-                className="cursor-pointer items-start gap-3 py-2.5"
-              >
-                <LayoutTemplate className="mt-0.5 size-4 text-cyan-700" />
-                <span className="flex flex-col gap-0.5">
-                  <span className="text-sm font-medium text-slate-900">{t.webModeLabel}</span>
-                  <span className="text-xs text-slate-500">{t.webModeHint}</span>
-                </span>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onSelect={() => handleDownloadPDF('plain')}
-                className="cursor-pointer items-start gap-3 py-2.5"
-              >
-                <Table2 className="mt-0.5 size-4 text-slate-700" />
-                <span className="flex flex-col gap-0.5">
-                  <span className="text-sm font-medium text-slate-900">{t.plainModeLabel}</span>
-                  <span className="text-xs text-slate-500">{t.plainModeHint}</span>
-                </span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* 長截圖（圖片版 PDF） - 僅本地 dev 顯示 */}
-          {isDev && (
-            <Tooltip>
-              <TooltipTrigger asChild>
+          {/* 下載 PDF - 永遠顯示；只有本人登入才看得到排版模式選單，其他訪客直接下載簡易模式 */}
+          {isAdmin ? (
+            <DropdownMenu modal={false}>
+              <DropdownMenuTrigger asChild>
                 <button
-                  id="long-screenshot-btn"
-                  onClick={handleLongScreenshot}
+                  id="download-pdf-btn"
                   disabled={loading}
-                  className="cursor-pointer flex size-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md ring-1 ring-slate-100 transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
-                  aria-label={t.screenshotAriaLabel}
+                  className="cursor-pointer flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+                  aria-label={t.pdfAriaLabel}
                 >
-                  <Camera className="size-5" />
+                  <FileText className="size-6" />
                 </button>
-              </TooltipTrigger>
-              <TooltipContent
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
                 side="left"
-                className="border-slate-200 bg-white text-slate-700 shadow-md"
+                align="end"
+                className="w-64 border-slate-200 bg-white text-slate-700 shadow-lg"
               >
-                {t.screenshotTooltip}
-              </TooltipContent>
-            </Tooltip>
+                <DropdownMenuItem
+                  onSelect={() => handleDownloadPDF('web')}
+                  className="cursor-pointer items-start gap-3 py-2.5"
+                >
+                  <LayoutTemplate className="mt-0.5 size-4 text-cyan-700" />
+                  <span className="flex flex-col gap-0.5">
+                    <span className="text-sm font-medium text-slate-900">{t.webModeLabel}</span>
+                    <span className="text-xs text-slate-500">{t.webModeHint}</span>
+                  </span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onSelect={() => handleDownloadPDF('plain')}
+                  className="cursor-pointer items-start gap-3 py-2.5"
+                >
+                  <Table2 className="mt-0.5 size-4 text-slate-700" />
+                  <span className="flex flex-col gap-0.5">
+                    <span className="text-sm font-medium text-slate-900">{t.plainModeLabel}</span>
+                    <span className="text-xs text-slate-500">{t.plainModeHint}</span>
+                  </span>
+                </DropdownMenuItem>
+                {isDev && (
+                  <DropdownMenuItem
+                    id="long-screenshot-btn"
+                    onSelect={handleLongScreenshot}
+                    className="cursor-pointer items-start gap-3 py-2.5"
+                  >
+                    <Camera className="mt-0.5 size-4 text-slate-700" />
+                    <span className="flex flex-col gap-0.5">
+                      <span className="text-sm font-medium text-slate-900">{t.screenshotModeLabel}</span>
+                      <span className="text-xs text-slate-500">{t.screenshotModeHint}</span>
+                    </span>
+                  </DropdownMenuItem>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <button
+              id="download-pdf-btn"
+              onClick={() => handleDownloadPDF('plain')}
+              disabled={loading}
+              className="cursor-pointer flex size-14 items-center justify-center rounded-full border border-cyan-200 bg-linear-to-br from-cyan-600 to-emerald-600 text-white shadow-lg ring-2 ring-cyan-100/60 transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+              aria-label={t.pdfAriaLabel}
+            >
+              <FileText className="size-6" />
+            </button>
           )}
         </div>
       </div>
