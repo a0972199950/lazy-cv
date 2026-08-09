@@ -41,105 +41,108 @@ const experiences: Experience[] = [
   {
     company: "TikTok Singapore",
     role: "Software Engineer",
-    period: "2024.11 - Present",
+    period: "Nov 2024 – Present",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "Part of the User Growth team, responsible for running advertisements for company products across major DSP platforms to increase the user base for apps such as TikTok.",
-      "Responsible for developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system.",
-      "Led the development team in adopting Scrum — leveraged retrospectives for self-correcting mechanisms, refinement sessions to break down siloed work, balanced workloads, and improved PM visibility into project schedules.",
+      "Built frontend advertising-delivery systems for the User Growth team, running campaigns for TikTok and sibling products across major DSP platforms to drive overseas user acquisition",
+      "Architected the financial settlement platform for ad delivery within a 50+ sub-project, million-line-codebase monorepo, using React 17, TypeScript, Rush Monorepo, and the company's proprietary micro-frontend framework",
+      "Reduced UI blocking time by 90% across 10 data-entry workflows by offloading CSV validation to a Web Worker via Comlink RPC, using Yup and Regex validation schemas",
+      "Reduced Total Blocking Time (TBT) by 98% on a 500-form interface by building cache/cacheMany utilities that mimic React's useMemo to cache expensive computation results",
+      "Led the team's adoption of Scrum, using retrospectives to build self-correcting feedback loops, refinement sessions to break down siloed work, and balanced sprint planning to give PM clear visibility into delivery timelines",
     ],
   },
   {
     company: "LINE Taiwan",
     role: "Software Engineer",
-    period: "2021.08 - 2024.10",
+    period: "Aug 2021 – Oct 2024",
     logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
-      "Developed LINE Shopping daily with Vue SSR + GraphQL + TypeScript + ExpressJS.",
-      "Served as Team Leader of a 4-person team, led CMS migration from PHP to NextJS App Router architecture.",
-      "Participated in JSTF to establish company-wide frontend development standards; introduced Lighthouse CI for automated performance evaluation.",
-      "Mentored 2 new engineers with positive feedback. Led an internal NextJS teaching forum to help onboard new members.",
+      "Developed and maintained LINE Shopping, LINE's e-commerce affiliate platform, using Vue SSR, GraphQL, TypeScript, and ExpressJS — independently built a reusable video auto-preview module with a global scheduler that eliminated chaotic previews during high-speed scrolling and memory spikes from concurrent live streams",
+      "Led a 4-person team through the CMS migration from PHP to a NextJS App Router architecture, achieving full frontend-backend separation",
+      "Contributed to JSTF, a cross-team initiative establishing company-wide frontend development standards, and introduced Lighthouse CI for automated performance evaluation",
+      "Mentored 2 new engineers to positive feedback and led an internal NextJS teaching forum to accelerate onboarding for new team members",
     ],
   },
   {
     company: "AI.Book",
     role: "Frontend Engineer (Contract)",
-    period: "2021.09 - 2024.10",
+    period: "Sep 2021 – Oct 2024",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "Solely responsible for building an online photo book editor with drag-and-drop, resizing, and text editing features.",
-      "Planned the entire technical architecture from scratch using Vue + NuxtJS; launched the product within 6 months.",
-      "Supported PWA installation for a native-app-like experience.",
+      "Built an online photo book editor from scratch as sole developer, implementing drag-and-drop, resizing, and text editing features",
+      "Planned the entire technical architecture using Vue + NuxtJS and launched the product within 6 months",
+      "Supported PWA installation for a native-app-like experience",
     ],
   },
   {
     company: "FundFluent",
     role: "Frontend Engineer (Contract)",
-    period: "2021.01 - 2021.09",
+    period: "Jan 2021 – Sep 2021",
     logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
     highlights: [
-      "Joined at the startup stage and planned frontend architecture and tech stack from scratch.",
-      "Built an SME loan platform targeting the Hong Kong market using React / NextJS + TypeScript + TailwindCSS.",
-      "Designed a cross-project shared UI component library (Stencil.js Web Component), deployed to private NPM.",
+      "Planned frontend architecture and technology stack from scratch, joining at the company's startup stage",
+      "Built an SME loan platform targeting the Hong Kong market using React / NextJS, TypeScript, and TailwindCSS",
+      "Designed a cross-project shared UI component library (Stencil.js Web Component), deployed to private NPM",
     ],
   },
   {
     company: "FoxitSoftware",
     role: "Full-Stack Engineer",
-    period: "2020.12 - 2021.08",
+    period: "Dec 2020 – Aug 2021",
     logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
     highlights: [
-      "Served as a full-stack engineer in a new AI team, managing a 2-person frontend team.",
-      "Developed a B2B management platform integrating internal AI microservices.",
-      "Tech stack included NuxtJS / NextJS + TypeScript + MongoDB + Redis.",
+      "Managed a 2-person frontend team as full-stack engineer within a newly formed AI team",
+      "Developed a B2B management platform integrating internal AI microservices, built with NuxtJS/NextJS, TypeScript, MongoDB, and Redis",
     ],
   },
   {
     company: "Aotter",
     role: "Frontend Engineer",
-    period: "2019.08 - 2020.11",
+    period: "Aug 2019 – Nov 2020",
     logo: "https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
     highlights: [
-      "Project-based team with ~4 members per project, rapidly iterating products.",
-      "Used Nuxt ecosystem + TypeScript + TailwindCSS with Docker + K8s CI/CD pipeline.",
-      "Developed SuprLink URL shortener, Aotter Trek DSP ad platform, and other internal/external projects.",
-      "Focused on UI/UX design fidelity, building custom TailwindCSS micro UI frameworks per project.",
+      "Delivered rapidly-iterated products within project-based teams of ~4 engineers",
+      "Developed SuprLink URL shortener, the Aotter Trek DSP ad platform, and other internal/external projects using the Nuxt ecosystem, TypeScript, TailwindCSS, Docker, and a K8s CI/CD pipeline",
+      "Built custom TailwindCSS micro UI frameworks per project to maintain high UI/UX design fidelity",
     ],
   },
   {
     company: "Third Dimension Technology",
     role: "Frontend Engineer",
-    period: "2019.04 - 2019.06",
+    period: "Apr 2019 – Jun 2019",
     logo: "https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png",
     highlights: [
-      "Developed with Vue + PHP in a decoupled frontend-backend architecture.",
-      "Integrated WeChat Pay payment system.",
+      "Built a decoupled Vue + PHP frontend-backend architecture for Shushu Comics, an online comics platform",
+      "Integrated the WeChat Pay payment system for online transactions",
     ],
   },
   {
     company: "Asian Bridge (Japanese Company)",
     role: "Digital Ad Optimizer & Frontend Engineer",
-    period: "2017.12 - 2019.03",
+    period: "Dec 2017 – Mar 2019",
     logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
     highlights: [
-      "Initially worked as a digital ad optimizer, managing Facebook / Google Ads with A/B testing and heatmaps to optimize UX.",
-      "Later transitioned to frontend engineer & PM, building official websites and campaign pages for agency products.",
-      "Managed a 2-person frontend team with Japanese as the primary working language.",
-      "Built UI/UX expertise that laid the foundation for a frontend development career.",
+      "Managed Facebook and Google Ads campaigns as a digital ad optimizer, applying A/B testing and heatmap analysis to optimize UX",
+      "Transitioned to frontend engineer and PM, building official websites and campaign pages for agency clients including Chorasu (skincare), Hair Life, and Japan Select",
+      "Managed a 2-person frontend team with Japanese as the primary working language",
     ],
   },
   {
     company: "AsiaYo",
     role: "Japan Market Operations & Business Development",
-    period: "2016.09 - 2017.09",
+    period: "Sep 2016 – Sep 2017",
     logo: "https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
     highlights: [
-      "Sourced Japanese accommodation properties and listed them on the company platform.",
-      "Served as the Japanese translation liaison, assisting customers with travel emergencies in Japan.",
-      "Achieved 8,846 bookings in 2017, a 376% year-over-year increase.",
+      "Sourced Japanese accommodation properties and listed them on the company platform",
+      "Supported customers through Japan-based travel emergencies as the team's Japanese translation liaison",
+      "Achieved 8,846 bookings in 2017, a 376% year-over-year increase",
     ],
   },
 ];
+
+const companyLogos: Record<string, string> = Object.fromEntries(
+  experiences.map((e) => [e.company, e.logo])
+);
 
 const projects: Project[] = [
   {
@@ -396,7 +399,7 @@ const projects: Project[] = [
   {
     name: "Chorasu Official Website",
     summary:
-      "The Taiwan official website for Chorasu, an Okinawa-based skincare brand. Responsible for design planning and frontend development.",
+      "The Taiwan official website for Chorasu, an Okinawa-based skincare brand. Led design planning and frontend development.",
     stack: ["PHP", "jQuery", "CSS"],
     company: "Asian Bridge (Japanese Company)",
     image:
@@ -487,8 +490,8 @@ const stats: StatItem[] = [
 ];
 
 const educations: EducationItem[] = [
-  { institution: "Soochow University", degree: "Bachelor of Arts — Japanese Language & Literature", period: "2013 - 2017" },
-  { institution: "Doshisha University, Kyoto", degree: "Exchange Program — Japanese Language & Culture", period: "2016.03 - 2016.08" },
+  { institution: "Soochow University", degree: "Bachelor of Arts — Japanese Language & Literature", period: "2013 – 2017" },
+  { institution: "Doshisha University, Kyoto", degree: "Exchange Program — Japanese Language & Culture", period: "Mar 2016 – Aug 2016" },
 ];
 
 const certifications: CertificationItem[] = [
@@ -517,7 +520,7 @@ export default function ExampleResumePageEN() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="Senior Frontend Engineer"
-        description="7 years of frontend development experience, previously at TikTok Singapore and LINE Taiwan as a senior software engineer. Core tech stack includes React (NextJS), Vue (NuxtJS), and TypeScript. My core value is 'User Experience First' — my mission is not just to build a product, but to create software that is 'user-friendly' and 'beautiful.' Capable of building products from scratch in resource-limited environments, as well as delivering high-quality code in large enterprise settings. Deeply integrated AI tools into daily workflows — leveraging GitHub Copilot Agent Mode, MCP, and n8n to build end-to-end AI automation SOPs, with hands-on experience in LLM API integration and vector database (RAG) development. Fluent in English, Japanese, and Mandarin Chinese. Well-versed in Agile development and sustainable team delivery models, skilled at collaborating with others and communicating with non-technical stakeholders. Excel at explaining complex problems in simple terms."
+        description="7 years of frontend development experience, most recently as a senior software engineer at TikTok Singapore and LINE Taiwan. Core stack: React (Next.js), Vue (Nuxt.js), and TypeScript, with production experience spanning resource-limited early-stage startups and large enterprise environments — building products from scratch and delivering high-quality code at scale, with a consistent focus on shipping software that is both functionally robust and easy to use. Deeply integrated AI tools into daily workflows, using GitHub Copilot Agent Mode, MCP, and n8n to build end-to-end automation SOPs, with hands-on LLM API integration and vector database (RAG) experience. Fluent in English, Japanese, and Mandarin Chinese. Experienced in Agile development and cross-functional collaboration, translating technical work for non-technical stakeholders."
         location="Singapore"
         stats={stats}
         contacts={contacts}
@@ -532,6 +535,9 @@ export default function ExampleResumePageEN() {
         projects={projects}
         highlightsLabel="Technical Highlights"
         contributionsLabel="Key Contributions"
+        personalProjectsLabel="Personal Projects"
+        companyProjectsLabel="Company Projects"
+        companyLogos={companyLogos}
       />
 
       <TechStackVisualization title="Tech Stack Visualization" description="Core technologies and their interconnections.">
@@ -546,7 +552,7 @@ export default function ExampleResumePageEN() {
         <BackendBeam locale="en" />
       </TechStackVisualization>
 
-      <SkillKeywords title="Skill Keywords" rows={skillKeywordRows} />
+      <SkillKeywords title="Skills" rows={skillKeywordRows} />
 
       <EducationCerts
         sectionTitle="Education & Certifications"

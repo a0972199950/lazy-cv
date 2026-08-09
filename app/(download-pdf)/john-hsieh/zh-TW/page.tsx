@@ -44,9 +44,11 @@ const experiences: Experience[] = [
     period: "2024.11 - 至今",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "隸屬 User Growth 團隊，負責投放公司產品廣告到各大 DSP 平台，以增加 TikTok 等 APP 的用戶數量。",
-      "負責廣告投放的財務結算系統開發，技術棧為 React、monorepo 與公司自研框架架設的前端微服務系統。",
-      "帶領開發團隊導入 Scrum，利用 retrospective 建立團隊自我糾錯機制，利用 refinement 解決成員各自為政的問題，並平衡工作量與提升 PM 對時程的掌握度。",
+      "為 User Growth 團隊打造廣告投放前端系統，透過各大 DSP 平台為 TikTok 及旗下產品推動海外用戶增長",
+      "在 50+ 子專案、百萬級程式碼規模的 monorepo 中主導廣告投放財務結算系統開發，技術棧為 React 17、TypeScript、Rush Monorepo 與公司自研微前端框架",
+      "將 CSV 校驗邏輯透過 Comlink RPC 轉移至 Web Worker 執行，搭配 Yup 與 Regex 驗證規則，在 10 筆資料的填寫流程中減少 90% UI 卡頓時間",
+      "打造模仿 React useMemo 的 cache/cacheMany 快取工具，在一次渲染 500 個表單的介面上降低 98% Total Blocking Time (TBT)",
+      "帶領開發團隊導入 Scrum，透過 retrospective 建立團隊自我糾錯機制、以 refinement 解決成員各自為政問題，並平衡工作量、提升 PM 對時程的掌握度",
     ],
   },
   {
@@ -55,10 +57,10 @@ const experiences: Experience[] = [
     period: "2021.08 - 2024.10",
     logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
-      "日常開發 LINE 購物，技術棧 Vue SSR + GraphQL + TypeScript + ExpressJS。",
-      "擔任 Team Leader 帶領 4 人團隊，主導 CMS 從 PHP 重構至 NextJS app router 架構。",
-      "參與 JSTF 制定全公司前端開發準則，導入 Lighthouse CI 自動化效能評量。",
-      "擔任 Mentor 指導 2 位新人，獲得正向回饋。主導內部 NextJS 教學論壇，引導新人上手。",
+      "開發並維護 LINE 購物（LINE 電商導購平台），技術棧為 Vue SSR、GraphQL、TypeScript 與 ExpressJS——獨立開發「直播購物」影片自動預覽模組，透過全局調度器解決高速捲動時的預覽混亂與多直播源並發造成的記憶體暴增問題",
+      "帶領 4 人團隊主導 CMS 從 PHP 重構至 NextJS App Router 架構，達成前後端完全分離",
+      "投入 JSTF 跨團隊小組，制定全公司前端開發準則，並導入 Lighthouse CI 自動化效能評量",
+      "指導 2 位新進工程師並獲得正向回饋，同時主導內部 NextJS 教學論壇，加速新人上手",
     ],
   },
   {
@@ -67,9 +69,9 @@ const experiences: Experience[] = [
     period: "2021.09 - 2024.10",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "獨自負責開發線上相片書編輯器，支援拖曳、尺寸調整、文字編輯等功能。",
-      "從零規劃技術架構，使用 Vue + NuxtJS，6 個月內完成產品上線。",
-      "支援 PWA 安裝，提供類原生 APP 的體驗。",
+      "獨自開發線上相片書編輯器，支援拖曳、尺寸調整、文字編輯等功能",
+      "從零規劃技術架構，使用 Vue + NuxtJS，6 個月內完成產品上線",
+      "支援 PWA 安裝，提供類原生 APP 的體驗",
     ],
   },
   {
@@ -78,9 +80,9 @@ const experiences: Experience[] = [
     period: "2021.01 - 2021.09",
     logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
     highlights: [
-      "公司初創期即加入，從零規劃前端架構與技術選型。",
-      "使用 React / NextJS + TypeScript + TailwindCSS 開發面向香港市場的中小企貸款平台。",
-      "規劃跨專案共用 UI 組件庫（Stencil.js Web Component），部署到 private NPM。",
+      "從零規劃前端架構與技術選型，於公司初創期加入",
+      "使用 React / NextJS、TypeScript、TailwindCSS 開發面向香港市場的中小企貸款平台",
+      "規劃跨專案共用 UI 組件庫（Stencil.js Web Component），部署到 private NPM",
     ],
   },
   {
@@ -89,9 +91,8 @@ const experiences: Experience[] = [
     period: "2020.12 - 2021.08",
     logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
     highlights: [
-      "在 AI 新團隊中擔任全端工程師，管理前端團隊 2 人。",
-      "開發整合內部 AI 微服務的 2B 管理平台。",
-      "技術棧涵蓋 NuxtJS / NextJS + TypeScript + MongoDB + Redis。",
+      "管理 2 人前端團隊，於新成立的 AI 團隊中擔任全端工程師",
+      "開發整合內部 AI 微服務的 2B 管理平台，技術棧涵蓋 NuxtJS/NextJS、TypeScript、MongoDB 與 Redis",
     ],
   },
   {
@@ -100,10 +101,9 @@ const experiences: Experience[] = [
     period: "2019.08 - 2020.11",
     logo: "https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
     highlights: [
-      "專案導向團隊，每項專案配置約 4 人，快速迭代產品。",
-      "使用 Nuxt 生態系 + TypeScript + TailwindCSS，搭配 Docker + K8s CI/CD 流程。",
-      "開發 SuprLink 縮網址服務、Aotter Trek DSP 廣告平台等自有及外部專案。",
-      "注重 UI/UX 設計還原度，為每個專案量身訂做 TailwindCSS 小型 UI 框架。",
+      "於約 4 人的專案導向團隊中快速迭代產品交付",
+      "開發 SuprLink 縮網址服務、Aotter Trek DSP 廣告平台等自有及外部專案，技術棧為 Nuxt 生態系、TypeScript、TailwindCSS，搭配 Docker 與 K8s CI/CD 流程",
+      "為每個專案量身訂做 TailwindCSS 小型 UI 框架，維持高度 UI/UX 設計還原度",
     ],
   },
   {
@@ -112,8 +112,8 @@ const experiences: Experience[] = [
     period: "2019.04 - 2019.06",
     logo: "https://cdn.lazy-cv.com/d8b43549-741e-403c-83d4-6022faa346e9.png",
     highlights: [
-      "使用 Vue + PHP 前後端分離架構開發。",
-      "串接微信支付金流系統。",
+      "為咻咻漫畫（線上漫畫平台）建構 Vue + PHP 前後端分離架構",
+      "串接微信支付金流系統，支援線上交易",
     ],
   },
   {
@@ -122,10 +122,9 @@ const experiences: Experience[] = [
     period: "2017.12 - 2019.03",
     logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
     highlights: [
-      "初期擔任數位廣告優化師，管理 Facebook / Google Ads，運用 A/B testing 與 Heatmap 優化 UX。",
-      "後期轉任前端工程師兼 PM，為代理產品架設官方網站與活動頁面。",
-      "管理前端團隊 2 人，使用日文作為主要工作語言。",
-      "建立 UI/UX 素養，對前端開發生涯奠定基礎。",
+      "管理 Facebook / Google Ads 廣告投放，運用 A/B Testing 與 Heatmap 分析優化 UX，擔任數位廣告優化師",
+      "轉任前端工程師兼 PM，為代理品牌架設官方網站與活動頁面，包含俏樂斯（保養品牌）、髮樂活與日本嚴選",
+      "管理前端團隊 2 人，使用日文作為主要工作語言",
     ],
   },
   {
@@ -134,12 +133,16 @@ const experiences: Experience[] = [
     period: "2016.09 - 2017.09",
     logo: "https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
     highlights: [
-      "負責接洽日本旅宿房源並協助上架到公司平台。",
-      "擔任對日翻譯窗口，協助消費者排除旅日中緊急狀況。",
-      "2017 年度預約筆數達 8,846，與前年比成長 376%。",
+      "接洽日本旅宿房源並協助上架至公司平台",
+      "協助消費者排除旅日緊急狀況，擔任對日翻譯窗口",
+      "2017 年度預約筆數達 8,846，與前年比成長 376%",
     ],
   },
 ];
+
+const companyLogos: Record<string, string> = Object.fromEntries(
+  experiences.map((e) => [e.company, e.logo])
+);
 
 const projects: Project[] = [
   {
@@ -325,7 +328,7 @@ const projects: Project[] = [
   {
     name: "JavaScript Task Force",
     summary:
-      "LINE Taiwan 跨團隊專案小組，負責制定全公司前端開發準則。研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
+      "LINE Taiwan 跨團隊專案小組，制定全公司前端開發準則，研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
     company: "LINE Taiwan",
     image:
@@ -396,7 +399,7 @@ const projects: Project[] = [
   {
     name: "俏樂斯 官方網站",
     summary:
-      "日本沖繩保養品俏樂斯的台灣官方網站，負責設計規劃與前端開發。",
+      "日本沖繩保養品俏樂斯的台灣官方網站，主導設計規劃與前端開發。",
     stack: ["PHP", "jQuery", "CSS"],
     company: "日商優橋",
     image:
@@ -518,7 +521,7 @@ export default function ExampleResumePageZhTW() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle="資深前端工程師"
-        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan 擔任資深軟體工程師。常用技術架構為 React (NextJS)、Vue (NuxtJS) 及 TypeScript。我的核心價值觀是「使用者體驗至上」，使命不是做出一個產品，而是做出一個「好用」、「美觀」的軟體產品。具備在資源有限環境下從零規劃到產品上線的能力，也能在大型企業嚴謹環境中開發高品質程式。已將 AI 工具深度整合進日常開發工作流程，善用 GitHub Copilot Agent Mode、MCP 與 n8n 等工具建立端到端的 AI 自動化 SOP，並具備 LLM API 串接與向量資料庫（RAG）等 AI 應用開發能力。流利使用英、日、中三種語言。熟悉敏捷開發與可持續的團隊迭代交付模式，擅長與他人合作及與非技術人員溝通。擅長將複雜問題用簡單的方式解釋。"
+        description="7 年前端開發經驗，曾任職於 TikTok Singapore 與 LINE Taiwan，擔任資深軟體工程師。核心技術棧為 React (Next.js)、Vue (Nuxt.js) 與 TypeScript，橫跨資源有限的早期新創與嚴謹的大型企業環境：能從零規劃產品架構，也能在大型團隊中交付高品質程式碼，並始終在意軟體是否好用、體驗是否流暢。已將 AI 工具深度整合進日常開發流程，運用 GitHub Copilot Agent Mode、MCP 與 n8n 建立端到端的自動化 SOP，並具備 LLM API 串接與向量資料庫（RAG）開發經驗。流利使用英、日、中三種語言，熟悉敏捷開發與跨職能協作，能有效與非技術利害關係人溝通。"
         location="Singapore"
         stats={stats}
         contacts={contacts}
@@ -533,6 +536,9 @@ export default function ExampleResumePageZhTW() {
         projects={projects}
         highlightsLabel="技術亮點"
         contributionsLabel="重大貢獻"
+        personalProjectsLabel="個人專案"
+        companyProjectsLabel="公司專案"
+        companyLogos={companyLogos}
       />
 
       <TechStackVisualization title="技術棧可視化" description="核心技術與周邊能力的連結關係圖。">
@@ -547,7 +553,7 @@ export default function ExampleResumePageZhTW() {
         <BackendBeam />
       </TechStackVisualization>
 
-      <SkillKeywords title="技能關鍵字" rows={skillKeywordRows} />
+      <SkillKeywords title="技能" rows={skillKeywordRows} />
 
       <EducationCerts
         sectionTitle="學歷與證書"

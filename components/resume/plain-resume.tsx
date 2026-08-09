@@ -33,6 +33,8 @@ export type PlainResumeData = {
     projects: Project[];
     highlightsLabel?: string;
     contributionsLabel?: string;
+    personalProjectsLabel?: string;
+    companyProjectsLabel?: string;
   };
   skills?: {
     title: string;
@@ -103,10 +105,43 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
+function ProjectEntry({ project, stackLabel }: { project: Project; stackLabel: string }) {
+  return (
+    <article className="plain-cv__entry">
+      <div className="plain-cv__entry-meta">
+        {project.url ? hrefText(project.url) : ""}
+      </div>
+      <div className="plain-cv__entry-body">
+        <h2 className="plain-cv__entry-title">
+          {project.name}
+          {project.company && (
+            <>
+              <span className="plain-cv__dash">—</span>
+              {project.company}
+            </>
+          )}
+        </h2>
+        <p className="plain-cv__entry-summary">{project.summary}</p>
+        {project.contributions && project.contributions.length > 0 && (
+          <Bullets items={project.contributions} />
+        )}
+        {project.highlights && project.highlights.length > 0 && (
+          <Bullets items={project.highlights} />
+        )}
+        <p className="plain-cv__meta-line">
+          {stackLabel}: {project.stack.join(", ")}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export function PlainResume({ data }: { data: PlainResumeData }) {
   const { locale, profile, work, projects, skills, education } = data;
   const profileLabel = profileLabels[locale] ?? profileLabels.en;
   const stackLabel = stackLabels[locale] ?? stackLabels.en;
+  const personalProjects = projects?.projects.filter((p) => !p.company) ?? [];
+  const companyProjects = projects?.projects.filter((p) => p.company) ?? [];
   const { headline, subLines } = splitJobTitle(profile?.jobTitle ?? "");
 
   return (
@@ -176,26 +211,26 @@ export function PlainResume({ data }: { data: PlainResumeData }) {
         <section className="plain-cv__section">
           <div className="plain-cv__label">{projects.title}</div>
           <div className="plain-cv__entries">
-            {projects.projects.map((project) => (
-              <article key={project.name} className="plain-cv__entry">
-                <div className="plain-cv__entry-meta">
-                  {project.url ? hrefText(project.url) : ""}
-                </div>
-                <div className="plain-cv__entry-body">
-                  <h2 className="plain-cv__entry-title">{project.name}</h2>
-                  <p className="plain-cv__entry-summary">{project.summary}</p>
-                  {project.contributions && project.contributions.length > 0 && (
-                    <Bullets items={project.contributions} />
-                  )}
-                  {project.highlights && project.highlights.length > 0 && (
-                    <Bullets items={project.highlights} />
-                  )}
-                  <p className="plain-cv__meta-line">
-                    {stackLabel}: {project.stack.join(", ")}
-                  </p>
-                </div>
-              </article>
-            ))}
+            {personalProjects.length > 0 && (
+              <>
+                <p className="plain-cv__group-label">
+                  {projects.personalProjectsLabel ?? "Personal Projects"}
+                </p>
+                {personalProjects.map((project) => (
+                  <ProjectEntry key={project.name} project={project} stackLabel={stackLabel} />
+                ))}
+              </>
+            )}
+            {companyProjects.length > 0 && (
+              <>
+                <p className="plain-cv__group-label">
+                  {projects.companyProjectsLabel ?? "Company Projects"}
+                </p>
+                {companyProjects.map((project) => (
+                  <ProjectEntry key={project.name} project={project} stackLabel={stackLabel} />
+                ))}
+              </>
+            )}
           </div>
         </section>
       )}

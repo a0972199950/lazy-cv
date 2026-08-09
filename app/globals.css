@@ -575,6 +575,13 @@ a:focus {
   #plain-resume .plain-cv__section:not(.plain-cv__section--inline) .plain-cv__label {
     margin-bottom: 6pt !important;
   }
+  #plain-resume .plain-cv__group-label {
+    margin: 0 !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
 
   #plain-resume .plain-cv__text {
     margin: 0 !important;
@@ -595,13 +602,20 @@ a:focus {
     page-break-inside: avoid !important;
   }
   #plain-resume .plain-cv__entry-meta {
+    min-width: 0 !important;
     font-size: 7.5pt !important;
     padding-top: 3pt !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  #plain-resume .plain-cv__entry-body {
+    min-width: 0 !important;
   }
   #plain-resume .plain-cv__entry-title {
     margin: 0 !important;
     font-size: 12.5pt !important;
     font-weight: 400 !important;
+    overflow-wrap: anywhere !important;
   }
   #plain-resume .plain-cv__dash {
     padding: 0 4pt !important;
