@@ -347,12 +347,11 @@ This resume was automatically generated using this project.
 - **Description:** A large-scale enterprise-level Monorepo frontend project serving TikTok's online advertising overseas user growth business line. The platform covers multiple business domains including media asset management, financial settlement, supplier procurement, and data dashboards. It adopts a unified technical architecture and engineering standards, supporting collaborative development and independent deployment of multiple business subsystems across 50+ sub-projects with million-line-level codebase.
 I focused on the development and maintenance of procurement and settlement related modules.
 
-- **Tech Stack:** Rush v5 + PNPM Workspaces (Monorepo), React 17 + TypeScript, react-router-dom v5/v6, Arco Design, unstated-next (state management), Starling (i18n), Axios, ECharts, Less + CSS Modules, Jest + @testing-library/react, Ferry (Thrift IDL code generation), ESLint + commitlint + lint-staged
+- **Tech Stack:** Rush v5 + PNPM Workspaces (Monorepo), React 17 + TypeScript, react-router-dom v5/v6, Arco Design, unstated-next (state management), Starling (i18n), Axios, ECharts, Less + CSS Modules, Jest + @testing-library/react, ESLint + commitlint + lint-staged
 - **Technical Highlights:**
   - **Complex Form Component Development**: Built extensive business form components based on an internally developed JSON Schema dynamic form rendering solution, covering cascading selects, dynamic fields, and conditional rendering scenarios with configuration-driven form rendering and complex validation logic
   - **High-Precision Numeric Computation**: Addressed JavaScript floating-point precision issues for financial and pricing scenarios with a custom floating-point precision calculation solution
   - **Micro-Frontend Integration**: Implemented dynamic sub-application loading via the company's proprietary framework, supporting on-demand module loading with independent development and deployment
-  - **Type-Safe API Communication**: Leveraged Ferry + Thrift IDL for auto-generated strongly-typed service code, ensuring frontend-backend protocol consistency and reducing runtime errors
   - **Internationalization & Multi-language**: Implemented multi-language support with dynamic updates by fetching the latest translation files at runtime through an internally developed online translation platform
 
 - **Key Contributions:**

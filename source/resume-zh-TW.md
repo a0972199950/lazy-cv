@@ -420,12 +420,11 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **專案描述：** 大型企業級 Monorepo 前端專案，服務於 TikTok 線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域。專案採用統一的技術架構和工程規範，支持多個業務子系統的協同開發與獨立部署，管理 50+ 子專案，百萬級程式碼規模。
 我專注於負責採購與結算等相關模組的開發與維護
 
-- **技術棧：** Rush v5 + PNPM Workspaces (Monorepo)、React 17 + TypeScript、react-router-dom v5/v6、Arco Design、unstated-next（狀態管理）、Starling（國際化）、Axios、ECharts、Less + CSS Modules、Jest + @testing-library/react、Ferry（Thrift IDL 程式碼生成）、ESLint + commitlint + lint-staged
+- **技術棧：** Rush v5 + PNPM Workspaces (Monorepo)、React 17 + TypeScript、react-router-dom v5/v6、Arco Design、unstated-next（狀態管理）、Starling（國際化）、Axios、ECharts、Less + CSS Modules、Jest + @testing-library/react、ESLint + commitlint + lint-staged
 - **技術亮點：**
   - **複雜表單互動元件開發**：基於內部自研的 JSON Schema 動態表單渲染解決方案，開發大量業務表單互動元件，涵蓋級聯選擇、動態欄位、條件顯示等複雜場景，實現配置驅動的表單渲染，支援複雜校驗規則與欄位聯動邏輯
   - **高精度數值計算處理**：針對財務、報價等業務場景的 JavaScript 浮點數精度問題，實作浮點數精度計算方案
   - **微前端整合**：透過公司自研框架實現子應用動態載入，支援按需載入業務模組與獨立開發部署
-  - **類型安全的 API 通訊**：採用 Ferry + Thrift IDL 生成強型別 Service 程式碼，保障前後端協議一致性，減少執行時錯誤
   - **國際化多語系**：透過自研線上翻譯平台，在 runtime 獲取最新翻譯文件，實現多語系支援與動態更新
 
 - **重大貢獻：**

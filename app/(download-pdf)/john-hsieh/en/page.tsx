@@ -225,7 +225,6 @@ const projects: Project[] = [
       "Complex form component development based on JSON Schema dynamic rendering with cascading selects, dynamic fields, and conditional rendering",
       "High-precision numeric computation for financial scenarios, solving JavaScript floating-point precision issues",
       "Micro-frontend integration via proprietary framework with dynamic sub-application loading",
-      "Type-safe API communication using Ferry + Thrift IDL for auto-generated strongly-typed service code",
       "Internationalization with runtime-fetched translations via an internally developed online translation platform",
     ],
     contributions: [

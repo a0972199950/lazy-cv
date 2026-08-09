@@ -41,7 +41,15 @@ description: "針對特定職缺生成客製化履歷。使用者輸入 `/cv [UR
 根據 `jd.md` 內容與 `/source` 資料，為 `{uuid}/en/page.tsx` 與 `{uuid}/zh-TW/page.tsx` 生成以下區塊：
 
 ### 1. 自我介紹 (Professional Summary)
-- 包含頭像 (Avatar) 與聯絡方式 (Email/GitHub/LinkedIn/Portfolio)。
+- 包含頭像 (Avatar) 與聯絡方式 (Email/GitHub/LinkedIn/Personal Website)。
+- **必須包含「個人網站」聯絡方式**：在 `contacts` 陣列中新增一筆 `type: "website"` 的項目，`href` 指向這份履歷自己發布後的網址 `https://lazy-cv.com/{uuid}/{locale}`（`en` 版連到 `/en`，`zh-TW` 版連到 `/zh-TW`），讓 PDF 列印時附上可回連本頁面的連結。`label` 固定為 `"Personal Website"`（zh-TW 版為 `"個人網站"`）。範例（`en/page.tsx`）：
+  ```ts
+  { href: "https://lazy-cv.com/{uuid}/en", type: "website", label: "Personal Website" },
+  ```
+  zh-TW 版對應：
+  ```ts
+  { href: "https://lazy-cv.com/{uuid}/zh-TW", type: "website", label: "個人網站" },
+  ```
 - **`jobTitle` 固定格式**：第一行一律寫當前職稱 `Senior Software Engineer`（zh-TW 版寫「資深軟體工程師」），換行（`\n`）後寫 `Apply for {JD 職稱}`（zh-TW 版寫「應徵 {JD 職稱}」，`{JD 職稱}` 取自 `jd.md` 裡的目標職位名稱）。
 - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。
 - 可根據 `/source` 生成資料裡沒有的語句，但**不可違背事實**。
@@ -136,8 +144,8 @@ Score = 0.4 × required_skills_coverage
 ## 完成後
 
 1. 回報 UUID 並確認檔案已寫入。
-2. 直接在瀏覽器開啟 `http://localhost:3000/{uuid}/zh-TW` 以供檢視。
-   - 若 port 3000 已被佔用，代表開發環境正在執行，直接開啟連結即可。
+2. 直接在瀏覽器開啟 `http://localhost:3001/{uuid}/zh-TW` 以供檢視（專案 `pnpm dev` 固定使用 port 3001，非預設的 3000）。
+   - 若該 port 已被佔用，代表開發環境正在執行，直接開啟連結即可。
 3. 附上第四階段的 ATS 計分結果與待改進項目。
 
 ---
