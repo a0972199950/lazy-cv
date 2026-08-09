@@ -352,6 +352,10 @@ a:focus {
     background-color: #ecfeff !important;
     border-color: #a5f3fc !important;
   }
+  [data-print-highlight].bg-amber-50 {
+    background-color: #fffbeb !important;
+    border-color: #fde68a !important;
+  }
   [data-print-highlight].bg-white {
     background-color: #ffffff !important;
     border-color: #e2e8f0 !important;

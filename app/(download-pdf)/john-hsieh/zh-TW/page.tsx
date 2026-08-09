@@ -212,6 +212,7 @@ const projects: Project[] = [
     summary:
       "大型企業級 Monorepo 前端專案，服務 TikTok 線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域，管理 50+ 子專案，百萬級程式碼規模。",
     stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest"],
+    company: "TikTok Singapore",
     image: [
       "https://cdn.lazy-cv.com/OA.png",
       "https://cdn.lazy-cv.com/web-worker.png",
@@ -234,6 +235,7 @@ const projects: Project[] = [
     summary:
       "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+    company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
       "https://cdn.lazy-cv.com/shopping-live-hall.png",
@@ -250,6 +252,7 @@ const projects: Project[] = [
     summary:
       "主導將 PHP 架構的 LINE 購物 CMS 重構為 React & NextJS app router 架構，帶領 4 人團隊完成前後端分離。這也是少數幾個在 LINE Taiwan 中實際採用 NextJS app router 的早期專案之一。",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
+    company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
       "https://cdn.lazy-cv.com/cms-graph.png",
@@ -267,6 +270,7 @@ const projects: Project[] = [
     summary:
       "線上相片書編輯器，支援照片拖曳/尺寸調整/文字編輯，跨平台支援含 PWA 安裝體驗。從零規劃到上線僅 6 個月。",
     stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+    company: "AI.Book 愛相簿",
     image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
@@ -285,6 +289,7 @@ const projects: Project[] = [
     summary:
       "跨專案共用 UI 組件平台，使用 Web Component（Stencil.js）打造不受框架限制的組件庫，整合 TailwindCSS + Semantic UI 並以 Storybook 作文件。",
     stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
     highlights: [
@@ -302,6 +307,7 @@ const projects: Project[] = [
     summary:
       "從 A/B 分流到數據分析，再到廣告投放一氣呵成的縮網址服務。",
     stack: ["NuxtJS", "TypeScript", "TailwindCSS", "Docker", "K8s"],
+    company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
     url: "https://supr.link",
@@ -311,6 +317,7 @@ const projects: Project[] = [
     summary:
       "結合大數據分析的廣告投放 DSP 平台，使用大量圖表介面為使用者找出最適合的廣告 TA。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png",
     url: "https://trek.aotter.net",
@@ -320,6 +327,7 @@ const projects: Project[] = [
     summary:
       "LINE Taiwan 跨團隊專案小組，負責制定全公司前端開發準則。研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
+    company: "LINE Taiwan",
     image:
       "https://cdn.lazy-cv.com/jstf.png",
   },
@@ -328,6 +336,7 @@ const projects: Project[] = [
     summary:
       "面向香港中小企業的整合貸款平台，提供銀行與政府貸款資訊、一站式申請，並透過 OCR 技術整理文件以降低重複提交成本。",
     stack: ["React", "NextJS", "TypeScript", "TailwindCSS"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
     url: "https://app.fundfluent.io",
@@ -340,6 +349,7 @@ const projects: Project[] = [
     summary:
       "面向銀行等放貸方的管理平台，可上架、整理各項貸款專案，以及審核來自中小企的申請案件。",
     stack: ["React", "NextJS", "TypeScript", "Semantic UI"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
     url: "https://partner.fundfluent.io",
@@ -352,6 +362,7 @@ const projects: Project[] = [
     summary:
       "快速在 SuprLink 超級連結產生縮網址的 Chrome 擴充工具。",
     stack: ["Chrome Extension", "JavaScript"],
+    company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
   },
@@ -360,6 +371,7 @@ const projects: Project[] = [
     summary:
       "收集分散各地的政府數據於同一平台展示的政府資料數據庫，具備可高度客製化的圖表及資料篩選模組。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "TailwindCSS"],
+    company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
   },
@@ -368,6 +380,7 @@ const projects: Project[] = [
     summary:
       "擁有各種圖表的集中數據 Dashboard，用以顯示企業內部各項指標。",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
   },
@@ -376,6 +389,7 @@ const projects: Project[] = [
     summary:
       "使用 Vue + PHP 前後端分離架構開發的線上漫畫平台，串接微信支付金流系統。",
     stack: ["Vue", "PHP", "WeChat Pay"],
+    company: "第三緯度科技",
     image:
       "https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png",
   },
@@ -384,6 +398,7 @@ const projects: Project[] = [
     summary:
       "日本沖繩保養品俏樂斯的台灣官方網站，負責設計規劃與前端開發。",
     stack: ["PHP", "jQuery", "CSS"],
+    company: "日商優橋",
     image:
       "https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png",
   },
@@ -392,6 +407,7 @@ const projects: Project[] = [
     summary:
       "美髮保養的內容型自媒體網站。",
     stack: ["WordPress", "PHP", "CSS"],
+    company: "日商優橋",
     image:
       "https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png",
   },
@@ -400,6 +416,7 @@ const projects: Project[] = [
     summary:
       "專接業配的日系產品推薦部落格。",
     stack: ["WordPress", "PHP", "CSS"],
+    company: "日商優橋",
     image:
       "https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png",
   },

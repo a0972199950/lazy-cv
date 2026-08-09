@@ -14,6 +14,8 @@ export type Project = {
   url?: string;
   highlights?: string[];
   contributions?: string[];
+  /** Matches an Experience.company value; omit for personal/independent projects. */
+  company?: string;
 };
 
 export type StatItem = {

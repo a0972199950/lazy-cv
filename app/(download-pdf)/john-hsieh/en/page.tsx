@@ -117,7 +117,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    company: "YouBridge (Japanese Company)",
+    company: "Asian Bridge (Japanese Company)",
     role: "Digital Ad Optimizer & Frontend Engineer",
     period: "2017.12 - 2019.03",
     logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
@@ -212,6 +212,7 @@ const projects: Project[] = [
     summary:
       "A large-scale enterprise Monorepo frontend project serving TikTok's overseas user growth business, covering media asset management, financial settlement, supplier procurement, and data dashboards across 50+ sub-projects with million-line codebase.",
     stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest"],
+    company: "TikTok Singapore",
     image: [
       "https://cdn.lazy-cv.com/OA.png",
       "https://cdn.lazy-cv.com/web-worker.png",
@@ -234,6 +235,7 @@ const projects: Project[] = [
     summary:
       "A LINE affiliate shopping service where users earn LINE Points through partner merchants.",
     stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+    company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
       "https://cdn.lazy-cv.com/shopping-live-hall.png",
@@ -250,6 +252,7 @@ const projects: Project[] = [
     summary:
       "Led the migration of LINE Shopping CMS from PHP architecture to React & NextJS App Router, managing a 4-person team to achieve full frontend-backend separation. One of the early projects within LINE Taiwan to adopt the NextJS App Router.",
     stack: ["React", "NextJS", "App Router", "TypeScript"],
+    company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
       "https://cdn.lazy-cv.com/cms-graph.png",
@@ -267,6 +270,7 @@ const projects: Project[] = [
     summary:
       "An online photo book editor supporting drag-and-drop, resizing, and text editing with cross-platform PWA support. Built from scratch to launch in just 6 months.",
     stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+    company: "AI.Book",
     image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
@@ -285,6 +289,7 @@ const projects: Project[] = [
     summary:
       "A cross-project shared UI component platform built with Web Components (Stencil.js) for framework-agnostic usage, integrating TailwindCSS + Semantic UI with Storybook documentation.",
     stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
     highlights: [
@@ -302,6 +307,7 @@ const projects: Project[] = [
     summary:
       "A URL shortener service with A/B split testing, data analytics, and ad delivery in a single platform.",
     stack: ["NuxtJS", "TypeScript", "TailwindCSS", "Docker", "K8s"],
+    company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
     url: "https://supr.link",
@@ -311,6 +317,7 @@ const projects: Project[] = [
     summary:
       "A big-data-driven DSP (Demand-Side Platform) for ad placement, featuring rich chart interfaces to help users identify optimal advertising audiences.",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png",
     url: "https://trek.aotter.net",
@@ -320,6 +327,7 @@ const projects: Project[] = [
     summary:
       "A cross-team initiative at LINE Taiwan responsible for establishing company-wide frontend development standards. Research and adoption of SonarQube, Lighthouse CI, OpenTel frontend monitoring, and React project template generators.",
     stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
+    company: "LINE Taiwan",
     image:
       "https://cdn.lazy-cv.com/jstf.png",
   },
@@ -328,6 +336,7 @@ const projects: Project[] = [
     summary:
       "An integrated loan platform for Hong Kong SMEs, providing bank and government loan information with one-stop applications, using OCR to streamline document management and reduce redundant submissions.",
     stack: ["React", "NextJS", "TypeScript", "TailwindCSS"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
     url: "https://app.fundfluent.io",
@@ -340,6 +349,7 @@ const projects: Project[] = [
     summary:
       "A management platform for lenders such as banks, enabling them to list and manage loan products and review SME applications.",
     stack: ["React", "NextJS", "TypeScript", "Semantic UI"],
+    company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
     url: "https://partner.fundfluent.io",
@@ -352,6 +362,7 @@ const projects: Project[] = [
     summary:
       "A Chrome extension for quickly generating short URLs via the SuprLink service.",
     stack: ["Chrome Extension", "JavaScript"],
+    company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
   },
@@ -360,6 +371,7 @@ const projects: Project[] = [
     summary:
       "A government data dashboard aggregating scattered public data into a single platform, featuring highly customizable charts and data filtering modules.",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "TailwindCSS"],
+    company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
   },
@@ -368,6 +380,7 @@ const projects: Project[] = [
     summary:
       "A centralized data dashboard with various charts displaying company-wide KPIs and internal metrics.",
     stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
   },
@@ -376,6 +389,7 @@ const projects: Project[] = [
     summary:
       "An online comics platform built with Vue + PHP in a decoupled architecture, integrated with WeChat Pay for payments.",
     stack: ["Vue", "PHP", "WeChat Pay"],
+    company: "Third Dimension Technology",
     image:
       "https://cdn.lazy-cv.com/f0b11a8f-47c9-4587-9188-e6c93256baa7.png",
   },
@@ -384,6 +398,7 @@ const projects: Project[] = [
     summary:
       "The Taiwan official website for Chorasu, an Okinawa-based skincare brand. Responsible for design planning and frontend development.",
     stack: ["PHP", "jQuery", "CSS"],
+    company: "Asian Bridge (Japanese Company)",
     image:
       "https://cdn.lazy-cv.com/b2a0eaa9-55f5-4482-bd20-c4c574b5d7d7.png",
   },
@@ -392,6 +407,7 @@ const projects: Project[] = [
     summary:
       "A content-driven media website focused on hair care and beauty products.",
     stack: ["WordPress", "PHP", "CSS"],
+    company: "Asian Bridge (Japanese Company)",
     image:
       "https://cdn.lazy-cv.com/2b1c2e88-9b0e-4bf8-98ee-f955391ba10f.png",
   },
@@ -400,6 +416,7 @@ const projects: Project[] = [
     summary:
       "A Japanese product review blog specializing in sponsored content.",
     stack: ["WordPress", "PHP", "CSS"],
+    company: "Asian Bridge (Japanese Company)",
     image:
       "https://cdn.lazy-cv.com/12da9319-3e54-419e-b6c2-1044360f7b7a.png",
   },
