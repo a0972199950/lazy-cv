@@ -143,6 +143,33 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "TWSG 視頻加速 for Bilibili（非官方）",
+    summary:
+      "一款讓台灣／新加坡使用者觀看網頁版 Bilibili 更順暢的 Chrome / Edge / Firefox 瀏覽器擴充套件，動態將影片 CDN host 重排為當地最快節點，並具備自動 fallback 機制。從技術架構、開發到上架與維護皆為個人獨立完成。",
+    stack: ["Chrome Extension", "Manifest V3", "JavaScript", "Puppeteer", "Web Extension API"],
+    image: [
+      "https://cdn.lazy-cv.com/promo-cover-1280x800.png",
+      "https://cdn.lazy-cv.com/10-days-report.png",
+      "https://cdn.lazy-cv.com/before.png",
+      "https://cdn.lazy-cv.com/after.png",
+      "https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg",
+      "https://cdn.lazy-cv.com/5-starts.png",
+    ],
+    url: "https://chromewebstore.google.com/detail/twsg-%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F-for-bilibili-%E9%9D%9E%E5%AE%98/dfaddcffoondcendifiljhdbdagebgch",
+    highlights: [
+      "MAIN world 注入攔截 fetch/XHR 與 playinfo 物件的 setter，即時改寫 playurl/DASH manifest 中的 CDN host，且不影響頁面原生行為",
+      "雙 world 橋接架構：MAIN world 無法存取 chrome.storage/chrome.i18n 等擴充 API，因此由 ISOLATED world 橋接腳本透過 postMessage/localStorage 與 MAIN world 溝通，同步設定與多語系文案",
+      "自動容錯 Fallback 機制：即時監控分段請求狀態與播放卡頓，偵測異常時先靜默切換至 B 站原生備援節點，備援也失效才提示使用者",
+      "可重現建置（Reproducible Build）：純 Node.js 腳本（jszip + sharp + puppeteer）打包，只要原始碼不變，跨平台每次產出的 zip bytes 完全相同",
+      "以 Puppeteer 自動化開啟 Bilibili 影片頁並依序切換三語系，自動截取商店上架素材",
+    ],
+    contributions: [
+      "Vibe Coding 實踐：全程透過 AI 輔助協作開發，從技術架構、程式碼撰寫到商店上架素材，僅耗時 1 個週末即完成並上線",
+      "上架 10 天：瀏覽數 2,000、安裝數 1,000（**轉換率達 50%**），WAU 突破 1,000（**留存率近 100%**），獲得 **14 筆五星好評、零負評**，全數為自然流量",
+      "GitHub：https://github.com/a0972199950/bilibili-cdn-switcher",
+    ],
+  },
+  {
     name: "AI 擬人對話機器人",
     summary:
       "以大語言模型與 n8n 工作流自動化為基底，透過 LINE Messaging API 打造寵物擬人化 AI 聊天機器人。具備多輪對話記憶、圖片/語音理解（多模態）、長期記憶（向量資料庫 RAG）等功能，並可根據不同場景快速切換人格設定。",
@@ -428,11 +455,16 @@ const skillKeywordRows: SkillKeywordRow[] = [
     marqueeClassName: "[--duration:37s]",
     reverse: true,
   },
+  {
+    keywords: ["Chrome Extension", "Manifest V3", "Puppeteer", "Vert.x", "Web Extension API"],
+    badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
+    marqueeClassName: "[--duration:38s]",
+  },
 ];
 
 const stats: StatItem[] = [
   { label: "年前端經驗", value: 7 },
-  { label: "個完整產品", value: 18 },
+  { label: "個完整產品", value: 19 },
   { label: "人團隊管理", value: 4 },
   { label: "種語言能力", value: 3 },
 ];

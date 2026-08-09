@@ -184,11 +184,11 @@ export function PlainResume({ data }: { data: PlainResumeData }) {
                 <div className="plain-cv__entry-body">
                   <h2 className="plain-cv__entry-title">{project.name}</h2>
                   <p className="plain-cv__entry-summary">{project.summary}</p>
-                  {project.highlights && project.highlights.length > 0 && (
-                    <Bullets items={project.highlights} />
-                  )}
                   {project.contributions && project.contributions.length > 0 && (
                     <Bullets items={project.contributions} />
+                  )}
+                  {project.highlights && project.highlights.length > 0 && (
+                    <Bullets items={project.highlights} />
                   )}
                   <p className="plain-cv__meta-line">
                     {stackLabel}: {project.stack.join(", ")}

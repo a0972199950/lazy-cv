@@ -339,6 +339,36 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 
 ### 個人專案
 
+**🎬 TWSG 視頻加速 for Bilibili（非官方）— B站 CDN 線路重排瀏覽器擴充套件**
+- **網址：** https://chromewebstore.google.com/detail/twsg-%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F-for-bilibili-%E9%9D%9E%E5%AE%98/dfaddcffoondcendifiljhdbdagebgch
+- **GitHub：** https://github.com/a0972199950/bilibili-cdn-switcher
+- **專案描述：** 一款讓 🇹🇼 台灣／🇸🇬 新加坡使用者觀看網頁版 Bilibili 更順暢的 Chrome / Edge / Firefox 瀏覽器擴充套件。B 站預設分配的取流 CDN 節點對 TW/SG 用戶常繞路、速度不佳，此擴充會將影片取流的 CDN host 動態重排為對當地最快的節點，並在偵測到分段請求失敗或播放卡住時自動 fallback。同一份原始碼同時支援三大瀏覽器平台，以及繁中/簡中/英文三語系介面。從技術架構、開發到上架與維護皆為個人獨立完成。
+原始碼已開源: https://github.com/a0972199950/bilibili-cdn-switcher
+
+- **技術亮點：**
+  - **Vibe Coding 實踐**：全程透過 AI 輔助協作開發，從技術架構、程式碼撰寫到商店上架素材，僅耗時 1 個週末即完成並上線
+  - **MAIN world 注入攔截 fetch/XHR 與 JSON 屬性**：透過 Manifest V3 content script 注入頁面 MAIN world，hook `fetch` / `XMLHttpRequest` 以及 `playinfo` 物件的 setter，即時改寫 playurl / DASH manifest 中的 CDN host，完成串流節點重排且不影響頁面原生行為
+  - **雙 world 橋接架構**：MAIN world 無法存取 `chrome.storage` / `chrome.i18n` 等擴充 API，因此設計 ISOLATED world 的橋接腳本，透過 `postMessage` / `localStorage` 與 MAIN world 溝通，同步設定與多語系文案
+  - **自動容錯 Fallback 機制**：即時監控分段請求狀態（403/404/5xx/逾時）與播放進度，偵測到失敗或卡頓（8 秒內無進度且無網路流量）時，先靜默切換至 B 站原生備援節點，備援也失效才彈出提示，交由使用者決定是否切換備用 URL
+  - **即時節點測速工具**：獨立測速頁面，針對「當前影片、當前畫質」的實際分段逐一實測各 CDN 節點下載速度（8MB 或 5 秒取先到者），不影響使用者當下實際使用的 CDN
+  - **可重現建置（Reproducible Build）**：純 Node.js 腳本（jszip + sharp + puppeteer）將同一份原始碼依 Chrome / Edge / Firefox 三種 manifest 分別打包成 zip，只要原始碼不變，跨平台每次打包產出的 zip bytes 完全相同
+  - **自動化商店素材產出**：以 Puppeteer 自動開啟真實 Bilibili 影片頁，依序切換三語系瀏覽器設定，自動截取商店上架用截圖
+
+- **重大貢獻：**
+  - 上架 10 天：瀏覽數 2,000、安裝數 1,000，**轉換率達 50%**
+  - 上架 10 天內周活躍使用者（WAU）即突破 1,000，**留存率幾乎 100%**
+  - 1,000 名使用者中已獲得 **14 筆五星好評，目前零負評**
+  - 全數為自然流量（Organic），未投放任何付費廣告
+
+![上架 10 天成績報表](https://cdn.lazy-cv.com/10-days-report.png)
+
+- **圖片：**
+![宣傳封面圖](https://cdn.lazy-cv.com/promo-cover-1280x800.png)
+![CDN 重排前](https://cdn.lazy-cv.com/before.png)
+![CDN 重排後](https://cdn.lazy-cv.com/after.png)
+![各節點測速頁面](https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg)
+![使用者五星好評](https://cdn.lazy-cv.com/5-starts.png)
+
 **🤖 AI 擬人對話機器人 — 整合 n8n 與大語言模型的智慧通訊助手**
 
 - **專案描述：** 本專案為一款將寵物擬人化，用 LINE 互動的 聊天機器人

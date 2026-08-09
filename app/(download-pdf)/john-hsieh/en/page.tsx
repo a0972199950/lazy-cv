@@ -143,6 +143,33 @@ const experiences: Experience[] = [
 
 const projects: Project[] = [
   {
+    name: "TWSG Bilibili CDN Accelerator",
+    summary:
+      "An unofficial Chrome / Edge / Firefox browser extension that makes the web version of Bilibili load smoother for users in Taiwan and Singapore, dynamically rewriting the video CDN host to the fastest regional node with automatic fallback. Solely designed, built, published, and maintained end-to-end.",
+    stack: ["Chrome Extension", "Manifest V3", "JavaScript", "Puppeteer", "Web Extension API"],
+    image: [
+      "https://cdn.lazy-cv.com/promo-cover-1280x800.png",
+      "https://cdn.lazy-cv.com/10-days-report.png",
+      "https://cdn.lazy-cv.com/before.png",
+      "https://cdn.lazy-cv.com/after.png",
+      "https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg",
+      "https://cdn.lazy-cv.com/5-starts.png",
+    ],
+    url: "https://chromewebstore.google.com/detail/twsg-%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F-for-bilibili-%E9%9D%9E%E5%AE%98/dfaddcffoondcendifiljhdbdagebgch",
+    highlights: [
+      "MAIN-world injection hooks fetch/XHR and the playinfo JSON setter to rewrite CDN hosts inside the playurl/DASH manifest in real time without disturbing native page behavior",
+      "Dual-world bridge architecture: an ISOLATED-world script syncs settings and localized strings with the MAIN world via postMessage/localStorage, since MAIN world lacks access to chrome.storage/chrome.i18n",
+      "Automatic fallback & fault tolerance: monitors segment request status and playback stalls, silently switching to Bilibili's native backup node before ever prompting the user",
+      "Reproducible builds: pure Node.js scripts (jszip + sharp + puppeteer) package the same source into byte-for-byte identical Chrome/Edge/Firefox zips",
+      "Automated store asset generation via Puppeteer, cycling through a trilingual UI to capture store listing screenshots",
+    ],
+    contributions: [
+      "Vibe Coding in a single weekend — architecture, implementation, and store listing assets designed, built, and published solo within one weekend",
+      "10 days after launch: 2,000 views, 1,000 installs (**50% conversion rate**), WAU surpassed 1,000 (**near-100% retention**), and **14 five-star reviews with zero below five stars** — 100% organic traffic",
+      "GitHub: https://github.com/a0972199950/bilibili-cdn-switcher",
+    ],
+  },
+  {
     name: "AI Persona Chatbot",
     summary:
       "A LINE chatbot built on top of a large language model and the n8n workflow automation tool, bringing a pet to life as a personalized AI companion. Features multi-turn context memory, image/voice understanding (multimodal), long-term memory via vector database (RAG), and quick persona switching.",
@@ -428,11 +455,16 @@ const skillKeywordRows: SkillKeywordRow[] = [
     marqueeClassName: "[--duration:37s]",
     reverse: true,
   },
+  {
+    keywords: ["Chrome Extension", "Manifest V3", "Puppeteer", "Vert.x", "Web Extension API"],
+    badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
+    marqueeClassName: "[--duration:38s]",
+  },
 ];
 
 const stats: StatItem[] = [
   { label: "Years Frontend Exp.", value: 7 },
-  { label: "Products Shipped", value: 18 },
+  { label: "Products Shipped", value: 19 },
   { label: "Team Members Led", value: 4 },
   { label: "Languages Spoken", value: 3 },
 ];

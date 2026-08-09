@@ -131,19 +131,6 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
                       {project.summary}
                     </p>
                   </div>
-                  {project.highlights && project.highlights.length > 0 && (
-                    <div className="rounded-lg border border-cyan-100 bg-cyan-50/40 px-3 py-2">
-                      <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-cyan-800">
-                        <Sparkles className="size-3" />
-                        {highlightsLabel}
-                      </p>
-                      <ul className="list-disc space-y-0.5 pl-4">
-                        {project.highlights.map((h, i) => (
-                          <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                   {project.contributions && project.contributions.length > 0 && (
                     <div className="rounded-lg border border-amber-100 bg-amber-50/40 px-3 py-2">
                       <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-amber-800">
@@ -156,6 +143,19 @@ export function ProjectsGrid({ title, description, projects, highlightsLabel = "
                             key={i}
                             className="text-[11px] leading-relaxed text-slate-600"
                           >{parseBold(c)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="rounded-lg border border-cyan-100 bg-cyan-50/40 px-3 py-2">
+                      <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-cyan-800">
+                        <Sparkles className="size-3" />
+                        {highlightsLabel}
+                      </p>
+                      <ul className="list-disc space-y-0.5 pl-4">
+                        {project.highlights.map((h, i) => (
+                          <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
                         ))}
                       </ul>
                     </div>

@@ -276,9 +276,39 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 
 ### Personal Projects
 
+##### TWSG Bilibili CDN Accelerator (Unofficial) — Browser Extension for Bilibili CDN Optimization
+- **Website:** https://chromewebstore.google.com/detail/twsg-%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F-for-bilibili-%E9%9D%9E%E5%AE%98/dfaddcffoondcendifiljhdbdagebgch
+- **GitHub:** https://github.com/a0972199950/bilibili-cdn-switcher
+- **Description:** A Chrome / Edge / Firefox browser extension that makes the web version of Bilibili (www.bilibili.com) load smoother for users in 🇹🇼 Taiwan and 🇸🇬 Singapore. Bilibili's default CDN routing is often suboptimal for TW/SG users, causing buffering and slow load times. The extension dynamically rewrites the video streaming CDN host to the fastest node for the user's region, and automatically falls back to Bilibili's native backup node when it detects failed segment requests or playback stalls. A single codebase ships to all three browser platforms with a trilingual (Traditional Chinese / Simplified Chinese / English) UI. Solely designed, built, published, and maintained end-to-end.
+
+- **Technical Highlights:**
+  - **Vibe Coding in a Single Weekend**: Entirely built through AI-assisted collaboration — from architecture and implementation to store listing assets — designed, developed, and published within one weekend
+  - **MAIN-world Injection Hooking fetch/XHR and JSON Property Setters**: Injects a Manifest V3 content script into the page's MAIN world to hook `fetch`/`XMLHttpRequest` and the setter of the `playinfo` object, rewriting the CDN host inside the playurl/DASH manifest in real time without disturbing the page's native behavior
+  - **Dual-World Bridge Architecture**: Since the MAIN world has no access to extension APIs like `chrome.storage`/`chrome.i18n`, a bridge script running in the ISOLATED world communicates with the MAIN world via `postMessage`/`localStorage` to sync settings and localized strings
+  - **Automatic Fallback & Fault Tolerance**: Continuously monitors segment request status (403/404/5xx/timeout) and playback progress; on failure or stall (no progress and no network activity for 8 seconds) it silently switches to Bilibili's native backup node first, and only surfaces a prompt for the user to manually switch to a backup URL if that also fails
+  - **Real-time Per-node Speed Test Tool**: A dedicated speed-test page that benchmarks download speed of each CDN node against the actual segment of the "current video, current quality" (capped at 8MB or 5 seconds, whichever comes first), without affecting the CDN currently in use
+  - **Reproducible Builds**: Pure Node.js build scripts (jszip + sharp + puppeteer) package the same source tree into Chrome/Edge/Firefox-specific zips; as long as the source is unchanged, the packaged zip bytes are byte-for-byte identical across builds and platforms
+  - **Automated Store Asset Generation**: Uses Puppeteer to open a live Bilibili video page, cycle through the three browser locales, and automatically capture store listing screenshots
+
+- **Results:**
+  - 10 days after launch: 2,000 views, 1,000 installs — a **50% conversion rate**
+  - Weekly Active Users (WAU) surpassed 1,000 within 10 days of launch — **retention near 100%**
+  - Earned **14 five-star reviews with zero reviews below five stars** among 1,000 users
+  - 100% organic traffic — no paid advertising
+
+![10-day Launch Metrics Report](https://cdn.lazy-cv.com/10-days-report.png)
+
+- **Images:**
+![Promo Cover](https://cdn.lazy-cv.com/promo-cover-1280x800.png)
+![Before CDN Switching](https://cdn.lazy-cv.com/before.png)
+![After CDN Switching](https://cdn.lazy-cv.com/after.png)
+![Speed Test Page](https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg)
+![Five-star User Reviews](https://cdn.lazy-cv.com/5-starts.png)
+
 ##### AI Persona Chatbot — Intelligent Communication Assistant Integrating n8n and LLM
 
 - **Description:** A LINE chatbot that brings a pet to life as a personalized AI companion. Built on top of a large language model and the workflow automation tool n8n, it connects through the LINE Messaging API to create an always-available pet account. The bot supports multi-turn continuous conversation with context memory, image and voice understanding, and can interact via stickers or text. It can also quickly switch to different tones and personalities based on specific business scenarios or needs.
+The project is open source: https://github.com/a0972199950/bilibili-cdn-switcher
 
 - **Technical Highlights:**
   - **n8n Workflow Automation Architecture**: Uses n8n as the core backend integration platform to flexibly orchestrate LINE Webhook events, Gemini API calls, and database storage — eliminating heavy traditional backend development and dramatically improving iteration efficiency.
@@ -288,7 +318,7 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
   - **Long-term Memory (AI Knowledge Base)**: The pet bot retains memories of all past events. Past memories are stored as JSONL, vectorized (embedded) into a semantic search database, and exposed to the AI via tool calls — making the pet bot feel genuinely lifelike.
   - **Lightweight Cloud Deployment (Docker & VPS)**: n8n and related services are containerized with Docker and deployed on a DigitalOcean VPS.
 
-- **Images:**
+- **Key Contributions:**
 ![Chat Screenshot](https://cdn.lazy-cv.com/00bf8b7292f2f0e10ca191b8ff74f4f2e9826cbcea8725825561d653b5363253.png)
 ![n8n Workflow](https://cdn.lazy-cv.com/1b07b662e7aa1ee44fe51102609d4151cc967f65f8aeaa9f89a4e8ec2ac0d592.png)
 
