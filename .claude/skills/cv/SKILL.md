@@ -50,11 +50,16 @@ description: "針對特定職缺生成客製化履歷。使用者輸入 `/cv [UR
   ```ts
   { href: "https://lazy-cv.com/{uuid}/zh-TW", type: "website", label: "個人網站" },
   ```
-- **`jobTitle` 固定格式**：第一行一律寫當前職稱 `Senior Software Engineer`（zh-TW 版寫「資深軟體工程師」），換行（`\n`）後寫 `Apply for {JD 職稱}`（zh-TW 版寫「應徵 {JD 職稱}」，`{JD 職稱}` 取自 `jd.md` 裡的目標職位名稱）。
+- **`jobTitle` 固定格式**：第一行寫「當前職稱 - 當前公司」，格式為 `{當前職稱} - {當前公司}`（例如 `Senior Frontend Engineer - TikTok`，zh-TW 版寫「資深前端工程師 - TikTok」）；當前職稱與當前公司取自 `/source` 中最新一筆（時間最新、period 為「至今」）工作經歷。換行（`\n`）後寫 `Apply for {JD 職稱} - {company_name}`（zh-TW 版寫「應徵 {JD 職稱} - {company_name}」），`{JD 職稱}` 取自 `jd.md` 裡的目標職位名稱，`{company_name}` 取自第一階段抓取的目標公司名稱。
 - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。
 - 可根據 `/source` 生成資料裡沒有的語句，但**不可違背事實**。
-- 包含 cover letter 內容，例如「我可以為 {company name} 做出的貢獻為...」、「選擇我優於其他候選人，是因為我具備...強項」等。
-- **必須分段呈現**（使用 `\n\n` 換行），每段聚焦一個主題（例如：背景概述、團隊協作與 Mentor 經驗、獨立交付與創業精神、使用者導向的工程理念、對目標公司的貢獻），**禁止一整段長文**。
+- **只寫 CV 該負責的內容**：聚焦「這個人有沒有資格、做過什麼、做得多好」的事實陳述，不寫求職動機、對公司的貢獻宣言、或「為什麼選我優於其他候選人」這類說服性語句——這些屬於 cover letter 的任務，改由 `/cover-letter` skill 產出，兩者不重複。
+- **字數上限**：zh-TW 版全文（不含標點與空白）**不得超過 300 字**；en 版**不得超過 250 words**（以空白分隔計算）。寫完後要實際數過字數確認合規，超過就刪減內容，不能用縮小字級或其他排版手段規避限制。
+- **內容優先順序**（字數有限，必須取捨時依此排序，越前面越優先保留）：
+  1. **與 JD 直接對應的經歷**：優先挑 `/source` 裡能直接回應 JD 條件（尤其 Required/Minimum qualifications，其次 Preferred/Nice-to-have）的經歷來寫。例如 JD 要求「獨立處理模糊需求、僅在里程碑審查」，就對應 `/source` 裡 AI.Book / FundFluent 這類完全獨立契約案，應該優先寫進去、寫得具體。
+  2. **專案的具體重大貢獻**：JD 沒有直接要求、但能展現技術深度或超出職缺期待的實績（例如效能優化的量化成果、獨立產品的營運數據）。
+  3. **資歷與公司背景**：年資、任職過的公司規模（大型企業 / 新創）這類概況性描述，只在還有餘裕時補充，不可為了塞這類內容擠掉前兩項。
+- **分段**：在字數限制內視內容量分 1–2 段（使用 `\n\n` 換行），不需要硬湊滿固定主題數，每段仍只聚焦一個主題，**禁止一整段長文**。
 
 ### 2. 工作經歷 (Work Experience)
 - **嚴格選取最近 5 間公司**，按時間由新到舊排序。
@@ -162,6 +167,7 @@ Score = 0.4 × required_skills_coverage
 | 型別定義 | `components/resume/types.ts` |
 | 建立履歷腳本 | `scripts/create-cv.ts` |
 | 客製化履歷目錄 | `app/(download-pdf)/{uuid}/` |
+| Cover Letter（另見 `/cover-letter` skill） | `app/(download-pdf)/{uuid}/cover-letter-{en,zh-TW}.md` |
 
 ---
 

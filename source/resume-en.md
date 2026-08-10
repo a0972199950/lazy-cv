@@ -76,6 +76,8 @@ I am part of the User Growth team, which is primarily responsible for running ad
 
 Within the team, my main responsibility is developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system as the primary tech stack.
 
+**User-Driven Development:** Real advertisers and internal stakeholders surface issues and feature requests daily through oncall channels. I synthesize the recurring patterns across these reports to scope and drive new technical development tasks, rather than only waiting for requirements to be handed down.
+
 **Team Collaboration:** I led the development team in adopting Scrum, addressing the following pain points:
 - Leveraged retrospectives to establish a self-correcting mechanism, enabling the team to review and improve on deficiencies
 - Resolved misaligned development timelines between team members
@@ -289,6 +291,7 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
   - **Real-time Per-node Speed Test Tool**: A dedicated speed-test page that benchmarks download speed of each CDN node against the actual segment of the "current video, current quality" (capped at 8MB or 5 seconds, whichever comes first), without affecting the CDN currently in use
   - **Reproducible Builds**: Pure Node.js build scripts (jszip + sharp + puppeteer) package the same source tree into Chrome/Edge/Firefox-specific zips; as long as the source is unchanged, the packaged zip bytes are byte-for-byte identical across builds and platforms
   - **Automated Store Asset Generation**: Uses Puppeteer to open a live Bilibili video page, cycle through the three browser locales, and automatically capture store listing screenshots
+  - **Forum-Driven Iteration**: Actively monitored user feedback and discussions across Bilibili-related forums and communities, synthesizing recurring pain points to prioritize fixes and drive the extension's feature roadmap
 
 - **Results:**
   - 10 days after launch: 2,000 views, 1,000 installs — a **50% conversion rate**
@@ -379,6 +382,7 @@ With this technique combined with other standard optimizations, I successfully r
 ##### LINE Shopping Platform
 - **Website:** https://buy.line.me/
 - **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
+This is a full-stack project consisting of a Vue SSR frontend repo and a BFF repo (NodeJS + GraphQL) that integrates dozens of backend microservices. Both are written in TypeScript, and I maintain, develop, and iterate on both.
 - **Key Contribution:** I independently developed the "Live Shopping" feature for the shopping platform. Inspired by YouTube's automatic video preview mechanism, I designed a reusable video auto-preview module.
 Through a global scheduler, I resolved the issue of chaotic video previews during high-speed scrolling, as well as the technical challenge of memory spikes caused by too many live streams on a single page.
 Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998

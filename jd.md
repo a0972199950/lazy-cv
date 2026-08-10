@@ -1,66 +1,39 @@
-# SDK Engineer - JavaScript @ Supabase
+# Senior Software Engineer, Google Pay, Growth and Communications
 
-URL: https://jobs.ashbyhq.com/supabase/f44742fb-18c6-478f-bf78-63707ed57db7
+**Company**: Google
+**Location**: Singapore
+**Level**: Mid
+**URL**: https://www.google.com/about/careers/applications/jobs/results/86016099291669190-senior-software-engineer-google-pay-growth-and-communications?location=Singapore
 
-## Location
-Remote
+Google will be prioritizing applicants who have a current right to work in Singapore, and do not require Google's sponsorship of a visa.
 
-## Employment Type
-Full time
+## Minimum qualifications
+- Bachelor's degree or equivalent practical experience.
+- 5 year of experience with software programming in C++, Java, Python or Go.
+- 3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.
 
-## Department
-Engineering
+## Preferred qualifications
+- Master's degree or PhD in Computer Science or related technical field.
+- 1 year of experience in a technical leadership role.
+- Mobile app, web, full-stack or backend development experience.
+- Experience building systems that scale to millions of users globally.
+- Experience working on DevAI for Agentic coding and productivity.
 
-## About Supabase
+## About the job
 
-Supabase is the Postgres development platform, built by developers for developers. We provide a complete backend solution including Database, Auth, Storage, Edge Functions, Realtime, and Vector Search. All services are deeply integrated and designed for growth.
+Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google's needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
 
-## About the Role
+Our mission at Google Pay is to make digital finance simple, safe, and universally accessible.
 
-We're looking for a JS SDK Engineer to join the SDK team and own a core part of how developers talk to Supabase from JavaScript and TypeScript.
+Operating at an unprecedented scale, our Singapore-based team is the engine behind the growth and communications (comms) platforms. Our Comms infrastructure powers the high-throughput messaging systems required to reliably engage hundreds of millions of users. Simultaneously, under Growth, we own high-volume user acquisition channels including our core referral and reward engines that drive massive-scale traffic and generate multi-million dollar business streams.
 
-Our JS/TS SDKs are the front door to the platform: database queries, auth, storage, realtime subscriptions and edge functions, used by a very large number of developers and by most of the AI coding tools building on Supabase today.
+In this role, you will lead the technical execution of growth initiatives to scale our user base. You will have true ownership of the full feature lifecycle, building solutions that span entirely from robust backend systems to seamless frontend UI components, leveraging agentic workflows and DevAI tools to accelerate delivery and productivity.
 
-This is a library-authoring role, and the work happens in the open: public repos, public issue trackers, and API decisions whose consequences are permanent. The type system here is a design surface rather than a formality.
+Whether it is paying online with Autofill, using tap and pay in stores, or using the Google Pay app, the Payments team at Google is focused on making payments simple, seamless, and secure. In addition to consumer payment technologies, the Payments team also powers the money movement between Google and its consumers and businesses.
 
-This role is ideal for someone who thrives in async, fast-paced environments and is excited about building developer tools that scale to millions.
-
-## What You'll Do
-
-- Build and evolve our JS/TS SDKs.
-- Start new things. Alongside the maintenance work, you're expected to find what's missing, make the case for it, and build it.
-- Work in the open. These are public repos: you'll triage inbound issues, review and shepherd outside contributions, keep CI and release automation healthy, and hold a clear, kind line on scope.
-- Own the type experience. Keep generated database types flowing correctly through the client APIs so autocomplete and inference stay correct in real codebases.
-- Keep us honest across runtimes. Node, Deno, Bun, browsers, Cloudflare Workers, React Native/Expo, including dual ESM/CJS publishing and types that resolve correctly under every module resolution mode. Test it, don't assume it.
-- Work on realtime. Long-lived WebSocket connections, reconnection, and subscription and presence semantics.
-- Track the platform. When auth, realtime, storage, postgrest or edge-runtime ship a change, make sure the SDKs reflect it, and that we say so in the changelog.
-- Design in public. Write the RFCs, migration guides, release notes and docs. Treat a breaking change as a deprecation path plus a migration story, not a version bump.
-- Make our SDKs legible to AI coding agents, which are now a major consumer of them.
-
-## What We're Looking For
-
-- Expert-level TypeScript. You use generics, conditional and mapped types as design tools, you can explain why an inference breaks.
-- You've authored or maintained a published library with a public API and consumers outside your own company. You know what it costs to change something people depend on.
-- You've worked on open-source projects and know the maintainer side of them. Issue triage at volume, reviewing outside PRs, release automation, changelogs and semver, security reports, and saying no to a feature request without losing the person who asked.
-- npm packaging fluency: dual ESM/CJS builds, export maps, type resolution, semver discipline, and the failure modes consumers actually hit.
-- Testing as a habit: unit, type-level and end-to-end against a real stack. Every fix comes with a regression test.
-- Strong written communication. Design docs, changelogs and issue replies are a large part of the output here, much of it public, and we're async by default.
-- Real autonomy: you find the important work, scope it, ship it, and say what you didn't do.
-- Communicate clearly across both technical and non-technical audiences
-- Have experience in async or globally distributed teams
-- Are energized by solving real-world problems for developers
-- Are comfortable navigating ambiguity and moving quickly
-
-## What We Offer
-
-- Fully Remote — We hire globally. We believe you can do your best work from anywhere. There are no Supabase offices, but we provide a WeWork membership or co-working allowance you can use anywhere in the world.
-- ESOP — Every team member receives ESOP (equity ownership) in the company.
-- Tech Allowance
-- Health Benefits — Supabase covers 100% of health insurance for employees and 80% for dependents, wherever you are.
-- Annual Off-Sites
-- Flexible Work — We operate asynchronously and trust you to manage your own time.
-- Professional Development — Every team member receives an annual education allowance.
-
-## About the Team
-
-Supabase was born-remote and open-source-first. ~400 team members, 60+ countries, 20+ languages spoken, over $1B raised (including $500M Series F), 540,000+ community members.
+## Responsibilities
+- Take end-to-end ownership of feature design and deployment, operating seamlessly across the stack from backend infrastructure to frontend mobile and web ecosystems.
+- Mentor junior engineers on reliable, scalable, and secure designs.
+- Lead technical designs for robust backend services and data processing pipelines that support massive-scale growth experiments.
+- Ensure long-term feature reliability by building comprehensive monitoring, alerting, and automated performance tracking.
+- Contribute to engineering excellence by participating in design reviews, improving code quality, and leveraging DevAI and agentic coding workflows to accelerate end-to-end development.
