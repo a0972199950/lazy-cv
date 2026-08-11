@@ -168,7 +168,7 @@ export async function POST(req: Request) {
         console.log('[PDF] Step 5: PDF 大小:', (pdfBuffer.length / 1024 / 1024).toFixed(2), 'MB');
 
         // Step 6: 完成，回傳 PDF base64
-        const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_${locale}.pdf`
+        const fileName = `John-Hsieh_CV${company ? `_${company}` : ''}_Screenshot_${locale}.pdf`
         console.log('[PDF] Step 6: fileName:', fileName, ', base64 長度:', pdfBuffer.toString('base64').length);
         send({ step: 6, total: TOTAL, message: 'done', file: pdfBuffer.toString('base64'), fileName});
         console.log('[PDF] Step 6: 完成，串流結束');

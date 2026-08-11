@@ -83,6 +83,20 @@ function getLocaleFromPath(pathname: string): Locale {
   return 'en';
 }
 
+// 瀏覽器「另存為 PDF」的預設檔名取自 document.title，這裡把它轉成安全的檔名字串
+const sanitizeFileName = (str: string) =>
+  str
+    .replace(/[|@—–]/g, '-')
+    .replace(/[\\/:*?"<>]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+const printModeSuffix: Record<'web' | 'plain', string> = {
+  web: 'Web',
+  plain: 'ATS',
+};
+
 interface Progress {
   step: number;
   total: number;
@@ -184,19 +198,24 @@ export default function DownloadPDFLayout({
 
   // 透過瀏覽器原生列印產生可搜尋的 PDF；使用者在對話框選 "Save as PDF" 即可下載。
   // plain 模式在 <html> 掛上 data-print-mode="plain"，由 globals.css 換成純表格排版。
+  // 瀏覽器另存 PDF 的預設檔名取自 document.title，印之前暫時改成含模式標籤的檔名，印完再還原。
   const handleDownloadPDF = (mode: 'web' | 'plain') => {
     const root = document.documentElement;
+    const originalTitle = document.title;
+    document.title = `${sanitizeFileName(originalTitle)}_${printModeSuffix[mode]}_${locale}`;
 
     if (mode === 'plain') {
       root.dataset.printMode = 'plain';
-      const cleanup = () => {
-        delete root.dataset.printMode;
-        window.removeEventListener('afterprint', cleanup);
-      };
-      window.addEventListener('afterprint', cleanup);
     } else {
       delete root.dataset.printMode;
     }
+
+    const cleanup = () => {
+      delete root.dataset.printMode;
+      document.title = originalTitle;
+      window.removeEventListener('afterprint', cleanup);
+    };
+    window.addEventListener('afterprint', cleanup);
 
     // 等下拉選單收起、樣式套用完成後再開列印對話框
     requestAnimationFrame(() => window.print());

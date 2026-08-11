@@ -80,9 +80,9 @@ export function ProjectsGrid({
         gradientFrom={project.company ? "#64748b" : "#06b6d4"}
         gradientTo={project.company ? "#1e293b" : "#10b981"}
       >
-        <div className="flex flex-row items-start">
-          {/* project image carousel — pinned to the left, fixed width, top-aligned so collapsible animations don't reposition it */}
-          <div className="relative aspect-4/3 w-40 shrink-0 grow-0 basis-40 overflow-hidden bg-linear-to-br from-slate-100 to-sky-50 sm:w-56 sm:basis-56 md:w-64 md:basis-64">
+        <div className="flex flex-col sm:flex-row items-start">
+          {/* project image carousel — full width on mobile (image on top), pinned to the left with fixed width from sm+, top-aligned so collapsible animations don't reposition it */}
+          <div className="relative aspect-4/3 w-full shrink-0 grow-0 overflow-hidden bg-linear-to-br from-slate-100 to-sky-50 sm:w-56 sm:basis-56 md:w-64 md:basis-64">
             {images.length > 1 ? (
               <Carousel className="h-full w-full" opts={{ loop: true }}>
                 <CarouselContent className="ml-0 h-full">
@@ -97,7 +97,7 @@ export function ProjectsGrid({
                           alt={`${project.name} - ${idx + 1}`}
                           fill
                           className="object-cover"
-                          sizes="(max-width: 640px) 160px, (max-width: 768px) 224px, 256px"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 224px, 256px"
                         />
                       </div>
                     </CarouselItem>
@@ -116,7 +116,7 @@ export function ProjectsGrid({
                   alt={project.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 160px, (max-width: 768px) 224px, 256px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 224px, 256px"
                 />
               </div>
             )}

@@ -50,7 +50,7 @@ description: "針對特定職缺生成客製化履歷。使用者輸入 `/cv [UR
   ```ts
   { href: "https://lazy-cv.com/{uuid}/zh-TW", type: "website", label: "個人網站" },
   ```
-- **`jobTitle` 固定格式**：第一行寫「當前職稱 - 當前公司」，格式為 `{當前職稱} - {當前公司}`（例如 `Senior Frontend Engineer - TikTok`，zh-TW 版寫「資深前端工程師 - TikTok」）；當前職稱與當前公司取自 `/source` 中最新一筆（時間最新、period 為「至今」）工作經歷。換行（`\n`）後寫 `Apply for {JD 職稱} - {company_name}`（zh-TW 版寫「應徵 {JD 職稱} - {company_name}」），`{JD 職稱}` 取自 `jd.md` 裡的目標職位名稱，`{company_name}` 取自第一階段抓取的目標公司名稱。
+- **`jobTitle` 固定格式**：第一行寫「當前職稱 - 當前公司」，格式為 `{當前職稱} - {當前公司}`。**當前職稱一律統一寫成 `Senior Software Engineer`（zh-TW 版寫「資深軟體工程師」）**，不論 `/source` 中該筆工作經歷原始記載的職稱為何；當前公司仍取自 `/source` 中最新一筆（時間最新、period 為「至今」）工作經歷的公司名稱（例如 `Senior Software Engineer - TikTok`，zh-TW 版寫「資深軟體工程師 - TikTok」）。換行（`\n`）後寫 `Apply for {JD 職稱} - {company_name}`（zh-TW 版寫「應徵 {JD 職稱} - {company_name}」），`{JD 職稱}` 取自 `jd.md` 裡的目標職位名稱，`{company_name}` 取自第一階段抓取的目標公司名稱。
 - 根據 `/source` 背景說明為何適合該職位，強調與 JD 匹配的技術棧與軟實力。
 - 可根據 `/source` 生成資料裡沒有的語句，但**不可違背事實**。
 - **只寫 CV 該負責的內容**：聚焦「這個人有沒有資格、做過什麼、做得多好」的事實陳述，不寫求職動機、對公司的貢獻宣言、或「為什麼選我優於其他候選人」這類說服性語句——這些屬於 cover letter 的任務，改由 `/cover-letter` skill 產出，兩者不重複。

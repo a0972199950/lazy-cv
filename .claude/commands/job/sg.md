@@ -36,15 +36,35 @@ description: 搜尋新加坡大型科技公司的最新軟體工程職缺（不�
 6. Salesforce
 7. Grab
 8. Stripe
+9. Meta
+10. JPMorgan Chase
+11. Visa
+12. Mastercard
+13. OpenAI
+14. GovTech Singapore
+15. Open Government Products
+16. Ministry of Defence of Singapore
+17. HTX
+18. Booking.com
+19. Coinbase
+20. Sea
+21. SGX Group
+22. Scoot
+23. Motional
+24. Illumina
+25. Renesas Electronics
+26. ExxonMobil
+27. Qualcomm
+28. Aon
 
 ## 1.2 Glassdoor 評分 > 3.7 的科技 / Fintech 公司
 
 不要求是超大型公司，中大型的科技 scaleup／fintech（例如 Wise、Revolut 這類公司）也符合這個指令的範圍，但必須通過 Glassdoor 評分門檻：
 
-9. Revolut（Glassdoor 整體評分約 4.1／5，新加坡有辦公室）
-10. ServiceNow（Glassdoor 整體評分約 4.0／5，新加坡為 APJ 區域總部之一）
-11. Databricks（Glassdoor 整體評分約 4.0～4.2／5，新加坡有辦公室）
-12. MongoDB（Glassdoor 整體評分約 4.0／5，新加坡有辦公室）
+29. Revolut（Glassdoor 整體評分約 4.1／5，新加坡有辦公室）
+30. ServiceNow（Glassdoor 整體評分約 4.0／5，新加坡為 APJ 區域總部之一）
+31. Databricks（Glassdoor 整體評分約 4.0～4.2／5，新加坡有辦公室）
+32. MongoDB（Glassdoor 整體評分約 4.0／5，新加坡有辦公室）
 
 這個分類的納入條件：
 
@@ -92,6 +112,41 @@ Grab 是新加坡本地上市、新加坡總部的公司，不是中國公司，
 - 其他與求職相關的資料
 
 必須先理解使用者的背景，再開始判斷職缺。
+
+---
+
+# 已投遞職缺排除（讀取資料庫，硬性排除規則）
+
+在開始搜尋職缺之前，還必須查詢本專案的資料庫，取得使用者「已經投遞過（已產生客製化履歷）」的職缺清單，避免重複推薦。
+
+## 查詢方式
+
+執行：
+
+```
+pnpm applied-jobs
+```
+
+這個指令會讀取 Neon Postgres 的 `resumes` 資料表（透過 Drizzle），列出每一筆已產生履歷的 `company`（公司）與 `jdUrl`（職缺網址）。
+
+如果指令執行失敗（例如資料庫連線失敗、環境變數缺失）：
+
+**不要靜默略過這個步驟。** 明確告知使用者「無法讀取已投遞職缺紀錄，本次搜尋結果可能包含你已經投遞過的職缺」，讓使用者決定是否要在沒有排除清單的情況下繼續。
+
+## 比對規則
+
+針對每個新搜尋到的候選職缺，與已投遞清單逐一比對：
+
+- **URL 比對**：比對 `jdUrl` 時忽略協定差異（http/https）、結尾斜線、以及追蹤用的 query string（例如 `utm_source`、`gh_src`、`src`、`ref` 等），只比對核心路徑（例如 ATS 的 job id）。同一個職缺常常會因為分享來源不同而帶不同的 tracking 參數，不能因為 query string 不同就誤判成不同職缺。
+- **公司 + 職稱比對**：即使 URL 不同（例如同一個職缺在官方頁與 LinkedIn 各有一個網址），只要「公司相同」且「職稱相同或本質上是同一個職缺（同一個 team、同一個 level、同一個職缺描述）」，也視為已投遞過。
+- 不要只因為公司名稱相同就排除——同一間公司可能有多個不同的職缺，只有職缺本身相同才算已投遞。
+
+## 排除方式
+
+- 比對結果為「已投遞過」的職缺：**直接排除，不列入結果表格，也不列入「找到 Y 個目前仍有效的職缺」的統計數字。**
+- 這是硬性排除規則，優先權等同於（甚至先於）第 10 節的 EP 篩選：一個職缺就算 EP 條件通過、匹配分數很高，只要已經投遞過，一律不出現在最終結果中。
+- 在最終摘要文字中，需要額外說明「已排除 N 個你先前已投遞過的職缺」，讓使用者知道篩選過程，但不需要逐一列出這些職缺的細節（除非使用者要求）。
+- 如果使用者要求「也列出我投過的」或「不要排除已投遞的」，則本次執行取消這條排除規則，並在結果中明確標註哪些是已投遞過的職缺。
 
 ---
 
@@ -234,6 +289,23 @@ Grab 是新加坡本地上市、新加坡總部的公司，不是中國公司，
 如果無法打開並確認職缺仍然有效：
 
 **不要把它列為已確認的目前職缺。**
+
+## 抓取不到職缺內容時：改用 Browser MCP
+
+許多公司官網（Google、Microsoft、Apple、Grab 等）的職缺詳情頁採用前端 JS 動態渲染，一般的網頁抓取工具（例如 WebFetch）常常只能取得導覽列/頁面外殼，讀不到實際職缺內容，導致明明是有效職缺卻被誤判為「無法驗證」。
+
+**遇到這種情況時，先改用 Browser MCP（Chrome 擴充功能：https://chromewebstore.google.com/detail/browser-mcp-automate-your/bjfgambnhccakkhmkepdoekmckoijdlc，對應 `mcp__browsermcp__*` 工具）在真實瀏覽器中開啟該職缺頁，再放棄。**
+
+具體做法：
+
+1. 用 `mcp__browsermcp__browser_navigate` 導航到職缺詳情頁 URL。
+2. 用 `mcp__browsermcp__browser_snapshot`（必要時搭配 `browser_wait` 等待頁面渲染完成）讀取實際渲染後的頁面內容，確認：
+   - 職缺標題與地點（是否為 Singapore）
+   - EP / visa sponsorship 相關文字
+   - 職缺是否仍開放申請（而非顯示已關閉、404、或跳轉到職缺列表首頁）
+3. 若該工具不在目前可用工具清單中，先用 ToolSearch 以 `select:mcp__browsermcp__browser_navigate,mcp__browsermcp__browser_snapshot,mcp__browsermcp__browser_wait,mcp__browsermcp__browser_click` 載入。
+
+只有在**用 Browser MCP 實際開啟後仍然無法確認**（例如需要登入才能查看、頁面持續載入失敗、明確顯示職缺已關閉）時，才依照上面的規則視為「無法驗證」，不列入結果。不要因為 WebFetch 讀不到內容就直接放棄，跳過 Browser MCP 這一步。
 
 ---
 
@@ -761,7 +833,7 @@ EP 不符合的職缺不會走到這一步，因為第 10 節已經先過濾掉�
 
 先提供：
 
-> 我搜尋了 X 間新加坡的公司，共找到 Y 個目前仍有效的新加坡職缺，其中 Z 個確認提供 EP 贊助且值得你投遞。
+> 我搜尋了 X 間新加坡的公司，共找到 Y 個目前仍有效的新加坡職缺（已排除 W 個你先前已投遞過的職缺），其中 Z 個確認提供 EP 贊助且值得你投遞。
 
 接著使用表格：
 
@@ -950,6 +1022,8 @@ EP 不符合的職缺不會走到這一步，因為第 10 節已經先過濾掉�
 # 33. 最重要的原則
 
 始終遵守：
+
+**已投遞過的職缺一律排除**（先查資料庫 `pnpm applied-jobs`，比對後排除，不列入結果）
 
 **EP 必須提供 > 其他一切條件**（有明確反證就直接排除，不猶豫）
 
