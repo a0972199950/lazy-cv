@@ -182,9 +182,12 @@ The main tech stack was React with TypeScript, focusing on creating reusable com
 Foxit Software is a global company specializing in PDF software solutions. They provide document management and collaboration tools for businesses and individuals worldwide. The company is known for its PDF readers, editors, and SDK solutions.
 
 #### 🎯 Job Description
-As a fullstack engineer, I was responsible for both frontend and backend development, primarily focusing on web applications and API development. I also took on team leadership responsibilities, managing a small development team while hands-on coding.
+As a fullstack engineer in Foxit's newly formed AI team, I managed a 2-person frontend team while doing hands-on development. The project was a SaaS automation platform — similar to n8n — that integrates all of the company's PDF-related services (conversion, translation, editing, signing) with various triggers (manual, email keyword, Google Doc updates, etc.) to automate office workflows end-to-end.
+Built from scratch — I was responsible for the technical architecture planning and led a 2-person team through development.
 
-The tech stack included Vue.js for frontend, Node.js with Express for backend, and MongoDB for database management. I also worked with various PDF processing libraries and APIs.
+**Tech Stack:**
+- **Frontend:** NextJS + TypeScript + ElementUI
+- **Backend:** NodeJS + TypeScript + MongoDB + Redis + NestJS + GraphQL
 
 ---
 

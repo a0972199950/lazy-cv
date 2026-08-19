@@ -65,6 +65,7 @@ description: 搜尋新加坡大型科技公司的最新軟體工程職缺（不�
 30. ServiceNow（Glassdoor 整體評分約 4.0／5，新加坡為 APJ 區域總部之一）
 31. Databricks（Glassdoor 整體評分約 4.0～4.2／5，新加坡有辦公室）
 32. MongoDB（Glassdoor 整體評分約 4.0／5，新加坡有辦公室）
+33. Binance（全球最大加密貨幣交易所，新加坡有辦公室）
 
 這個分類的納入條件：
 

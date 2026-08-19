@@ -198,14 +198,12 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 **💻 工作內容：**
 - **團隊角色：** 在 Foxit 新成立的 AI 團隊中擔任全端工程師
 - **管理職責：** 負責管理前端團隊 (2人)
-- **專案目標：** 開發一個整合團隊內部所有 AI 微服務後對外提供 API 接口的 2B 管理平台
+- **專案目標：** 一個 SaaS 平台，類似 n8n 的自動化平台，整合公司內部所有操作 PDF 相關的服務(轉檔，翻譯，編輯，簽名)等等，配合上各種觸發器 (手動觸發，email 關鍵字，google doc 更新...)，自動完成一系列的辦公流程自動化
+這是一個從0開始的平台，我負責技術架構規劃，並帶領兩人團隊開發
 
 **🔧 技術棧：**
-- **前端：** NuxtJS / NextJS + TypeScript + ElementUI / MaterialUI
-- **後端：** NodeJS + TypeScript + MongoDB + Redis
-
-**📈 技術探索：**
-由於新團隊還在技術選型階段，團隊成員個性也樂於嘗試新東西，因此也有部分專案前端是使用 NextJS + TypeScript + MaterialUI。同時我們也正在規劃導入 GraphQL 和 NestJS。
+- **前端：** NextJS + TypeScript + ElementUI
+- **後端：** NodeJS + TypeScript + MongoDB + Redis + NestJS + GraphQL
 
 **🖼️ 公司 Logo：** https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png
 
