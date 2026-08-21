@@ -642,7 +642,8 @@ API 除了 Restful 以外，也有在大型專案維護 GraphQL 的經驗。
 **📦 技能清單：**
 - **基礎技術：** HTML, CSS, JavaScript (ES6+)
 - **版本控制：** Git, GitHub, GitHub Actions
-- **核心框架：** TypeScript, Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, React Hook Form, Yup
+- **核心框架：** TypeScript, Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, Redux, React Hook Form, Yup
+- **資料請求 / 伺服器端狀態：** React Query
 - **建構工具：** Webpack, Vite
 - **動畫：** Framer Motion
 - **圖表工具：** ECharts, Chart.js

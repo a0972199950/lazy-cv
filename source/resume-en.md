@@ -571,7 +571,8 @@ In the API communication, besides normal Restful APIs, I have experienced in mai
 **Keywords:**
 - **Fundamentals:** HTML, CSS, JavaScript (ES6+)
 - **Version Control:** Git, GitHub, GitHub Actions
-- **Core Frameworks:** Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, React Hook Form, Yup
+- **Core Frameworks:** Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, Redux, React Hook Form, Yup
+- **Data Fetching / Server State:** React Query
 - **Build Tools:** Webpack, Vite
 - **Animation:** Framer Motion
 - **Charts:** ECharts, Chart.js, D3.js

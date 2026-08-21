@@ -25,8 +25,8 @@ description: "為特定職缺生成雙語 Cover Letter 內容。使用者輸入 
 1. **判斷輸入**：
    - 若使用者提供的是 `/cv` 已產生過的 `{uuid}`（或公司名稱可對應到 `app/(download-pdf)/{uuid}/`），直接複用該資料夾內既有的 `jd.md`，不重新抓取。
    - 若使用者提供的是新的職缺 URL，比照 `/cv` 第一階段流程：使用 **chrome-devtools** MCP 抓取 `company_name` 與 JD → 失敗則改用 **firecrawl** → 仍失敗則請使用者手動貼上 JD 內容。
-   - 若該職缺尚未透過 `/cv` 建立過履歷（找不到對應 `{uuid}`），詢問使用者是否要先跑 `/cv` 產生履歷，或僅產生獨立的 cover letter（此時仍需要一個資料夾存放輸出，可執行 `pnpm cv {company_name} {URL}` 取得 `{uuid}` 供 cover letter 使用，即使不生成 `page.tsx` 內容）。
-2. 確認 `app/(download-pdf)/{uuid}/jd.md` 內容存在且完整。
+   - 若該職缺尚未透過 `/cv` 建立過履歷（找不到對應 `{uuid}`），不需要為此建立資料夾或執行 `pnpm cv`——直接用抓到（或使用者貼上）的 JD 內容產生 cover letter 即可，因為本 skill 不寫入任何檔案。
+2. 若有對應 `{uuid}`，確認 `app/(download-pdf)/{uuid}/jd.md` 內容存在且完整；若無對應 `{uuid}`，僅需確保手上已有完整 JD 文字內容即可繼續。
 
 ---
 
@@ -55,21 +55,16 @@ description: "為特定職缺生成雙語 Cover Letter 內容。使用者輸入 
 
 ---
 
-## 第三階段：輸出檔案
+## 第三階段：輸出結果（僅終端機輸出，不寫檔案）
 
-寫入至履歷相同的資料夾，方便與該份客製化履歷配對：
-
-- `app/(download-pdf)/{uuid}/cover-letter-en.md`
-- `app/(download-pdf)/{uuid}/cover-letter-zh-TW.md`
-
-每份檔案內容為純文字段落（不含 markdown 標題），可直接複製貼上到求職平台的 cover letter 欄位，或後續用 `pdf`/`docx` skill 轉成附件。
+**本 skill 不建立、不寫入任何檔案**（不生成 `cover-letter-en.md` / `cover-letter-zh-TW.md`，也不需要為此建立 `{uuid}` 資料夾）。兩個語言版本的全文直接以純文字段落形式輸出在回覆訊息中，方便使用者當場複製貼上到求職平台的 cover letter 欄位，或自行另存。
 
 ---
 
 ## 完成後
 
-1. 回報 UUID 與寫入的檔案路徑。
-2. 在回覆中直接附上兩版全文，方便使用者當場檢視、不用另外開檔。
+1. 若有對應 `{uuid}`，回報是哪一份履歷（公司名稱 / uuid）搭配這封 cover letter；若無對應履歷，說明是根據哪個職缺產生的。
+2. 在回覆中直接附上兩版全文（先 zh-TW 再 en，或依使用者慣用順序）。
 3. 附上實際字數統計（zh-TW 字數 / en word count），確認在上限內。
 
 ---
@@ -80,14 +75,12 @@ description: "為特定職缺生成雙語 Cover Letter 內容。使用者輸入 
 |------|------|
 | 事實來源 (英文) | `source/resume-en.md` |
 | 事實來源 (中文) | `source/resume-zh-TW.md` |
-| 對應職缺描述 | `app/(download-pdf)/{uuid}/jd.md` |
-| Cover Letter 輸出 (英文) | `app/(download-pdf)/{uuid}/cover-letter-en.md` |
-| Cover Letter 輸出 (中文) | `app/(download-pdf)/{uuid}/cover-letter-zh-TW.md` |
+| 對應職缺描述（若已透過 `/cv` 建立過） | `app/(download-pdf)/{uuid}/jd.md` |
 
 ---
 
 ## 決策點
 
-- 若找不到對應 `{uuid}` 且使用者未指定 → 先詢問是否要連帶跑 `/cv`，或只需要獨立 cover letter 文字（此時仍建立 `{uuid}` 資料夾以存放輸出）。
+- 若找不到對應 `{uuid}` 且使用者未指定 → 直接詢問要不要連帶跑 `/cv` 產生履歷；若只需要 cover letter 文字，不必為此建立任何資料夾，直接用抓到的 JD 內容產生內容並輸出。
 - 若 JD 頁面無法抓取 → 依序嘗試 chrome-devtools → firecrawl → 請使用者手動貼上 JD。
 - 若 `/source` 中找不到與 JD 直接相關的經歷可用於「貢獻」段 → 如實告知使用者這是真實的落差，不可編造經歷硬湊。

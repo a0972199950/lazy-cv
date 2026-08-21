@@ -479,6 +479,12 @@ const skillKeywordRows: SkillKeywordRow[] = [
     badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
     marqueeClassName: "[--duration:38s]",
   },
+  {
+    keywords: ["Redux", "React Query"],
+    badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
+    marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
 ];
 
 const stats: StatItem[] = [
