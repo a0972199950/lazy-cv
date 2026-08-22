@@ -69,9 +69,9 @@ const experiences: Experience[] = [
     period: "2021.09 - 2024.10",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "獨自開發線上相片書編輯器，支援拖曳、尺寸調整、文字編輯等功能",
+      "獨自開發線上相片書編輯器，支援拖拉排版、尺寸調整、文字編輯等功能",
       "從零規劃技術架構，使用 Vue + NuxtJS，6 個月內完成產品上線",
-      "支援 PWA 安裝，提供類原生 APP 的體驗",
+      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接",
     ],
   },
   {
@@ -149,7 +149,7 @@ const projects: Project[] = [
     name: "TWSG 視頻加速 for Bilibili（非官方）",
     summary:
       "一款讓台灣／新加坡使用者觀看網頁版 Bilibili 更順暢的 Chrome / Edge / Firefox 瀏覽器擴充套件，動態將影片 CDN host 重排為當地最快節點，並具備自動 fallback 機制。從技術架構、開發到上架與維護皆為個人獨立完成。",
-    stack: ["Chrome Extension", "Manifest V3", "JavaScript", "Puppeteer", "Web Extension API"],
+    stack: ["Chrome Extension Manifest V3", "Vanilla JavaScript (ES6+)", "chrome.storage", "chrome.i18n", "Content Scripts (MAIN world / ISOLATED world)", "fetch / XMLHttpRequest hook", "Node.js", "JSZip", "Puppeteer", "Sharp"],
     image: [
       "https://cdn.lazy-cv.com/promo-cover-1280x800.png",
       "https://cdn.lazy-cv.com/10-days-report.png",
@@ -193,7 +193,7 @@ const projects: Project[] = [
     name: "Lazy CV",
     summary:
       "AI 驅動的客製化履歷生成系統。結合 AI Agent 與 Next.js 16，只需提供職缺連結即可自動抓取 JD 並生成量身定做的中英文雙語履歷網頁。整個專案從零到上線僅花費 2 天，全程透過 Vibe Coding 完成。本履歷就是用此專案自動生成的。",
-    stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
+    stack: ["TypeScript", "Next.js 16 (App Router)", "React 19", "TailwindCSS 4", "daisyUI", "Framer Motion (motion)", "tw-animate-css", "Radix UI", "@base-ui/react", "shadcn", "cmdk", "lucide-react", "react-icons", "embla-carousel-react", "react-day-picker", "vaul", "sonner", "cobe", "Neon Serverless PostgreSQL", "Drizzle ORM", "drizzle-zod", "Zod", "jose (JWT)", "bcryptjs", "pdf-lib", "jsPDF", "html-to-image", "AWS SDK (S3, Lambda)", "AWS Lambda Web Adapter", "Docker", "Playwright", "ESLint", "Prettier", "tsx", "Drizzle Kit"],
     image: [
       "https://cdn.lazy-cv.com/lazy-cv-main.png",
       "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
@@ -236,7 +236,7 @@ const projects: Project[] = [
     name: "LINE 購物",
     summary:
       "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。",
-    stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+    stack: ["JavaScript (ES6+)", "Vue 2", "Vue Router 3", "Vue SSR (vue-server-renderer)", "Vuex 3", "vuex-router-sync", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Redis (ioredis)", "OAuth2", "SASS", "PostCSS", "Workbox", "Sentry", "Firebase (FCM)", "Jest", "@vue/test-utils", "Storybook", "Webpack 4", "Babel", "Docker", "Drone CI", "SonarQube", "Lighthouse CI"],
     company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -270,17 +270,17 @@ const projects: Project[] = [
   {
     name: "AI.Book 相簿編輯器",
     summary:
-      "線上相片書編輯器，支援照片拖曳/尺寸調整/文字編輯，跨平台支援含 PWA 安裝體驗。從零規劃到上線僅 6 個月。",
-    stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+      "線上相片書編輯器，支援拖拉排版加入/移除照片、文字編輯，並可從 Google 相簿／Instagram 匯入相片。從零規劃到上線僅 6 個月。",
+    stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "nuxt-property-decorator", "Vuex", "SCSS/Sass", "TailwindCSS", "Element UI", "vuedraggable", "vue-drag-drop", "cropperjs", "flipbook-vue", "vee-validate", "lottie-web", "Axios", "@nuxtjs/auth-next", "AWS Cognito OAuth2", "Google OAuth", "Instagram Graph API OAuth", "Nuxt build (Webpack)", "GitHub Actions", "AWS S3", "CloudFront", "Swagger/OpenAPI"],
     company: "AI.Book 愛相簿",
     image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
     ],
     highlights: [
-      "用純 Vue 搭建客製化編輯器，支援加入/移除照片、文字輸入及字型字體大小編輯",
-      "編輯器支援網頁端與手機端編輯",
-      "支援安裝 PWA 達到類原生 APP 的體驗",
+      "用純 Vue 搭建客製化編輯器，支援拖拉排版加入/移除照片、文字輸入及字型字體大小編輯",
+      "編輯器支援網頁端與手機端瀏覽器編輯，並可從 Google 相簿／Instagram 匯入相片",
+      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接",
     ],
     contributions: [
       "從零開始單獨開發",
@@ -290,15 +290,15 @@ const projects: Project[] = [
     name: "FundFluent UI Kit Library",
     summary:
       "跨專案共用 UI 組件平台，使用 Web Component（Stencil.js）打造不受框架限制的組件庫，整合 TailwindCSS + Semantic UI 並以 Storybook 作文件。",
-    stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
+    stack: ["TypeScript", "Stencil.js (Web Components)", "Lit-html", "TailwindCSS", "Fomantic UI", "Sass/Less", "PostCSS", "Gulp", "Storybook"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
     highlights: [
       "UI 組件使用 Stencil 搭建 web components，不受前端框架限制",
-      "透過 Tailwind + Semantic UI 構建 design system",
+      "透過 Tailwind + Fomantic UI 構建 design system",
       "透過 StoryBook 展示組件，方便與設計師溝通確認",
-      "使用 monorepo 區分組件庫與業務程式，組件庫可單獨發布測試",
+      "組件庫發布至 private NPM，由 SME portal、Partner portal 等業務專案各自安裝使用",
     ],
     contributions: [
       "從零開始單獨開發",
@@ -308,7 +308,7 @@ const projects: Project[] = [
     name: "SuprLink 超級連結",
     summary:
       "從 A/B 分流到數據分析，再到廣告投放一氣呵成的縮網址服務。",
-    stack: ["NuxtJS", "TypeScript", "TailwindCSS", "Docker", "K8s"],
+    stack: ["TypeScript", "Nuxt.js 2 (SSR)", "Vue 2", "nuxt-property-decorator", "Nuxt PWA", "Vuex", "vuex-map-fields", "Chart.js", "vue-chartjs", "Google Charts", "TailwindCSS", "Buefy", "Sass", "Axios", "Express", "MongoDB", "Google APIs", "Jest", "TestCafe", "Azure Pipelines", "Docker", "PM2", "Kubernetes"],
     company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
@@ -318,7 +318,7 @@ const projects: Project[] = [
     name: "Aotter Trek DSP 平台",
     summary:
       "結合大數據分析的廣告投放 DSP 平台，使用大量圖表介面為使用者找出最適合的廣告 TA。",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    stack: ["Vue 2", "Vuex", "jQuery", "Nuxt.js 2", "TypeScript", "Express", "MongoDB", "post-robot", "EventEmitter3", "Chart.js", "vue-chartjs", "Google Charts", "Bootstrap 4", "SCSS/LESS", "Element UI", "Axios", "Jest", "Karma", "Jasmine", "Docker", "Docker Compose"],
     company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png",
@@ -328,7 +328,7 @@ const projects: Project[] = [
     name: "JavaScript Task Force",
     summary:
       "LINE Taiwan 跨團隊專案小組，制定全公司前端開發準則，研究導入 SonarQube、Lighthouse CI、OpenTel 前端監控、React 專案 template 生成器等。",
-    stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
+    stack: ["TypeScript", "Node.js CLI (yargs, prompts)", "@vercel/ncc", "Next.js", "Sentry", "Lighthouse CI", "SCSS", "Jest", "Testing Library", "ESLint", "Stylelint", "Prettier", "Husky", "lint-staged", "Drone CI", "SonarQube"],
     company: "LINE Taiwan",
     image:
       "https://cdn.lazy-cv.com/jstf.png",
@@ -337,7 +337,7 @@ const projects: Project[] = [
     name: "FundFluent SME Portal",
     summary:
       "面向香港中小企業的整合貸款平台，提供銀行與政府貸款資訊、一站式申請，並透過 OCR 技術整理文件以降低重複提交成本。",
-    stack: ["React", "NextJS", "TypeScript", "TailwindCSS"],
+    stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "Semantic UI React", "Sass", "React Hook Form", "Yup", "next-i18next", "Bitbucket Pipelines", "Docker", "GCP Artifact Registry", "GKE"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
@@ -350,7 +350,7 @@ const projects: Project[] = [
     name: "FundFluent Partner Portal",
     summary:
       "面向銀行等放貸方的管理平台，可上架、整理各項貸款專案，以及審核來自中小企的申請案件。",
-    stack: ["React", "NextJS", "TypeScript", "Semantic UI"],
+    stack: ["TypeScript", "React 17", "Next.js 12", "MobX", "mobx-react", "TailwindCSS", "Fomantic UI", "Sass", "React Hook Form", "Yup", "next-translate", "Bitbucket Pipelines", "Docker", "GCP Artifact Registry", "GKE"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
@@ -363,7 +363,7 @@ const projects: Project[] = [
     name: "Chrome Extension - SuprLink",
     summary:
       "快速在 SuprLink 超級連結產生縮網址的 Chrome 擴充工具。",
-    stack: ["Chrome Extension", "JavaScript"],
+    stack: ["Vue 2 (Options API)", "Vue Router", "WebExtension API", "Vuex", "TailwindCSS", "PostCSS", "Axios", "Webpack 4", "Babel"],
     company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
@@ -372,7 +372,7 @@ const projects: Project[] = [
     name: "資策會 城市儀表板",
     summary:
       "收集分散各地的政府數據於同一平台展示的政府資料數據庫，具備可高度客製化的圖表及資料篩選模組。",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "TailwindCSS"],
+    stack: ["Vue 2", "Chart.js", "vue-chartjs", "D3.js", "Topojson", "Google Maps", "markerclusterer", "Handsontable", "Bootstrap-Vue", "Element UI", "mdbvue", "Axios", "jQuery"],
     company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
@@ -381,7 +381,7 @@ const projects: Project[] = [
     name: "beanfun! 數據管理中心",
     summary:
       "擁有各種圖表的集中數據 Dashboard，用以顯示企業內部各項指標。",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    stack: ["Nuxt.js 2 (SPA)", "Vue 2", "Vuetify", "Vuex", "Chart.js", "vue-chartjs", "CountUp.js", "VueWordCloud", "Stylus", "Sass", "Axios", "Express", "gRPC", "MongoDB (Mongoose)", "JWT/JWKS", "Google Maps API", "Docker", "Azure Kubernetes Service (AKS)"],
     company: "電獺 Aotter",
     image:
       "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
@@ -483,6 +483,28 @@ const skillKeywordRows: SkillKeywordRow[] = [
     keywords: ["Redux", "React Query"],
     badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
     marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Apollo Client", "Apollo Server", "DataLoader", "Zod", "Neon PostgreSQL", "GCP", "Azure", "gRPC"],
+    badgeClassName: "border-lime-200 bg-lime-50/50 text-lime-800",
+    marqueeClassName: "[--duration:34s]",
+  },
+  {
+    keywords: ["Playwright", "TestCafe", "Karma", "Jasmine", "Testing Library", "Drone CI", "SonarQube", "Bitbucket Pipelines", "Azure Pipelines", "PM2"],
+    badgeClassName: "border-pink-200 bg-pink-50/50 text-pink-800",
+    marqueeClassName: "[--duration:39s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Husky", "lint-staged", "Stylelint", "Sentry", "Radix UI", "shadcn", "daisyUI", "Fomantic UI", "PostCSS", "Stylus"],
+    badgeClassName: "border-blue-200 bg-blue-50/50 text-blue-800",
+    marqueeClassName: "[--duration:35s]",
+  },
+  {
+    keywords: ["Gulp", "Lit-html", "OAuth2", "JWT", "AWS Cognito", "bcryptjs", "Google Charts", "Handsontable", "GitHub"],
+    badgeClassName: "border-stone-200 bg-stone-50/50 text-stone-800",
+    marqueeClassName: "[--duration:31s]",
     reverse: true,
   },
 ];

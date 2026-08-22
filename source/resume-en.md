@@ -76,6 +76,8 @@ I am part of the User Growth team, which is primarily responsible for running ad
 
 Within the team, my main responsibility is developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system as the primary tech stack.
 
+**Key Achievement:** Introduced a Web Worker multi-threaded CSV validation system (Web Worker, Comlink), **reducing UI blocking time by 90%** for large CSV validation.
+
 **User-Driven Development:** Real advertisers and internal stakeholders surface issues and feature requests daily through oncall channels. I synthesize the recurring patterns across these reports to scope and drive new technical development tasks, rather than only waiting for requirements to be handed down.
 
 **Team Collaboration:** I led the development team in adopting Scrum, addressing the following pain points:
@@ -108,6 +110,8 @@ My responsibilities in LINE can be divided into three parts:
 My team, the "LINE Shopping team," is in charge of creating the following e-commerce services: LINE Shopping. The team uses the agile methodology and has sixty developers on it. For us, code quality comes first. "Every single line has to be reviewed before merging" is the spirit we follow and protect.
 
 There are two code bases in the LINE Shopping frontend team: a client-side Vue project and an API code base. They are built in Vue SSR + GraphQL + TypeScript + SASS + ExpressJS.
+
+**Key Achievement:** Through personal observation of scroll-preview mechanisms in products like YouTube Shorts and Shopee Live Shopping, combined with technical design (IntersectionObserver, Vuex, HLS.js), independently built the "Live Shopping" video auto-play module—delivering a smooth scrolling list preview experience.
 
 **2. Leadership (40%)**
 
@@ -144,7 +148,7 @@ I worked as a contract front-end engineer, independently developing the company'
 
 The tech stack used was Vue and NuxtJS.
 
-Beyond the frontend, I also led the backend API design — covering OAuth third-party sign-in, the cart and order flow, and payment gateway integration. I defined the API contract, data models, and error handling from the consumer (frontend) perspective and worked with the backend to bring it to production.
+Beyond the frontend, I also led the backend API design — covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment result integration. I defined the API contract, data models, and error handling from the consumer (frontend) perspective and worked with the backend to bring it to production.
 
 From tech selection and frontend architecture through the editor core to backend API design, the entire slice was owned by one person end-to-end.
 
@@ -296,6 +300,8 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
   - **Automated Store Asset Generation**: Uses Puppeteer to open a live Bilibili video page, cycle through the three browser locales, and automatically capture store listing screenshots
   - **Forum-Driven Iteration**: Actively monitored user feedback and discussions across Bilibili-related forums and communities, synthesizing recurring pain points to prioritize fixes and drive the extension's feature roadmap
 
+- **Tech Stack:** Chrome Extension Manifest V3, Vanilla JavaScript (ES6+), chrome.storage, chrome.i18n, Content Scripts (MAIN world / ISOLATED world), fetch / XMLHttpRequest hooking, Node.js, JSZip, Puppeteer, Sharp
+
 - **Results:**
   - 10 days after launch: 2,000 views, 1,000 installs — a **50% conversion rate**
   - Weekly Active Users (WAU) surpassed 1,000 within 10 days of launch — **retention near 100%**
@@ -340,6 +346,9 @@ This resume was automatically generated using this project.
   - **Neon Serverless PostgreSQL + Drizzle ORM**: Type-safe database access using Neon's serverless PostgreSQL with Drizzle ORM
   - **TailwindCSS 4 + Framer Motion**: Responsive design with smooth animations
   - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed through AI-assisted coding (Vibe Coding)
+
+- **Tech Stack:** TypeScript, Next.js 16 (App Router), React 19, TailwindCSS 4, daisyUI, Framer Motion (motion), tw-animate-css, Radix UI, @base-ui/react, shadcn, cmdk, lucide-react, react-icons, embla-carousel-react, react-day-picker, vaul, sonner, cobe, Neon Serverless PostgreSQL, Drizzle ORM, drizzle-zod, Zod, jose (JWT), bcryptjs, pdf-lib, jsPDF, html-to-image, AWS SDK (S3, Lambda), AWS Lambda Web Adapter, Docker, Playwright, ESLint, Prettier, tsx, Drizzle Kit
+
 - **Images:**
 ![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main.png)
 ![Lazy CV image](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
@@ -362,10 +371,7 @@ I focused on the development and maintenance of procurement and settlement relat
 
 - **Key Contributions:**
 - **Web Worker Multi-threaded CSV Validation**:
-The project frequently required uploading large CSV files to create data records. The format validation of these CSVs was performed on the frontend, and the heavy computation often caused the UI to freeze, resulting in an extremely poor user experience.
-I introduced a Web Worker multi-threaded computation system into the project, offloading the validation work to a separate thread. I also used Comlink (RPC-like communication) to simplify the notoriously complex Web Worker messaging, achieving an RPC-like effect that allows passing pure data and even functions between the main thread and Web Worker.
-The validation functions used schemas built on Yup and Regex, making it easy to extend with more cell-level validations in the future.
-This system was also abstracted into a shared utility—beyond validation, it can support more complex frontend computations in the future.
+CSV format validation originally ran on the main thread and often froze the UI on large files. I introduced a Web Worker multi-threaded system to move validation to a separate thread, solving several Web Worker compatibility constraints specific to the company's internal Armor build framework (Blob URL, Comlink, Module Worker). Validation rules use schemas built on Yup and Regex, and the system was abstracted into a reusable shared utility.
 This design successfully **reduced UI blocking time by 90%** across 10 data entries.
 Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=16111885428
 
@@ -386,9 +392,10 @@ With this technique combined with other standard optimizations, I successfully r
 - **Website:** https://buy.line.me/
 - **Description:** It's a LINE EC service which allow users to buy things online and earn LINE point as reward. It also provides a shopping entry for other third-party online shops, to make users easier to search, compare, and share goods
 This is a full-stack project consisting of a Vue SSR frontend repo and a BFF repo (NodeJS + GraphQL) that integrates dozens of backend microservices. Both are written in TypeScript, and I maintain, develop, and iterate on both.
-- **Key Contribution:** I independently developed the "Live Shopping" feature for the shopping platform. Inspired by YouTube's automatic video preview mechanism, I designed a reusable video auto-preview module.
-Through a global scheduler, I resolved the issue of chaotic video previews during high-speed scrolling, as well as the technical challenge of memory spikes caused by too many live streams on a single page.
+- **Key Contribution:** I independently researched (studying auto-preview mechanisms in products like YouTube Shorts and Shopee Live Shopping), designed, developed, and validated the "Live Shopping" feature for the shopping platform end to end. Built a reusable live-stream video auto-play module using dual IntersectionObservers, a Vuex global scheduler, and HLS.js, resolving chaotic video previews during high-speed scrolling and memory spikes caused by too many live streams on a single page.
 Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
+
+- **Tech Stack:** JavaScript (ES6+), Vue 2, Vue Router 3, Vue SSR (vue-server-renderer), Vuex 3, vuex-router-sync, TypeScript, Node.js, Express, GraphQL (Apollo Server Express), DataLoader, Redis (ioredis), OAuth2, SASS, PostCSS, Workbox, Sentry, Firebase (FCM), Jest, @vue/test-utils, Storybook, Webpack 4, Babel, Docker, Drone CI, SonarQube, Lighthouse CI
 
 - **Images:**
 ![LINE Shopping Platform](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
@@ -398,6 +405,8 @@ Architecture diagram: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387
 
 ##### JavaScript Task Force
 - **Description:** This is not an actual product, but rather a project team. The members are made up, and represent for different product teams. And it's main goal is to develop frontend developing guidelines. So far, we have research/implemented on SonarQube, a static code analysis tool, integrating Lighthouse into our CI pipeline, frontend monitoring tool OpenTel, and building a custom React project template generator......etc.
+
+- **Tech Stack:** TypeScript, Node.js CLI (yargs, prompts), @vercel/ncc, Next.js, Sentry, Lighthouse CI, SCSS, Jest, Testing Library, ESLint, Stylelint, Prettier, Husky, lint-staged, Drone CI, SonarQube
 
 - **Images:**
 ![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
@@ -424,13 +433,14 @@ AI.Book is an online photo book editing platform that allows users to create per
 The most critical component is an online photo book editor, built from scratch over 6 months until the final product launch. The tech stack used was Vue + NuxtJS.
 
 **Technical Highlights:**
-- Built a custom editor with pure Vue, supporting add/remove photos, text input, font style and size editing, etc.
-- Editor supports both web and mobile editing
-- Supports PWA installation for a native app-like experience
-- **Led the backend API design**: covering OAuth third-party sign-in, the cart and order flow, and payment gateway integration — defining the API contract, data models, and error handling from the consumer's perspective
+- Built a custom editor with pure Vue, supporting drag-and-drop layout for adding/removing photos, text input, font style and size editing, etc.
+- Editor supports both web and mobile browser editing, with photo import from Google Photos / Instagram
+- **Led the backend API design**: covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment result integration — defining the API contract, data models, and error handling from the consumer's perspective
 
 - **Key Contributions:**
   - Planned and built entirely from scratch as sole developer — frontend architecture, the editor core, and backend API design, delivering the full slice end-to-end
+
+- **Tech Stack:** TypeScript, Vue 2, Nuxt 2 (SPA), nuxt-property-decorator, Vuex, SCSS/Sass, TailwindCSS, Element UI, vuedraggable, vue-drag-drop, cropperjs, flipbook-vue, vee-validate, lottie-web, Axios, @nuxtjs/auth-next, AWS Cognito OAuth2, Google OAuth, Instagram Graph API OAuth, Nuxt build (Webpack), GitHub Actions, AWS S3, CloudFront, Swagger/OpenAPI
 
 - **Images:**
 ![Editor Interface](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
@@ -446,10 +456,12 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
   - UI components built with Stencil as web components, framework-agnostic
   - Design system constructed with Tailwind + Semantic UI
   - Components showcased via StoryBook for easier communication with designers
-  - Monorepo separating component library and business code; component library can be independently published and tested before batch-building business modules
+  - Component library published to a private NPM registry, installed independently by downstream apps (SME portal, Partner portal); the library and business codebases live in separate repos
 
 - **Key Contributions:**
   - Built entirely from scratch as sole developer
+
+- **Tech Stack:** TypeScript, Stencil.js (Web Components), Lit-html, TailwindCSS, Fomantic UI, Sass/Less, PostCSS, Gulp, Storybook
 
 - **Images:**
 ![Architecture Diagram](https://cdn.lazy-cv.com/fundfluent-ui-kit.png)
@@ -460,6 +472,8 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 - **Key Contributions:**
   - Built entirely from scratch as sole developer
 
+- **Tech Stack:** TypeScript, React 17, Next.js 12, React Context, useReducer, TailwindCSS, Semantic UI React, Sass, React Hook Form, Yup, next-i18next, Bitbucket Pipelines, Docker, GCP Artifact Registry, GKE
+
 - **Images:**
 ![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
 
@@ -468,6 +482,8 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 - **Description:** A management platform for lenders such as banks. Used to list and manage loan projects, and review applications from SMEs.
 - **Key Contributions:**
   - Built entirely from scratch as sole developer
+
+- **Tech Stack:** TypeScript, React 17, Next.js 12, MobX, mobx-react, TailwindCSS, Fomantic UI, Sass, React Hook Form, Yup, next-translate, Bitbucket Pipelines, Docker, GCP Artifact Registry, GKE
 
 - **Images:**
 ![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
@@ -478,12 +494,15 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 - **Website:** https://supr.link
 - **Description:** A short link service which supports A/B testing, data analysis, custom domain, organization management and online advertising.
 
+- **Tech Stack:** TypeScript, Nuxt.js 2 (SSR), Vue 2, nuxt-property-decorator, Nuxt PWA, Vuex, vuex-map-fields, Chart.js, vue-chartjs, Google Charts, TailwindCSS, Buefy, Sass, Axios, Express, MongoDB, Google APIs, Jest, TestCafe, Azure Pipelines, Docker, PM2, Kubernetes
+
 - **Images:**
 ![SuprLink](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
 
 ##### Chrome Extension - SuprLink
 - **Website:** https://supr.link/WJ4rd
 - **Description:** A Chrome extension which helps user to create short link for SuprLink.
+- **Tech Stack:** Vue 2 (Options API), Vue Router, WebExtension API, Vuex, TailwindCSS, PostCSS, Axios, Webpack 4, Babel
 - **Images:**
 
 ![Chrome Extension SuprLink](https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
@@ -491,6 +510,7 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 ##### Aotter Trek
 - **Website:** https://trek.aotter.net
 - **Description:** An advertising display platform with big data analysis feature. Uses lots of easy-readable charts to help user find their accurate potential customers.
+- **Tech Stack:** Vue 2, Vuex, jQuery, Nuxt.js 2, TypeScript, Express, MongoDB, post-robot, EventEmitter3, Chart.js, vue-chartjs, Google Charts, Bootstrap 4, SCSS/LESS, Element UI, Axios, Jest, Karma, Jasmine, Docker, Docker Compose
 - **Images:**
 
 ![Aotter Trek DSP Platform](https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png)
@@ -498,6 +518,7 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 ##### Institute for Information Industry - City Dashboard
 - **Website:** https://supr.link/oLOid
 - **Description:** A platform which collects government public materials into one place to display. Has highly customizable charts and filters.
+- **Tech Stack:** Vue 2, Chart.js, vue-chartjs, D3.js, Topojson, Google Maps, markerclusterer, Handsontable, Bootstrap-Vue, Element UI, mdbvue, Axios, jQuery
 - **Images:**
 
 ![City Dashboard](https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
@@ -505,6 +526,7 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 ##### beanfun! Data Center
 - **Website:** https://supr.link/30dOw
 - **Description:** A dashboard which collects all product's data across whole enterprise group to display. Has lots of charts.
+- **Tech Stack:** Nuxt.js 2 (SPA), Vue 2, Vuetify, Vuex, Chart.js, vue-chartjs, CountUp.js, VueWordCloud, Stylus, Sass, Axios, Express, gRPC, MongoDB (Mongoose), JWT/JWKS, Google Maps API, Docker, Azure Kubernetes Service (AKS)
 - **Images:**
 
 ![beanfun! Data Center](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
@@ -573,22 +595,29 @@ In the API communication, besides normal Restful APIs, I have experienced in mai
 - **Version Control:** Git, GitHub, GitHub Actions
 - **Core Frameworks:** Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, Redux, React Hook Form, Yup
 - **Data Fetching / Server State:** React Query
+- **GraphQL Ecosystem:** Apollo Client, Apollo Server, DataLoader
+- **Data Validation:** Zod
 - **Build Tools:** Webpack, Vite
 - **Animation:** Framer Motion
-- **Charts:** ECharts, Chart.js, D3.js
+- **Charts:** ECharts, Chart.js, D3.js, Google Charts, Handsontable
 - **Editor:** Quill
 - **Real-time:** GraphQL, Socket.io
 - **HTTP / API:** Axios, REST API
 - **Multithreading:** Web Worker, Comlink
 - **i18n:** i18n
 - **Legacy:** jQuery
-- **Testing:** Jest, Cypress.io
+- **Testing:** Jest, Cypress.io, Playwright, TestCafe, Karma + Jasmine, Testing Library
 - **Utilities:** Lodash
-- **Cloud:** Firebase, AWS (S3, CloudFront, Lambda, ECR)
+- **UI Components:** Radix UI, shadcn, daisyUI
+- **Cloud:** Firebase, AWS (S3, CloudFront, Lambda, ECR), Neon Serverless PostgreSQL, GCP (Artifact Registry, GKE), Azure (Pipelines, AKS)
 - **ORM:** Drizzle ORM
-- **CI/CD & Containers:** GitHub Actions, Docker, Kubernetes (K8s)
+- **CI/CD & Containers:** GitHub Actions, Docker, Kubernetes (K8s), Drone CI, SonarQube, Bitbucket Pipelines, Azure Pipelines, PM2
 - **Performance:** Lighthouse
 - **Dependency Management:** Renovate, npm, pnpm
+- **Code Quality Tooling:** Husky, lint-staged, Stylelint
+- **Monitoring/Error Tracking:** Sentry
+- **Browser Extension Development:** Chrome Extension (Manifest V3), WebExtension API
+- **Automation:** Puppeteer
 - **Documentation:** Storybook
 - **Enterprise UI:** Arco Design, TypeScript
 
@@ -607,6 +636,8 @@ Also I like to use CSS variable to dark mode theme and RWD design.
 - **Modern Tooling:** TailwindCSS
 - **Traditional Frameworks:** Bootstrap
 - **Vue Ecosystem:** ElementUI, Buefy, Vuetify
+- **Other UI Frameworks:** Fomantic UI
+- **CSS Toolchain:** PostCSS (autoprefixer, PurgeCSS), Stylus, Gulp
 - **Modern CSS:** CSS variable, Media query
 - **Methodology:** BEM Naming convention
 
@@ -629,7 +660,7 @@ It uses StencilJS to build up Web Component, Web Socket and Vert.x to handle con
 It's something like dropbox paper. It can be used inside webview in both iOS and Android, and provide synchronous content management for multi-editors.
 
 **Related technique:**
-- Shadow DOM, StencilJS, Web Socket, Quill
+- Shadow DOM, StencilJS, Web Socket, Quill, Lit-html, WebExtension API
 
 ### 🗄️ Backend Framework and Database
 As a frontend developer though, I sometime need to handle backend API service.
@@ -641,6 +672,8 @@ I like use Express + TypeScript + MongoDB to handle it.
 - **Framework:** Express
 - **Web Socket:** Socket.io
 - **Database and ORM:** MongoDB, Mongoose, PostgreSQL, Redis
+- **RPC/Protocols:** gRPC
+- **Auth/Security:** OAuth2, JWT, AWS Cognito, bcryptjs
 - **Template engine:** EJS, mustache
 - **Document tool:** Swagger
 - **Others:** GraphQL

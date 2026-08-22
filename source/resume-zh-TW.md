@@ -73,6 +73,7 @@ TikTok 是全球最具影響力的互聯網公司之一，憑藉迅猛的增長�
 - **主要職責：** 負責廣告投放的財務結算系統開發
 - **技術棧：** React, monorepo 與公司自研框架架設的前端微服務系統
 - **工作範圍：** 廣告投放財務流程、數據分析、系統優化
+- **代表性成果：** 導入 Web Worker 多線程 CSV 校驗機制（Web Worker, Comlink），大型 CSV 校驗造成的 UI 卡頓時間**降低 90%**
 - **用戶反饋驅動開發：** 廣告主與內部使用者每天透過 oncall 反饋問題與需求，我會整理歸納這些反饋中的共性，發起對應的技術型開發任務，而不是只被動等待需求指派
 - **團隊合作：** 我曾帶領更斯開發團隊導入 scrum，解決了以下痛點:
   - 利用 retrospective，解決團隊沒有自我糾錯機制，團隊缺陷無法檢討改進的問題
@@ -106,6 +107,8 @@ LINE Taiwan 是 LINE 母公司在台灣成立的研發基地，主要負責 LINE
 
 **開發理念：**
 LINE 購物維護一個前端專案與一個 API 專案，團隊高度要求 code review，這也是整間公司開發團隊的核心理念。
+
+**代表性成果：** 透過個人觀察（YouTube Shorts、Shopee Live Shopping 等產品的滑動預覽機制）與技術設計（IntersectionObserver, Vuex, HLS.js），獨立打造「直播購物」影片自動播放模組，帶來流暢的列表捲動預覽體驗
 
 #### 👑 2. Team Leader 角色 (40% 時間)
 **專案管理：**
@@ -158,7 +161,7 @@ AI.Book 是一個線上相片書編輯平台，允許使用者在線製作客製
 - **主要負責：** 獨自負責開發最關鍵的線上相片書編輯器
 - **開發週期：** 花費 6 個月從 0 開始到產品最終上線
 - **技術棧：** Vue + NuxtJS
-- **後端 API 設計：** 除前端外，同時主導後端 API 的設計，涵蓋 OAuth 第三方登入、購物車與訂單流程、金流串接等關鍵路徑。從消費端（前端）視角定義 API 契約、資料模型與錯誤處理，並與後端協作落地
+- **後端 API 設計：** 除前端外，同時主導後端 API 的設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接等關鍵路徑。從消費端（前端）視角定義 API 契約、資料模型與錯誤處理，並與後端協作落地
 - **端到端負責範圍：** 從技術選型、前端架構規劃、編輯器核心開發到後端 API 設計皆由一人主導，是完整 own 一條 full slice 的經驗
 
 **🖼️ 公司 Logo：** https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png
@@ -354,6 +357,8 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
   - **自動化商店素材產出**：以 Puppeteer 自動開啟真實 Bilibili 影片頁，依序切換三語系瀏覽器設定，自動截取商店上架用截圖
   - **論壇反饋驅動迭代**：大量蒐集並追蹤 Bilibili 相關論壇與社群中的使用者反饋與討論，歸納出常見痛點以排定修復優先順序、驅動功能迭代方向
 
+- **🔧 技術棧：** Chrome Extension Manifest V3, Vanilla JavaScript (ES6+), chrome.storage, chrome.i18n, Content Scripts (MAIN world / ISOLATED world), fetch / XMLHttpRequest hook, Node.js, JSZip, Puppeteer, Sharp
+
 - **重大貢獻：**
   - 上架 10 天：瀏覽數 2,000、安裝數 1,000，**轉換率達 50%**
   - 上架 10 天內周活躍使用者（WAU）即突破 1,000，**留存率幾乎 100%**
@@ -407,6 +412,9 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
   - **Neon Serverless PostgreSQL + Drizzle ORM**：使用 Neon 無伺服器資料庫搭配 Drizzle ORM 實現 type-safe 的資料存取
   - **TailwindCSS 4 + Framer Motion**：響應式設計搭配流暢動畫
   - **Vibe Coding 實踐**：整個專案從零到上線僅花費 2 天，全程透過 AI 輔助開發（Vibe Coding）完成
+
+- **🔧 技術棧：** TypeScript, Next.js 16 (App Router), React 19, TailwindCSS 4, daisyUI, Framer Motion (motion), tw-animate-css, Radix UI, @base-ui/react, shadcn, cmdk, lucide-react, react-icons, embla-carousel-react, react-day-picker, vaul, sonner, cobe, Neon Serverless PostgreSQL, Drizzle ORM, drizzle-zod, Zod, jose (JWT), bcryptjs, pdf-lib, jsPDF, html-to-image, AWS SDK (S3, Lambda), AWS Lambda Web Adapter, Docker, Playwright, ESLint, Prettier, tsx, Drizzle Kit
+
 - **圖片：**
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main.png)
 ![Lazy CV 圖片](https://cdn.lazy-cv.com/lazy-cv-main-2.png)
@@ -429,11 +437,8 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 
 - **重大貢獻：**
 - **Web Worker 多線程 CSV 校驗**：
-此專案在業務上常常會需要上傳大型 CSV 來創建數據。這些 CSV 的格式校驗在前端進行，時常會因為龐大的計算量而造成 UI 卡住，帶來極不友好的體驗
-我在專案中導入了 Web Worker 多線程計算系統，將校驗的工作轉移到單獨執行續進行。同時使用 Comlink（類 RPC 通訊）簡化 web worker 複雜噁心的溝通方式，作到了類似 RPC 通訊的效果，可以在主線程與 web worker 中傳遞純數據，甚至是函數。
-同時校驗函數使用了基於 Yup 和 Regex 建構的 Schema，方便未來擴充更多單元格的校驗
-這個系統也被抽象為公共工具，除了校驗外，未來也能實現更多基於前端的複雜計算
-這個設計也成功在 10 筆資料中 **減少了 90% 的 UI 卡頓時間**
+CSV 格式校驗原本在前端主執行緒進行，資料量大時常造成 UI 卡住。我導入 Web Worker 多線程計算系統，將校驗工作移至獨立執行緒，並解決了公司內部 Armor 框架下使用 Web Worker 的相容性限制（Blob URL、Comlink、Module Worker）。校驗規則採 Yup + Regex 建構的 Schema，並抽象為可複用的公共工具。
+此設計成功在 10 筆資料中 **減少了 90% 的 UI 卡頓時間**
 架構圖: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=16111885428
 
 - **函數快取工具優化渲染效能**：
@@ -456,9 +461,10 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **網址：** https://buy.line.me
 - **專案描述：** LINE 導購服務，凡經由 LINE 購物外連到合作夥伴商家完成消費後，即可獲得 LINE 點數回饋。平台同時也是集結了合作第三方電商的購物入口網站，讓消費者可方便的搜尋、比價與分享好物。
 這是一個全端項目，專案包含一個 VUE SSR 前端倉庫，與一個整合數十個後端微服務的 BFF (NodeJS + GraphQL)。兩者皆使用 TypeScript，並由我維護，開發與迭代
-- **重大貢獻：** 我獨自開發了購物平台的"直播購物"功能。我參考了 YouTube 影片流自動預覽的機制，設計了一套可覆用影片自動預覽模組。
-透過一個全局調度器，解決了高速捲動下影片預覽混亂的問題，以及單一頁面過多直播源，造成記憶體暴增的技術難點
+- **重大貢獻：** 我獨自完成 LINE 購物「直播購物」功能的調研（參考 YouTube Shorts、Shopee Live Shopping）、設計、開發與驗證。以雙 IntersectionObserver + Vuex 全局調度器 + HLS.js 打造可覆用的直播影片自動播放模組，解決了高速捲動下影片預覽混亂，以及單一頁面過多直播源造成記憶體暴增的技術難點。
 架構圖網址: https://miro.com/app/board/uXjVPI3bRQk=/?share_link_id=387342720998
+
+- **🔧 技術棧：** JavaScript (ES6+), Vue 2, Vue Router 3, Vue SSR (vue-server-renderer), Vuex 3, vuex-router-sync, TypeScript, Node.js, Express, GraphQL (Apollo Server Express), DataLoader, Redis (ioredis), OAuth2, SASS, PostCSS, Workbox, Sentry, Firebase (FCM), Jest, @vue/test-utils, Storybook, Webpack 4, Babel, Docker, Drone CI, SonarQube, Lighthouse CI
 
 - **圖片：**
 ![LINE 購物平台](https://cdn.lazy-cv.com/line-shopping-main-page.jpg)
@@ -469,6 +475,8 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 
 **🔧 JavaScript Task Force**
 - **專案描述：** 這不是一個實際產品，而是一個專案小組。其成員分別代表並來自不同的團隊，目的是為整個 LINE Taiwan 制定前端開發準則。至目前為止，我們研究了 SonarQube 靜態程式碼分析工具、在 CI 中加入 Lighthouse 評分、前端 monitor 工具 OpenTel，以及自行開發了 React 專案初始 template 生成工具等等。
+
+- **🔧 技術棧：** TypeScript, Node.js CLI (yargs, prompts), @vercel/ncc, Next.js, Sentry, Lighthouse CI, SCSS, Jest, Testing Library, ESLint, Stylelint, Prettier, Husky, lint-staged, Drone CI, SonarQube
 
 - **圖片：**
 ![JavaScript Task Force](https://cdn.lazy-cv.com/jstf.png)
@@ -494,13 +502,14 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 其中最重要的是一個線上相片書編輯器，花費 6 個月從 0 開始到產品最終上線。使用的技術棧為 Vue + NuxtJS
 
 **技術亮點：**
-- 用純 Vue 搭建一個客製化的編輯器，可加入/移除照片，輸入文字以及編輯字型字體大小等等
-- 編輯器支援網頁端與手機端編輯支援
-- 支援安裝 PWA 達到類原生 APP 的體驗
-- **主導後端 API 設計**：涵蓋 OAuth 第三方登入、購物車與訂單流程、金流串接等關鍵路徑，從消費端視角定義 API 契約、資料模型與錯誤處理
+- 用純 Vue 搭建一個客製化的編輯器，支援拖拉排版加入/移除照片，輸入文字以及編輯字型字體大小等等
+- 編輯器支援網頁端與手機端瀏覽器編輯，並可從 Google 相簿／Instagram 匯入相片
+- **主導後端 API 設計**：涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接等關鍵路徑，從消費端視角定義 API 契約、資料模型與錯誤處理
 
 - **重大貢獻：**
  - 從 0 開始單獨規劃並開發，一人完成前端架構、編輯器核心與後端 API 設計，端到端交付整條產品線
+
+- **🔧 技術棧：** TypeScript, Vue 2, Nuxt 2 (SPA), nuxt-property-decorator, Vuex, SCSS/Sass, TailwindCSS, Element UI, vuedraggable, vue-drag-drop, cropperjs, flipbook-vue, vee-validate, lottie-web, Axios, @nuxtjs/auth-next, AWS Cognito OAuth2, Google OAuth, Instagram Graph API OAuth, Nuxt build (Webpack), GitHub Actions, AWS S3, CloudFront, Swagger/OpenAPI
 
 - **圖片：**
 ![編輯器介面](https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png)
@@ -516,10 +525,12 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
  - UI 組件使用 Stencil 搭建 web components，因此使用上不限框架
  - 透過 Tailwind + Semantic UI 構建 design system
  - 透過 StoryBook 展示組件，更容易與設計師溝通確認
- - 使用 monorepo 區分組件庫與業務程式。組件庫可單獨發布測試，通過後再批量構建業務程式庫
+ - 組件庫發布至 private NPM，由 SME portal、Partner portal 等業務專案各自安裝使用，組件庫與業務程式碼分屬獨立 repo
 
 - **重大貢獻：**
  - 從 0 開始單獨開發
+
+- **🔧 技術棧：** TypeScript, Stencil.js (Web Components), Lit-html, TailwindCSS, Fomantic UI, Sass/Less, PostCSS, Gulp, Storybook
 
 - **圖片：**
 ![架構圖](https://cdn.lazy-cv.com/fundfluent-ui-kit.png)
@@ -530,6 +541,8 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 - **重大貢獻：**
  - 從 0 開始單獨開發
 
+- **🔧 技術棧：** TypeScript, React 17, Next.js 12, React Context, useReducer, TailwindCSS, Semantic UI React, Sass, React Hook Form, Yup, next-i18next, Bitbucket Pipelines, Docker, GCP Artifact Registry, GKE
+
 - **圖片：**
 ![FundFluent SME Portal](https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png)
 
@@ -538,6 +551,8 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 - **專案描述：** 面向銀行等放貸方的管理平台。可用來上架、整理各項貸款專案，以及審核來自中小企的申請案件。
 - **重大貢獻：**
  - 從 0 開始單獨開發
+
+- **🔧 技術棧：** TypeScript, React 17, Next.js 12, MobX, mobx-react, TailwindCSS, Fomantic UI, Sass, React Hook Form, Yup, next-translate, Bitbucket Pipelines, Docker, GCP Artifact Registry, GKE
 
 - **圖片：**
 ![FundFluent Partner Portal](https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png)
@@ -548,12 +563,15 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 - **網址：** https://supr.link
 - **專案描述：** 從 A/B 分流到數據分析，再到廣告投放一氣呵成的縮網址服務
 
+- **🔧 技術棧：** TypeScript, Nuxt.js 2 (SSR), Vue 2, nuxt-property-decorator, Nuxt PWA, Vuex, vuex-map-fields, Chart.js, vue-chartjs, Google Charts, TailwindCSS, Buefy, Sass, Axios, Express, MongoDB, Google APIs, Jest, TestCafe, Azure Pipelines, Docker, PM2, Kubernetes
+
 - **圖片：**
 ![SuprLink 超級連結](https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png)
 
 **🧩 Chrome 小工具 - SuprLink 超級連結**
 - **網址：** https://supr.link/WJ4rd
 - **專案描述：** 快速在 SuprLink 超級連結 產生縮網址的 Chrome 小工具
+- **🔧 技術棧：** Vue 2 (Options API), Vue Router, WebExtension API, Vuex, TailwindCSS, PostCSS, Axios, Webpack 4, Babel
 - **圖片：**
 
 ![Chrome 小工具 SuprLink](https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png)
@@ -561,6 +579,7 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 **📊 Aotter Trek**
 - **網址：** https://trek.aotter.net
 - **專案描述：** 結合大數據分析的廣告投放 DSP 平台，使用大量圖表介面為使用者找出最適合的廣告 TA
+- **🔧 技術棧：** Vue 2, Vuex, jQuery, Nuxt.js 2, TypeScript, Express, MongoDB, post-robot, EventEmitter3, Chart.js, vue-chartjs, Google Charts, Bootstrap 4, SCSS/LESS, Element UI, Axios, Jest, Karma, Jasmine, Docker, Docker Compose
 - **圖片：**
 
 ![Aotter Trek DSP 平台](https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png)
@@ -568,6 +587,7 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 **🏛️ 資策會 城市儀表板**
 - **網址：** https://supr.link/oLOid
 - **專案描述：** 收集分散各地的政府數據於同一地展示的政府資料數據庫。有著可高度客製化的圖表及資料篩選模組
+- **🔧 技術棧：** Vue 2, Chart.js, vue-chartjs, D3.js, Topojson, Google Maps, markerclusterer, Handsontable, Bootstrap-Vue, Element UI, mdbvue, Axios, jQuery
 - **圖片：**
 
 ![資策會城市儀表板](https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png)
@@ -575,6 +595,7 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 **🎮 beanfun! 數據與管理中心**
 - **網址：** https://supr.link/30dOw
 - **專案描述：** 擁有各種圖表的集中數據 Dashboard，用以顯示企業內部各項指標
+- **🔧 技術棧：** Nuxt.js 2 (SPA), Vue 2, Vuetify, Vuex, Chart.js, vue-chartjs, CountUp.js, VueWordCloud, Stylus, Sass, Axios, Express, gRPC, MongoDB (Mongoose), JWT/JWKS, Google Maps API, Docker, Azure Kubernetes Service (AKS)
 - **圖片：**
 
 ![beanfun! 數據管理中心](https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png)
@@ -644,23 +665,30 @@ API 除了 Restful 以外，也有在大型專案維護 GraphQL 的經驗。
 - **版本控制：** Git, GitHub, GitHub Actions
 - **核心框架：** TypeScript, Vue, NuxtJS, Vue Router, Vuex, Vuelidate, VeeValidate, React, NextJS, MobX, Redux, React Hook Form, Yup
 - **資料請求 / 伺服器端狀態：** React Query
+- **GraphQL 生態：** Apollo Client, Apollo Server, DataLoader
+- **資料驗證：** Zod
 - **建構工具：** Webpack, Vite
 - **動畫：** Framer Motion
-- **圖表工具：** ECharts, Chart.js
+- **圖表工具：** ECharts, Chart.js, D3.js, Google Charts, Handsontable
 - **編輯器：** Quill
 - **即時通訊：** GraphQL, Socket.io
 - **HTTP 請求：** Axios, REST API
 - **多線程：** Web Worker, Comlink
 - **國際化：** i18n
 - **傳統工具：** jQuery
-- **測試工具：** Jest, Cypress.io
+- **測試工具：** Jest, Cypress.io, Playwright, TestCafe, Karma + Jasmine, Testing Library
 - **實用函式庫：** Lodash
-- **雲端服務：** Firebase, AWS (S3, CloudFront, Lambda, ECR)
+- **UI 元件庫：** Radix UI, shadcn, daisyUI
+- **雲端服務：** Firebase, AWS (S3, CloudFront, Lambda, ECR), Neon Serverless PostgreSQL, GCP (Artifact Registry, GKE), Azure (Pipelines, AKS)
 - **ORM：** Drizzle ORM
-- **CI/CD：** GitHub Actions, Docker, Kubernetes (K8s)
+- **CI/CD：** GitHub Actions, Docker, Kubernetes (K8s), Drone CI, SonarQube, Bitbucket Pipelines, Azure Pipelines, PM2
 - **容器化：** Docker
 - **效能工具：** Lighthouse
 - **依賴管理：** Renovate, npm, pnpm
+- **程式碼品質工具：** Husky, lint-staged, Stylelint
+- **監控/錯誤追蹤：** Sentry
+- **瀏覽器擴充開發：** Chrome Extension (Manifest V3), WebExtension API
+- **自動化工具：** Puppeteer
 - **文件工具：** Storybook
 - **企業級框架：** Arco Design
 
@@ -677,6 +705,8 @@ API 除了 Restful 以外，也有在大型專案維護 GraphQL 的經驗。
 - **現代化工具：** TailwindCSS
 - **傳統框架：** Bootstrap
 - **Vue 生態：** ElementUI, Buefy, Vuetify
+- **其他 UI 框架：** Fomantic UI
+- **CSS 工具鏈：** PostCSS (autoprefixer, PurgeCSS), Stylus, Gulp
 - **現代 CSS：** CSS variable, Media query
 - **方法論：** BEM Naming convention
 
@@ -712,7 +742,7 @@ Web Component 是搭建前端微服務的其中一項很棒的解決方案。
 - 提供跨平台的同步協作
 
 **📦 技能清單：**
-Shadow DOM, StencilJS, Web Socket, Quill
+Shadow DOM, StencilJS, Web Socket, Quill, Lit-html, WebExtension API
 
 ### ⚙️ 後端框架 & 資料庫
 **🎯 定位說明：**
@@ -726,6 +756,8 @@ Shadow DOM, StencilJS, Web Socket, Quill
 - **框架：** Express
 - **即時通訊：** Socket.io  
 - **資料庫：** MongoDB、Mongoose、PostgreSQL、Redis
+- **RPC/通訊協定：** gRPC
+- **驗證/安全：** OAuth2, JWT, AWS Cognito, bcryptjs
 - **模板引擎：** EJS
 - **文件工具：** Swagger
 - **其他：** GraphQL

@@ -69,9 +69,9 @@ const experiences: Experience[] = [
     period: "Sep 2021 – Oct 2024",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "Built an online photo book editor from scratch as sole developer, implementing drag-and-drop, resizing, and text editing features",
+      "Built an online photo book editor from scratch as sole developer, implementing drag-and-drop layout, resizing, and text editing features",
       "Planned the entire technical architecture using Vue + NuxtJS and launched the product within 6 months",
-      "Supported PWA installation for a native-app-like experience",
+      "Led backend API design covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment result integration",
     ],
   },
   {
@@ -149,7 +149,7 @@ const projects: Project[] = [
     name: "TWSG Bilibili CDN Accelerator",
     summary:
       "An unofficial Chrome / Edge / Firefox browser extension that makes the web version of Bilibili load smoother for users in Taiwan and Singapore, dynamically rewriting the video CDN host to the fastest regional node with automatic fallback. Solely designed, built, published, and maintained end-to-end.",
-    stack: ["Chrome Extension", "Manifest V3", "JavaScript", "Puppeteer", "Web Extension API"],
+    stack: ["Chrome Extension Manifest V3", "Vanilla JavaScript (ES6+)", "chrome.storage", "chrome.i18n", "Content Scripts (MAIN world / ISOLATED world)", "fetch / XMLHttpRequest hook", "Node.js", "JSZip", "Puppeteer", "Sharp"],
     image: [
       "https://cdn.lazy-cv.com/promo-cover-1280x800.png",
       "https://cdn.lazy-cv.com/10-days-report.png",
@@ -193,7 +193,7 @@ const projects: Project[] = [
     name: "Lazy CV",
     summary:
       "AI-powered customized resume generator. Combines AI Agent automation with Next.js 16 — just provide a job posting URL to automatically scrape JD and generate tailored bilingual resume web pages. Built from scratch to production in just 2 days via Vibe Coding. This resume was automatically generated using this project.",
-    stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Framer Motion"],
+    stack: ["TypeScript", "Next.js 16 (App Router)", "React 19", "TailwindCSS 4", "daisyUI", "Framer Motion (motion)", "tw-animate-css", "Radix UI", "@base-ui/react", "shadcn", "cmdk", "lucide-react", "react-icons", "embla-carousel-react", "react-day-picker", "vaul", "sonner", "cobe", "Neon Serverless PostgreSQL", "Drizzle ORM", "drizzle-zod", "Zod", "jose (JWT)", "bcryptjs", "pdf-lib", "jsPDF", "html-to-image", "AWS SDK (S3, Lambda)", "AWS Lambda Web Adapter", "Docker", "Playwright", "ESLint", "Prettier", "tsx", "Drizzle Kit"],
     image: [
       "https://cdn.lazy-cv.com/lazy-cv-main.png",
       "https://cdn.lazy-cv.com/lazy-cv-main-2.png",
@@ -236,7 +236,7 @@ const projects: Project[] = [
     name: "LINE Shopping",
     summary:
       "A LINE affiliate shopping service where users earn LINE Points through partner merchants.",
-    stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+    stack: ["JavaScript (ES6+)", "Vue 2", "Vue Router 3", "Vue SSR (vue-server-renderer)", "Vuex 3", "vuex-router-sync", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Redis (ioredis)", "OAuth2", "SASS", "PostCSS", "Workbox", "Sentry", "Firebase (FCM)", "Jest", "@vue/test-utils", "Storybook", "Webpack 4", "Babel", "Docker", "Drone CI", "SonarQube", "Lighthouse CI"],
     company: "LINE Taiwan",
     image: [
       "https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
@@ -270,17 +270,17 @@ const projects: Project[] = [
   {
     name: "AI.Book Photo Editor",
     summary:
-      "An online photo book editor supporting drag-and-drop, resizing, and text editing with cross-platform PWA support. Built from scratch to launch in just 6 months.",
-    stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+      "An online photo book editor supporting drag-and-drop layout for adding/removing photos and text editing, with photo import from Google Photos / Instagram. Built from scratch to launch in just 6 months.",
+    stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "nuxt-property-decorator", "Vuex", "SCSS/Sass", "TailwindCSS", "Element UI", "vuedraggable", "vue-drag-drop", "cropperjs", "flipbook-vue", "vee-validate", "lottie-web", "Axios", "@nuxtjs/auth-next", "AWS Cognito OAuth2", "Google OAuth", "Instagram Graph API OAuth", "Nuxt build (Webpack)", "GitHub Actions", "AWS S3", "CloudFront", "Swagger/OpenAPI"],
     company: "AI.Book",
     image: [
       "https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
     ],
     highlights: [
-      "Built a custom editor with pure Vue, supporting add/remove photos, text input, and font style/size editing",
-      "Editor supports both web and mobile editing",
-      "Supports PWA installation for a native app-like experience",
+      "Built a custom editor with pure Vue, supporting drag-and-drop layout for adding/removing photos, text input, and font style/size editing",
+      "Editor supports both web and mobile browser editing, with photo import from Google Photos / Instagram",
+      "Led backend API design covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment result integration",
     ],
     contributions: [
       "Built entirely from scratch as sole developer",
@@ -290,15 +290,15 @@ const projects: Project[] = [
     name: "FundFluent UI Kit Library",
     summary:
       "A cross-project shared UI component platform built with Web Components (Stencil.js) for framework-agnostic usage, integrating TailwindCSS + Semantic UI with Storybook documentation.",
-    stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
+    stack: ["TypeScript", "Stencil.js (Web Components)", "Lit-html", "TailwindCSS", "Fomantic UI", "Sass/Less", "PostCSS", "Gulp", "Storybook"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
     highlights: [
       "UI components built with Stencil as web components, framework-agnostic",
-      "Design system constructed with Tailwind + Semantic UI",
+      "Design system constructed with Tailwind + Fomantic UI",
       "Components showcased via StoryBook for easier communication with designers",
-      "Monorepo separating component library and business code; component library can be independently published and tested",
+      "Component library published to a private NPM registry, installed independently by downstream apps (SME portal, Partner portal)",
     ],
     contributions: [
       "Built entirely from scratch as sole developer",
@@ -308,7 +308,7 @@ const projects: Project[] = [
     name: "SuprLink",
     summary:
       "A URL shortener service with A/B split testing, data analytics, and ad delivery in a single platform.",
-    stack: ["NuxtJS", "TypeScript", "TailwindCSS", "Docker", "K8s"],
+    stack: ["TypeScript", "Nuxt.js 2 (SSR)", "Vue 2", "nuxt-property-decorator", "Nuxt PWA", "Vuex", "vuex-map-fields", "Chart.js", "vue-chartjs", "Google Charts", "TailwindCSS", "Buefy", "Sass", "Axios", "Express", "MongoDB", "Google APIs", "Jest", "TestCafe", "Azure Pipelines", "Docker", "PM2", "Kubernetes"],
     company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/a14d9a80-45b9-4943-a043-49dacb460bb9.png",
@@ -318,7 +318,7 @@ const projects: Project[] = [
     name: "Aotter Trek DSP Platform",
     summary:
       "A big-data-driven DSP (Demand-Side Platform) for ad placement, featuring rich chart interfaces to help users identify optimal advertising audiences.",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    stack: ["Vue 2", "Vuex", "jQuery", "Nuxt.js 2", "TypeScript", "Express", "MongoDB", "post-robot", "EventEmitter3", "Chart.js", "vue-chartjs", "Google Charts", "Bootstrap 4", "SCSS/LESS", "Element UI", "Axios", "Jest", "Karma", "Jasmine", "Docker", "Docker Compose"],
     company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/4812639f-ea04-470c-b931-a954464678fd.png",
@@ -328,7 +328,7 @@ const projects: Project[] = [
     name: "JavaScript Task Force",
     summary:
       "A cross-team initiative at LINE Taiwan responsible for establishing company-wide frontend development standards. Research and adoption of SonarQube, Lighthouse CI, OpenTel frontend monitoring, and React project template generators.",
-    stack: ["SonarQube", "Lighthouse CI", "OpenTel", "React"],
+    stack: ["TypeScript", "Node.js CLI (yargs, prompts)", "@vercel/ncc", "Next.js", "Sentry", "Lighthouse CI", "SCSS", "Jest", "Testing Library", "ESLint", "Stylelint", "Prettier", "Husky", "lint-staged", "Drone CI", "SonarQube"],
     company: "LINE Taiwan",
     image:
       "https://cdn.lazy-cv.com/jstf.png",
@@ -337,7 +337,7 @@ const projects: Project[] = [
     name: "FundFluent SME Portal",
     summary:
       "An integrated loan platform for Hong Kong SMEs, providing bank and government loan information with one-stop applications, using OCR to streamline document management and reduce redundant submissions.",
-    stack: ["React", "NextJS", "TypeScript", "TailwindCSS"],
+    stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "Semantic UI React", "Sass", "React Hook Form", "Yup", "next-i18next", "Bitbucket Pipelines", "Docker", "GCP Artifact Registry", "GKE"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
@@ -350,7 +350,7 @@ const projects: Project[] = [
     name: "FundFluent Partner Portal",
     summary:
       "A management platform for lenders such as banks, enabling them to list and manage loan products and review SME applications.",
-    stack: ["React", "NextJS", "TypeScript", "Semantic UI"],
+    stack: ["TypeScript", "React 17", "Next.js 12", "MobX", "mobx-react", "TailwindCSS", "Fomantic UI", "Sass", "React Hook Form", "Yup", "next-translate", "Bitbucket Pipelines", "Docker", "GCP Artifact Registry", "GKE"],
     company: "FundFluent",
     image:
       "https://cdn.lazy-cv.com/882b56c6-5e93-454c-ab5d-d98193795b74.png",
@@ -363,7 +363,7 @@ const projects: Project[] = [
     name: "Chrome Extension - SuprLink",
     summary:
       "A Chrome extension for quickly generating short URLs via the SuprLink service.",
-    stack: ["Chrome Extension", "JavaScript"],
+    stack: ["Vue 2 (Options API)", "Vue Router", "WebExtension API", "Vuex", "TailwindCSS", "PostCSS", "Axios", "Webpack 4", "Babel"],
     company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/7b907335-af65-43cc-9ea2-b9ae4d2c80f0.png",
@@ -372,7 +372,7 @@ const projects: Project[] = [
     name: "III City Dashboard",
     summary:
       "A government data dashboard aggregating scattered public data into a single platform, featuring highly customizable charts and data filtering modules.",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "TailwindCSS"],
+    stack: ["Vue 2", "Chart.js", "vue-chartjs", "D3.js", "Topojson", "Google Maps", "markerclusterer", "Handsontable", "Bootstrap-Vue", "Element UI", "mdbvue", "Axios", "jQuery"],
     company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/0a002690-85c9-4bcf-bb72-9cebf81788ae.png",
@@ -381,7 +381,7 @@ const projects: Project[] = [
     name: "beanfun! Data Management Center",
     summary:
       "A centralized data dashboard with various charts displaying company-wide KPIs and internal metrics.",
-    stack: ["NuxtJS", "TypeScript", "Chart.js", "SASS"],
+    stack: ["Nuxt.js 2 (SPA)", "Vue 2", "Vuetify", "Vuex", "Chart.js", "vue-chartjs", "CountUp.js", "VueWordCloud", "Stylus", "Sass", "Axios", "Express", "gRPC", "MongoDB (Mongoose)", "JWT/JWKS", "Google Maps API", "Docker", "Azure Kubernetes Service (AKS)"],
     company: "Aotter",
     image:
       "https://cdn.lazy-cv.com/de995dc8-088c-430b-ba29-33fd2b364ced.png",
@@ -483,6 +483,28 @@ const skillKeywordRows: SkillKeywordRow[] = [
     keywords: ["Redux", "React Query"],
     badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
     marqueeClassName: "[--duration:33s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Apollo Client", "Apollo Server", "DataLoader", "Zod", "Neon PostgreSQL", "GCP", "Azure", "gRPC"],
+    badgeClassName: "border-lime-200 bg-lime-50/50 text-lime-800",
+    marqueeClassName: "[--duration:34s]",
+  },
+  {
+    keywords: ["Playwright", "TestCafe", "Karma", "Jasmine", "Testing Library", "Drone CI", "SonarQube", "Bitbucket Pipelines", "Azure Pipelines", "PM2"],
+    badgeClassName: "border-pink-200 bg-pink-50/50 text-pink-800",
+    marqueeClassName: "[--duration:39s]",
+    reverse: true,
+  },
+  {
+    keywords: ["Husky", "lint-staged", "Stylelint", "Sentry", "Radix UI", "shadcn", "daisyUI", "Fomantic UI", "PostCSS", "Stylus"],
+    badgeClassName: "border-blue-200 bg-blue-50/50 text-blue-800",
+    marqueeClassName: "[--duration:35s]",
+  },
+  {
+    keywords: ["Gulp", "Lit-html", "OAuth2", "JWT", "AWS Cognito", "bcryptjs", "Google Charts", "Handsontable", "GitHub"],
+    badgeClassName: "border-stone-200 bg-stone-50/50 text-stone-800",
+    marqueeClassName: "[--duration:31s]",
     reverse: true,
   },
 ];

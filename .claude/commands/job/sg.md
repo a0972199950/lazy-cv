@@ -291,13 +291,36 @@ pnpm applied-jobs
 
 **不要把它列為已確認的目前職缺。**
 
-## 抓取不到職缺內容時：改用 Browser MCP
+## 抓取不到職缺內容時：先試 Firecrawl，再升級到 Browser MCP
 
-許多公司官網（Google、Microsoft、Apple、Grab 等）的職缺詳情頁採用前端 JS 動態渲染，一般的網頁抓取工具（例如 WebFetch）常常只能取得導覽列/頁面外殼，讀不到實際職缺內容，導致明明是有效職缺卻被誤判為「無法驗證」。
+許多公司官網（Google、Microsoft、Apple、Grab 等）的職缺列表頁與詳情頁採用前端 JS 動態渲染，一般的網頁抓取工具（例如 WebFetch）常常只能取得導覽列/頁面外殼，讀不到實際職缺內容，導致明明是有效職缺卻被誤判為「無法驗證」。
 
-**遇到這種情況時，先改用 Browser MCP（Chrome 擴充功能：https://chromewebstore.google.com/detail/browser-mcp-automate-your/bjfgambnhccakkhmkepdoekmckoijdlc，對應 `mcp__browsermcp__*` 工具）在真實瀏覽器中開啟該職缺頁，再放棄。**
+**遇到這種情況時，依序嘗試以下兩層工具，不要 WebFetch 讀不到就直接放棄：**
 
-具體做法：
+### 第一層：Firecrawl（優先，較快、較省 token）
+
+1. **職缺詳情頁**（單一職缺的完整 JD）：直接用 `firecrawl scrape <職缺 URL>`，通常搭配 `--wait-for 3000`～`6000`（毫秒）讓 JS 渲染完成即可讀到完整內容，不需要模擬互動。
+2. **職缺列表 / 搜尋頁**（例如公司 Careers 首頁的搜尋框）：**不要只靠 URL query string 篩選**（例如 `?keywords=` 或 `?q=`）。很多公司的職缺搜尋是純前端 JS 事件驅動，URL 參數不會被讀取，直接 scrape 會拿到「未過濾的全部職缺」而不是篩選後的結果（實測過 Microsoft Careers 就是這樣：`?keywords=Frontend` 完全被忽略，只有實際模擬打字送出搜尋才會過濾）。正確做法是用 `--actions` 模擬真人操作：
+   ```
+   firecrawl scrape "<職缺列表頁 URL>" \
+     --actions-file actions.json \
+     -o .firecrawl/<公司>-search-<關鍵字>.md
+   ```
+   其中 `actions.json` 內容大致為：
+   ```json
+   [
+     {"type": "click", "selector": "input[type='search'], input[placeholder*='Search' i]"},
+     {"type": "write", "text": "Singapore Frontend Engineer"},
+     {"type": "press", "key": "Enter"},
+     {"type": "wait", "milliseconds": 4000}
+   ]
+   ```
+   實際的搜尋框 selector 因網站而異，如果第一次猜的 selector 沒生效（結果數量沒有變化，例如職缺總數還是跟未篩選時一樣），換一個 selector 或改用 `firecrawl-interact` skill 的做法再試一次，不要只試一次就放棄。
+3. 篩選結果頁如果有分頁（例如「Page 1 of 3」），需要的話對每一頁的翻頁按鈕重複 actions 流程，或直接對已知的職缺詳情 URL 逐一 scrape。
+
+### 第二層：Browser MCP（Firecrawl 也讀不到，或需要登入 / 更複雜互動時）
+
+只有在 Firecrawl（含 `--actions`）也無法確認職缺內容時，才升級到 Browser MCP（Chrome 擴充功能：https://chromewebstore.google.com/detail/browser-mcp-automate-your/bjfgambnhccakkhmkepdoekmckoijdlc，對應 `mcp__browsermcp__*` 工具）在真實瀏覽器中開啟該職缺頁：
 
 1. 用 `mcp__browsermcp__browser_navigate` 導航到職缺詳情頁 URL。
 2. 用 `mcp__browsermcp__browser_snapshot`（必要時搭配 `browser_wait` 等待頁面渲染完成）讀取實際渲染後的頁面內容，確認：
@@ -306,7 +329,7 @@ pnpm applied-jobs
    - 職缺是否仍開放申請（而非顯示已關閉、404、或跳轉到職缺列表首頁）
 3. 若該工具不在目前可用工具清單中，先用 ToolSearch 以 `select:mcp__browsermcp__browser_navigate,mcp__browsermcp__browser_snapshot,mcp__browsermcp__browser_wait,mcp__browsermcp__browser_click` 載入。
 
-只有在**用 Browser MCP 實際開啟後仍然無法確認**（例如需要登入才能查看、頁面持續載入失敗、明確顯示職缺已關閉）時，才依照上面的規則視為「無法驗證」，不列入結果。不要因為 WebFetch 讀不到內容就直接放棄，跳過 Browser MCP 這一步。
+只有在**兩層工具都實際試過仍然無法確認**（例如需要登入才能查看、頁面持續載入失敗、明確顯示職缺已關閉）時，才視為「無法驗證」，不列入結果。不要跳過任何一層就直接放棄。
 
 ---
 

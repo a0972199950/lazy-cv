@@ -41,14 +41,18 @@ description: "更新 lazy-cv 基礎履歷範本。使用者輸入 `/update`、�
    3. 將遺漏的關鍵字**全數補入**適當的列，或新增列來容納，**不得遺漏任何一個**。
    4. 每列最多放 **10 個**關鍵字，若技能數量超過則新增列。
    5. **禁止**以「已涵蓋大部分」或「主要技能已列出」為由省略任何關鍵字。
-6. **新增專案時的分組規則**（`Project.company` 欄位，見 `components/resume/types.ts`）：
+6. **`Project.stack` 同步規則**（見 `components/resume/types.ts` 的 `Project.stack` 欄位）：
+   1. `/source` 每個專案項目下方都有一行「- **🔧 技術棧：** A, B, C, ...」，這是 `stack` 陣列**唯一的事實來源**，必須依逗號拆解逐字填入（去除多餘空白），**不可憑印象或推測補上該行沒有出現的技術**。
+   2. 若該行關鍵字過多，可挑選最具代表性的子集，但篩選後仍不可加入該行沒有的技術。
+   3. **逐一比對**現有 `page.tsx` 中每個專案的 `stack` 與 `/source` 對應那行，找出缺漏、多餘或錯誤的項目並修正——特別留意舊資料可能殘留未經查證的技術名稱（例如曾誤植的 PWA、IndexedDB，或跟實際 repo 不符的框架/語言）。
+7. **新增專案時的分組規則**（`Project.company` 欄位，見 `components/resume/types.ts`）：
    1. `/source` 中列在公司名稱（`### 公司名稱`）底下的專案 → 屬於**公司專案**，該筆 `Project` 物件必須加上 `company: "..."`。
    2. `/source` 中「個人專案」段落底下的專案 → **不要**加 `company` 欄位（留空 = 個人專案）。
    3. `company` 的字串**必須跟 `experiences` 陣列中對應公司的 `company` 欄位完全一致**（一字不差，包含全形/半形括號、英文全名等），因為：
       - `page.tsx` 是用 `Object.fromEntries(experiences.map(e => [e.company, e.logo]))` 自動產生 `companyLogos` 對照表給專案卡片顯示公司 logo；字串對不上，logo 就顯示不出來（不會報錯，容易被忽略，需自行比對）。
       - `ProjectsGrid` 是用「有沒有 `company` 欄位」把專案分成「個人專案」/「公司專案」兩組顯示。
    4. `<ProjectsGrid>` 呼叫時務必同時傳入 `personalProjectsLabel`、`companyProjectsLabel`、`companyLogos={companyLogos}`（en/zh-TW 各自對應語言的標籤文案）。
-7. **驗證**：確認更新後的檔案仍可正確編譯（無 TypeScript 錯誤）。
+8. **驗證**：確認更新後的檔案仍可正確編譯（無 TypeScript 錯誤）。
 
 ---
 
