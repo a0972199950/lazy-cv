@@ -25,6 +25,10 @@ description: 搜尋指定公司的最新遠端軟體工程職缺，讀取 source
 3. Doist
 4. JFrog
 5. GitLab
+6. Automattic
+7. Buffer
+8. Atlassian
+9. Zapier
 
 除非使用者明確要求擴大搜尋範圍，否則：
 
@@ -1043,6 +1047,10 @@ Domain 不符合：
 - Doist
 - JFrog
 - GitLab
+- Automattic
+- Buffer
+- Atlassian
+- Zapier
 
 除非使用者明確要求：
 
