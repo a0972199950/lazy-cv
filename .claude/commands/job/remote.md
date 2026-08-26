@@ -1037,28 +1037,7 @@ Domain 不符合：
 
 ---
 
-# 35. 預設公司清單
-
-預設搜尋：
-
-- Supabase
-- DuckDuckGo
-- Doist
-- JFrog
-- Buffer
-- Zapier
-- Toggl
-- Help Scout
-
-除非使用者明確要求：
-
-「擴大搜尋」
-
-才搜尋其他公司。
-
----
-
-# 36. 最重要的原則
+# 35. 最重要的原則
 
 始終遵守：
 
