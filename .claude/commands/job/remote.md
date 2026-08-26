@@ -20,14 +20,14 @@ description: 搜尋指定公司的最新遠端軟體工程職缺，讀取 source
 
 預設目標公司為：
 
-1. Supabase
-2. DuckDuckGo
-3. Doist
-4. JFrog
-5. Buffer
-6. Zapier
-7. Toggl
-8. Help Scout
+1. **Supabase** — 全球遠端，開源 BaaS 平台，Glassdoor 4.9/5，WLB 4.4（樣本小，僅 9 則）
+2. **DuckDuckGo** — 全球遠端，搜尋引擎 / 瀏覽器，Glassdoor 4.4/5，WLB 4.8，2026 Glassdoor Best Place to Work
+3. **Doist** — 全球遠端 async-first，Todoist / Twist，Glassdoor 4.5/5，WLB 4.4，89% 推薦
+4. **Buffer** — 全球遠端，4 天工作週，Glassdoor 4.1 WLB；注意：2026 有裁員，升遷空間有限，尚待全面評估
+5. **Zapier** — 全球遠端（可境外工作最多 3 個月），自動化平台，Glassdoor 4.0/5，WLB 4.2；注意：2026 H1 有多名 Senior Leader 離職，文化處於觀察期
+6. **Toggl** — 全球遠端，尚未完整評估
+7. **Help Scout** — 全球遠端，尚未完整評估
+8. **PostHog** — 全球遠端，開源 Product Analytics（React 前端），高度自主文化，工作強度偏高
 
 除非使用者明確要求擴大搜尋範圍，否則：
 
