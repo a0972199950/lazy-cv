@@ -33,6 +33,7 @@ const contacts: ContactItem[] = [
 	{ href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
 	{ href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
 	{ href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+	{ href: "https://lazy-cv.com/019eea81-0875-7525-a980-affd9ff5f560/zh-TW", type: "website", label: "個人網站" },
 ];
 
 const experiences: Experience[] = [
@@ -42,9 +43,9 @@ const experiences: Experience[] = [
 		period: "2024.11 - 至今",
 		logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
 		highlights: [
-			"在大型 React + TypeScript Monorepo 中負責高影響力 UI 與流程模組，支援成長與結算場景。",
-			"面對高不確定性需求可獨立交付，並與 PM、設計、營運等角色密切協作。",
-			"透過 Scrum 改善與需求拆解流程，提升跨團隊執行穩定度與交付品質。",
+			"在管理 50+ 子專案、百萬級程式碼規模的 React + TypeScript Monorepo 中交付廣告投放結算系統的 UI 與資料流模組",
+			"導入 Web Worker + Comlink 多線程 CSV 校驗，將大型檔案造成的 UI 卡頓降低 90%",
+			"主導團隊導入 Scrum，以 refinement 打破工作孤島並消除忙閒不均的排程落差",
 		],
 	},
 	{
@@ -53,9 +54,9 @@ const experiences: Experience[] = [
 		period: "2021.08 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
 		highlights: [
-			"以 Vue SSR + GraphQL + TypeScript + ExpressJS 開發 LINE 購物正式環境功能。",
-			"帶領 4 人團隊將 CMS 從 PHP 遷移至 NextJS App Router，採分階段上線策略。",
-			"擔任 mentor 並參與公司前端規範制定，導入 Lighthouse CI 強化品質。",
+			"維護 LINE 購物的 Vue SSR 前端倉庫與整合數十個後端微服務的 BFF（Node.js + GraphQL + TypeScript），於 60 人團隊中每行程式碼皆需 review 才可合併",
+			"帶領 4 人團隊將 PHP CMS 重構為 Next.js App Router，達成前後端完全分離並降低後端團隊負擔",
+			"擔任 mentor 帶領 2 位新進工程師並主持內部 Next.js 教學論壇，兩位皆給予正向回饋",
 		],
 	},
 	{
@@ -64,9 +65,9 @@ const experiences: Experience[] = [
 		period: "2021.09 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
 		highlights: [
-			"獨立完成線上相簿編輯器從架構到上線的端到端交付。",
-			"打造可維護的拖曳與文字編輯互動，並兼顧跨裝置體驗。",
-			"支援 PWA 與長期迭代，確保產品穩定可演進。",
+			"獨立開發線上相簿編輯器核心，6 個月內從零打造並推上正式環境",
+			"主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程及金流結果串接",
+			"以前端消費端視角定義 API 合約、資料模型與錯誤處理，並與後端協作落地",
 		],
 	},
 	{
@@ -75,9 +76,8 @@ const experiences: Experience[] = [
 		period: "2021.01 - 2021.09",
 		logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
 		highlights: [
-			"在新創早期即主導前端架構選型並獨立推進核心功能交付。",
-			"使用 React + TypeScript 建置貸款與夥伴流程介面。",
-			"設計可重用元件模式，降低跨產品重工成本。",
+			"以 React + TypeScript 獨立建置 UI Kit、SME Portal 與 Partner Portal 三套前端系統",
+			"建立可重用元件模式，讓多個金融產品維持一致的設計與互動規範",
 		],
 	},
 	{
@@ -85,39 +85,37 @@ const experiences: Experience[] = [
 		role: "全端工程師",
 		period: "2020.12 - 2021.08",
 		logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
-		highlights: [
-			"於 AI 新團隊開發 B2B 平台，負責前後端整合與產品能力落地。",
-			"實作 API 與 UI 串接，將多個內部服務整合成可操作的管理介面。",
-		],
+		highlights: [],
+	},
+	{
+		company: "電獺股份有限公司",
+		role: "前端工程師",
+		period: "2019.08 - 2020.11",
+		logo: "https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
+		highlights: [],
+	},
+	{
+		company: "日商優橋",
+		role: "數位廣告優化師 & 前端工程師",
+		period: "2017.12 - 2019.03",
+		logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
+		highlights: [],
+	},
+	{
+		company: "亞洲遊",
+		role: "日本市場業務及營運",
+		period: "2016.09 - 2017.09",
+		logo: "https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
+		highlights: [],
 	},
 ];
 
 const projects: Project[] = [
 	{
-		name: "UG 海外增長業務平台（TikTok）",
-		summary:
-			"大型企業 Monorepo 平台，支援海外增長業務中的採購、結算與資料流程，涵蓋 50+ 子專案。",
-		stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest", "Web Worker"],
-		image: [
-			"https://cdn.lazy-cv.com/OA.png",
-			"https://cdn.lazy-cv.com/web-worker.png",
-			"https://cdn.lazy-cv.com/pp-performance.png",
-		],
-		highlights: [
-			"在高度模糊業務情境下設計配置驅動 UI 與可維護資料流。",
-			"強化前端架構效能與穩定性，支援大規模持續交付。",
-			"跨團隊溝通技術取捨，讓產品決策可落地且可擴展。",
-		],
-		contributions: [
-			"導入 Web Worker + Comlink CSV 驗證流程，UI 卡頓下降 90%。",
-			"建立渲染快取工具，重表單頁面 TBT 下降 98%。",
-		],
-	},
-	{
 		name: "LINE 購物",
 		summary:
-			"高流量電商導購平台，提供回饋機制與內容導向購物體驗。",
-		stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+			"高流量電商導購平台，提供回饋機制與內容導向購物體驗，前端團隊 60 人。",
+		stack: ["Vue 2", "Vue SSR (vue-server-renderer)", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Jest", "Storybook", "Lighthouse CI"],
 		image: [
 			"https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
 			"https://cdn.lazy-cv.com/shopping-live-hall.png",
@@ -126,65 +124,59 @@ const projects: Project[] = [
 		],
 		url: "https://buy.line.me",
 		contributions: [
-			"獨立開發可重用直播預覽排程機制，解決高速捲動與記憶體壓力問題。",
+			"獨立打造直播影片自動播放模組，以 IntersectionObserver、Vuex 與 HLS.js 實現捲動列表的流暢預覽體驗",
 		],
 	},
 	{
-		name: "CMS 遷移至 NextJS",
+		name: "AI.Book 線上相片書編輯器",
 		summary:
-			"主導 PHP CMS 遷移至 React + NextJS App Router，採漸進式路由切換策略。",
-		stack: ["React", "NextJS", "App Router", "TypeScript", "iframe 微服務"],
-		image: [
-			"https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
-			"https://cdn.lazy-cv.com/cms-graph.png",
-		],
-		highlights: [
-			"負責架構與交付規劃，管理多角色協作節點。",
-			"在維持服務穩定前提下完成新舊系統切換。",
-		],
-	},
-	{
-		name: "Lazy CV",
-		summary:
-			"AI 驅動履歷生成系統，將職缺內容自動轉為客製化中英文履歷頁。",
-		stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Claude API"],
-		image: [
-			"https://cdn.lazy-cv.com/lazy-cv-main.png",
-			"https://cdn.lazy-cv.com/lazy-cv-main-2.png",
-			"https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
-		],
-		url: "https://lazy-cv.com",
-		highlights: [
-			"自動化需求擷取與頁面生成流程，縮短交付時間。",
-			"結合型別安全與結構化流程，提升輸出穩定性。",
-		],
-	},
-	{
-		name: "AI.Book 相簿編輯器",
-		summary:
-			"支援拖曳與跨裝置編輯的線上相簿製作工具。",
-		stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+			"線上相片書編輯平台，使用者可於網頁直接排版個人化相簿並印製成實體書販售。",
+		stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "Vuex", "TailwindCSS", "vuedraggable", "cropperjs", "AWS Cognito OAuth2", "GitHub Actions", "Swagger/OpenAPI"],
 		image: [
 			"https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
 			"https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
 		],
 		highlights: [
-			"以單兵模式完成從架構設計到產品上線。",
-			"建立可持續迭代的 UI 基礎與互動能力。",
+			"以單兵模式完成技術選型、前端架構到編輯器核心的端到端交付，6 個月內上線",
+			"整合 vuedraggable、cropperjs 與 flipbook-vue 打造跨裝置拖曳排版體驗",
 		],
 	},
 	{
-		name: "FundFluent UI Kit Library",
+		name: "FundFluent SME Portal",
 		summary:
-			"以 Web Components 建立跨專案共享元件平台，提升多產品交付效率。",
-		stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
-		image: [
-			"https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
-			"https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
-		],
+			"面向香港中小企業的整合貸款平台，彙整銀行與政府各式貸款資訊，並以 OCR 協助歸類申請文件。",
+		stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "React Hook Form", "Yup", "next-i18next", "Docker", "GCP Artifact Registry", "GKE"],
+		image: "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
+		url: "https://app.fundfluent.io",
 		highlights: [
-			"建立共享設計與開發標準，減少重複開發。",
-			"以文件化與可復用元件提升協作速度與一致性。",
+			"整合銀行與政府貸款資訊，讓中小企業於單一介面完成多筆貸款申請",
+			"串接 OCR 文件歸類流程，消除申請多筆貸款時的重複提交成本",
+		],
+		contributions: [
+			"以 React 17 + Next.js 12 + TypeScript 從 0 單獨開發，架構與技術選型皆由個人決定",
+		],
+	},
+	{
+		name: "TWSG 視頻加速 for Bilibili",
+		summary:
+			"讓台灣／新加坡使用者觀看網頁版 Bilibili 更順暢的瀏覽器擴充套件，動態重排取流 CDN 節點並自動容錯。同一份原始碼支援 Chrome / Edge / Firefox 三平台與三語系，從架構、開發到上架維護皆個人獨立完成。",
+		stack: ["Chrome Extension Manifest V3", "Vanilla JavaScript (ES6+)", "chrome.storage", "chrome.i18n", "Content Scripts (MAIN world / ISOLATED world)", "fetch / XMLHttpRequest hook", "Node.js", "JSZip", "Puppeteer", "Sharp"],
+		image: [
+			"https://cdn.lazy-cv.com/promo-cover-1280x800.png",
+			"https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg",
+			"https://cdn.lazy-cv.com/10-days-report.png",
+			"https://cdn.lazy-cv.com/5-starts.png",
+		],
+		url: "https://chromewebstore.google.com/detail/dfaddcffoondcendifiljhdbdagebgch",
+		highlights: [
+			"以 MAIN world 注入 hook fetch/XHR 與 playinfo setter，即時改寫 DASH manifest 的 CDN host 且不影響頁面原生行為",
+			"設計自動容錯機制，監控分段請求狀態與播放進度，卡頓 8 秒內靜默切換至原生備援節點",
+			"歸納 Bilibili 論壇與社群的使用者反饋，排定修復優先順序並驅動功能迭代方向",
+		],
+		contributions: [
+			"上架 10 天瀏覽數 2,000、安裝數 1,000，轉換率達 50%",
+			"上架 10 天內周活躍使用者突破 1,000，留存率幾乎 100%",
+			"1,000 名使用者中獲得 14 筆五星好評、零負評，全數為自然流量",
 		],
 	},
 ];
@@ -239,11 +231,44 @@ const skillKeywordRows: SkillKeywordRow[] = [
 		marqueeClassName: "[--duration:37s]",
 		reverse: true,
 	},
+	{
+		keywords: ["Chrome Extension", "Manifest V3", "Puppeteer", "Vert.x", "Web Extension API"],
+		badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
+		marqueeClassName: "[--duration:38s]",
+	},
+	{
+		keywords: ["Redux", "React Query"],
+		badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
+		marqueeClassName: "[--duration:33s]",
+		reverse: true,
+	},
+	{
+		keywords: ["Apollo Client", "Apollo Server", "DataLoader", "Zod", "Neon PostgreSQL", "GCP", "Azure", "gRPC"],
+		badgeClassName: "border-lime-200 bg-lime-50/50 text-lime-800",
+		marqueeClassName: "[--duration:34s]",
+	},
+	{
+		keywords: ["Playwright", "TestCafe", "Karma", "Jasmine", "Testing Library", "Drone CI", "SonarQube", "Bitbucket Pipelines", "Azure Pipelines", "PM2"],
+		badgeClassName: "border-pink-200 bg-pink-50/50 text-pink-800",
+		marqueeClassName: "[--duration:39s]",
+		reverse: true,
+	},
+	{
+		keywords: ["Husky", "lint-staged", "Stylelint", "Sentry", "Radix UI", "shadcn", "daisyUI", "Fomantic UI", "PostCSS", "Stylus"],
+		badgeClassName: "border-blue-200 bg-blue-50/50 text-blue-800",
+		marqueeClassName: "[--duration:35s]",
+	},
+	{
+		keywords: ["Gulp", "Lit-html", "OAuth2", "JWT", "AWS Cognito", "bcryptjs", "Google Charts", "Handsontable", "GitHub"],
+		badgeClassName: "border-stone-200 bg-stone-50/50 text-stone-800",
+		marqueeClassName: "[--duration:31s]",
+		reverse: true,
+	},
 ];
 
 const stats: StatItem[] = [
 	{ label: "年前端經驗", value: 7 },
-	{ label: "個完整產品", value: 18 },
+	{ label: "個完整產品", value: 19 },
 	{ label: "人團隊管理", value: 4 },
 	{ label: "種語言能力", value: 3 },
 ];
@@ -276,14 +301,10 @@ export default function AppleResumeZhTW() {
 				name="John Hsieh"
 				avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
 				avatarFallback="JH"
-				jobTitle="UI Full Stack Engineer"
-				description={`我是一名 UI Full Stack Engineer，擁有 7 年軟體開發經驗，曾在 TikTok 與 LINE 等企業級組織負責大規模正式系統，也以單兵模式完整交付過多個契約產品。我熟練使用 React、TypeScript、Next.js、GraphQL 與 Node.js，具備從設計交接到正式上線的端到端 ownership 能力。
+				jobTitle={"資深軟體工程師 - TikTok\n應徵 UI Full Stack Engineer - Apple"}
+				description={`7 年前端開發經驗，於 TikTok 與 LINE 交付企業級正式系統。AI.Book 與 FundFluent 兩份契約案為完全獨立開發：AI.Book 的線上相片書編輯器 6 個月內從零打造上線，FundFluent 的 UI Kit、SME Portal 與 Partner Portal 三套系統亦由個人單獨完成；技術選型與架構皆自行決定，僅於里程碑節點對齊，而非逐步審核。
 
-Mentor 經歷是我最看重的工程師身份之一。在 LINE 擔任 Team Leader 期間，我正式 mentor 了兩位新進工程師，雙方都給予我正向回饋；同時我主導了公司內部 Next.js 教學論壇，幫助多位成員快速上手新架構。在帶領 CMS 重構團隊時，我不只寫程式，更負責系統架構設計、里程碑規劃、技術取捨說明，以及與非技術夥伴的溝通——這正是 Apple JD 中「mentor early-career engineers」與「communicate technical tradeoffs to non-technical stakeholders」的直接體現。
-
-全端能力方面，我設計並使用過 RESTful 與 GraphQL API，維護過服務於 UI 的 Express 後端端點，能跨越前後端邊界完整承擔需求。在 TikTok 的大型 Monorepo 中，我透過 Web Worker 卸載讓 UI 卡頓降低 90%，並用渲染快取工具讓 500 個表單頁面的 TBT 下降 98%——這是大規模系統中精準定位問題根源的實際案例。
-
-我可以為 Apple ETS 貢獻的是：在複雜、高模糊度的業務場景中可靠交付無障礙且可維護的 UI 功能、以清晰的溝通橋接工程與夥伴端、並持續帶動身邊工程師成長——因為打造好軟體與打造好團隊，對我來說是同一件事。`}
+API 設計與服務於 UI 的後端端點同屬自身守備範圍：在 LINE 購物同時維護 Vue SSR 前端倉庫與整合數十個後端微服務的 BFF（Node.js + GraphQL + TypeScript），在 AI.Book 則主導 RESTful API 設計，涵蓋 AWS Cognito OAuth2 登入與購物車訂單流程。核心技術棧為 React、TypeScript、Next.js 與 GraphQL。`}
 				location="Singapore"
 				stats={stats}
 				contacts={contacts}

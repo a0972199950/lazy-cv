@@ -69,18 +69,22 @@ export function WorkExperience({ title, experiences }: WorkExperienceProps) {
                           </p>
                         </div>
                       </div>
-                      <Separator className="bg-slate-200" />
-                      <ul className="grid gap-2 text-start text-sm text-slate-600">
-                        {exp.highlights.map((item) => (
-                          <li
-                            key={item}
-                            className="inline-flex items-start gap-2"
-                          >
-                            <BadgeCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      {exp.highlights.length > 0 && (
+                        <>
+                          <Separator className="bg-slate-200" />
+                          <ul className="grid gap-2 text-start text-sm text-slate-600">
+                            {exp.highlights.map((item) => (
+                              <li
+                                key={item}
+                                className="inline-flex items-start gap-2"
+                              >
+                                <BadgeCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
                     </div>
                   </div>
                   {idx !== experiences.length - 1 && <hr className="bg-cyan-600" />}

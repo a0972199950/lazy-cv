@@ -33,6 +33,7 @@ const contacts: ContactItem[] = [
 	{ href: "mailto:a0972199950@gmail.com", type: "mail", label: "a0972199950@gmail.com" },
 	{ href: "https://github.com/a0972199950", type: "github", label: "GitHub" },
 	{ href: "https://www.linkedin.com/in/john-hsieh/", type: "linkedin", label: "LinkedIn" },
+	{ href: "https://lazy-cv.com/019eea81-0875-7525-a980-affd9ff5f560/en", type: "website", label: "Personal Website" },
 ];
 
 const experiences: Experience[] = [
@@ -42,9 +43,9 @@ const experiences: Experience[] = [
 		period: "2024.11 - Present",
 		logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
 		highlights: [
-			"Own critical UI and workflow modules for growth and settlement systems in a large React + TypeScript Monorepo.",
-			"Deliver across ambiguous business requirements and collaborate closely with PM, design, and operations stakeholders.",
-			"Improve delivery quality through Scrum refinement, retrospectives, and cross-team execution alignment.",
+			"Deliver UI and data-flow modules for the ad settlement system inside a React + TypeScript monorepo spanning 50+ sub-projects and a million-line codebase",
+			"Introduced multi-threaded CSV validation with Web Worker and Comlink, cutting UI blocking time by 90% on large files",
+			"Drove Scrum adoption across the team, using refinement to break siloed work and remove uneven workload cycles",
 		],
 	},
 	{
@@ -53,9 +54,9 @@ const experiences: Experience[] = [
 		period: "2021.08 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
 		highlights: [
-			"Built production commerce features with Vue SSR + GraphQL + TypeScript + ExpressJS for LINE Shopping.",
-			"Led a 4-person migration project from legacy PHP CMS to NextJS App Router with staged rollout.",
-			"Mentored junior engineers and helped standardize engineering quality with Lighthouse CI practices.",
+			"Maintained both the Vue SSR frontend repo and the BFF (Node.js + GraphQL + TypeScript) fronting dozens of backend microservices, across a 60-engineer team where every line required review before merge",
+			"Led 4 engineers refactoring a PHP CMS into Next.js App Router, reaching full frontend-backend separation and cutting backend team load",
+			"Mentored 2 new engineers and ran an internal Next.js teaching forum, with positive feedback from both mentees",
 		],
 	},
 	{
@@ -64,9 +65,9 @@ const experiences: Experience[] = [
 		period: "2021.09 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
 		highlights: [
-			"Independently delivered a full online photo-book editor from architecture to production launch.",
-			"Designed maintainable UI interactions for drag-drop, text editing, and responsive authoring workflows.",
-			"Shipped cross-device editing experience with PWA support and long-term maintainability in mind.",
+			"Built the core online photo-book editor solo, taking it from zero to production within 6 months",
+			"Owned backend API design spanning AWS Cognito OAuth2 sign-in, cart and order flow, and payment result integration",
+			"Defined API contracts, data models and error handling from the frontend consumer perspective, then drove them to production with the backend team",
 		],
 	},
 	{
@@ -75,9 +76,8 @@ const experiences: Experience[] = [
 		period: "2021.01 - 2021.09",
 		logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
 		highlights: [
-			"Joined at startup stage and owned frontend architecture decisions with minimal direction.",
-			"Built React + TypeScript interfaces and partner workflows for financial service products.",
-			"Created reusable component patterns to improve consistency and delivery speed across products.",
+			"Built 3 frontend systems independently with React and TypeScript: UI Kit, SME Portal and Partner Portal",
+			"Created reusable component patterns keeping design and interaction consistent across multiple financial products",
 		],
 	},
 	{
@@ -85,39 +85,37 @@ const experiences: Experience[] = [
 		role: "Full-Stack Engineer",
 		period: "2020.12 - 2021.08",
 		logo: "https://cdn.lazy-cv.com/75d1d563-32a1-4b4a-a742-8c6b32f6f09c.png",
-		highlights: [
-			"Built full-stack B2B product capabilities across UI and API layers in a fast-moving AI team.",
-			"Implemented backend endpoints and integrated multiple internal services into unified product surfaces.",
-		],
+		highlights: [],
+	},
+	{
+		company: "Aotter Inc.",
+		role: "Frontend Engineer",
+		period: "2019.08 - 2020.11",
+		logo: "https://cdn.lazy-cv.com/1ad1ff53-a1a0-4d15-8cb0-e1724400d7af.png",
+		highlights: [],
+	},
+	{
+		company: "Asian Bridge Inc.",
+		role: "Digital Ad Personnel & Frontend Developer",
+		period: "2017.12 - 2019.03",
+		logo: "https://cdn.lazy-cv.com/63b9fb91-0467-4bfd-ae30-ffacda3d4ea9.png",
+		highlights: [],
+	},
+	{
+		company: "AsiaYo Inc.",
+		role: "Japanese Sales and Operation",
+		period: "2016.09 - 2017.09",
+		logo: "https://cdn.lazy-cv.com/e83f7c62-e839-4d21-bdd2-decd9ed39bf1.png",
+		highlights: [],
 	},
 ];
 
 const projects: Project[] = [
 	{
-		name: "UG Overseas Platform (TikTok)",
-		summary:
-			"Enterprise Monorepo platform supporting overseas growth operations across procurement, settlement, and data workflows with 50+ sub-projects.",
-		stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest", "Web Worker"],
-		image: [
-			"https://cdn.lazy-cv.com/OA.png",
-			"https://cdn.lazy-cv.com/web-worker.png",
-			"https://cdn.lazy-cv.com/pp-performance.png",
-		],
-		highlights: [
-			"Built complex, schema-driven UI flows for ambiguous business domains.",
-			"Implemented performant and reliable frontend architecture in a large production codebase.",
-			"Partnered across teams to translate technical constraints into product decisions.",
-		],
-		contributions: [
-			"Built Web Worker + Comlink CSV validation and reduced UI blocking by 90%.",
-			"Introduced rendering cache utilities and reduced TBT by 98% on heavy forms.",
-		],
-	},
-	{
 		name: "LINE Shopping",
 		summary:
-			"High-traffic commerce platform with point-based affiliate experiences and content-rich shopping flows.",
-		stack: ["Vue SSR", "GraphQL", "TypeScript", "ExpressJS", "SASS"],
+			"High-traffic e-commerce affiliate platform offering cashback and content-driven shopping, built by a 60-engineer frontend org.",
+		stack: ["Vue 2", "Vue SSR (vue-server-renderer)", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Jest", "Storybook", "Lighthouse CI"],
 		image: [
 			"https://cdn.lazy-cv.com/line-shopping-main-page.jpg",
 			"https://cdn.lazy-cv.com/shopping-live-hall.png",
@@ -126,65 +124,59 @@ const projects: Project[] = [
 		],
 		url: "https://buy.line.me",
 		contributions: [
-			"Independently implemented a reusable live-video preview scheduler to solve high-scroll instability and memory pressure.",
+			"Built the live-shopping video autoplay module independently with IntersectionObserver, Vuex and HLS.js, delivering smooth scroll-list preview",
 		],
 	},
 	{
-		name: "CMS Migration to NextJS",
+		name: "AI.Book Online Photo-Book Editor",
 		summary:
-			"Led migration from PHP-based CMS to React + NextJS App Router with progressive path-based rollout.",
-		stack: ["React", "NextJS", "App Router", "TypeScript", "iframe micro-services"],
-		image: [
-			"https://cdn.lazy-cv.com/41da786b-6237-4ac5-90d0-541fa32f8be4.png",
-			"https://cdn.lazy-cv.com/cms-graph.png",
-		],
-		highlights: [
-			"Owned architecture and delivery planning for a multi-stakeholder migration project.",
-			"Enabled minimal-risk transition between old and new systems.",
-		],
-	},
-	{
-		name: "Lazy CV",
-		summary:
-			"AI-driven resume generator that transforms job postings into tailored bilingual resume pages through automation.",
-		stack: ["Next.js 16", "TypeScript", "TailwindCSS 4", "Drizzle ORM", "Neon PostgreSQL", "AWS Lambda", "Claude API"],
-		image: [
-			"https://cdn.lazy-cv.com/lazy-cv-main.png",
-			"https://cdn.lazy-cv.com/lazy-cv-main-2.png",
-			"https://cdn.lazy-cv.com/lazy-cv-auto.jpg",
-		],
-		url: "https://lazy-cv.com",
-		highlights: [
-			"Automated requirement extraction and UI generation from real job descriptions.",
-			"Applied strong type-safety and structured workflows for stable output quality.",
-		],
-	},
-	{
-		name: "AI.Book Photo Editor",
-		summary:
-			"Online photo-book editor with drag-and-drop authoring and cross-device editing support.",
-		stack: ["Vue", "NuxtJS", "PWA", "IndexedDB"],
+			"Online photo-book platform where users lay out personalized albums in the browser and print them as physical keepsake books.",
+		stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "Vuex", "TailwindCSS", "vuedraggable", "cropperjs", "AWS Cognito OAuth2", "GitHub Actions", "Swagger/OpenAPI"],
 		image: [
 			"https://cdn.lazy-cv.com/ec9dea67-c5f6-4172-9215-b92b7c248811.png",
 			"https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
 		],
 		highlights: [
-			"Delivered full product lifecycle from architecture to launch as a solo engineer.",
-			"Built maintainable UI foundations for rich interactions and long-term iteration.",
+			"Delivered tech selection, frontend architecture and the editor core end to end as a solo engineer, launching within 6 months",
+			"Integrated vuedraggable, cropperjs and flipbook-vue into a cross-device drag-and-drop layout experience",
 		],
 	},
 	{
-		name: "FundFluent UI Kit Library",
+		name: "FundFluent SME Portal",
 		summary:
-			"Reusable cross-project component system built with Web Components for framework-agnostic adoption.",
-		stack: ["Stencil.js", "Web Component", "TailwindCSS", "Storybook"],
-		image: [
-			"https://cdn.lazy-cv.com/fundfluent-ui-kit.png",
-			"https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
-		],
+			"Integrated lending platform for Hong Kong SMEs, aggregating bank and government loan programs with OCR-assisted document classification.",
+		stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "React Hook Form", "Yup", "next-i18next", "Docker", "GCP Artifact Registry", "GKE"],
+		image: "https://cdn.lazy-cv.com/63c205b8-d3e0-4ad0-bb82-0d0f411b94e5.png",
+		url: "https://app.fundfluent.io",
 		highlights: [
-			"Created shared UI standards and documentation for faster multi-product delivery.",
-			"Reduced duplicated engineering effort through a scalable component platform.",
+			"Aggregated bank and government loan programs so SMEs apply for multiple loans through a single interface",
+			"Wired in an OCR document-classification flow, removing repeated paperwork submission across multiple loan applications",
+		],
+		contributions: [
+			"Built from zero single-handed on React 17 + Next.js 12 + TypeScript, owning architecture and tech selection outright",
+		],
+	},
+	{
+		name: "TWSG Video Accelerator for Bilibili",
+		summary:
+			"Browser extension making web Bilibili smoother for Taiwan and Singapore viewers by rerouting the streaming CDN host with automatic failover. One codebase ships to Chrome, Edge and Firefox in 3 locales, designed, built, published and maintained entirely solo.",
+		stack: ["Chrome Extension Manifest V3", "Vanilla JavaScript (ES6+)", "chrome.storage", "chrome.i18n", "Content Scripts (MAIN world / ISOLATED world)", "fetch / XMLHttpRequest hook", "Node.js", "JSZip", "Puppeteer", "Sharp"],
+		image: [
+			"https://cdn.lazy-cv.com/promo-cover-1280x800.png",
+			"https://cdn.lazy-cv.com/screenshot-speedtest-en-1280x800.jpg",
+			"https://cdn.lazy-cv.com/10-days-report.png",
+			"https://cdn.lazy-cv.com/5-starts.png",
+		],
+		url: "https://chromewebstore.google.com/detail/dfaddcffoondcendifiljhdbdagebgch",
+		highlights: [
+			"Injected a MAIN-world script hooking fetch/XHR and the playinfo setter to rewrite the DASH manifest CDN host live without disturbing native page behavior",
+			"Designed automatic failover monitoring segment request status and playback progress, silently switching to the native backup node after an 8-second stall",
+			"Synthesized user feedback across Bilibili forums and communities to prioritize fixes and drive the feature roadmap",
+		],
+		contributions: [
+			"2,000 views and 1,000 installs within 10 days of launch, a 50% conversion rate",
+			"Weekly active users passed 1,000 within 10 days of launch, retention near 100%",
+			"14 five-star reviews with zero negative reviews among 1,000 users, all from organic traffic",
 		],
 	},
 ];
@@ -239,11 +231,44 @@ const skillKeywordRows: SkillKeywordRow[] = [
 		marqueeClassName: "[--duration:37s]",
 		reverse: true,
 	},
+	{
+		keywords: ["Chrome Extension", "Manifest V3", "Puppeteer", "Vert.x", "Web Extension API"],
+		badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
+		marqueeClassName: "[--duration:38s]",
+	},
+	{
+		keywords: ["Redux", "React Query"],
+		badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
+		marqueeClassName: "[--duration:33s]",
+		reverse: true,
+	},
+	{
+		keywords: ["Apollo Client", "Apollo Server", "DataLoader", "Zod", "Neon PostgreSQL", "GCP", "Azure", "gRPC"],
+		badgeClassName: "border-lime-200 bg-lime-50/50 text-lime-800",
+		marqueeClassName: "[--duration:34s]",
+	},
+	{
+		keywords: ["Playwright", "TestCafe", "Karma", "Jasmine", "Testing Library", "Drone CI", "SonarQube", "Bitbucket Pipelines", "Azure Pipelines", "PM2"],
+		badgeClassName: "border-pink-200 bg-pink-50/50 text-pink-800",
+		marqueeClassName: "[--duration:39s]",
+		reverse: true,
+	},
+	{
+		keywords: ["Husky", "lint-staged", "Stylelint", "Sentry", "Radix UI", "shadcn", "daisyUI", "Fomantic UI", "PostCSS", "Stylus"],
+		badgeClassName: "border-blue-200 bg-blue-50/50 text-blue-800",
+		marqueeClassName: "[--duration:35s]",
+	},
+	{
+		keywords: ["Gulp", "Lit-html", "OAuth2", "JWT", "AWS Cognito", "bcryptjs", "Google Charts", "Handsontable", "GitHub"],
+		badgeClassName: "border-stone-200 bg-stone-50/50 text-stone-800",
+		marqueeClassName: "[--duration:31s]",
+		reverse: true,
+	},
 ];
 
 const stats: StatItem[] = [
 	{ label: "Years Frontend Exp.", value: 7 },
-	{ label: "Products Shipped", value: 18 },
+	{ label: "Products Shipped", value: 19 },
 	{ label: "Team Members Led", value: 4 },
 	{ label: "Languages Spoken", value: 3 },
 ];
@@ -276,16 +301,10 @@ export default function AppleResumeEN() {
 				name="John Hsieh"
 				avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
 				avatarFallback="JH"
-				jobTitle="UI Full Stack Engineer"
-				description={`I am a UI Full Stack Engineer with 7 years of experience delivering production software across enterprise-scale systems at TikTok and LINE, and as a solo founder-engineer in contract projects. I am proficient in React, TypeScript, Next.js, GraphQL, and Node.js, and I have a proven record of owning complex, ambiguous deliverables end-to-end — from design handoff through to production.
+				jobTitle={"Senior Software Engineer - TikTok\nApply for UI Full Stack Engineer - Apple"}
+				description={`7 years of frontend engineering, shipping production systems at TikTok and LINE. AI.Book and FundFluent were both built entirely solo: the AI.Book photo-book editor went zero to launch in 6 months, and FundFluent UI Kit, SME Portal and Partner Portal were each delivered single-handed - architecture and tech selection owned outright, aligned at milestones, not reviewed step by step.
 
-At LINE, I served as Team Leader on a 4-person CMS migration project: I designed the full system architecture, planned milestones, communicated technical tradeoffs to non-technical stakeholders, and coached the team throughout execution. Beyond that project, I formally mentored two junior engineers — both gave positive feedback — and led an internal Next.js teaching forum to accelerate onboarding for new hires. This track record of mentoring and raising the team quality bar maps directly to what Apple ETS is looking for.
-
-On the full-stack side, I have designed and consumed RESTful and GraphQL APIs, built backend endpoints that serve UI data layers, and maintained Express-based server logic in production — giving me the fluency to work across the stack that this role requires.
-
-I have also been applying debugging at scale: at TikTok I identified and resolved rendering bottlenecks that reduced Total Blocking Time by 98% on a 500-form interface, and cut UI thread blocking by 90% through Web Worker offloading.
-
-What I can contribute to Apple ETS: I will own UI features across ambiguous problem spaces, bring accessibility and maintainability discipline to every surface I touch, and actively grow the engineers around me — because building great software and building great teams are inseparable goals.`}
+API design and the backend endpoints serving the UI sit in that same scope: at LINE Shopping, maintained the Vue SSR frontend repo alongside the BFF (Node.js + GraphQL + TypeScript) fronting dozens of backend microservices; at AI.Book, owned RESTful API design for AWS Cognito OAuth2 sign-in, cart and order flow. Core stack is React, TypeScript, Next.js and GraphQL.`}
 				location="Singapore"
 				stats={stats}
 				contacts={contacts}

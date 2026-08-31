@@ -9,6 +9,7 @@
     "lint": "eslint",
     "cv": "dotenv -e .env.local tsx scripts/create-cv.ts",
     "applied-jobs": "dotenv -e .env.local tsx scripts/list-applied-jobs.ts",
+    "check-cv": "tsx scripts/check-cv.ts",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

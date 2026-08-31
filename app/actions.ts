@@ -49,3 +49,25 @@ export async function deleteResume(id: string) {
     return { success: false, error: 'Failed to delete resume' }
   }
 }
+// 更新面試 / offer 狀態
+export async function updateResumeStatus(
+  id: string,
+  data: { hasInterview?: boolean; hasOffer?: boolean }
+) {
+  try {
+    const result = await db
+      .update(resumes)
+      .set({
+        ...data,
+        updatedAt: new Date(),
+      })
+      .where(eq(resumes.id, id))
+      .returning()
+
+    revalidatePath('/')
+    return { success: true, data: result[0] }
+  } catch (error) {
+    console.error('Error updating resume status:', error)
+    return { success: false, error: 'Failed to update resume status' }
+  }
+}

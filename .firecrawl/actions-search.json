@@ -1,6 +1,0 @@
-[
-  {"type": "click", "selector": "input[type='search'], input[placeholder*='Search' i]"},
-  {"type": "write", "text": "Frontend Engineer"},
-  {"type": "press", "key": "Enter"},
-  {"type": "wait", "milliseconds": 4000}
-]

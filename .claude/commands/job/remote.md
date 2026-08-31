@@ -257,6 +257,21 @@ pnpm applied-jobs
 
 搜尋結果 snippet 只能用來「發現」職缺。
 
+## ⚠️ 職缺列表必須讀完所有分頁
+
+**只讀第一頁就下結論是明確禁止的。** 職缺列表頁幾乎都有分頁或無限捲動，第一頁通常只有 10～25 筆，漏掉後面幾頁會直接導致遺漏適合的職缺。
+
+每次抓取職缺列表時，必須：
+
+1. **先找出結果總數。** 列表頁通常會寫「38 jobs matched」「Showing 1-20 of 57」「Page 1 of 3」之類的字樣，先把這個數字記下來。
+2. **逐頁抓完。** 依該網站的分頁參數往下抓（例如 Google Careers 用 `&page=2`、`&page=3`；Greenhouse / Lever / Ashby 各有自己的參數或 API；LinkedIn 用 `&start=25` 遞增），直到沒有新職缺為止。
+3. **自我核對數量。** 收集到的職缺數必須等於第 1 步的總數。**對不上就不能往下做**，要回頭補抓或改用其他抓取方式（`--actions` 模擬翻頁、Browser MCP 捲動載入）。
+4. **在結果中回報數字。** 明確寫出「總數 X 筆、實際讀取 X 筆」，讓使用者知道有沒有漏。
+
+如果某個來源確實無法取得全部分頁（例如需要登入、或無限捲動載不完），必須在最終結果中**明講「這個來源只讀到前 N 筆，可能有遺漏」**，不可以靜默略過。
+
+無限捲動的列表（例如部分 ATS 與 LinkedIn）要用 Firecrawl 的 `--actions` 反覆送出 `scroll` 動作，或改用 Browser MCP 捲到底部後再讀取，不能只抓首屏。
+
 如果無法打開並確認職缺仍然有效：
 
 **不要把它列為已確認的目前職缺。**
@@ -597,31 +612,174 @@ Domain 不符合：
 
 每個職缺給 0～100 分。
 
+## ⚠️ 每個職缺都必須實際評分，禁止提早分桶
+
+通過前面硬性篩選的職缺，**每一個都必須實際跑完下面五大類的評分**，才能決定要不要列入結果。
+
+嚴禁以下做法：
+
+- 在職缺列表頁（搜尋結果頁）只看標題或摘要，就把職缺歸類成「這是 ML 的」「這是後端的」「這是行動端的」然後直接淘汰。
+- 打開 JD 之後，只用來「確認」列表頁時已經下好的判斷，而不是重新評估。
+- 用分類取代評分。
+
+列表頁的資訊只能用來**排序閱讀順序**，不能用來淘汰。淘汰只能發生在讀完 JD 的 Required、Preferred、Responsibilities 三段並完成評分之後。
+
+「篩選而非收集」那一節指的是**最終輸出只列值得投的**，不是允許在讀 JD 之前就先砍掉候選。
+
+如果某個職缺最終沒有列入結果，必須能講出它的**實際分數與落榜的具體 Required 項目**，而不是只說「這是某某類型的職缺」。
+
 ## 技術匹配：35 分
 
 - Required skills：20
 - Preferred skills：10
 - Architecture / Engineering experience：5
 
+### ⚠️ 前端契合度分級（先判這一項，再算其他分數）
+
+使用者的核心是前端／全端。**JD 有沒有明講前端，是最強的匹配訊號**，必須先分級，再進行後續評分。
+
+| 級別 | 判準 | 技術匹配調整 |
+| ---- | ---- | ------------ |
+| **A 級** | MQ **明列** JavaScript / TypeScript / front-end / web，**且** 職責或 Preferred 明確指出工作是 Web 架構／Web 產品 | 技術匹配 **+5**（35 分上限內） |
+| **B 級** | MQ 明列 JavaScript / TypeScript / front-end，但職責偏 server-side、ML 或內部工具，不是 Web 產品 | 不調整 |
+| **C 級** | MQ **只列後端語言**，僅靠 Responsibilities 的前端描述保留（見下方純後端規則的例外） | 技術匹配 **−5** |
+| **D 級** | MQ 只列後端語言，且 Responsibilities 也沒有任何前端字眼 | **直接排除** |
+
+A 級是使用者最想要的形態：公司白紙黑字說「我們接受 JavaScript」而且「這是一個 Web 架構的產品」。這種職缺的錄取現實性與工作內容契合度，都明顯高於「MQ 只寫 Java/C++/Python/Go、要從職責描述去推測有沒有前端」的職缺。
+
+C 級要扣分，是因為「MQ 沒把前端寫進門檻」本身就是風險訊號：recruiter screen 很可能按 MQ 篩人，而且實際前後端比重無法確認。
+
+**排序時，A 級一律排在同分或分數略高的 C 級之前。** 詳見排序那一節。
+
 ### ⚠️ 核心技能斷層額外懲罰
 
-如果 Required（最低必要條件）中包含一項「核心技術棧」要求（例如程式語言、核心框架），而使用者在 `source/` 中完全沒有該技術棧的實務經驗（不是弱項，是完全沒用過）：
+如果 Required（最低必要條件）中包含一項「核心技術棧」要求，而使用者在 `source/` 中完全沒有該技術棧的實務經驗（不是弱項，是完全沒用過）：
 
 **Required skills 這一項該子項給 0 分（不是打折），並且從總分再額外扣 15 分。**
 
-例如：JD 要求「5 年 C++/Java/Python/Go 開發經驗」，但使用者核心技術棧是 TypeScript/JavaScript，完全沒有這四種語言的實務經驗——這屬於核心技能斷層，除了 Required skills 該子項給 0 分，總分還要再扣 15 分。
+但是，**套用這個懲罰之前，必須先判斷 JD 的技術要求屬於「廣泛型」還是「專精型」。只有專精型才觸發懲罰。**
 
-只適用於：
+#### 廣泛型：不觸發懲罰
 
-- JD 明確列為 Required/Minimum qualification 的核心技術棧，且使用者完全沒有實務經驗
+當 Required 列出的是**一串通用程式語言的舉例**時，例如：
 
-不適用於：
+- 「software programming in C++, Java, Python or Go」
+- 「one or more programming languages (e.g., Python, C, C++, Java, JavaScript)」
+- 「back-end such as Java, Python, Golang, or C++ codebases」
+- 「one or more general purpose programming languages」
 
-- Nice-to-have / Preferred 項目
+這種寫法——尤其是同時列出 Java / Python / Go / C++ 這種彼此差異很大的語言，或帶有 `such as` / `e.g.` / `one or more` 這類字眼——代表公司要的是**紮實的通用後端與工程能力，而不是某個特定語言**。實務上錄取後照樣要學公司內部的語言與框架。
+
+因此：
+
+- 只要使用者具備**同等級的後端實務經驗**（例如 Node.js / Express / NestJS 寫過正式上線的服務、設計過 API、處理過資料庫），就視為**符合這項 Required**。
+- **不觸發 15 分懲罰**，Required 子項也不給 0 分，至多因語言不同而小幅扣分（20 分制下給 14～17 分即可）。
+- 在「主要缺口」欄可以註記「後端語言與現職不同（Node.js vs Java/C++）」，但**不得因此把職缺降級或淘汰**。
+
+#### ⚠️ 純後端職缺：直接排除（優先於廣泛型判定）
+
+**廣泛型不扣分的前提，是這個職缺確實含前端／全端成分。**
+
+如果 JD 的技術要求**只提到後端語言** —— 例如 MQ 只寫「software programming in C++, Java, Python or Go」，通篇沒有 JavaScript / TypeScript / HTML / CSS / front-end / web / client 任何一項 —— 代表這是一個**純後端職缺**。
+
+依 `source/ideal-job.md` 的硬性條件（「絕對排除條件：完全不接受『純後端』且『後端語言非 Node.js』的職缺」）：
+
+**直接排除，不列入結果，也不進入評分。**
+
+對照兩種寫法：
+
+- MQ 寫「back-end such as Java, Python, Golang, or C++ codebases, **and front-end experience including JavaScript or TypeScript, HTML, CSS**」→ 這是全端職缺，套用廣泛型，Node.js 視同符合，**保留**。
+- MQ 只寫「software programming in C++, Java, Python or Go」→ 純後端職缺，**排除**。
+
+判斷時看的是**整份 MQ 有沒有出現任何前端／全端字眼**，不是只看語言那一行。職稱本身帶有 Server / Backend / Infrastructure / Distributed Systems 字樣時，是額外的佐證。
+
+#### 唯一例外：職責明確寫出前端工作
+
+只有當 Responsibilities **明確**寫出前端／Web UI／client 開發工作時（例如「operating across the stack from backend infrastructure to **frontend mobile and web ecosystems**」「focusing on RPC integration and **UI excellence**」），才視為全端職缺予以保留，並且必須在「主要缺口」欄標註：
+
+> MQ 只列後端語言，前端成分僅見於職責描述，需在面試時確認實際前後端比重。
+
+這是「以實際職責為準」原則的**對稱套用**：職責可以推翻過於寬鬆的 MQ（MQ 寫 JS/TS 但實際做 Flutter → 扣分），同樣也可以推翻過於狹窄的 MQ（MQ 只列後端語言但實際要做 web UI → 保留）。
+
+若 Responsibilities 也沒有任何前端字眼，就是純後端，不得因為 Preferred 提到「full-stack」或「web」就保留 —— Preferred 不是工作內容。
+
+#### 專精型：觸發懲罰
+
+只有當 Required 指定的是**某個特定生態系、且換掉它這份工作的核心內容就會改變**時，才觸發懲罰。例如：
+
+- 「3 years of native Android application development (Java/Kotlin)」
+- 「native iOS development (Swift, SwiftUI)」
+- 「Experience developing mobile applications using Flutter and Dart」
+- 「Unreal Engine / C++ 遊戲引擎開發」
+- 「Rust 系統程式開發」
+- 「Salesforce Apex」「SAP ABAP」等專屬平台語言
+
+這類要求不是「隨便哪個語言都行」，而是綁定平台或框架本身，使用者完全沒有經驗時才屬於核心技能斷層。
+
+#### 判準三問
+
+不確定屬於哪一型時，依序問：
+
+1. 這串清單是「通用語言的列舉」，還是「指定一個特定生態系」？
+2. 把語言換掉，這份工作的核心內容會不會改變？（不會 → 廣泛型；會 → 專精型）
+3. 使用者是否具備同層級的工程實務經驗，只是語言不同？（是 → 廣泛型）
+
+三問中只要有兩問指向廣泛型，就**不要**套用懲罰。
+
+#### 以實際職責為準
+
+MQ 寫得寬鬆、但 Responsibilities 顯示主要工作綁定某個專屬技術棧時（例如 MQ 寫 JavaScript/TypeScript，但職責第一條是「Work extensively in a Flutter (Dart) codebase」），**以實際職責為準**，視為專精型並觸發懲罰。
+
+反之，MQ 列了一串後端語言、但職責是一般的全端產品開發時，**維持廣泛型判定，不扣重分**。
+
+#### 其他不適用情況
+
+- Nice-to-have / Preferred 項目（見下方「Preferred 缺口不得作為淘汰理由」）
 - 使用者有部分或間接經驗的技能（例如同語系不同版本、同類框架但非同一套）
 - 軟性技能（溝通、leadership 等）
 
 這筆懲罰在其他四大類分數加總完成後扣除，可能讓職缺從 🟢 掉到 🟡，甚至掉到 ⚪，必須如實反映在分級與「主要缺口」欄位中，不要因為其他類別分數高就淡化這個缺口。
+
+### ⚠️ Required 領域經驗斷層（非語言類的硬缺口）
+
+核心技能斷層處理的是「語言／框架」。但 Required 也常要求**某個領域的實務年資**，例如：
+
+- 「3 years of experience with ML infrastructure (model deployment, model evaluation, data processing, debugging)」
+- 「3 years of experience with speech/audio, reinforcement learning, or specialization in another ML field」
+- 「3 years of experience building software for data privacy or security」
+- 「5 years of experience in data analysis」「5 years of experience with Python and SQL」
+- 「3 years of experience designing, building, and maintaining large-scale data processing systems」
+
+這類要求**不是加分項，是最低門檻**。使用者在 `source/` 中該領域**完全空白**（0 年）時，依年資門檻處理：
+
+| Required 要求年資 | 處理方式 |
+| ----------------- | -------- |
+| **3 年以上** | **直接排除，不進入評分。** 差距太大，連 recruiter screen 都過不了 |
+| **1～2 年**（或未寫年資、只寫 "Experience with…"） | Required 子項給 **0 分**，總分再額外扣 **15 分**（比照專精型斷層） |
+| Required 出現 **2 條以上同領域**年資要求 | **一律直接排除**，不論年資多寡 |
+
+#### 關鍵區分：這項要求在 Required 還是 Preferred
+
+這條規則與「Preferred 缺口不得作為淘汰理由」不衝突，兩者的分界就是**該項要求出現在哪一段**：
+
+- ML 只出現在 **Preferred**，Required 只要「2 年任一語言 + 2 年資料結構」→ **正常評分並列入結果**（例如 Wallet Multimodal Intelligence 這種職缺，職責雖然大量談 ML，但門檻沒要求 ML）。
+- ML 出現在 **Required**，而且要 3 年、甚至兩條各 3 年 → **這就是一個 ML 職缺**，直接排除，不要因為 Preferred 或職責裡有 agentic flow、prompt engineering 這類使用者擅長的字眼就保留它。
+
+判斷一個職缺「本質上是不是使用者做的那種職缺」，看的是 **Required 要求什麼樣的人**，不是職責段落提到什麼技術。
+
+### ⚠️ Preferred 缺口不得作為淘汰理由
+
+Preferred / Nice-to-have /「加分」欄位裡的任何缺口，**一律只能扣 Preferred skills 那 10 分裡的分數，不得作為淘汰、降級或跳過評分的理由**。
+
+特別注意這個常見錯誤：JD 的 Required 完全沒提某項技術（例如 Machine Learning），只在 Preferred 出現，而 Responsibilities 段落大量描述該技術。這種情況**不構成淘汰理由**——Required 才是門檻，Responsibilities 描述的是團隊在做什麼，不是錄取條件。使用者只要跨得過 Required，就必須正常評分並列入結果，把缺口寫在「主要缺口」欄。
+
+不得自行發明本文件中不存在的淘汰類別（例如「這是 ML 職缺」「這是資料職缺」「領域斷層」）。淘汰理由只有以下五種，其餘一律進入評分：
+
+1. 已投遞過（見前面的資料庫排除規則）
+2. EP / 遠端資格有明確反證
+3. 地點不符
+4. Required 硬性不符（**專精型**核心技能斷層，或年資／Level 明顯不足）
+5. 職務性質根本不同（例如 IC 職缺 vs 人事管理職、業務／顧問職）
 
 ## Seniority / Scope：20 分
 
@@ -845,12 +1003,15 @@ Domain 不符合：
 
 按照：
 
-1. 匹配分數
-2. Remote eligibility
-3. Seniority match
-4. Technical match
+1. **前端契合度分級（A > B > C）** —— A 級一律排在 C 級之前，即使 C 級分數高出 5 分以內
+2. 匹配分數
+3. Remote eligibility
+4. Seniority match
+5. Technical match
 
 排序。
+
+前端契合度之所以排在分數之前，是因為「MQ 明確接受 JavaScript ＋ 明確是 Web 架構產品」這個組合，對使用者而言是比總分高幾分更重要的訊號：它同時代表錄取現實性高、實際工作內容對得上。
 
 不要因為某家公司名氣比較大，就把它的低匹配職缺排在高匹配職缺前面。
 

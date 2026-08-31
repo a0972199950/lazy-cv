@@ -7,9 +7,25 @@ import {
   CheckIcon, 
   XMarkIcon,
   ClipboardIcon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+  ChevronUpDownIcon,
 } from '@heroicons/react/24/outline'
-import { getResumes, updateResume, deleteResume } from './actions'
+import { getResumes, updateResume, deleteResume, updateResumeStatus } from './actions'
 import { Resume } from '@/lib/db/schemas/resume.schema'
+
+type SortKey = 'createdAt' | 'updatedAt'
+type SortOrder = 'asc' | 'desc'
+
+// 表頭排序指示圖示
+function SortIcon({ active, order }: { active: boolean, order: SortOrder }) {
+  if (!active) {
+    return <ChevronUpDownIcon className="w-4 h-4 text-slate-400" />
+  }
+  return order === 'asc'
+    ? <ChevronUpIcon className="w-4 h-4 text-indigo-600" />
+    : <ChevronDownIcon className="w-4 h-4 text-indigo-600" />
+}
 
 function ResumesTable() {
   const [resumes, setResumes] = useState<Resume[]>([])
@@ -17,11 +33,32 @@ function ResumesTable() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editData, setEditData] = useState<{ jdUrl: string, company: string }>({ jdUrl: '', company: '' })
   const [searchTerm, setSearchTerm] = useState('')
+  const [sortKey, setSortKey] = useState<SortKey | null>(null)
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
 
   // 過濾履歷資料
   const filteredResumes = resumes.filter(resume => 
     (resume.company || '').toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  // 排序（純前端，未指定時維持後端的建立時間新到舊）
+  const getTime = (value: Date | null) => (value ? new Date(value).getTime() : 0)
+  const sortedResumes = sortKey
+    ? [...filteredResumes].sort((a, b) => {
+        const diff = getTime(a[sortKey]) - getTime(b[sortKey])
+        return sortOrder === 'asc' ? diff : -diff
+      })
+    : filteredResumes
+
+  // 切換排序欄位 / 方向
+  const toggleSort = (key: SortKey) => {
+    if (sortKey === key) {
+      setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortKey(key)
+      setSortOrder('desc')
+    }
+  }
 
   // 載入資料
   const loadResumes = async (showLoading = false) => {
@@ -81,6 +118,29 @@ function ResumesTable() {
       saveEdit()
     } else if (e.key === 'Escape') {
       cancelEdit()
+    }
+  }
+
+  // 切換面試 / offer 狀態
+  const toggleStatus = async (
+    resume: Resume,
+    field: 'hasInterview' | 'hasOffer',
+    checked: boolean
+  ) => {
+    // 樂觀更新，避免勾選後閃爍
+    setResumes((prev) =>
+      prev.map((item) => (item.id === resume.id ? { ...item, [field]: checked } : item))
+    )
+
+    const result = await updateResumeStatus(resume.id, { [field]: checked })
+    if (result.success) {
+      await loadResumes()
+    } else {
+      console.error('Failed to update resume status:', result.error)
+      // 失敗時回復原本狀態
+      setResumes((prev) =>
+        prev.map((item) => (item.id === resume.id ? { ...item, [field]: !checked } : item))
+      )
     }
   }
 
@@ -152,23 +212,43 @@ function ResumesTable() {
           )}
         </div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div>
+          <table className="w-full table-auto">
             <thead>
               <tr className="border-b border-slate-200">
-                <th className="text-left py-3 px-4 font-semibold text-slate-700">公司</th>
-                <th className="text-left py-3 px-4 font-semibold text-slate-700">職缺描述連結</th>
-                <th className="text-left py-3 px-4 font-semibold text-slate-700">履歷連結</th>
-                <th className="text-left py-3 px-4 font-semibold text-slate-700">建立時間</th>
-                <th className="text-left py-3 px-4 font-semibold text-slate-700">更新時間</th>
-                <th className="text-center py-3 px-4 font-semibold text-slate-700">操作</th>
+                <th className="whitespace-nowrap text-left py-3 px-4 font-semibold text-slate-700">公司</th>
+                <th className="whitespace-nowrap text-left py-3 px-4 font-semibold text-slate-700">職缺描述連結</th>
+                <th className="whitespace-nowrap text-left py-3 px-4 font-semibold text-slate-700">履歷連結</th>
+                <th className="whitespace-nowrap text-center py-3 px-4 font-semibold text-slate-700">面試</th>
+                <th className="whitespace-nowrap text-center py-3 px-4 font-semibold text-slate-700">Offer</th>
+                <th className="whitespace-nowrap text-left py-3 px-4 font-semibold text-slate-700">
+                  <button
+                    onClick={() => toggleSort('createdAt')}
+                    className="inline-flex items-center gap-1 hover:text-slate-900 cursor-pointer"
+                    title="點擊切換排序"
+                  >
+                    建立時間
+                    <SortIcon active={sortKey === 'createdAt'} order={sortOrder} />
+                  </button>
+                </th>
+                <th className="whitespace-nowrap text-left py-3 px-4 font-semibold text-slate-700">
+                  <button
+                    onClick={() => toggleSort('updatedAt')}
+                    className="inline-flex items-center gap-1 hover:text-slate-900 cursor-pointer"
+                    title="點擊切換排序"
+                  >
+                    更新時間
+                    <SortIcon active={sortKey === 'updatedAt'} order={sortOrder} />
+                  </button>
+                </th>
+                <th className="whitespace-nowrap text-center py-3 px-4 font-semibold text-slate-700">操作</th>
               </tr>
             </thead>
             <tbody>
               {/* 資料行 */}
-              {filteredResumes.map((resume) => (
+              {sortedResumes.map((resume) => (
                 <tr key={resume.id} className={`border-b border-slate-200 ${editingId === resume.id ? '' : 'hover:bg-slate-50'}`}>
-                  <td className="py-3 px-4">
+                  <td className="whitespace-nowrap py-3 px-4">
                     {editingId === resume.id ? (
                       <input
                         type="text"
@@ -181,7 +261,7 @@ function ResumesTable() {
                       <span className="font-medium text-slate-900">{resume.company}</span>
                     )}
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="w-[22rem] max-w-0 whitespace-nowrap py-3 px-4">
                     {editingId === resume.id ? (
                       <input
                         type="url"
@@ -196,7 +276,7 @@ function ResumesTable() {
                           href={resume.jdUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-indigo-800 hover:text-indigo-900 underline truncate block max-w-xs"
+                          className="text-indigo-800 hover:text-indigo-900 underline truncate block"
                         >
                           {resume.jdUrl}
                         </a>
@@ -205,7 +285,7 @@ function ResumesTable() {
                       )
                     )}
                   </td>
-                  <td className="py-3 px-4 text-slate-600">
+                  <td className="whitespace-nowrap py-3 px-4 text-slate-600">
                     <div className="space-y-1">
                       {[
                         { locale: 'zh-TW', label: '中文' },
@@ -232,13 +312,35 @@ function ResumesTable() {
                       ))}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-slate-800">
-                    {resume.createdAt ? new Date(resume.createdAt).toLocaleString('zh-TW') : '-'}
+                  <td className="whitespace-nowrap py-3 px-4">
+                    <div className="flex justify-center">
+                      <input
+                        type="checkbox"
+                        checked={resume.hasInterview}
+                        onChange={(e) => toggleStatus(resume, 'hasInterview', e.target.checked)}
+                        className="h-4 w-4 cursor-pointer accent-indigo-600 [color-scheme:light]"
+                        title="是否有拿到面試"
+                      />
+                    </div>
                   </td>
-                  <td className="py-3 px-4 text-slate-800">
-                    {resume.updatedAt ? new Date(resume.updatedAt).toLocaleString('zh-TW') : '-'}
+                  <td className="whitespace-nowrap py-3 px-4">
+                    <div className="flex justify-center">
+                      <input
+                        type="checkbox"
+                        checked={resume.hasOffer}
+                        onChange={(e) => toggleStatus(resume, 'hasOffer', e.target.checked)}
+                        className="h-4 w-4 cursor-pointer accent-emerald-600 [color-scheme:light]"
+                        title="是否有拿到 offer"
+                      />
+                    </div>
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="whitespace-nowrap py-3 px-4 text-slate-800">
+                    {resume.createdAt ? new Date(resume.createdAt).toLocaleDateString('zh-TW') : '-'}
+                  </td>
+                  <td className="whitespace-nowrap py-3 px-4 text-slate-800">
+                    {resume.updatedAt ? new Date(resume.updatedAt).toLocaleDateString('zh-TW') : '-'}
+                  </td>
+                  <td className="whitespace-nowrap py-3 px-4">
                     <div className="flex justify-center gap-2">
                       {editingId === resume.id ? (
                         <>
@@ -293,7 +395,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center px-6 py-12">
 
         {/* John Hsieh 總攬履歷連結 */}
-        <div className="max-w-7xl w-full flex justify-end">
+        <div className="max-w-[1536px] w-full mx-auto flex justify-end">
           <a
             href="/john-hsieh/zh-TW"
             target="_blank"
@@ -305,7 +407,7 @@ export default function Home() {
         </div>
 
         {/* Resume Management Table */}
-        <div className="max-w-7xl w-full mt-6">
+        <div className="max-w-[1536px] w-full mx-auto mt-6">
           <ResumesTable />
         </div>
 
