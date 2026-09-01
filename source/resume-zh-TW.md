@@ -348,7 +348,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 原始碼已開源: https://github.com/a0972199950/bilibili-cdn-switcher
 
 - **技術亮點：**
-  - **Vibe Coding 實踐**：全程透過 AI 輔助協作開發，從技術架構、程式碼撰寫到商店上架素材，僅耗時 1 個週末即完成並上線
+  - **Vibe Coding 實踐**：全程以 Claude Code 作為編碼 agent 開發，從技術架構、程式碼撰寫到商店上架素材，僅耗時 1 個週末即完成並上線
   - **MAIN world 注入攔截 fetch/XHR 與 JSON 屬性**：透過 Manifest V3 content script 注入頁面 MAIN world，hook `fetch` / `XMLHttpRequest` 以及 `playinfo` 物件的 setter，即時改寫 playurl / DASH manifest 中的 CDN host，完成串流節點重排且不影響頁面原生行為
   - **雙 world 橋接架構**：MAIN world 無法存取 `chrome.storage` / `chrome.i18n` 等擴充 API，因此設計 ISOLATED world 的橋接腳本，透過 `postMessage` / `localStorage` 與 MAIN world 溝通，同步設定與多語系文案
   - **自動容錯 Fallback 機制**：即時監控分段請求狀態（403/404/5xx/逾時）與播放進度，偵測到失敗或卡頓（8 秒內無進度且無網路流量）時，先靜默切換至 B 站原生備援節點，備援也失效才彈出提示，交由使用者決定是否切換備用 URL
@@ -403,15 +403,15 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 **🤖 Lazy CV — AI 驅動的客製化履歷生成系統**
 - **網址：** https://lazy-cv.com
 - **GitHub：** https://github.com/a0972199950/lazy-cv
-- **專案描述：** 結合 AI Agent 與 Next.js 的全端應用，只需提供一個職缺連結，透過 GitHub Copilot 的 `/cv` 指令，系統便能自動抓取 JD、分析關鍵需求，並根據個人資料來源生成量身定做的中英文雙語履歷網頁。每份履歷以 UUID 為獨立路由，可直接瀏覽器列印成 PDF。首頁附有履歷管理後台，支援搜尋、行內編輯、一鍵複製連結等功能。
+- **專案描述：** 結合 AI Agent 與 Next.js 的全端應用，只需提供一個職缺連結，透過 Claude Code（或 GitHub Copilot）的 `/cv` 指令，系統便能自動抓取 JD、分析關鍵需求，並根據個人資料來源生成量身定做的中英文雙語履歷網頁。每份履歷以 UUID 為獨立路由，可直接瀏覽器列印成 PDF。首頁附有履歷管理後台，支援搜尋、行內編輯、一鍵複製連結等功能。
 本履歷就是用此專案自動生成的
 - **技術亮點：**
   - **Next.js 16 App Router + Standalone Output**：採用最新 App Router 架構，搭配 standalone 模式打包為輕量 Docker Image
-  - **AI Agent 自動化 SOP**：透過 Chrome DevTools MCP 自動爬取 JD，結合 copilot-instructions 定義的結構化 Prompt，實現端到端的履歷生成流程
+  - **AI Agent 自動化 SOP**：透過 Chrome DevTools MCP 自動爬取 JD，結合為 Claude Code 定義的結構化 skill／Prompt SOP（copilot-instructions），實現端到端的履歷生成流程
   - **Serverless 部署架構**：Docker Image 推送至 AWS ECR，透過 Lambda Web Adapter 運行 Next.js，靜態資產由 S3 + CloudFront CDN 分發，CI/CD 透過 GitHub Actions 全自動化
   - **Neon Serverless PostgreSQL + Drizzle ORM**：使用 Neon 無伺服器資料庫搭配 Drizzle ORM 實現 type-safe 的資料存取
   - **TailwindCSS 4 + Framer Motion**：響應式設計搭配流暢動畫
-  - **Vibe Coding 實踐**：整個專案從零到上線僅花費 2 天，全程透過 AI 輔助開發（Vibe Coding）完成
+  - **Vibe Coding 實踐**：整個專案從零到上線僅花費 2 天，全程以 Claude Code 輔助開發（Vibe Coding）完成
 
 - **🔧 技術棧：** TypeScript, Next.js 16 (App Router), React 19, TailwindCSS 4, daisyUI, Framer Motion (motion), tw-animate-css, Radix UI, @base-ui/react, shadcn, cmdk, lucide-react, react-icons, embla-carousel-react, react-day-picker, vaul, sonner, cobe, Neon Serverless PostgreSQL, Drizzle ORM, drizzle-zod, Zod, jose (JWT), bcryptjs, pdf-lib, jsPDF, html-to-image, AWS SDK (S3, Lambda), AWS Lambda Web Adapter, Docker, Playwright, ESLint, Prettier, tsx, Drizzle Kit
 
@@ -642,8 +642,8 @@ AI.Book 是一個線上相片書編輯平台。他允許使用者在線製作客
 我已將 AI 工具深度整合進日常開發工作流程中，不僅是使用 AI 輔助寫程式，更進一步將 AI Agent 作為自動化工具，建立端到端的開發 SOP，大幅提升個人開發效率。
 
 **📦 技能清單：**
-- **AI Coding 工具：** GitHub Copilot (Agent Mode)、Cursor
-- **Prompt Engineering：** 結構化 Prompt 設計、透過 copilot-instructions.md / AGENTS.md 定義自訂 SOP
+- **AI Coding 工具：** Claude Code、GitHub Copilot (Agent Mode)、Cursor
+- **Prompt Engineering：** 結構化 Prompt 設計、透過 CLAUDE.md / copilot-instructions.md / AGENTS.md 定義自訂 SOP
 - **SDD (Spec-Driven Development)：** 先撰寫詳細規格文件驅動 AI 實作，確保輸出符合預期、降低 hallucination 風險
 - **MCP (Model Context Protocol)：** 具備自行開發 MCP Server 的能力，將自訂工具整合進 AI Agent 工作流程
 - **AI Agent 自動化：** 端到端 AI Agent 工作流程設計與實作
@@ -902,7 +902,7 @@ Shadow DOM, StencilJS, Web Socket, Quill, Lit-html, WebExtension API
 - GraphQL
 
 ### 🟡 熟練技術 (Advanced Level)  
-- GitHub Copilot (Agent Mode) / Cursor
+- Claude Code / GitHub Copilot (Agent Mode) / Cursor
 - Prompt Engineering & AI Agent 開發
 - MCP (Model Context Protocol) 開發
 - Node.js/Express

@@ -448,7 +448,7 @@ const skillKeywordRows: SkillKeywordRow[] = [
     reverse: true,
   },
   {
-    keywords: ["GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
+    keywords: ["Claude Code", "GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
     badgeClassName: "border-amber-200 bg-amber-50/50 text-amber-800",
     marqueeClassName: "[--duration:34s]",
   },

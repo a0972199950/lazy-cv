@@ -291,7 +291,7 @@ Meanwhile I was also responsible for contact person for Japanese business, and e
 - **Description:** A Chrome / Edge / Firefox browser extension that makes the web version of Bilibili (www.bilibili.com) load smoother for users in 🇹🇼 Taiwan and 🇸🇬 Singapore. Bilibili's default CDN routing is often suboptimal for TW/SG users, causing buffering and slow load times. The extension dynamically rewrites the video streaming CDN host to the fastest node for the user's region, and automatically falls back to Bilibili's native backup node when it detects failed segment requests or playback stalls. A single codebase ships to all three browser platforms with a trilingual (Traditional Chinese / Simplified Chinese / English) UI. Solely designed, built, published, and maintained end-to-end.
 
 - **Technical Highlights:**
-  - **Vibe Coding in a Single Weekend**: Entirely built through AI-assisted collaboration — from architecture and implementation to store listing assets — designed, developed, and published within one weekend
+  - **Vibe Coding in a Single Weekend**: Entirely built with Claude Code as the coding agent — from architecture and implementation to store listing assets — designed, developed, and published within one weekend
   - **MAIN-world Injection Hooking fetch/XHR and JSON Property Setters**: Injects a Manifest V3 content script into the page's MAIN world to hook `fetch`/`XMLHttpRequest` and the setter of the `playinfo` object, rewriting the CDN host inside the playurl/DASH manifest in real time without disturbing the page's native behavior
   - **Dual-World Bridge Architecture**: Since the MAIN world has no access to extension APIs like `chrome.storage`/`chrome.i18n`, a bridge script running in the ISOLATED world communicates with the MAIN world via `postMessage`/`localStorage` to sync settings and localized strings
   - **Automatic Fallback & Fault Tolerance**: Continuously monitors segment request status (403/404/5xx/timeout) and playback progress; on failure or stall (no progress and no network activity for 8 seconds) it silently switches to Bilibili's native backup node first, and only surfaces a prompt for the user to manually switch to a backup URL if that also fails
@@ -337,15 +337,15 @@ The project is open source: https://github.com/a0972199950/bilibili-cdn-switcher
 ##### Lazy CV — AI-Powered Customized Resume Generator
 - **Website:** https://lazy-cv.com
 - **GitHub:** https://github.com/a0972199950/lazy-cv
-- **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through GitHub Copilot, the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
+- **Description:** A full-stack application combining AI Agent automation with Next.js. By simply providing a job posting URL and invoking the `/cv` command through Claude Code (or GitHub Copilot), the system automatically scrapes the JD via Chrome DevTools MCP, analyzes key requirements, and generates tailored bilingual (EN/ZH) resume web pages based on a personal data source. Each resume is served under a unique UUID, ready for browser-to-PDF printing. The homepage features a resume management dashboard with search, inline editing, and one-click link copying.
 This resume was automatically generated using this project.
 - **Technical Highlights:**
   - **Next.js 16 App Router + Standalone Output**: Leverages the latest App Router architecture with standalone mode for lightweight Docker packaging
-  - **AI Agent Automated SOP**: Uses Chrome DevTools MCP to scrape JDs, combined with structured prompts defined in copilot-instructions, enabling an end-to-end resume generation pipeline
+  - **AI Agent Automated SOP**: Uses Chrome DevTools MCP to scrape JDs, combined with a structured skill/prompt SOP defined for Claude Code (copilot-instructions), enabling an end-to-end resume generation pipeline
   - **Serverless Deployment on AWS**: Docker images pushed to ECR, executed via Lambda Web Adapter for Next.js SSR, with static assets served through S3 + CloudFront CDN; fully automated CI/CD via GitHub Actions
   - **Neon Serverless PostgreSQL + Drizzle ORM**: Type-safe database access using Neon's serverless PostgreSQL with Drizzle ORM
   - **TailwindCSS 4 + Framer Motion**: Responsive design with smooth animations
-  - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed through AI-assisted coding (Vibe Coding)
+  - **Vibe Coding in 2 Days**: The entire project was built from scratch to production in just 2 days, fully developed with Claude Code (Vibe Coding)
 
 - **Tech Stack:** TypeScript, Next.js 16 (App Router), React 19, TailwindCSS 4, daisyUI, Framer Motion (motion), tw-animate-css, Radix UI, @base-ui/react, shadcn, cmdk, lucide-react, react-icons, embla-carousel-react, react-day-picker, vaul, sonner, cobe, Neon Serverless PostgreSQL, Drizzle ORM, drizzle-zod, Zod, jose (JWT), bcryptjs, pdf-lib, jsPDF, html-to-image, AWS SDK (S3, Lambda), AWS Lambda Web Adapter, Docker, Playwright, ESLint, Prettier, tsx, Drizzle Kit
 
@@ -759,7 +759,7 @@ I like use Express + TypeScript + MongoDB to handle it.
 - GraphQL
 
 ### 🟡 Advanced Level Technologies
-- GitHub Copilot (Agent Mode) / Cursor
+- Claude Code / GitHub Copilot (Agent Mode) / Cursor
 - Prompt Engineering & AI Agent Development
 - MCP (Model Context Protocol)
 - Node.js/Express
