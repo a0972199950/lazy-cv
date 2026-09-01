@@ -573,8 +573,8 @@ Architecture diagram: https://whimsical.com/design-system-JZYW2iJx9sfC84yZ41Tw51
 I have deeply integrated AI tools into my daily development workflow — not merely for code assistance, but as automation agents that build end-to-end development SOPs, dramatically boosting productivity.
 
 **Keywords:**
-- **AI Coding Tools:** GitHub Copilot (Agent Mode), Cursor
-- **Prompt Engineering:** Structured prompt design, custom SOP definition via copilot-instructions.md / AGENTS.md
+- **AI Coding Tools:** Claude Code, GitHub Copilot (Agent Mode), Cursor
+- **Prompt Engineering:** Structured prompt design, custom SOP definition via CLAUDE.md / copilot-instructions.md / AGENTS.md
 - **SDD (Spec-Driven Development):** Writing detailed specification documents to drive AI implementation, ensuring outputs align with intent and reducing hallucination risks
 - **MCP (Model Context Protocol):** Capable of building custom MCP Servers to integrate self-developed tools into AI agent workflows
 - **AI Agent Automation:** End-to-end AI agent workflow design and implementation

@@ -598,6 +598,20 @@ a:focus {
     display: grid !important;
     grid-template-columns: 32mm 1fr !important;
     column-gap: 5mm !important;
+    /* 允許長條目跨頁，避免整塊被推到下一頁而留大片空白；
+       原子單位（標題、單條 bullet、子專案）各自 avoid，見下方。 */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  #plain-resume .plain-cv__entry-summary,
+  #plain-resume .plain-cv__meta-line,
+  #plain-resume .plain-cv__contrib,
+  #plain-resume .plain-cv__bullets > li {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  /* 收合的早期經歷維持整塊不分頁 */
+  #plain-resume .plain-cv__entry--brief {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -608,6 +622,29 @@ a:focus {
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
   }
+  /* 任職時長備註：接在期間下面自成一行 */
+  #plain-resume .plain-cv__entry-duration {
+    display: block !important;
+    margin-top: 1pt !important;
+    font-size: 7pt !important;
+    font-style: italic !important;
+  }
+  /* 早期「僅標題」經歷：收合成一行，公司/職位字級縮小 */
+  #plain-resume .plain-cv__entry--brief {
+    margin-top: 2pt !important;
+  }
+  #plain-resume .plain-cv__brief-roles {
+    margin: 0 !important;
+    font-size: 7pt !important;
+    line-height: 1.4 !important;
+  }
+  #plain-resume .plain-cv__brief-role {
+    font-weight: 600 !important;
+  }
+  #plain-resume .plain-cv__brief-period {
+    font-style: italic !important;
+    font-size: 6.5pt !important;
+  }
   #plain-resume .plain-cv__entry-body {
     min-width: 0 !important;
   }
@@ -616,6 +653,9 @@ a:focus {
     font-size: 12.5pt !important;
     font-weight: 400 !important;
     overflow-wrap: anywhere !important;
+    /* 標題不要單獨留在頁尾 */
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
   #plain-resume .plain-cv__dash {
     padding: 0 4pt !important;
@@ -646,5 +686,68 @@ a:focus {
   #plain-resume .plain-cv__skill-row {
     margin: 0 0 2pt !important;
     font-size: 8.5pt !important;
+  }
+
+  /* contributions 只有 1 條時改用段落呈現（工作經歷內的專案與個人專案共用） */
+  #plain-resume .plain-cv__contrib {
+    margin: 3pt 0 0 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.38 !important;
+    text-align: justify !important;
+  }
+  /* 重點數字的 **粗體** 標記 */
+  #plain-resume strong {
+    font-weight: 700 !important;
+  }
+  /* 專案的「重大貢獻 / 技術亮點」小標：單段時內嵌行首，條列時獨立一行 */
+  #plain-resume .plain-cv__proj-block-label {
+    margin: 3pt 0 0 !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  #plain-resume .plain-cv__contrib .plain-cv__proj-block-label {
+    margin: 0 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* ── 工作經歷底下的第二層「相關專案」子區塊：以左側細線 + 縮排標示低一階 ── */
+  #plain-resume .plain-cv__subprojects {
+    margin: 5pt 0 0 !important;
+    padding-left: 12pt !important;
+    border-left: 0.75pt solid #000 !important;
+  }
+  #plain-resume .plain-cv__subprojects-label {
+    margin: 0 0 3pt !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    /* 標籤不要單獨留在頁尾 */
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  #plain-resume .plain-cv__subproject {
+    margin: 0 0 5pt !important;
+    /* 可跨頁接續，避免整塊被推到下一頁留白；內部原子單位各自 avoid */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  #plain-resume .plain-cv__subproject:last-child {
+    margin-bottom: 0 !important;
+  }
+  #plain-resume .plain-cv__subproject-title {
+    margin: 0 !important;
+    font-size: 9.5pt !important;
+    font-weight: 400 !important;
+    overflow-wrap: anywhere !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  #plain-resume .plain-cv__subproject-url {
+    font-size: 8pt !important;
   }
 }

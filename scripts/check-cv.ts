@@ -3,14 +3,15 @@
  *
  * 用法：pnpm check-cv <uuid>
  *
- * 自動檢查 SKILL.md 第四階段表格中可機械判定的 1–7 與 14 項。
+ * 自動檢查 SKILL.md 第四階段表格中可機械判定的 2–7 與 14 項。
+ * 第 1 項（技能關鍵字篩選）僅自動確認 skillKeywordRows 區塊存在且非空；
+ * 「JD 匹配優先、只留主流、砍掉冷門、JD 明列不漏」需人工核對。
  * 其餘（jobTitle 格式、stack/image 溯源、JD 具名對應、專案排序、事實強度、tsc）需人工或另行核對。
  */
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const RESUME_ROOT = join(process.cwd(), "app", "(download-pdf)");
-const BASE_TEMPLATE = join(RESUME_ROOT, "john-hsieh");
 const LOCALES = ["zh-TW", "en"] as const;
 type Locale = (typeof LOCALES)[number];
 
@@ -60,7 +61,7 @@ function countChars(text: string): number {
 	return [...text.replace(/[\s]/g, "")].filter((ch) => /[\p{L}\p{N}]/u.test(ch)).length;
 }
 
-function checkLocale(uuid: string, locale: Locale, baseKeywords: number): Failure[] {
+function checkLocale(uuid: string, locale: Locale): Failure[] {
 	const file = join(RESUME_ROOT, uuid, locale, "page.tsx");
 	if (!existsSync(file)) return [{ rule: "檔案存在", detail: `找不到 ${file}` }];
 
@@ -68,15 +69,11 @@ function checkLocale(uuid: string, locale: Locale, baseKeywords: number): Failur
 	const src = readFileSync(file, "utf-8").replace(/\r\n/g, "\n");
 	const fails: Failure[] = [];
 
-	// 1. 技能關鍵字完整性
+	// 1. 技能關鍵字：僅確認 skillKeywordRows 區塊存在且非空。
+	//    「JD 匹配優先 → 只留主流、砍掉冷門、JD 明列不漏」屬人工核對（見 SKILL.md 第二階段 §5、第四階段）。
 	const kw = keywordCount(src);
-	if (kw < 0) {
-		fails.push({ rule: "1 技能關鍵字完整性", detail: "找不到 skillKeywordRows 區塊" });
-	} else if (kw !== baseKeywords) {
-		fails.push({
-			rule: "1 技能關鍵字完整性",
-			detail: `本履歷 ${kw} 個，基礎範本 ${baseKeywords} 個${kw < baseKeywords ? `（漏 ${baseKeywords - kw} 個）` : ""}`,
-		});
+	if (kw <= 0) {
+		fails.push({ rule: "1 技能關鍵字", detail: "找不到 skillKeywordRows 區塊，或關鍵字為空" });
 	}
 
 	const arrays = bulletArrays(src);
@@ -171,15 +168,12 @@ function main() {
 
 	let total = 0;
 	for (const locale of LOCALES) {
-		const baseKeywords = keywordCount(
-			readFileSync(join(BASE_TEMPLATE, locale, "page.tsx"), "utf-8").replace(/\r\n/g, "\n"),
-		);
-		const fails = checkLocale(uuid, locale, baseKeywords);
+		const fails = checkLocale(uuid, locale);
 		total += fails.length;
 
 		console.log(`\n[${locale}]`);
 		if (fails.length === 0) {
-			console.log("  ✅ 1–7、14 項全數通過");
+			console.log("  ✅ 2–7、14 項全數通過");
 			continue;
 		}
 		for (const f of fails) console.log(`  ❌ ${f.rule}：${f.detail}`);
@@ -188,11 +182,12 @@ function main() {
 	console.log(`\n${"=".repeat(60)}`);
 	console.log(
 		total === 0
-			? "✅ 機械可判定項目（1–7、14）全數通過"
+			? "✅ 機械可判定項目（2–7、14）全數通過"
 			: `❌ 共 ${total} 項違規，修正後請重跑`,
 	);
 	console.log(
-		"\n仍須人工核對：8 jobTitle 格式｜9 stack 溯源｜10 image 溯源｜" +
+		"\n仍須人工核對：1 技能關鍵字篩選（JD 匹配優先、只留主流、砍冷門、JD 明列不漏）｜" +
+			"8 jobTitle 格式｜9 stack 溯源｜10 image 溯源｜" +
 			"11 JD Required 具名對應｜12 專案排序｜13 事實強度｜15 npx tsc --noEmit\n",
 	);
 

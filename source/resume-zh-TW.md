@@ -360,7 +360,7 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 - **🔧 技術棧：** Chrome Extension Manifest V3, Vanilla JavaScript (ES6+), chrome.storage, chrome.i18n, Content Scripts (MAIN world / ISOLATED world), fetch / XMLHttpRequest hook, Node.js, JSZip, Puppeteer, Sharp
 
 - **重大貢獻：**
-  - 上架 10 天：瀏覽數 2,000、安裝數 1,000，**轉換率達 50%**
+  - 上架僅10天內瀏覽數 2,000、活躍使用者（WAU）即突破 1,000，**轉換率達 50%**
   - 上架 10 天內周活躍使用者（WAU）即突破 1,000，**留存率幾乎 100%**
   - 1,000 名使用者中已獲得 **14 筆五星好評，目前零負評**
   - 全數為自然流量（Organic），未投放任何付費廣告

@@ -8,7 +8,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { formatDuration } from "./period";
+import { parseBold } from "./rich-text";
 import type { Experience } from "./types";
+
+// 時間軸對齊方式：改這個值即可切換。
+//   "CENTER" — 卡片左右交錯排在中線兩側
+//   "LEFT"   — 時間軸貼左緣，所有公司卡片一律排在右側
+const TIMELINE_ALIGNMENT = "CENTER" as "CENTER" | "LEFT";
+
+const isCompact = TIMELINE_ALIGNMENT === "LEFT";
 
 type WorkExperienceProps = {
   title: string;
@@ -16,6 +25,7 @@ type WorkExperienceProps = {
 };
 
 export function WorkExperience({ title, experiences }: WorkExperienceProps) {
+  const cjk = /[㐀-鿿]/.test(title);
   return (
     <BlurFade delay={0.2} inView>
       <Card className="border-slate-200 bg-white/90 shadow-sm transition hover:shadow-md">
@@ -26,9 +36,14 @@ export function WorkExperience({ title, experiences }: WorkExperienceProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+          <ul
+            className={`timeline timeline-snap-icon max-md:timeline-compact timeline-vertical ${
+              isCompact ? "timeline-compact" : ""
+            }`}
+          >
             {experiences.map((exp, idx) => {
-              const isLeft = idx % 2 === 0;
+              const isLeft = TIMELINE_ALIGNMENT === "CENTER" && idx % 2 === 0;
+              const duration = formatDuration(exp.period, cjk);
               return (
                 <li key={exp.company}>
                   {idx !== 0 && <hr className="bg-cyan-600" />}
@@ -46,11 +61,16 @@ export function WorkExperience({ title, experiences }: WorkExperienceProps) {
                       />
                     </svg>
                   </div>
-                  <div className={`${isLeft ? "timeline-start md:text-end" : "timeline-end"} mb-10`}>
+                  <div className={`${isLeft ? "timeline-start md:text-end" : "timeline-end"} mb-10 w-full`}>
                     <time className="font-mono text-sm italic text-slate-500">
                       {exp.period}
+                      {duration && (
+                        <span className="ml-1.5 not-italic text-slate-400">
+                          {cjk ? `（${duration}）` : `(${duration})`}
+                        </span>
+                      )}
                     </time>
-                    <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/80 p-4 shadow-sm md:p-5 space-y-3">
+                    <div className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/80 p-4 shadow-sm md:p-5 space-y-3">
                       <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
                         <Image
                           src={exp.logo}
@@ -79,7 +99,7 @@ export function WorkExperience({ title, experiences }: WorkExperienceProps) {
                                 className="inline-flex items-start gap-2"
                               >
                                 <BadgeCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-                                <span>{item}</span>
+                                <span>{parseBold(item)}</span>
                               </li>
                             ))}
                           </ul>

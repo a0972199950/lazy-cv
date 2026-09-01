@@ -43,9 +43,9 @@ const experiences: Experience[] = [
 		period: "2024.11 - 至今",
 		logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
 		highlights: [
-			"在管理 50+ 子專案、百萬級程式碼規模的 React + TypeScript Monorepo 中交付廣告投放結算系統的 UI 與資料流模組",
-			"導入 Web Worker + Comlink 多線程 CSV 校驗，將大型檔案造成的 UI 卡頓降低 90%",
-			"主導團隊導入 Scrum，以 refinement 打破工作孤島並消除忙閒不均的排程落差",
+			"在管理 **50+ 子專案**、**百萬級**程式碼規模的 React + TypeScript Monorepo 中交付廣告投放結算系統的 UI 與資料流模組",
+			"導入 Web Worker + Comlink 多線程 CSV 校驗，將大型檔案造成的 **UI 卡頓降低 90%**",
+			"**主導**團隊導入 Scrum，以 refinement 打破工作孤島並消除忙閒不均的排程落差",
 		],
 	},
 	{
@@ -54,9 +54,9 @@ const experiences: Experience[] = [
 		period: "2021.08 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
 		highlights: [
-			"維護 LINE 購物的 Vue SSR 前端倉庫與整合數十個後端微服務的 BFF（Node.js + GraphQL + TypeScript），於 60 人團隊中每行程式碼皆需 review 才可合併",
-			"帶領 4 人團隊將 PHP CMS 重構為 Next.js App Router，達成前後端完全分離並降低後端團隊負擔",
-			"擔任 mentor 帶領 2 位新進工程師並主持內部 Next.js 教學論壇，兩位皆給予正向回饋",
+			"維護 LINE 購物的 Vue SSR 前端倉庫與整合**數十個**後端微服務的 BFF（Node.js + GraphQL + TypeScript），於 **60 人團隊**中每行程式碼皆需 review 才可合併",
+			"**帶領 4 人團隊**將 PHP CMS 重構為 Next.js App Router，達成**前後端完全分離**並降低後端團隊負擔",
+			"擔任 mentor **帶領 2 位**新進工程師並主持內部 Next.js 教學論壇，兩位皆給予正向回饋",
 		],
 	},
 	{
@@ -65,8 +65,8 @@ const experiences: Experience[] = [
 		period: "2021.09 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
 		highlights: [
-			"獨立開發線上相簿編輯器核心，6 個月內從零打造並推上正式環境",
-			"主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程及金流結果串接",
+			"**獨立開發**線上相簿編輯器核心，**6 個月內從零打造**並推上正式環境",
+			"**主導**後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程及金流結果串接",
 			"以前端消費端視角定義 API 合約、資料模型與錯誤處理，並與後端協作落地",
 		],
 	},
@@ -76,7 +76,7 @@ const experiences: Experience[] = [
 		period: "2021.01 - 2021.09",
 		logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
 		highlights: [
-			"以 React + TypeScript 獨立建置 UI Kit、SME Portal 與 Partner Portal 三套前端系統",
+			"以 React + TypeScript **獨立建置** UI Kit、SME Portal 與 Partner Portal **三套前端系統**",
 			"建立可重用元件模式，讓多個金融產品維持一致的設計與互動規範",
 		],
 	},
@@ -110,9 +110,14 @@ const experiences: Experience[] = [
 	},
 ];
 
+const companyLogos: Record<string, string> = Object.fromEntries(
+	experiences.map((e) => [e.company, e.logo]),
+);
+
 const projects: Project[] = [
 	{
 		name: "LINE 購物",
+		company: "LINE Taiwan",
 		summary:
 			"高流量電商導購平台，提供回饋機制與內容導向購物體驗，前端團隊 60 人。",
 		stack: ["Vue 2", "Vue SSR (vue-server-renderer)", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Jest", "Storybook", "Lighthouse CI"],
@@ -124,11 +129,12 @@ const projects: Project[] = [
 		],
 		url: "https://buy.line.me",
 		contributions: [
-			"獨立打造直播影片自動播放模組，以 IntersectionObserver、Vuex 與 HLS.js 實現捲動列表的流暢預覽體驗",
+			"**獨立打造**直播影片自動播放模組，以 IntersectionObserver、Vuex 與 HLS.js 實現捲動列表的流暢預覽體驗",
 		],
 	},
 	{
 		name: "AI.Book 線上相片書編輯器",
+		company: "AI.Book",
 		summary:
 			"線上相片書編輯平台，使用者可於網頁直接排版個人化相簿並印製成實體書販售。",
 		stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "Vuex", "TailwindCSS", "vuedraggable", "cropperjs", "AWS Cognito OAuth2", "GitHub Actions", "Swagger/OpenAPI"],
@@ -137,12 +143,13 @@ const projects: Project[] = [
 			"https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
 		],
 		highlights: [
-			"以單兵模式完成技術選型、前端架構到編輯器核心的端到端交付，6 個月內上線",
+			"以**單兵模式**完成技術選型、前端架構到編輯器核心的端到端交付，**6 個月內上線**",
 			"整合 vuedraggable、cropperjs 與 flipbook-vue 打造跨裝置拖曳排版體驗",
 		],
 	},
 	{
 		name: "FundFluent SME Portal",
+		company: "FundFluent",
 		summary:
 			"面向香港中小企業的整合貸款平台，彙整銀行與政府各式貸款資訊，並以 OCR 協助歸類申請文件。",
 		stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "React Hook Form", "Yup", "next-i18next", "Docker", "GCP Artifact Registry", "GKE"],
@@ -153,7 +160,7 @@ const projects: Project[] = [
 			"串接 OCR 文件歸類流程，消除申請多筆貸款時的重複提交成本",
 		],
 		contributions: [
-			"以 React 17 + Next.js 12 + TypeScript 從 0 單獨開發，架構與技術選型皆由個人決定",
+			"以 React 17 + Next.js 12 + TypeScript **從 0 單獨開發**，架構與技術選型皆由個人決定",
 		],
 	},
 	{
@@ -170,13 +177,11 @@ const projects: Project[] = [
 		url: "https://chromewebstore.google.com/detail/dfaddcffoondcendifiljhdbdagebgch",
 		highlights: [
 			"以 MAIN world 注入 hook fetch/XHR 與 playinfo setter，即時改寫 DASH manifest 的 CDN host 且不影響頁面原生行為",
-			"設計自動容錯機制，監控分段請求狀態與播放進度，卡頓 8 秒內靜默切換至原生備援節點",
+			"設計自動容錯機制，監控分段請求狀態與播放進度，**卡頓 8 秒內**靜默切換至原生備援節點",
 			"歸納 Bilibili 論壇與社群的使用者反饋，排定修復優先順序並驅動功能迭代方向",
 		],
 		contributions: [
-			"上架 10 天瀏覽數 2,000、安裝數 1,000，轉換率達 50%",
-			"上架 10 天內周活躍使用者突破 1,000，留存率幾乎 100%",
-			"1,000 名使用者中獲得 14 筆五星好評、零負評，全數為自然流量",
+			"上架僅 **10 天**內週活躍使用者（WAU）即突破 **1,000**，自然流量 **2,000**、轉換率 **50%**、留存率近 **100%**，並在 **1,000** 名使用者中獲得 **14** 筆五星好評、零負評，全數為自然流量",
 		],
 	},
 ];
@@ -302,9 +307,9 @@ export default function AppleResumeZhTW() {
 				avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
 				avatarFallback="JH"
 				jobTitle={"資深軟體工程師 - TikTok\n應徵 UI Full Stack Engineer - Apple"}
-				description={`7 年前端開發經驗，於 TikTok 與 LINE 交付企業級正式系統。AI.Book 與 FundFluent 兩份契約案為完全獨立開發：AI.Book 的線上相片書編輯器 6 個月內從零打造上線，FundFluent 的 UI Kit、SME Portal 與 Partner Portal 三套系統亦由個人單獨完成；技術選型與架構皆自行決定，僅於里程碑節點對齊，而非逐步審核。
+				description={`**7 年**前端開發經驗，於 TikTok 與 LINE 交付企業級正式系統。AI.Book 與 FundFluent 兩份契約案為**完全獨立開發**：AI.Book 的線上相片書編輯器 **6 個月內從零打造上線**，FundFluent 的 UI Kit、SME Portal 與 Partner Portal **三套系統亦由個人單獨完成**；技術選型與架構皆自行決定，僅於里程碑節點對齊，而非逐步審核。
 
-API 設計與服務於 UI 的後端端點同屬自身守備範圍：在 LINE 購物同時維護 Vue SSR 前端倉庫與整合數十個後端微服務的 BFF（Node.js + GraphQL + TypeScript），在 AI.Book 則主導 RESTful API 設計，涵蓋 AWS Cognito OAuth2 登入與購物車訂單流程。核心技術棧為 React、TypeScript、Next.js 與 GraphQL。`}
+API 設計與服務於 UI 的後端端點同屬自身守備範圍：在 LINE 購物同時維護 Vue SSR 前端倉庫與整合**數十個**後端微服務的 BFF（Node.js + GraphQL + TypeScript），在 AI.Book 則**主導** RESTful API 設計，涵蓋 AWS Cognito OAuth2 登入與購物車訂單流程。核心技術棧為 React、TypeScript、Next.js 與 GraphQL。`}
 				location="Singapore"
 				stats={stats}
 				contacts={contacts}
@@ -319,6 +324,9 @@ API 設計與服務於 UI 的後端端點同屬自身守備範圍：在 LINE 購
 				projects={projects}
 				highlightsLabel="技術亮點"
 				contributionsLabel="主要貢獻"
+				personalProjectsLabel="個人專案"
+				companyProjectsLabel="公司專案"
+				companyLogos={companyLogos}
 			/>
 
 			<TechStackVisualization title="技術棧可視化" description="前端、平台與 AI 輔助工程能力圖譜。">

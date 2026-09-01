@@ -18,7 +18,7 @@ description: "更新 lazy-cv 基礎履歷範本。使用者輸入 `/update`、�
 
 1. **XYZ 公式**：每條 bullet 盡量包含「強動詞開頭的具體行動 + 使用的技術/方法 + 產生的具體結果」，而不是只列職責。
 2. **禁用詞**：不用 "I/my/we"、「我的/我們」等人稱代名詞；不用 "Responsible for"、「負責」、"Participated in"、「參與」、"Helped"、"Worked on"、"Utilized" 這類弱動詞開頭；不用主觀自評句（如「擅長溝通」「熱情積極」），改用履歷中已有的具體事實佐證，不額外貼標籤。
-3. **一條 bullet 一個成就**：禁止把多句話塞進同一條 `highlights`/`contributions` 陣列字串裡。每個成就獨立成一條，1-2 行為佳；塞太多句子會讓後續（例如 `/cv` 的 ATS 計分）統計指標失真。
+3. **一條 bullet 一個成就**：禁止把多句話塞進同一條 `highlights`/`contributions` 陣列字串裡。每個成就獨立成一條，1-2 行為佳；塞太多句子會讓後續（例如 `/cv` 的 ATS 計分）統計指標失真。**例外**：`Project.contributions` 改以非條列式單一段落撰寫，不適用本點與第 1 點的 XYZ 公式，詳見下方步驟 8「`Project.contributions`（重大貢獻）撰寫規範」。
 4. **不加句尾句號**：bullet 不是完整句子，不需要句號收尾。
 5. **數字用阿拉伯數字**：8 不寫 eight，30% 不寫 thirty percent。
 6. **Domain context 優先**：每段經歷/專案盡量講清楚產業、系統類型、規模，而非只列技術名詞。
@@ -52,7 +52,18 @@ description: "更新 lazy-cv 基礎履歷範本。使用者輸入 `/update`、�
       - `page.tsx` 是用 `Object.fromEntries(experiences.map(e => [e.company, e.logo]))` 自動產生 `companyLogos` 對照表給專案卡片顯示公司 logo；字串對不上，logo 就顯示不出來（不會報錯，容易被忽略，需自行比對）。
       - `ProjectsGrid` 是用「有沒有 `company` 欄位」把專案分成「個人專案」/「公司專案」兩組顯示。
    4. `<ProjectsGrid>` 呼叫時務必同時傳入 `personalProjectsLabel`、`companyProjectsLabel`、`companyLogos={companyLogos}`（en/zh-TW 各自對應語言的標籤文案）。
-8. **驗證**：確認更新後的檔案仍可正確編譯（無 TypeScript 錯誤）。
+8. **`Project.contributions`（重大貢獻）撰寫規範**（見 `components/resume/types.ts` 的 `Project.contributions` 欄位）：
+   1. 以**非條列式的單一段落**呈現：`contributions` 陣列只放 **1 個字串**，內容是一段完整散文（不切成多條、不加句尾句號）。
+   2. **重點數字加粗**：段落中的關鍵數字（量化成果、規模、成長率、使用者數據，如 `**90%**`、`**1,000**`）用 `**...**` 標記，其餘文字不加粗；`projects-grid.tsx` 與 `plain-resume.tsx` 都會把 `**...**` 轉成 `<strong>`。
+   3. 段落內容只陳述：**結果** ＋ **關鍵前提條件** ＋ **關鍵技術手段**。不描述原理、實作步驟或過程細節。
+   4. 重點取捨權重（由高到低，字數有限時優先保留高權重要素）：
+      1. **獨立開發**（一人／完全獨立／從零打造）
+      2. **帶領**（領導團隊、跨團隊主導）
+      3. **數字相關**（量化成果、規模、成長率、使用者數據）
+      4. **開源**（GitHub 開源、上架商店、公開專案）
+   5. 此規範是「一條 bullet 一個成就」與「每條 bullet 套 XYZ 公式」規則的**例外**，僅適用於 `contributions`。
+   6. **`Project.highlights`（技術亮點）不受此規範影響**：維持最多 3 條的條列式寫法。
+9. **驗證**：確認更新後的檔案仍可正確編譯（無 TypeScript 錯誤）。
 
 ---
 

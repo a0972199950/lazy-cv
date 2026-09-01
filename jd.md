@@ -1,51 +1,42 @@
-# Software Engineer II - Organic Growth | Microsoft
+# Staff/Senior Staff Frontend Engineer - Customer Genius & BOSS at OKX
 
-- Job number: 200041265
-- Date posted: Aug 19, 2026
-- Location: Australia, New South Wales, Sydney (+2 more)
-- Work site: 3 days / week in-office
-- Travel: Less than 25%
-- Profession: Software Engineering
-- Discipline: Software Engineering
-- Role type: Individual Contributor
-- Employment type: Full-Time
-- URL: https://apply.careers.microsoft.com/careers/job/1970393556912947?utm_source=linkedin&domain=microsoft.com&src=LinkedIn
+Source: https://job-boards.greenhouse.io/okx/jobs/7712938003?gh_src=3x0hfvgl3us
 
-## Overview
+> OKX will be prioritising applicants who have a current right to work in Singapore, and do not require OKX's sponsorship of a visa
 
-As Microsoft continues to lead innovation in productivity, the Organic Growth team helps millions of customers discover and engage with products through high-quality, SEO-driven content experiences. We are looking for a strong Software Engineer to join our Organic Growth team and help grow the user base of the Office Product Group's flagship applications like Word, Excel, PowerPoint and Clipchamp. In addition to working on a Next.js application that builds our pages and building custom integrations with the Contentful Content Management Systems (CMS) to support our content development team, you'll have an opportunity to gain DevOps experience and support a platform that serves the Office Product Group (OPG). You'll join a nimble, cross-disciplinary team embedded within Microsoft, working with software engineers, content creators and designers to deliver innovative solutions. If you're passionate about delivering world-class products in creative, real-world scenarios and want to work at the intersection of cutting-edge technology and storytelling, we want to hear from you.
+## About OKX
 
-Microsoft's mission is to empower every person and every organization on the planet to achieve more. As employees we come together with a growth mindset, innovate to empower others and collaborate to realize our shared goals. Each day we build on our values of respect, integrity and accountability to create a culture of inclusion where everyone can thrive at work and beyond.
+At OKX, we believe that the future will be reshaped by crypto, and ultimately contribute to every individual's freedom. OKX is a leading crypto exchange, and the developer of OKX Wallet, giving millions access to crypto trading and decentralized crypto applications (dApps). OKX is also a trusted brand by hundreds of large institutions seeking access to crypto markets. We are safe and reliable, backed by our Proof of Reserves. Across our multiple offices globally, we are united by our core principles: We Before Me, Do the Right Thing, and Get Things Done. These shared values drive our culture, shape our processes, and foster a friendly, rewarding, and diverse environment for every OK-er. OKX is part of OKG, a group that brings the value of Blockchain to users around the world, through our leading products OKX, OKX Wallet, OKLink and more.
+
+## About the team
+
+This frontend team builds and supports core platforms that enable both internal operations and customer-facing experiences at OKX.
+
+We develop the BOSS (Business Operation Support System) Middle Platform, which provides foundational capabilities such as business gateways, Identity & Access Management (IAM), efficiency components, and security controls—helping business teams operate more effectively and securely.
+
+In parallel, we deliver the Customer Genius product suite, focused on customer support solutions including chatbots and automation tools that improve service efficiency and user experience.
 
 ## Responsibilities
 
-- Works with appropriate stakeholders to understand customer, business, and technical requirements for a defined set of features.
-- Identifies dependencies and contributes to design documents with limited oversight.
-- Breaks down larger work items into smaller deliverables and provides reliable estimates.
-- Builds and implements features for Next.js and Contentful CMS applications and supporting Azure functions.
-- Uses DevOps practices to maintain and improve the full-stack application, including infrastructure, security, and deployments.
-- Takes part in an on-call roster to monitor and mitigate system/service for degradation and downtime.
-- Remains current in skills by investing time and effort into staying abreast of current developments in software development, including Next.js, Typescript, Infrastructure as Code (IaC) and the latest AI tools.
+- Architect, develop and maintain frontend solutions with performance, scalability and continuous integration in mind.
+- Leverage AI coding agents and tools (e.g., Claude Code, Cursor) to accelerate development, improve code quality, and automate repetitive tasks across the team's workflow.
+- Design and maintain reusable AI extensions like custom skills, MCP servers, and tool integrations.
+- Develop and maintain reusable component libraries, plugins, and shared modules consumed across multiple products to reduce duplication and improve consistency.
+- Drive improvements to developer experience and engineering velocity - build tooling, CI/CD pipelines, code generation, and AI-assisted workflow automation.
+- Continuously improve product quality and user experience by working with backend engineers, PMs and designers to translate complex business workflows into intuitive interfaces.
 
-We emphasise a culture of continuous learning, so a growth mindset and passion for learning are essential. You should expect your teammates to be invested in helping you succeed and be prepared to offer the same support in return. We recognise and celebrate the unique strengths and perspectives of every person on the team and leverage our diversity to create more inclusive products for our customers.
+## Requirements
 
-## Qualifications
+- Bachelor's in Computer Science / Engineering / or related STEM field.
+- Solid production experience with React, TypeScript, HTML5, CSS3, JavaScript, etc.
+- Hands-on experience with AI coding tools and agents (e.g., Claude Code, Cursor) - comfortable using AI to augment development workflows, generate code, and solve problems faster.
+- Exposure to or strong interest in building AI-powered features - chat interfaces, LLM integrations, agent orchestration, or conversational UX.
+- Familiarity with MCP (Model Context Protocol), custom skill/tool authoring, or AI agent extensibility patterns - understanding how to connect AI agents to external systems and codify workflows into reusable automations is a strong plus.
+- Understand of front-end packaging workflow and familiarity with standard development tools such as npm, webpack, git, etc.
+- Understanding of cross-browser compatibility challenges and the ability to diagnose and resolve rendering/behavioral differences across environments.
 
-### Required/Minimum Qualifications:
+## Perks & Benefits
 
-- Bachelor's Degree in Computer Science or related technical field AND 2+ years technical engineering experience with coding in languages including but not limited to C#, Java, JavaScript, TypeScript or Python.
-  - OR equivalent experience.
-- 2+ years demonstrated experience in frontend or full stack development.
-- Passion for learning new skills with the ability to thrive in a feedback-driven environment.
-- Someone who drives collaboration in your own team and across squads - you're able to consider others' ideas, implement new methods, surface and resolve disagreements and empathize with users without breaking a sweat.
-- Experience with Github Copilot (or similar tools) and ability to leverage these for productivity gains.
+Competitive total compensation package; L&D programs and Education subsidy; team building programs and company events; Wellness and meal allowances; Comprehensive healthcare schemes for employees and dependants.
 
-### Preferred/Additional Qualifications:
-
-- Proficiency in JavaScript or TypeScript and experience with web app development using frameworks like React or Vue.
-- Ability and interest to learn new languages and APIs.
-- Experience with or interest in infrastructure and security.
-- Building scalable services in Node, C# or Python.
-- Focus on appropriate comprehensive automated testing and documentation.
-- Optimising performance and tracking down and fixing customer-facing issues.
-- Online video and contributing to the technically challenging problems we're solving.
+#LI-OL1 #LI-ONSITE

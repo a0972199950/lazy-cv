@@ -43,9 +43,9 @@ const experiences: Experience[] = [
 		period: "2024.11 - Present",
 		logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
 		highlights: [
-			"Deliver UI and data-flow modules for the ad settlement system inside a React + TypeScript monorepo spanning 50+ sub-projects and a million-line codebase",
-			"Introduced multi-threaded CSV validation with Web Worker and Comlink, cutting UI blocking time by 90% on large files",
-			"Drove Scrum adoption across the team, using refinement to break siloed work and remove uneven workload cycles",
+			"Deliver UI and data-flow modules for the ad settlement system inside a React + TypeScript monorepo spanning **50+ sub-projects** and a **million-line codebase**",
+			"Introduced multi-threaded CSV validation with Web Worker and Comlink, **cutting UI blocking time by 90%** on large files",
+			"**Drove** Scrum adoption across the team, using refinement to break siloed work and remove uneven workload cycles",
 		],
 	},
 	{
@@ -54,9 +54,9 @@ const experiences: Experience[] = [
 		period: "2021.08 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
 		highlights: [
-			"Maintained both the Vue SSR frontend repo and the BFF (Node.js + GraphQL + TypeScript) fronting dozens of backend microservices, across a 60-engineer team where every line required review before merge",
-			"Led 4 engineers refactoring a PHP CMS into Next.js App Router, reaching full frontend-backend separation and cutting backend team load",
-			"Mentored 2 new engineers and ran an internal Next.js teaching forum, with positive feedback from both mentees",
+			"Maintained both the Vue SSR frontend repo and the BFF (Node.js + GraphQL + TypeScript) fronting **dozens of** backend microservices, across a **60-engineer team** where every line required review before merge",
+			"**Led 4 engineers** refactoring a PHP CMS into Next.js App Router, reaching **full frontend-backend separation** and cutting backend team load",
+			"**Mentored 2** new engineers and ran an internal Next.js teaching forum, with positive feedback from both mentees",
 		],
 	},
 	{
@@ -65,8 +65,8 @@ const experiences: Experience[] = [
 		period: "2021.09 - 2024.10",
 		logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
 		highlights: [
-			"Built the core online photo-book editor solo, taking it from zero to production within 6 months",
-			"Owned backend API design spanning AWS Cognito OAuth2 sign-in, cart and order flow, and payment result integration",
+			"Built the core online photo-book editor **solo**, taking it **from zero to production within 6 months**",
+			"**Owned** backend API design spanning AWS Cognito OAuth2 sign-in, cart and order flow, and payment result integration",
 			"Defined API contracts, data models and error handling from the frontend consumer perspective, then drove them to production with the backend team",
 		],
 	},
@@ -76,7 +76,7 @@ const experiences: Experience[] = [
 		period: "2021.01 - 2021.09",
 		logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
 		highlights: [
-			"Built 3 frontend systems independently with React and TypeScript: UI Kit, SME Portal and Partner Portal",
+			"Built **3 frontend systems independently** with React and TypeScript: UI Kit, SME Portal and Partner Portal",
 			"Created reusable component patterns keeping design and interaction consistent across multiple financial products",
 		],
 	},
@@ -110,9 +110,14 @@ const experiences: Experience[] = [
 	},
 ];
 
+const companyLogos: Record<string, string> = Object.fromEntries(
+	experiences.map((e) => [e.company, e.logo]),
+);
+
 const projects: Project[] = [
 	{
 		name: "LINE Shopping",
+		company: "LINE Taiwan",
 		summary:
 			"High-traffic e-commerce affiliate platform offering cashback and content-driven shopping, built by a 60-engineer frontend org.",
 		stack: ["Vue 2", "Vue SSR (vue-server-renderer)", "TypeScript", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Jest", "Storybook", "Lighthouse CI"],
@@ -124,11 +129,12 @@ const projects: Project[] = [
 		],
 		url: "https://buy.line.me",
 		contributions: [
-			"Built the live-shopping video autoplay module independently with IntersectionObserver, Vuex and HLS.js, delivering smooth scroll-list preview",
+			"Built the live-shopping video autoplay module **independently** with IntersectionObserver, Vuex and HLS.js, delivering smooth scroll-list preview",
 		],
 	},
 	{
 		name: "AI.Book Online Photo-Book Editor",
+		company: "AI.Book",
 		summary:
 			"Online photo-book platform where users lay out personalized albums in the browser and print them as physical keepsake books.",
 		stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "Vuex", "TailwindCSS", "vuedraggable", "cropperjs", "AWS Cognito OAuth2", "GitHub Actions", "Swagger/OpenAPI"],
@@ -137,12 +143,13 @@ const projects: Project[] = [
 			"https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
 		],
 		highlights: [
-			"Delivered tech selection, frontend architecture and the editor core end to end as a solo engineer, launching within 6 months",
+			"Delivered tech selection, frontend architecture and the editor core end to end **as a solo engineer**, launching **within 6 months**",
 			"Integrated vuedraggable, cropperjs and flipbook-vue into a cross-device drag-and-drop layout experience",
 		],
 	},
 	{
 		name: "FundFluent SME Portal",
+		company: "FundFluent",
 		summary:
 			"Integrated lending platform for Hong Kong SMEs, aggregating bank and government loan programs with OCR-assisted document classification.",
 		stack: ["TypeScript", "React 17", "Next.js 12", "React Context", "useReducer", "TailwindCSS", "React Hook Form", "Yup", "next-i18next", "Docker", "GCP Artifact Registry", "GKE"],
@@ -153,7 +160,7 @@ const projects: Project[] = [
 			"Wired in an OCR document-classification flow, removing repeated paperwork submission across multiple loan applications",
 		],
 		contributions: [
-			"Built from zero single-handed on React 17 + Next.js 12 + TypeScript, owning architecture and tech selection outright",
+			"Built **from zero single-handed** on React 17 + Next.js 12 + TypeScript, owning architecture and tech selection outright",
 		],
 	},
 	{
@@ -170,13 +177,11 @@ const projects: Project[] = [
 		url: "https://chromewebstore.google.com/detail/dfaddcffoondcendifiljhdbdagebgch",
 		highlights: [
 			"Injected a MAIN-world script hooking fetch/XHR and the playinfo setter to rewrite the DASH manifest CDN host live without disturbing native page behavior",
-			"Designed automatic failover monitoring segment request status and playback progress, silently switching to the native backup node after an 8-second stall",
+			"Designed automatic failover monitoring segment request status and playback progress, silently switching to the native backup node **after an 8-second stall**",
 			"Synthesized user feedback across Bilibili forums and communities to prioritize fixes and drive the feature roadmap",
 		],
 		contributions: [
-			"2,000 views and 1,000 installs within 10 days of launch, a 50% conversion rate",
-			"Weekly active users passed 1,000 within 10 days of launch, retention near 100%",
-			"14 five-star reviews with zero negative reviews among 1,000 users, all from organic traffic",
+			"Within **10 days** of launch, weekly active users passed **1,000** on **2,000** organic visits — a **50%** conversion rate, retention near **100%** — with **14** five-star reviews and zero negatives among **1,000** users, all from organic traffic",
 		],
 	},
 ];
@@ -302,9 +307,9 @@ export default function AppleResumeEN() {
 				avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
 				avatarFallback="JH"
 				jobTitle={"Senior Software Engineer - TikTok\nApply for UI Full Stack Engineer - Apple"}
-				description={`7 years of frontend engineering, shipping production systems at TikTok and LINE. AI.Book and FundFluent were both built entirely solo: the AI.Book photo-book editor went zero to launch in 6 months, and FundFluent UI Kit, SME Portal and Partner Portal were each delivered single-handed - architecture and tech selection owned outright, aligned at milestones, not reviewed step by step.
+				description={`**7 years** of frontend engineering, shipping production systems at TikTok and LINE. AI.Book and FundFluent were **both built entirely solo**: the AI.Book photo-book editor went **zero to launch in 6 months**, and FundFluent UI Kit, SME Portal and Partner Portal were **each delivered single-handed** - architecture and tech selection owned outright, aligned at milestones, not reviewed step by step.
 
-API design and the backend endpoints serving the UI sit in that same scope: at LINE Shopping, maintained the Vue SSR frontend repo alongside the BFF (Node.js + GraphQL + TypeScript) fronting dozens of backend microservices; at AI.Book, owned RESTful API design for AWS Cognito OAuth2 sign-in, cart and order flow. Core stack is React, TypeScript, Next.js and GraphQL.`}
+API design and the backend endpoints serving the UI sit in that same scope: at LINE Shopping, maintained the Vue SSR frontend repo alongside the BFF (Node.js + GraphQL + TypeScript) fronting **dozens of** backend microservices; at AI.Book, **owned** RESTful API design for AWS Cognito OAuth2 sign-in, cart and order flow. Core stack is React, TypeScript, Next.js and GraphQL.`}
 				location="Singapore"
 				stats={stats}
 				contacts={contacts}
@@ -319,6 +324,9 @@ API design and the backend endpoints serving the UI sit in that same scope: at L
 				projects={projects}
 				highlightsLabel="Technical Highlights"
 				contributionsLabel="Key Contributions"
+				personalProjectsLabel="Personal Projects"
+				companyProjectsLabel="Company Projects"
+				companyLogos={companyLogos}
 			/>
 
 			<TechStackVisualization title="Tech Stack Visualization" description="Core frontend, platform, and AI-augmented engineering capabilities.">

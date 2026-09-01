@@ -1,6 +1,6 @@
 "use client";
 
-import { Camera, FileText, LayoutTemplate, Loader2, Table2 } from "lucide-react";
+import { Camera, FileText, LayoutTemplate, Loader2, Table2, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -52,6 +52,10 @@ const i18n = {
     plainModeHint: 'Black & white, text only — ATS friendly',
     screenshotModeLabel: 'Long Screenshot',
     screenshotModeHint: 'Full-page image PDF (local only)',
+    downloadPromptTitle: 'Download PDF Resume',
+    downloadPromptDesc: 'Click the button below to download this resume as a PDF (plain table, ATS-friendly).',
+    downloadPromptButton: 'Download PDF',
+    downloadPromptClose: 'Close',
   },
   'zh-TW': {
     pdfAriaLabel: '下載 PDF',
@@ -61,6 +65,10 @@ const i18n = {
     plainModeHint: '全黑白、只有文字，ATS 友善',
     screenshotModeLabel: '長截圖模式',
     screenshotModeHint: '整頁圖片 PDF（僅本地）',
+    downloadPromptTitle: '下載 PDF 履歷',
+    downloadPromptDesc: '點擊下方按鈕，將這份履歷下載為 PDF（純表格、ATS 友善）。',
+    downloadPromptButton: '下載 PDF',
+    downloadPromptClose: '關閉',
   },
   'ja': {
     pdfAriaLabel: 'PDF をダウンロード',
@@ -70,6 +78,10 @@ const i18n = {
     plainModeHint: '白黒・テキストのみ、ATS 対応',
     screenshotModeLabel: 'ロングスクリーンショット',
     screenshotModeHint: '全ページ画像 PDF（ローカルのみ）',
+    downloadPromptTitle: 'PDF 履歴書をダウンロード',
+    downloadPromptDesc: '下のボタンをクリックすると、この履歴書を PDF（プレーンテーブル、ATS 対応）としてダウンロードできます。',
+    downloadPromptButton: 'PDF をダウンロード',
+    downloadPromptClose: '閉じる',
   },
 } as const;
 
@@ -120,6 +132,8 @@ export default function DownloadPDFLayout({
   const [progress, setProgress] = useState<Progress | null>(null);
   // 只有本人登入時才顯示排版模式選單；其他訪客一律直接下載簡易模式 PDF
   const [isAdmin, setIsAdmin] = useState(false);
+  // 網址帶 ?query=download-pdf 時，預設彈出下載提示 modal
+  const [showDownloadPrompt, setShowDownloadPrompt] = useState(false);
 
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
@@ -132,6 +146,27 @@ export default function DownloadPDFLayout({
       .then((data: { isAdmin: boolean }) => setIsAdmin(data.isAdmin))
       .catch(() => setIsAdmin(false));
   }, []);
+
+  // 依網址上的 query 參數決定是否顯示下載提示 modal（同時處理上一頁／下一頁）
+  useEffect(() => {
+    const sync = () => {
+      const params = new URLSearchParams(window.location.search);
+      setShowDownloadPrompt(params.get('query') === 'download-pdf');
+    };
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
+  }, []);
+
+  // 關閉 modal 時，順手把 ?query=download-pdf 從網址移除（不重新導頁）
+  const closeDownloadPrompt = () => {
+    setShowDownloadPrompt(false);
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('query')) {
+      url.searchParams.delete('query');
+      window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+    }
+  };
 
   const handleLongScreenshot = async () => {
     if (loading) return;
@@ -227,6 +262,48 @@ export default function DownloadPDFLayout({
     <TooltipProvider>
       <div className="relative min-h-screen bg-linear-to-b from-slate-50 via-white to-sky-50/30">
         {children}
+
+        {/* 下載提示 modal - 網址帶 ?query=download-pdf 時彈出，點空白處或 X 關閉並移除 query */}
+        {showDownloadPrompt && (
+          <div
+            className="print:hidden fixed inset-0 z-100 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
+            onClick={closeDownloadPrompt}
+          >
+            <div
+              className="relative flex w-full max-w-sm flex-col items-center gap-5 rounded-2xl border border-white/20 bg-white/95 px-8 py-9 text-center shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeDownloadPrompt}
+                className="absolute right-3 top-3 flex size-8 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
+                aria-label={t.downloadPromptClose}
+              >
+                <X className="size-5" />
+              </button>
+
+              <span className="flex size-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-600 to-emerald-600 text-white">
+                <FileText className="size-6" />
+              </span>
+
+              <div className="flex flex-col gap-1.5">
+                <h2 className="text-lg font-semibold text-slate-900">{t.downloadPromptTitle}</h2>
+                <p className="text-sm text-slate-500">{t.downloadPromptDesc}</p>
+              </div>
+
+              <button
+                onClick={() => {
+                  closeDownloadPrompt();
+                  handleDownloadPDF('plain');
+                }}
+                disabled={loading}
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-linear-to-br from-cyan-600 to-emerald-600 px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+              >
+                <FileText className="size-4" />
+                {t.downloadPromptButton}
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Loading 遮罩 + 進度條 */}
         {loading && (

@@ -45,9 +45,9 @@ const experiences: Experience[] = [
     period: "2024.11 - 至今",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "在 50+ 子專案、百萬級程式碼規模的 monorepo 中主導廣告投放財務結算系統開發，技術棧為 React 17、TypeScript、Rush Monorepo 與公司自研微前端框架",
-      "彙整廣告主與內部利害關係人每日透過 oncall 管道回報的問題與需求，歸納重複出現的模式並主動定義新的技術開發任務",
-      "將 CSV 校驗邏輯透過 Comlink RPC 轉移至 Web Worker 執行，搭配 Yup 與 Regex 驗證規則，在 10 筆資料的填寫流程中減少 90% UI 卡頓時間",
+      "在 50+ 子專案、百萬行規模的 monorepo 中，以 React 17、TypeScript、Rush Monorepo 與自研微前端框架主導廣告投放財務結算系統開發",
+      "彙整廣告主與內部團隊每日 oncall 回報的問題，歸納重複模式並主動定義新的開發任務",
+      "將 CSV 校驗改以 Web Worker（Comlink RPC）執行，搭配 Yup／Regex 驗證，資料填寫流程 UI 卡頓時間減少 90%",
     ],
   },
   {
@@ -56,9 +56,9 @@ const experiences: Experience[] = [
     period: "2021.08 - 2024.10",
     logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
-      "在 60 人、每行程式碼合併前都須經審查的團隊中，以 Vue SSR、GraphQL、TypeScript、ExpressJS 與 Redis 的全端技術棧開發並維護 LINE 購物電商導購平台",
+      "在 60 人、每行程式碼合併前皆須審查的團隊中，以 Vue SSR、GraphQL、TypeScript、ExpressJS、Redis 全端技術棧開發並維護 LINE 購物導購平台",
       "帶領 4 人團隊主導 CMS 從 PHP 重構至 NextJS App Router 架構，達成前後端完全分離",
-      "投入 JSTF 跨團隊小組，制定全公司前端開發準則，並導入 Lighthouse CI 在每個 PR 自動化評量效能",
+      "加入 JSTF 跨團隊小組制定全公司前端準則，並導入 Lighthouse CI 於每個 PR 自動評量效能",
     ],
   },
   {
@@ -67,9 +67,9 @@ const experiences: Experience[] = [
     period: "2021.09 - 2024.10",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接，並從前端消費端角度定義 API 契約、資料模型與錯誤處理",
-      "獨自開發線上相片書編輯器，6 個月內完成產品上線，一人包辦技術選型、前端架構、編輯器核心到後端 API 設計",
-      "以 Vue + NuxtJS 實作拖拉排版、尺寸調整與文字編輯，並同時支援網頁端與手機端瀏覽器",
+      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單、金流串接，並定義 API 契約、資料模型與錯誤處理",
+      "獨自開發線上相片書編輯器，6 個月內上線，一人包辦技術選型、前端架構、編輯器核心到後端 API",
+      "以 Vue + NuxtJS 實作拖拉排版、縮放與文字編輯，支援桌機與手機瀏覽器",
     ],
   },
   {
@@ -78,9 +78,9 @@ const experiences: Experience[] = [
     period: "2021.01 - 2021.09",
     logo: "https://cdn.lazy-cv.com/32c57cb1-aee3-40de-bda5-2c6c37d9c6cb.png",
     highlights: [
-      "使用 React / NextJS、TypeScript、TailwindCSS 開發面向香港市場的中小企數位貸款平台，涵蓋借款方入口與面向放貸機構的夥伴後台",
+      "以 React／NextJS、TypeScript、TailwindCSS 開發香港市場中小企數位貸款平台，涵蓋借款方入口與放貸機構夥伴後台",
       "從零規劃前端架構與技術選型，於公司初創期加入",
-      "規劃跨專案共用 UI 組件庫（Stencil.js Web Component），發布至 private NPM 供兩個入口各自獨立安裝使用",
+      "規劃跨專案共用 UI 組件庫（Stencil.js Web Component），發布至 private NPM 供兩入口獨立安裝",
     ],
   },
   {
@@ -128,7 +128,7 @@ const projects: Project[] = [
   {
     name: "LINE 購物",
     summary:
-      "LINE 導購服務，經由 LINE 購物外連到合作夥伴商家消費可獲 LINE 點數回饋。由 60 人團隊以 Vue SSR、GraphQL、ExpressJS 與 Redis 全端技術棧開發維護的大型線上應用，每行程式碼合併前都須經過審查。",
+      "LINE 導購服務，於合作商家消費可獲 LINE 點數回饋。由 60 人團隊以 Vue SSR、GraphQL、ExpressJS、Redis 全端技術棧開發維運的大型線上應用，每行程式碼合併前皆須審查。",
     stack: ["TypeScript", "Vue 2", "Vue SSR (vue-server-renderer)", "Vuex 3", "Node.js", "Express", "GraphQL (Apollo Server Express)", "DataLoader", "Redis (ioredis)", "OAuth2", "Sentry", "Jest", "Storybook", "Docker", "Drone CI", "Lighthouse CI"],
     company: "LINE Taiwan",
     image: [
@@ -139,13 +139,13 @@ const projects: Project[] = [
     ],
     url: "https://buy.line.me",
     contributions: [
-      "獨自開發「直播購物」功能：參考 YouTube 影片流自動預覽機制，設計了一套**可覆用影片自動預覽模組**，透過全局調度器**解決高速捲動下影片預覽混亂**及**單頁面過多直播源造成記憶體暴增**的技術難點",
+      "獨自開發 LINE 購物的「直播購物」功能，設計一套自研全局調度器實現可復用影片自動預覽模組，在高速捲動下帶來順滑的使用者體驗",
     ],
   },
   {
     name: "TWSG 視頻加速 for Bilibili（非官方）",
     summary:
-      "一款讓台灣／新加坡使用者觀看網頁版 Bilibili 更順暢的 Chrome / Edge / Firefox 瀏覽器擴充套件，動態將影片 CDN host 重排為當地最快節點，並具備自動 fallback 機制。從技術架構、開發到上架與維護皆為個人獨立完成。",
+      "Chrome／Edge／Firefox 瀏覽器擴充套件，為台灣／新加坡使用者將網頁版 Bilibili 的影片 CDN host 動態重排為當地最快節點，並具自動 fallback。架構、開發、上架到維運皆一人獨立完成。",
     stack: ["Chrome Extension Manifest V3", "Vanilla JavaScript (ES6+)", "chrome.storage", "chrome.i18n", "Content Scripts (MAIN world / ISOLATED world)", "fetch / XMLHttpRequest hook", "Node.js", "JSZip", "Puppeteer", "Sharp"],
     image: [
       "https://cdn.lazy-cv.com/promo-cover-1280x800.png",
@@ -157,20 +157,18 @@ const projects: Project[] = [
     ],
     url: "https://chromewebstore.google.com/detail/twsg-%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F-for-bilibili-%E9%9D%9E%E5%AE%98/dfaddcffoondcendifiljhdbdagebgch",
     highlights: [
-      "自動容錯 Fallback 機制：即時監控分段請求狀態與播放卡頓，偵測異常時先靜默切換至 B 站原生備援節點，備援也失效才提示使用者",
-      "MAIN world 注入攔截 fetch/XHR 與 playinfo 物件的 setter，即時改寫 playurl/DASH manifest 中的 CDN host，且不影響頁面原生行為",
-      "論壇驅動迭代：持續追蹤 Bilibili 相關論壇與社群的使用者回饋與討論，歸納重複出現的痛點以排定修復優先序並推動功能藍圖",
+      "自動容錯：監控分段請求與播放卡頓，異常時先靜默切回 B 站原生備援節點，備援再失效才提示使用者",
+      "MAIN world 注入攔截 fetch/XHR 與 playinfo setter，即時改寫 playurl/DASH manifest 的 CDN host，不影響頁面原生行為",
+      "論壇驅動迭代：追蹤 Bilibili 論壇與社群回饋，歸納重複痛點以排定修復優先序與功能藍圖",
     ],
     contributions: [
-      "Vibe Coding 實踐：全程透過 AI 輔助協作開發，從技術架構、程式碼撰寫到商店上架素材，僅耗時 1 個週末即完成並上線",
-      "上架 10 天：瀏覽數 2,000、安裝數 1,000（**轉換率達 50%**），WAU 突破 1,000（**留存率近 100%**），獲得 **14 筆五星好評、零負評**，全數為自然流量",
-      "GitHub：https://github.com/a0972199950/bilibili-cdn-switcher",
+      "上架僅 **10 天**內週活躍使用者（WAU）即突破 **1,000**，自然流量達 **2,000**，轉換率高達 **50%**，五星好評率 **100%**",
     ],
   },
   {
     name: "UG 海外增長業務平台",
     summary:
-      "大型企業級 Monorepo 前端專案，服務 TikTok 線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域，管理 50+ 子專案，百萬級程式碼規模。",
+      "企業級 Monorepo 前端專案，服務 TikTok 海外廣告增長業務，涵蓋媒體資產、財務結算、供應商採購、數據看板等領域，50+ 子專案、百萬行規模。",
     stack: ["React 17", "TypeScript", "Rush Monorepo", "Arco Design", "ECharts", "Jest"],
     company: "TikTok Singapore",
     image: [
@@ -179,19 +177,18 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/pp-performance.png",
     ],
     highlights: [
-      "針對財務、報價等場景的 JavaScript 浮點數精度問題，實作高精度數值計算方案",
-      "基於 JSON Schema 動態表單渲染的複雜表單互動元件開發，涵蓋級聯選擇、動態欄位、條件顯示等場景",
-      "透過自研框架實現子應用動態載入的微前端整合，支援按需載入業務模組與獨立開發部署",
+      "為財務、報價場景的 JavaScript 浮點數精度問題實作高精度數值計算方案",
+      "基於 JSON Schema 動態渲染的複雜表單元件，涵蓋級聯選擇、動態欄位、條件顯示",
+      "以自研框架實現子應用動態載入的微前端整合，支援模組按需載入與獨立部署",
     ],
     contributions: [
-      "Web Worker 多線程 CSV 校驗：將校驗工作轉移到單獨執行緒，使用 Comlink 實現類 RPC 通訊，搭配 Yup + Regex Schema —— 在 10 筆資料中**減少 90% UI 卡頓時間**",
-      "函數快取工具優化渲染效能：模仿 React useMemo 建立 cache/cacheMany 工具快取計算結果 —— 在一個沒有做分頁、一次渲染 500 個表單 UI 的介面中**降低 98% Total Blocking Time (TBT)**",
+      "透過 Web Worker 多線程使大量 CSV 校驗的 UI 卡頓時間減少 **90%**；妥善利用 cache 機制讓大型表單頁 TBT 降低 **98%**",
     ],
   },
   {
     name: "AI.Book 相簿編輯器",
     summary:
-      "線上相片書編輯器，支援拖拉排版加入/移除照片、文字編輯，並可從 Google 相簿／Instagram 匯入相片。後端 API 設計涵蓋 OAuth2 登入到購物車、訂單與金流結果的完整流程。從零規劃到上線僅 6 個月。",
+      "線上相片書編輯器，支援拖拉排版、相片增刪與文字編輯，可從 Google 相簿／Instagram 匯入相片。後端 API 涵蓋 OAuth2 登入到購物車、訂單、金流的完整流程。從零到上線僅 6 個月。",
     stack: ["TypeScript", "Vue 2", "Nuxt 2 (SPA)", "Vuex", "TailwindCSS", "Element UI", "vee-validate", "Axios", "@nuxtjs/auth-next", "AWS Cognito OAuth2", "Google OAuth", "Instagram Graph API OAuth", "GitHub Actions", "AWS S3", "CloudFront", "Swagger/OpenAPI"],
     company: "AI.Book 愛相簿",
     image: [
@@ -199,97 +196,48 @@ const projects: Project[] = [
       "https://cdn.lazy-cv.com/4d2e19e0-896e-4af7-921d-41bb4831a59c.png",
     ],
     highlights: [
-      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單流程、金流結果串接",
-      "用純 Vue 搭建客製化編輯器，支援拖拉排版加入/移除照片、文字輸入及字型字體大小編輯",
-      "編輯器支援網頁端與手機端瀏覽器編輯，並可從 Google 相簿／Instagram 匯入相片",
+      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單、金流串接",
+      "以純 Vue 搭建客製化編輯器，支援拖拉排版、相片增刪、文字與字型大小編輯",
+      "支援桌機與手機瀏覽器編輯，可從 Google 相簿／Instagram 匯入相片",
     ],
     contributions: [
-      "從零開始單獨開發——技術選型、前端架構、編輯器核心到後端 API 設計皆一人端到端負責",
+      "從零到上線由一人端到端獨立開發，涵蓋技術選型、前端架構、編輯器核心到後端 API 設計",
     ],
   },
 ];
 
 const skillKeywordRows: SkillKeywordRow[] = [
   {
-    keywords: ["TypeScript", "React", "Next.js", "Vue", "NuxtJS", "GraphQL", "TailwindCSS", "Sass / SCSS", "Node.js", "Express"],
+    keywords: ["TypeScript", "JavaScript", "HTML", "CSS", "Sass / SCSS", "Node.js"],
     badgeClassName: "border-slate-300 bg-white text-slate-700",
     marqueeClassName: "[--duration:30s]",
   },
   {
-    keywords: ["MongoDB", "PostgreSQL", "Redis", "Docker", "Kubernetes", "GitHub Actions", "Firebase", "AWS", "Drizzle ORM", "Mongoose"],
+    keywords: ["React", "Next.js", "Redux", "React Query", "Vue", "NuxtJS", "Vuex", "TailwindCSS"],
     badgeClassName: "border-cyan-200 bg-cyan-50/50 text-cyan-800",
     marqueeClassName: "[--duration:35s]",
     reverse: true,
   },
   {
-    keywords: ["Jest", "Cypress", "Storybook", "Webpack", "Vite", "Git", "Lighthouse", "Renovate", "pnpm", "ESLint"],
+    keywords: ["Express", "GraphQL", "Apollo Server", "Apollo Client", "REST API", "gRPC", "WebSocket", "Socket.io"],
     badgeClassName: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
     marqueeClassName: "[--duration:32s]",
   },
   {
-    keywords: ["Axios", "ECharts", "Chart.js", "Framer Motion", "React Hook Form", "Yup", "Lodash", "i18n", "Arco Design", "Rush Monorepo"],
+    keywords: ["PostgreSQL", "MongoDB", "Mongoose", "Redis", "Docker", "Kubernetes", "GCP", "AWS", "Azure", "Firebase"],
     badgeClassName: "border-violet-200 bg-violet-50/50 text-violet-800",
     marqueeClassName: "[--duration:33s]",
     reverse: true,
   },
   {
-    keywords: ["GitHub Copilot", "Cursor", "n8n", "Prompt Engineering", "MCP", "AI Agent", "Vibe Coding", "Claude API", "Gemini API", "RAG"],
+    keywords: ["Jest", "Cypress", "Playwright", "Testing Library", "Storybook", "Webpack", "Vite", "Git", "GitHub Actions", "ESLint"],
     badgeClassName: "border-amber-200 bg-amber-50/50 text-amber-800",
     marqueeClassName: "[--duration:34s]",
   },
   {
-    keywords: ["Web Worker", "Comlink", "Service Worker", "IndexedDB", "StencilJS", "Shadow DOM", "Socket.io", "PWA", "Web Socket", "REST API"],
+    keywords: ["OAuth2", "JWT", "Web Worker", "Service Worker", "PWA", "Swagger", "Sentry", "Lighthouse", "PM2"],
     badgeClassName: "border-rose-200 bg-rose-50/50 text-rose-800",
     marqueeClassName: "[--duration:36s]",
-    reverse: true,
-  },
-  {
-    keywords: ["Bootstrap", "ElementUI", "Buefy", "Vuetify", "CSS Modules", "Less", "BEM", "Vuex", "Vue Router", "MobX"],
-    badgeClassName: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
-    marqueeClassName: "[--duration:31s]",
-  },
-  {
-    keywords: ["HTML", "JavaScript", "jQuery", "npm", "SDD", "OpenAI API", "Vuelidate", "VeeValidate", "Quill", "D3.js"],
-    badgeClassName: "border-teal-200 bg-teal-50/50 text-teal-800",
-    marqueeClassName: "[--duration:29s]",
-  },
-  {
-    keywords: ["CSS", "CSS variable", "Media query", "Cache Storage", "Workbox", "web-push", "Navigator API", "EJS", "Swagger", "mustache"],
-    badgeClassName: "border-orange-200 bg-orange-50/50 text-orange-800",
-    marqueeClassName: "[--duration:37s]",
-    reverse: true,
-  },
-  {
-    keywords: ["Chrome Extension", "Manifest V3", "Puppeteer", "Vert.x", "Web Extension API"],
-    badgeClassName: "border-fuchsia-200 bg-fuchsia-50/50 text-fuchsia-800",
-    marqueeClassName: "[--duration:38s]",
-  },
-  {
-    keywords: ["Redux", "React Query"],
-    badgeClassName: "border-sky-200 bg-sky-50/50 text-sky-800",
-    marqueeClassName: "[--duration:33s]",
-    reverse: true,
-  },
-  {
-    keywords: ["Apollo Client", "Apollo Server", "DataLoader", "Zod", "Neon PostgreSQL", "GCP", "Azure", "gRPC"],
-    badgeClassName: "border-lime-200 bg-lime-50/50 text-lime-800",
-    marqueeClassName: "[--duration:34s]",
-  },
-  {
-    keywords: ["Playwright", "TestCafe", "Karma", "Jasmine", "Testing Library", "Drone CI", "SonarQube", "Bitbucket Pipelines", "Azure Pipelines", "PM2"],
-    badgeClassName: "border-pink-200 bg-pink-50/50 text-pink-800",
-    marqueeClassName: "[--duration:39s]",
-    reverse: true,
-  },
-  {
-    keywords: ["Husky", "lint-staged", "Stylelint", "Sentry", "Radix UI", "shadcn", "daisyUI", "Fomantic UI", "PostCSS", "Stylus"],
-    badgeClassName: "border-blue-200 bg-blue-50/50 text-blue-800",
-    marqueeClassName: "[--duration:35s]",
-  },
-  {
-    keywords: ["Gulp", "Lit-html", "OAuth2", "JWT", "AWS Cognito", "bcryptjs", "Google Charts", "Handsontable", "GitHub"],
-    badgeClassName: "border-stone-200 bg-stone-50/50 text-stone-800",
-    marqueeClassName: "[--duration:31s]",
     reverse: true,
   },
 ];
@@ -332,7 +280,7 @@ export default function ResumePageZhTW() {
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
         jobTitle={"資深軟體工程師 - TikTok\n應徵 Software Engineer III, Google Pay and Wallet - Google"}
-        description={"7 年 JavaScript 與 TypeScript 網頁開發經驗，現於 TikTok Singapore 開發廣告投放財務結算系統。在此之前於 LINE 投入 3 年開發 LINE 購物電商導購平台，在 60 人、每行程式碼合併前都須經過審查的團隊中，以 Vue SSR、GraphQL、ExpressJS 與 Redis 全端技術棧完成大型線上應用的設計與架構；獨立設計可覆用的影片自動預覽模組，以全局調度器解決高速捲動下的預覽混亂與多直播源並發造成的記憶體暴增。\n\n對於做出「好用」而不只是「能用」的產品充滿熱情。曾以一個週末獨自完成並上架 Bilibili 影片加速瀏覽器擴充功能，設計靜默自動降級機制讓觀眾不會看到錯誤畫面，上線 10 天累積 1,000 次安裝與 14 筆五星好評，全數為自然流量。"}
+        description={"7 年 JavaScript／TypeScript 全端開發經驗。現於 TikTok Singapore 開發廣告投放財務結算系統；前 3 年於 LINE，在 60 人、每行程式碼合併前皆須審查的團隊中，以 Vue SSR、GraphQL、ExpressJS、Redis 全端技術棧開發並維運 LINE 購物大型導購平台，主責大型應用的設計與架構。\n\n重視把產品做到「好用」。曾一人於一個週末完成並上架 Bilibili 影片加速瀏覽器擴充功能，內建靜默自動降級機制，上線 10 天以自然流量累積 1,000 次安裝、14 筆五星好評。"}
         location="Singapore"
         stats={stats}
         contacts={contacts}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Building2, ChevronDown, FolderKanban, Sparkles, Trophy, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -29,16 +29,8 @@ import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog";
+import { parseBold } from "./rich-text";
 import type { Project } from "./types";
-
-/** Parse **bold** markers in a string into <strong> React elements */
-function parseBold(text: string): ReactNode {
-  const parts = text.split(/\*\*(.+?)\*\*/g);
-  if (parts.length === 1) return text;
-  return parts.map((part, i) =>
-    i % 2 === 1 ? <strong key={i} className="font-semibold text-slate-800">{part}</strong> : part
-  );
-}
 
 type ProjectsGridProps = {
   title: string;
@@ -164,14 +156,20 @@ export function ProjectsGrid({
                 </CollapsibleTrigger>
                 <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
                   <div className="px-3 pb-2.5">
-                    <ul className="list-disc space-y-1 pl-4">
-                      {project.contributions.map((c, i) => (
-                        <li
-                          key={i}
-                          className="text-sm leading-relaxed text-slate-600"
-                        >{parseBold(c)}</li>
-                      ))}
-                    </ul>
+                    {project.contributions.length === 1 ? (
+                      <p className="text-sm leading-relaxed text-slate-600">
+                        {parseBold(project.contributions[0])}
+                      </p>
+                    ) : (
+                      <ul className="list-disc space-y-1 pl-4">
+                        {project.contributions.map((c, i) => (
+                          <li
+                            key={i}
+                            className="text-sm leading-relaxed text-slate-600"
+                          >{parseBold(c)}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </CollapsibleContent>
               </Collapsible>
@@ -189,7 +187,7 @@ export function ProjectsGrid({
                   <div className="px-3 pb-2.5">
                     <ul className="list-disc space-y-1 pl-4">
                       {project.highlights.map((h, i) => (
-                        <li key={i} className="text-sm leading-relaxed text-slate-600">{h}</li>
+                        <li key={i} className="text-sm leading-relaxed text-slate-600">{parseBold(h)}</li>
                       ))}
                     </ul>
                   </div>
@@ -254,11 +252,15 @@ export function ProjectsGrid({
                 <Trophy className="size-3" />
                 {contributionsLabel}
               </p>
-              <ul className="list-disc space-y-0.5 pl-4">
-                {project.contributions.map((c, i) => (
-                  <li key={i} className="text-[11px] leading-relaxed text-slate-600">{parseBold(c)}</li>
-                ))}
-              </ul>
+              {project.contributions.length === 1 ? (
+                <p className="text-[11px] leading-relaxed text-slate-600">{parseBold(project.contributions[0])}</p>
+              ) : (
+                <ul className="list-disc space-y-0.5 pl-4">
+                  {project.contributions.map((c, i) => (
+                    <li key={i} className="text-[11px] leading-relaxed text-slate-600">{parseBold(c)}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
           {project.highlights && project.highlights.length > 0 && (
@@ -269,7 +271,7 @@ export function ProjectsGrid({
               </p>
               <ul className="list-disc space-y-0.5 pl-4">
                 {project.highlights.map((h, i) => (
-                  <li key={i} className="text-[11px] leading-relaxed text-slate-600">{h}</li>
+                  <li key={i} className="text-[11px] leading-relaxed text-slate-600">{parseBold(h)}</li>
                 ))}
               </ul>
             </div>

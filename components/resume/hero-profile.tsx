@@ -16,6 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Crown, Github, Globe as GlobeIcon, Linkedin, Mail, MapPin } from "lucide-react";
+import { parseBold } from "./rich-text";
 import type { ContactItem, StatItem } from "./types";
 
 const contactIconMap = {
@@ -120,7 +121,7 @@ export function HeroProfile({
           {/* left */}
           <div className="space-y-5">
             <p className="max-w-2xl whitespace-pre-line text-sm leading-relaxed text-slate-600 md:text-base">
-              {description}
+              {parseBold(description)}
             </p>
 
 
@@ -196,7 +197,7 @@ export function HeroProfile({
         </div>
 
         <p className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
-          {description}
+          {parseBold(description)}
         </p>
       </div>
     </>
