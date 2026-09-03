@@ -45,9 +45,10 @@ const experiences: Experience[] = [
     period: "2024.11 - 至今",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "在 50+ 子專案、百萬行規模的 monorepo 中，以 React 17、TypeScript、Rush Monorepo 與自研微前端框架主導廣告投放財務結算系統開發",
-      "彙整廣告主與內部團隊每日 oncall 回報的問題，歸納重複模式並主動定義新的開發任務",
-      "將 CSV 校驗改以 Web Worker（Comlink RPC）執行，搭配 Yup／Regex 驗證，資料填寫流程 UI 卡頓時間減少 90%",
+      "在 50+ 子專案、百萬行規模的企業級 monorepo 中，以 React 17、TypeScript 與公司內部閉源微前端框架，負責廣告投放的採購與財務結算模組開發維護",
+      "帶領開發團隊導入 Scrum，透過 retrospective／refinement 建立團隊自我糾錯機制、對齊跨成員開發時程並平衡工作量",
+      "主導兩項效能優化：以 Web Worker 多線程分擔大量 CSV 校驗使 UI 卡頓時間減少 90%，並以自製 cache／cacheMany 函數快取讓一次渲染 500 個表單的頁面 TBT 降低 98%",
+      "主動彙整廣告主與內部使用者每日 oncall 回報，歸納共性後發起對應的技術型開發任務，而非被動等待需求指派",
     ],
   },
   {
@@ -56,9 +57,10 @@ const experiences: Experience[] = [
     period: "2021.08 - 2024.10",
     logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
-      "在 60 人、每行程式碼合併前皆須審查的團隊中，以 Vue SSR、GraphQL、TypeScript、ExpressJS、Redis 全端技術棧開發並維護 LINE 購物導購平台",
-      "帶領 4 人團隊主導 CMS 從 PHP 重構至 NextJS App Router 架構，達成前後端完全分離",
-      "加入 JSTF 跨團隊小組制定全公司前端準則，並導入 Lighthouse CI 於每個 PR 自動評量效能",
+      "以 Vue SSR、GraphQL、TypeScript、ExpressJS、Redis 全端技術棧，在 60 人、逐行審查的團隊中開發維運 LINE 購物導購平台（Vue SSR 前端＋整合數十個微服務的 GraphQL BFF），並參與 CMS 重構與跨團隊前端準則小組 JSTF",
+      "帶領 4 人團隊主導 CMS 從 PHP 重構至 NextJS App Router、達成前後端完全分離，負責技術選型、時程規劃、工作分配與內訓，並兼任 2 位新人的 mentor",
+      "獨自完成「直播購物」影片自動預覽模組的調研、設計、開發與驗證，以雙 IntersectionObserver＋Vuex 全局調度器＋HLS.js 解決高速捲動下預覽混亂與單頁多直播源記憶體暴增的難題",
+      "在跨團隊 JSTF 小組導入 Lighthouse CI，使其成為全公司每個 PR 的標準流程，並參與制定 LINE Taiwan 前端開發準則",
     ],
   },
   {
@@ -67,9 +69,10 @@ const experiences: Experience[] = [
     period: "2021.09 - 2024.10",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單、金流串接，並定義 API 契約、資料模型與錯誤處理",
-      "獨自開發線上相片書編輯器，6 個月內上線，一人包辦技術選型、前端架構、編輯器核心到後端 API",
-      "以 Vue + NuxtJS 實作拖拉排版、縮放與文字編輯，支援桌機與手機瀏覽器",
+      "以契約前端工程師身分，獨自負責線上相片書編輯平台最關鍵的編輯器，以 Vue＋NuxtJS 從 0 到上線耗時 6 個月",
+      "一人端到端 own 完整產品線，從技術選型、前端架構、編輯器核心到後端 API 設計皆由個人主導交付",
+      "以純 Vue 打造客製化編輯器核心，支援拖拉排版、相片增刪、文字與字型大小編輯，桌機與手機瀏覽器皆可用，並可從 Google 相簿／Instagram 匯入相片",
+      "主導後端 API 設計，涵蓋 AWS Cognito OAuth2 登入、購物車與訂單、金流結果串接，並從消費端視角定義 API 契約、資料模型與錯誤處理",
     ],
   },
   {
@@ -269,7 +272,7 @@ const languages: LanguageItem[] = [
 
 export default function ResumePageZhTW() {
   return (
-    <ResumeLayout>
+    <ResumeLayout includeProjectsInPlainResume={false}>
       <LanguageToggle currentLocale="zh-TW" locales={[
         { locale: "en", label: "EN", href: "/01a057e8-a117-7155-83a9-b5d3259a405e/en" },
         { locale: "zh-TW", label: "中文", href: "/01a057e8-a117-7155-83a9-b5d3259a405e/zh-TW" },

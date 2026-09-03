@@ -45,9 +45,10 @@ const experiences: Experience[] = [
     period: "Nov 2024 – Present",
     logo: "https://cdn.lazy-cv.com/3f479ad2-15ac-4116-b98e-45c4fee25550.png",
     highlights: [
-      "Architected the ad-delivery financial settlement platform in a 50+ sub-project, million-line monorepo, using React 17, TypeScript, Rush Monorepo, and the company's proprietary micro-frontend framework",
-      "Scoped and drove new development tasks by synthesizing recurring patterns across issues raised daily by advertisers and internal teams through on-call channels",
-      "Cut UI blocking time 90% on data-entry workflows by offloading CSV validation to a Web Worker via Comlink RPC with Yup/Regex schemas",
+      "Owned the procurement and financial settlement modules for ad delivery in a 50+ sub-project, million-line enterprise monorepo, on React 17, TypeScript, and the company's internal closed-source micro-frontend framework",
+      "Led the development team in adopting Scrum, using retrospectives and refinement to build a self-correcting mechanism, align schedules across members, and balance workloads",
+      "Drove two performance wins: offloading bulk CSV validation to a Web Worker cut UI blocking time by 90%, and custom cache/cacheMany memoization cut Total Blocking Time by 98% on a page rendering 500 forms at once",
+      "Synthesized recurring patterns from advertisers' and internal users' daily on-call reports to scope and drive new technical development tasks, rather than waiting for requirements to be handed down",
     ],
   },
   {
@@ -56,9 +57,10 @@ const experiences: Experience[] = [
     period: "Aug 2021 – Oct 2024",
     logo: "https://cdn.lazy-cv.com/949a981c-e37c-4077-9655-edce8498b6a9.png",
     highlights: [
-      "Developed and maintained LINE Shopping, LINE's e-commerce affiliate platform, across a full stack of Vue SSR, GraphQL, TypeScript, ExpressJS, and Redis in a 60-developer team where every line is reviewed before merging",
-      "Led a 4-person team through the CMS migration from PHP to a NextJS App Router architecture, achieving full frontend-backend separation",
-      "Joined JSTF, a cross-team initiative setting company-wide frontend standards, and introduced Lighthouse CI for automated performance checks on every PR",
+      "Developed and maintained LINE Shopping — a Vue SSR frontend plus a GraphQL BFF integrating dozens of microservices — across Vue SSR, GraphQL, TypeScript, ExpressJS, and Redis in a 60-developer team where every line is reviewed before merging, and contributed to the CMS refactor and the cross-team JSTF frontend-standards group",
+      "Led a 4-person team through the CMS refactor from PHP to a NextJS App Router architecture, achieving full frontend-backend separation, owning tech selection, scheduling, task allocation, and internal training while mentoring 2 new hires",
+      "Independently researched, designed, built, and validated the Live Shopping video auto-preview module, using dual IntersectionObservers, a Vuex global scheduler, and HLS.js to fix chaotic previews during high-speed scrolling and memory spikes from many live streams on one page",
+      "Introduced Lighthouse CI through the cross-team JSTF group as a company-wide standard step on every PR, and contributed to LINE Taiwan's frontend development guidelines",
     ],
   },
   {
@@ -67,9 +69,10 @@ const experiences: Experience[] = [
     period: "Sep 2021 – Oct 2024",
     logo: "https://cdn.lazy-cv.com/82e004b0-4f43-4ad4-bec7-14f0ae9c6465.png",
     highlights: [
-      "Led backend API design covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment integration, defining API contracts, data models, and error handling from the consumer side",
-      "Built an online photo book editor from scratch as sole developer, launched in 6 months, owning tech selection, frontend architecture, editor core, and backend API end to end",
-      "Implemented drag-and-drop layout, resizing, and text editing on Vue + NuxtJS across desktop and mobile browsers",
+      "As a contract frontend engineer, was solely responsible for the platform's core online photo book editor, building it from scratch to launch in 6 months on Vue + NuxtJS",
+      "Owned the entire product slice end to end as one person — from tech selection and frontend architecture through the editor core to backend API design",
+      "Built a custom editor core in pure Vue — drag-and-drop layout, photo add/remove, and text/font-size editing — across desktop and mobile browsers, with photo import from Google Photos / Instagram",
+      "Led backend API design covering AWS Cognito OAuth2 sign-in, the cart and order flow, and payment-result integration, defining API contracts, data models, and error handling from the consumer side",
     ],
   },
   {
@@ -269,7 +272,7 @@ const languages: LanguageItem[] = [
 
 export default function ResumePageEN() {
   return (
-    <ResumeLayout>
+    <ResumeLayout includeProjectsInPlainResume={false}>
       <LanguageToggle currentLocale="en" locales={[
         { locale: "en", label: "EN", href: "/01a057e8-a117-7155-83a9-b5d3259a405e/en" },
         { locale: "zh-TW", label: "中文", href: "/01a057e8-a117-7155-83a9-b5d3259a405e/zh-TW" },

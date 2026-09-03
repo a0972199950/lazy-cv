@@ -199,7 +199,14 @@ function NestedProjectEntry(props: ProjectEntryProps) {
   );
 }
 
-export function PlainResume({ data }: { data: PlainResumeData }) {
+export function PlainResume({
+  data,
+  includeProjects = true,
+}: {
+  data: PlainResumeData;
+  /** 純表格 PDF 是否納入「專案」內容（個人專案區塊＋工作經歷底下的關聯專案）。預設納入。 */
+  includeProjects?: boolean;
+}) {
   const { locale, profile, work, projects, skills, education } = data;
   const profileLabel = profileLabels[locale] ?? profileLabels.en;
   const stackLabel = stackLabels[locale] ?? stackLabels.en;
@@ -208,7 +215,7 @@ export function PlainResume({ data }: { data: PlainResumeData }) {
   const contributionsLabel =
     projects?.contributionsLabel ?? contributionsFallback[locale] ?? contributionsFallback.en;
   const projectLabels = { stackLabel, contributionsLabel };
-  const allProjects = projects?.projects ?? [];
+  const allProjects = includeProjects ? projects?.projects ?? [] : [];
   const personalProjects = allProjects.filter((p) => !p.company);
   const projectsForCompany = (company: string) =>
     allProjects.filter((p) => p.company === company);

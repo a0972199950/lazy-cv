@@ -50,7 +50,14 @@ function collectPlainResumeData(children: ReactNode): PlainResumeData {
   return data;
 }
 
-export function ResumeLayout({ children }: { children: React.ReactNode }) {
+export function ResumeLayout({
+  children,
+  includeProjectsInPlainResume = true,
+}: {
+  children: React.ReactNode;
+  /** 純表格 PDF（table pdf）是否納入專案內容。預設納入；個別履歷可傳 false 排除。 */
+  includeProjectsInPlainResume?: boolean;
+}) {
   const plainResumeData = collectPlainResumeData(children);
 
   return (
@@ -68,7 +75,7 @@ export function ResumeLayout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* 純表格模式：平時 display:none，只在 data-print-mode="plain" 的列印中出現 */}
-      <PlainResume data={plainResumeData} />
+      <PlainResume data={plainResumeData} includeProjects={includeProjectsInPlainResume} />
     </TooltipProvider>
   );
 }
