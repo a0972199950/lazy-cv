@@ -1,0 +1,11 @@
+I worked with John at TikTok for about six months. He's a good communicator. He'd regularly sit down with PMs to pin down what a feature needed and how it should be built, and he goes out of his way to help newer teammates, sharing what he's learned and the mistakes he's made. He is a good teammate to work with.
+
+A few things from his background also fit Googleyness well:
+
+1. At LINE, even though he wasn't the team lead, he convinced two teammates to take on migrating a legacy PHP system to Next.js, and got them both up to speed on the framework neither of them had used. He drove the architecture decisions, split up the work, and managed the schedule without slowing the team's regular feature work.
+In the end, the legacy code was moved to a modern front-end stack, freeing up 2 engineers who'd been stuck maintaining it. It's a case of him leading without any formal authority. And also shows taking the initiative, helping others and owning the technical calls.
+
+2. He's twice been the tech lead for seed-stage startups (AI.book and Fundfluent on the resume). Both times he came in at the idea stage, helped shape the product, and built it from scratch himself. In the end, he shipped the first release in about six months, and both products are still running today.
+That work was less about coding and more about talking things through: figuring out what the business actually needed, turning it into a design, and feeding ideas back to the product side. He's comfortable working without a clear spec and communicates well with non-engineers.
+
+John did not major in CS, which should have been a disadvantage on paper. But rather than accept it, he taught himself and moved into software engineering within a year, and has since earned recognition from big software companies. With the examples above, it shows his initiative and being willing to take on things he hasn't done before. That's a strong fit for what Google looks for, and why I recommend him.
