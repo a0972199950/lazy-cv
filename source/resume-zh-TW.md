@@ -72,7 +72,7 @@ TikTok 是全球最具影響力的互聯網公司之一，憑藉迅猛的增長�
 - **所屬團隊：** User Growth 團隊，主要負責投放公司產品的廣告到各大 DSP 平台，以增加 tiktok 等 APP 的用戶數量
 - **主要職責：** 負責廣告投放的財務結算系統開發
 - **技術棧：** React, monorepo 與公司自研框架架設的前端微服務系統
-- **工作範圍：** 廣告投放財務流程、數據分析、系統優化
+- **工作範圍：** 廣告投放財務流程、數據分析、系統優化；善用 AI 輔助開發，獨立完成橫跨 TypeScript（前端）與 Go（後端）的全端功能項目
 - **代表性成果：** 導入 Web Worker 多線程 CSV 校驗機制（Web Worker, Comlink），大型 CSV 校驗造成的 UI 卡頓時間**降低 90%**
 - **用戶反饋驅動開發：** 廣告主與內部使用者每天透過 oncall 反饋問題與需求，我會整理歸納這些反饋中的共性，發起對應的技術型開發任務，而不是只被動等待需求指派
 - **團隊合作：** 我曾帶領更斯開發團隊導入 scrum，解決了以下痛點:
@@ -426,14 +426,15 @@ Foxit 是專注於向歐美市場提供 PDF 解決方案的上市軟體公司，
 
 **🌏 UG Overseas Platform — 海外增長業務平台**
 - **專案描述：** 大型企業級 Monorepo 前端專案，服務於 TikTok 線上廣告海外增長業務線，涵蓋媒體資產管理、財務結算、供應商採購、數據看板等多個業務領域。專案採用統一的技術架構和工程規範，支持多個業務子系統的協同開發與獨立部署，管理 50+ 子專案，百萬級程式碼規模。
-我專注於負責採購與結算等相關模組的開發與維護
+我負責的模組橫跨兩個子系統：**財務結算**（合約管理、報價、結算單）與**廣告採購**（需求提交、審批流、評分任務、廣告採購流程）
 
-- **技術棧：** Rush v5 + PNPM Workspaces (Monorepo)、React 17 + TypeScript、react-router-dom v5/v6、Arco Design、unstated-next（狀態管理）、Starling（國際化）、Axios、ECharts、Less + CSS Modules、Jest + @testing-library/react、ESLint + commitlint + lint-staged
+- **技術棧：** Rush v5 + PNPM Workspaces (Monorepo)、React 17 + TypeScript、react-router-dom v5/v6、Arco Design、unstated-next（狀態管理）、Axios、ECharts、Less + CSS Modules、Rspack、Jest + @testing-library/react、ESLint + commitlint + lint-staged
 - **技術亮點：**
   - **複雜表單互動元件開發**：基於內部自研的 JSON Schema 動態表單渲染解決方案，開發大量業務表單互動元件，涵蓋級聯選擇、動態欄位、條件顯示等複雜場景，實現配置驅動的表單渲染，支援複雜校驗規則與欄位聯動邏輯
   - **高精度數值計算處理**：針對財務、報價等業務場景的 JavaScript 浮點數精度問題，實作浮點數精度計算方案
   - **微前端整合**：透過公司自研框架實現子應用動態載入，支援按需載入業務模組與獨立開發部署
   - **國際化多語系**：透過自研線上翻譯平台，在 runtime 獲取最新翻譯文件，實現多語系支援與動態更新
+  - **LLM 合約 AI 校驗功能開發**：以多模態大型語言模型解析合約文件，對照動態規則逐條校驗後決定是否阻斷提交。亮點：規則由線上設定平台管理，可隨時新增、修改、停用，無需改程式碼；規則分為強制阻斷與純警告兩種類型，AI 高置信度不通過才觸發阻斷；使用者可填寫說明否決強制卡點，系統記錄結果供審計；實作 DB 查詢 Tool Call 並加 SQL 過濾層確保唯讀，讓模型可依規則需求自由取得系統資料；接入文件轉 Markdown 的 MCP，讓模型能統一處理 PDF、Word、Excel 等各種格式的合約文件
 
 - **重大貢獻：**
 - **Web Worker 多線程 CSV 校驗**：

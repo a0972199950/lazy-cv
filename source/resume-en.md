@@ -74,7 +74,7 @@ Beyond short video services, TikTok's business scope also spans multiple areas, 
 #### 🎯 Job Description
 I am part of the User Growth team, which is primarily responsible for running advertisements for company products across major DSP platforms to increase the user base for apps such as TikTok.
 
-Within the team, my main responsibility is developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system as the primary tech stack.
+Within the team, my main responsibility is developing the financial settlement systems for ad delivery, using React, monorepo, and the company's proprietary framework to build a frontend microservices system as the primary tech stack. I leverage AI-assisted development to independently ship full-stack features spanning TypeScript (frontend) and Go (backend).
 
 **Key Achievement:** Introduced a Web Worker multi-threaded CSV validation system (Web Worker, Comlink), **reducing UI blocking time by 90%** for large CSV validation.
 
@@ -360,14 +360,15 @@ This resume was automatically generated using this project.
 
 ##### UG Overseas Platform — Overseas User Growth Business Platform
 - **Description:** A large-scale enterprise-level Monorepo frontend project serving TikTok's online advertising overseas user growth business line. The platform covers multiple business domains including media asset management, financial settlement, supplier procurement, and data dashboards. It adopts a unified technical architecture and engineering standards, supporting collaborative development and independent deployment of multiple business subsystems across 50+ sub-projects with million-line-level codebase.
-I focused on the development and maintenance of procurement and settlement related modules.
+My responsibilities span two subsystems: **financial settlement** (contract management, pricing, settlement statements) and **ad procurement** (demand submission, approval workflows, scoring tasks, ad buying flows).
 
-- **Tech Stack:** Rush v5 + PNPM Workspaces (Monorepo), React 17 + TypeScript, react-router-dom v5/v6, Arco Design, unstated-next (state management), Starling (i18n), Axios, ECharts, Less + CSS Modules, Jest + @testing-library/react, ESLint + commitlint + lint-staged
+- **Tech Stack:** Rush v5 + PNPM Workspaces (Monorepo), React 17 + TypeScript, react-router-dom v5/v6, Arco Design, unstated-next (state management), Axios, ECharts, Less + CSS Modules, Rspack, Jest + @testing-library/react, ESLint + commitlint + lint-staged
 - **Technical Highlights:**
   - **Complex Form Component Development**: Built extensive business form components based on an internally developed JSON Schema dynamic form rendering solution, covering cascading selects, dynamic fields, and conditional rendering scenarios with configuration-driven form rendering and complex validation logic
   - **High-Precision Numeric Computation**: Addressed JavaScript floating-point precision issues for financial and pricing scenarios with a custom floating-point precision calculation solution
   - **Micro-Frontend Integration**: Implemented dynamic sub-application loading via the company's proprietary framework, supporting on-demand module loading with independent development and deployment
   - **Internationalization & Multi-language**: Implemented multi-language support with dynamic updates by fetching the latest translation files at runtime through an internally developed online translation platform
+  - **LLM Contract AI Validation**: Built a full-stack AI validation system that uses a multimodal LLM to parse contract documents and verify each rule before allowing submission. Key highlights: rules are managed via a remote config platform and can be added, modified, or disabled without code changes; rules are classified as hard-block or warning-only, with blocking only triggered when the model's confidence exceeds a threshold; users can override hard-block rules by submitting a written clarification, with results logged for audit; implemented a DB query Tool Call with a SQL filter layer to enforce read-only access, allowing the model to freely fetch system data as needed per rule; integrated a file-to-Markdown MCP so the model can uniformly process contracts in PDF, Word, Excel, and other formats
 
 - **Key Contributions:**
 - **Web Worker Multi-threaded CSV Validation**:
