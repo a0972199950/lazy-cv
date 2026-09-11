@@ -282,7 +282,7 @@ export default function ResumePageZhTW() {
         name="John Hsieh"
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
-        jobTitle={"資深軟體工程師 - TikTok\n應徵 Software Engineer III, Google Pay and Wallet - Google"}
+        jobTitle={"資深軟體工程師 - TikTok"}
         description={"7 年 JavaScript／TypeScript 全端開發經驗。現於 TikTok Singapore 開發廣告投放財務結算系統；前 3 年於 LINE，在 60 人、每行程式碼合併前皆須審查的團隊中，以 Vue SSR、GraphQL、ExpressJS、Redis 全端技術棧開發並維運 LINE 購物大型導購平台，主責大型應用的設計與架構。\n\n重視把產品做到「好用」。曾一人於一個週末完成並上架 Bilibili 影片加速瀏覽器擴充功能，內建靜默自動降級機制，上線 10 天以自然流量累積 1,000 次安裝、14 筆五星好評。"}
         location="Singapore"
         stats={stats}

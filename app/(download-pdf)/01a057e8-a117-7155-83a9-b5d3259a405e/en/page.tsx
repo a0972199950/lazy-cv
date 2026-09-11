@@ -282,7 +282,7 @@ export default function ResumePageEN() {
         name="John Hsieh"
         avatarUrl="https://cdn.lazy-cv.com/avatar.jpg"
         avatarFallback="JH"
-        jobTitle={"Senior Software Engineer - TikTok\nApply for Software Engineer III, Google Pay and Wallet - Google"}
+        jobTitle={"Senior Software Engineer - TikTok"}
         description={"Full-stack engineer, 7 years in JavaScript and TypeScript. Currently building ad-delivery financial settlement systems at TikTok Singapore; before that, three years on LINE Shopping — LINE's e-commerce affiliate platform — owning large-scale application design and architecture across Vue SSR, GraphQL, ExpressJS and Redis in a 60-developer team where every line is reviewed before merging.\n\nFocused on products that are genuinely good to use. Shipped a Bilibili CDN accelerator extension solo in one weekend, with silent automatic fallback so viewers never hit an error screen — 1,000 installs and 14 five-star reviews in 10 days on organic traffic alone."}
         location="Singapore"
         stats={stats}
